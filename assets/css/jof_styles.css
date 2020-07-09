@@ -1,0 +1,14 @@
+
+.navbar {
+    background-color: #c71717;  
+   
+}
+.navbar-brand{
+    text-decoration: dotted;
+    color: black;
+}
+
+#navbarDropdown :hover{
+    background-color: #ff0000;
+}
+
