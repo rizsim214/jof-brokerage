@@ -4,7 +4,7 @@
    
 }
 .navbar-brand{
-    text-decoration: dotted;
+   
     color: black;
 }
 
@@ -12,3 +12,7 @@
     background-color: #ff0000;
 }
 
+.w {
+    max-width: auto;
+    max-height: 450px;
+}
