@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
 <nav class="navbar navbar-dark navbar-expand-lg ">
-<div class="container">
+<div class="container-fluid">
   <a class="navbar-brand mb-0 h1" href="<?php echo base_url();?>">
       Customs
         <img src="<?php echo base_url();?>assets/img/logo.png" class="d-inline-block align-top" width="35" height="35" alt="logo" loading="jof_logo">
@@ -32,26 +32,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           Services
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdown">
-          <a class="dropdown-item" href="#">Set Appointment</a>
+         
           <a class="dropdown-item" href="#">Request a Qoute</a>
           <a class="dropdown-item" href="#">Consultations</a>
-          <a class="dropdown-item" href="#">Air Shipping</a>
-          <a class="dropdown-item" href="#">Sea Shipping</a>
+          <a class="dropdown-item" href="#">Air-fair Shipping</a>
+          <a class="dropdown-item" href="#">Port-fair Shipping</a>
         </div>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="#">About Us</a>
+      <li class="nav-item <?php if($this->uri->uri_string() == 'about'){ echo 'active'; }?>">
+        <a class="nav-link " href="#">About Us</a>
       </li>
-       <li class="nav-item">
+       <li class="nav-item <?php if($this->uri->uri_string() == 'support'){ echo 'active'; }?>">
         <a class="nav-link" href="#">Support</a>
       </li>
-       <li class="nav-item">
+       <li class="nav-item <?php if($this->uri->uri_string() == 'news'){ echo 'active'; }?>">
         <a class="nav-link" href="#">News</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <?php if($this->uri->uri_string() == 'faqs'){ echo 'active'; }?>">
         <a class="nav-link" href="#">FAQs</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <?php if($this->uri->uri_string() == 'contact'){ echo 'active'; }?>">
         <a class="nav-link" href="#">Contact US</a>
       </li>
     </ul>

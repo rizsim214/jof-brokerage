@@ -1,3 +1,6 @@
+body{
+	font-family: Impact, Charcoal, sans-serif;
+}
 
 .navbar {
     background-color: #c71717;  
@@ -12,7 +15,6 @@
     background-color: #ff0000;
 }
 
-.w {
-    max-width: auto;
-    max-height: 450px;
+#carousel_box {
+    max-height: 300px !important;
 }
