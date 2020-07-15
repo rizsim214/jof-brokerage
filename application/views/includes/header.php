@@ -34,10 +34,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdown">
          
-          <a class="dropdown-item" href="#"><i class="fas fa-question-circle pr-2" style="font-size:18px;"></i>Request a Qoute</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i>Consultations</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-question-circle pr-2" style="font-size:18px;"></i> Request a Qoute</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i> Consultations</a>
           <a class="dropdown-item" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i>Air-fair Shipping</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i>Port-fair Shipping</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i>Sea-fair Shipping</a>
         </div>
       </li>
       <li class="nav-item <?php if($this->uri->uri_string() == 'about'){ echo 'active'; }?>">
