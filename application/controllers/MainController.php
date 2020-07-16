@@ -5,6 +5,7 @@ class MainController extends CI_Controller {
 
     public function __construct(){
         parent:: __construct();
+        $this->load->helper('form');
     }
 	
 	public function index()
@@ -24,6 +25,9 @@ class MainController extends CI_Controller {
         }
     }
 
+    public function login(){
+        echo "You have succesfully logged in!!";
+    }
 
 
 }

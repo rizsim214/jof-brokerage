@@ -15,9 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </head>
 
 <body>
-<nav class="navbar navbar-dark navbar-expand-lg ">
-<div class="container-fluid">
-  <a class="navbar-brand mb-0 h1" href="<?php echo base_url();?>">
+<nav class="navbar navbar-dark navbar-expand-lg sticky-top ">
+<div class="container-fluid row">
+  <a class="navbar-brand mb-n1" href="<?php echo base_url();?>">
       Customs
         <img src="<?php echo base_url();?>assets/img/logo.png" class="d-inline-block align-top" width="35" height="35" alt="logo" loading="jof_logo">
       Brokerage
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <span class="navbar-toggler-icon"></span>
     </button>
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto py-n1">
      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Services
@@ -36,8 +36,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          
           <a class="dropdown-item" href="#"><i class="fas fa-question-circle pr-2" style="font-size:18px;"></i> Request a Qoute</a>
           <a class="dropdown-item" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i> Consultations</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i>Air-fair Shipping</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i>Sea-fair Shipping</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-building pr-2" style="font-size:18px;"></i> Warehousing</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i> Air-fair Shipping</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i> Sea-fair Shipping</a>
         </div>
       </li>
       <li class="nav-item <?php if($this->uri->uri_string() == 'about'){ echo 'active'; }?>">
@@ -58,6 +59,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </ul>
 </div>
 
-<a href="#" class="btn btn-md btn-light"><i class="fas fa-user pr-2" style="font-size:18px;"></i>Login</a>
+<a href="<?php echo base_url('login');?>" class="btn btn-md btn-outline-light mt-1"><i class="fas fa-user pr-2" style="font-size:18px;"></i>Login</a>
 </div>
 </nav>

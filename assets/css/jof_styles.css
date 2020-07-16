@@ -1,7 +1,10 @@
 body{
-	font-family: Impact, Charcoal, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
+#home-tag{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .navbar {
     background-color: #c71717;  
    
@@ -18,3 +21,17 @@ body{
 #carousel_box {
     max-height: 300px !important;
 }
+#body-container{
+  
+    padding-bottom: 20px;
+}
+#media-container , #text_qoute{ 
+    
+    margin-top: 50px;
+}
+#login-box{
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
