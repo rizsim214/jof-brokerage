@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container-fluid row">
   <a class="navbar-brand mb-n1" href="<?php echo base_url();?>">
       Customs
-        <img src="<?php echo base_url();?>assets/img/logo.png" class="d-inline-block align-top" width="35" height="35" alt="logo" loading="jof_logo">
+        <img src="<?php echo base_url();?>assets/img/logo3.png" class="d-inline-block align-top" width="35" height="35" alt="logo" loading="jof_logo">
       Brokerage
   </a>
 
@@ -42,19 +42,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </li>
       <li class="nav-item <?php if($this->uri->uri_string() == 'about'){ echo 'active'; }?>">
-        <a class="nav-link " href="#">About Us</a>
+        <a class="nav-link " href="<?php echo base_url('about');?>">About Us</a>
       </li>
        <li class="nav-item <?php if($this->uri->uri_string() == 'support'){ echo 'active'; }?>">
-        <a class="nav-link" href="#">Support</a>
+        <a class="nav-link" href="<?php echo base_url('support');?>">Support</a>
       </li>
        <li class="nav-item <?php if($this->uri->uri_string() == 'news'){ echo 'active'; }?>">
-        <a class="nav-link" href="#">News</a>
+        <a class="nav-link" href="<?php echo base_url('news');?>">News</a>
       </li>
       <li class="nav-item <?php if($this->uri->uri_string() == 'faqs'){ echo 'active'; }?>">
-        <a class="nav-link" href="#">FAQs</a>
+        <a class="nav-link" href="<?php echo base_url('faqs');?>">FAQs</a>
       </li>
-      <li class="nav-item <?php if($this->uri->uri_string() == 'contact'){ echo 'active'; }?>">
-        <a class="nav-link" href="#">Contact US</a>
+      <li class="nav-item <?php if($this->uri->uri_string() == 'resources'){ echo 'active'; }?>">
+        <a class="nav-link" href="<?php echo base_url('resources');?>">Resources</a>
       </li>
     </ul>
 </div>

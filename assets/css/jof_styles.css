@@ -6,7 +6,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .navbar {
-    background-color: #c71717;  
+    background-color: #c81111;  
    
 }
 .navbar-brand{
@@ -15,7 +15,8 @@ body{
 }
 
 #navbarDropdown :hover{
-    background-color: #ff0000;
+    background-color: #f64114;
+    color:white;
 }
 
 #carousel_box {
@@ -23,7 +24,7 @@ body{
 }
 #body-container{
   
-    padding-bottom: 20px;
+    padding-bottom: 100px;
 }
 #media-container , #text_qoute{ 
     
@@ -33,5 +34,16 @@ body{
     border: 1px solid black;
     border-radius: 8px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#about-pic {
+  
+ 
+  max-width: 100%;
+  height: auto;
+  width: auto;
+
+}
+#about-container{
+    padding-bottom: 100px;
 }
 
