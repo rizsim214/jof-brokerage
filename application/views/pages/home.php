@@ -49,12 +49,14 @@
 		<div class=" text-center" id="text_qoute">
 			<h2 id="home-tag">Request for an Appointment</h2>
 			<p id="home-tag">Connect with us to discuss business</p>
+			<a href="#" class="bnt btn btn-secondary mx-auto" role="buton"><i class="fas fa-handshake-o" style="font-size:30px;"></i></a>
 		</div>
-	<div class="col-sm-1 mx-auto ">
-		<a href="#" class="bnt btn btn-secondary" role="buton"><i class="fas fa-handshake-o" style="font-size:30px;"></i></a>
-	</div>
+
+		
 	
-	<div class="container col-md-10 mx-auto" id="media-container" >
+	
+	<div class="container col-md-10 mx-auto " id="media-container" >
+	<h3 class="text-center" id="home-tag">Client Reviews</h3>
 	<hr>
 		<div class="media">
     		<div class="media-left col-sm-1 ">

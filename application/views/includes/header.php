@@ -33,19 +33,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           Services
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdown">
-         
-          <a class="dropdown-item" href="#"><i class="fas fa-question-circle pr-2" style="font-size:18px;"></i> Request a Qoute</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i> Consultations</a>
+
+          
+          <a class="dropdown-item" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i>Airway Shipping</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i> Consultations</a>  
+          <a class="dropdown-item" href="#"><i class="fas fa-group pr-2" style="font-size:18px;"></i>Domestic & Internation Shipping</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i>Ocean Shipping</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-handshake-o pr-2" style="font-size:18px;"></i>Request a Qoute</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-truck pr-2" style="font-size:18px;"></i>Trucking Agents</a>
           <a class="dropdown-item" href="#"><i class="fas fa-building pr-2" style="font-size:18px;"></i> Warehousing</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i> Air-fair Shipping</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i> Sea-fair Shipping</a>
         </div>
       </li>
       <li class="nav-item <?php if($this->uri->uri_string() == 'about'){ echo 'active'; }?>">
         <a class="nav-link " href="<?php echo base_url('about');?>">About Us</a>
       </li>
-       <li class="nav-item <?php if($this->uri->uri_string() == 'support'){ echo 'active'; }?>">
-        <a class="nav-link" href="<?php echo base_url('support');?>">Support</a>
+       <li class="nav-item <?php if($this->uri->uri_string() == 'resources'){ echo 'active'; }?>">
+        <a class="nav-link" href="<?php echo base_url('resources');?>">Resources</a>
       </li>
        <li class="nav-item <?php if($this->uri->uri_string() == 'news'){ echo 'active'; }?>">
         <a class="nav-link" href="<?php echo base_url('news');?>">News</a>
@@ -53,12 +56,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <li class="nav-item <?php if($this->uri->uri_string() == 'faqs'){ echo 'active'; }?>">
         <a class="nav-link" href="<?php echo base_url('faqs');?>">FAQs</a>
       </li>
-      <li class="nav-item <?php if($this->uri->uri_string() == 'resources'){ echo 'active'; }?>">
-        <a class="nav-link" href="<?php echo base_url('resources');?>">Resources</a>
-      </li>
+     
     </ul>
 </div>
-
-<a href="<?php echo base_url('login');?>" class="btn btn-md btn-outline-light mt-1"><i class="fas fa-user pr-2" style="font-size:18px;"></i>Login</a>
+      
+   
+    <a href="<?php echo base_url('login');?>" class="btn btn-md btn-outline-light mt-1"><i class="fas fa-user-circle pr-2" style="font-size:18px;"></i>Login</a>
 </div>
 </nav>

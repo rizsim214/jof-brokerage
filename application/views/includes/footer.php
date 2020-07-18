@@ -10,7 +10,7 @@
                         <a href="#" class="nav-link"><i class="fas fa-twitter " style="font-size:18px;" ></i> Twitter</a>
                     </li>
                      <li class="nav-item">
-                        <a href="#" class="nav-link"><i class="fas fa-pinterest " style="font-size:18px;" ></i> Pinterest</a>
+                        <a href="#" class="nav-link"><i class="fas fa-pinterest-p " style="font-size:18px;" ></i> Pinterest</a>
                     </li>
                 </ul>
                 
