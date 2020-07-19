@@ -1,7 +1,17 @@
+<div class="container-fluid my-2  ">
+				<div class=" text-center">
+						<?php if($this->session->flashdata('error')){ ?>
+							<div class="alert alert-danger " id="alert" role="alert">
+								<?php echo $this->session->flashdata('error'); ?>
+							</div>
+						<?php } ?>
+				</div>
+	</div>
+
 <div class="col-md-4"></div>
     <div class="col-md-4 mx-auto my-5 p-4 " id="login-box">
        <h1 class="text-center">Login Account</h1> 
-       <?php echo form_open('signIn');?>
+       <?php echo form_open('login_account');?>
             <div class="form-group">
                 <label for="email">E-mail Account*</label>
                 <input type="email" class="form-control" id="accountEmail" name="email" placeholder="Email Account" required> 
@@ -16,7 +26,7 @@
                 <label><input type="checkbox" value="" unchecked> Remember me</label>
             </div>
          <div class="mx-auto my-2 text-center ">
-           <button class="btn btn-md btn-outline-success" type="submit" role="button" name="login">Login</button>
+           <button class="btn btn-md btn-outline-success" type="submit" role="button" name="login" value="login">Login</button>
          </div>
        <?php echo form_close();?>
 

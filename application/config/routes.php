@@ -55,7 +55,8 @@ $route['about'] = 'MainController/dynamic_view/about';
 $route['news'] = 'MainController/dynamic_view/news';
 $route['faqs'] = 'MainController/dynamic_view/faqs';
 $route['resources'] = 'MainController/dynamic_view/resources';
-$route['signIn'] = 'MainController/login';
+$route['login_account'] = 'MainController/login';
+$route['Appointment'] = 'MainController/setAppointment';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

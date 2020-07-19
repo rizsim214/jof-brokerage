@@ -35,13 +35,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdown">
 
           
-          <a class="dropdown-item" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i>Airway Shipping</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i> Consultations</a>  
-          <a class="dropdown-item" href="#"><i class="fas fa-group pr-2" style="font-size:18px;"></i>Domestic & Internation Shipping</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i>Ocean Shipping</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-handshake-o pr-2" style="font-size:18px;"></i>Request a Qoute</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-truck pr-2" style="font-size:18px;"></i>Trucking Agents</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-building pr-2" style="font-size:18px;"></i> Warehousing</a>
+          <a class="dropdown-item pr-2" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i>Airway Shipping</a>
+          <a class="dropdown-item pr-2" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i> Consultations</a>  
+          <a class="dropdown-item pr-2" href="#"><i class="fas fa-group pr-2" style="font-size:18px;"></i>Import/Export Shipping</a>
+          <a class="dropdown-item pr-2" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i>Ocean Shipping</a>
+          <a class="dropdown-item pr-2" href="#"><i class="fas fa-handshake-o pr-2" style="font-size:18px;"></i>Request a Qoute</a>
+          <a class="dropdown-item pr-2" href="#"><i class="fas fa-truck pr-2" style="font-size:18px;"></i>Trucking Agents</a>
+          <a class="dropdown-item pr-2"  href="#"><i class="fas fa-building pr-2" style="font-size:18px;"></i> Warehousing</a>
         </div>
       </li>
       <li class="nav-item <?php if($this->uri->uri_string() == 'about'){ echo 'active'; }?>">
@@ -61,6 +61,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
       
    
-    <a href="<?php echo base_url('login');?>" class="btn btn-md btn-outline-light mt-1"><i class="fas fa-user-circle pr-2" style="font-size:18px;"></i>Login</a>
+    <a href="<?php echo base_url('login');?>" class="btn btn-md btn-outline-light mt-1" id="login"><i class="fas fa-user-circle pr-2" style="font-size:18px;"></i>Login</a>
 </div>
 </nav>
