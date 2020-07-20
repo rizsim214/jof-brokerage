@@ -25,80 +25,81 @@
 			<div class="carousel-inner" role="listbox" id="magicCarouselBox">
 				
 				<div class="carousel-item active" data-intereval="3000">
-					<img class=" d-block w-100 " src="<?php echo base_url();?>assets/img/shipping1.jpg" id="background-image" alt="First Slide">
-						<div class="container">
+					<img class=" d-block w-100 " src="<?php echo base_url();?>assets/img/shipping7.jpg" id="background-image" alt="First Slide">
+						
+						<div class="container" id="appointmentLabelBox1">
 							<div class="carousel-caption">
-								<div class=" text-center container position-relative" id="text_qoute">
-									<h2 id="home-tag1">Request for an Appointment</h2>
+								<div class=" text-center container " id="text_qoute">
+									<h2 id="home-tag1">Request Appointment</h2>
 									<p id="home-tag2">Connect with us to discuss business</p>
 									<!-- <a href="#" class="bnt btn btn-secondary mx-auto" role="buton"><i class="fas fa-handshake-o" style="font-size:30px;"></i></a> -->
-									<buttom type="button" class="btn btn-md btn-outline-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
-								</div>		
+									<buttom type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
+								</div>	
 							</div>
 						</div>
 					
 				</div>
 				<div class="carousel-item" data-intereval="3000">
 					<img class="d-block w-100" src="<?php echo base_url();?>assets/img/shipping2.png"  id="background-image" alt="Second Slide">
-						<div class="container">
+						<div class="container" id="appointmentLabelBox1">
 							<div class="carousel-caption">
-								<div class=" text-center container position-relative" id="text_qoute">
+								<div class=" text-center container " id="text_qoute">
 									<h2 id="home-tag1">Request for an Appointment</h2>
 									<p id="home-tag2">Connect with us to discuss business</p>
 									<!-- <a href="#" class="bnt btn btn-secondary mx-auto" role="buton"><i class="fas fa-handshake-o" style="font-size:30px;"></i></a> -->
-									<buttom type="button" class="btn btn-md btn-outline-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
+									<buttom type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
 								</div>		
 							</div>
 						</div>
 				</div>
 				<div class="carousel-item" data-intereval="3000">
-					<img class="d-block w-100" src="<?php echo base_url();?>assets/img/shipping3.jpg"  id="background-image" alt="Third Slide">
-						<div class="container">
+					<img class="d-block w-100" src="<?php echo base_url();?>assets/img/shipping7.jpg"  id="background-image" alt="Third Slide">
+						<div class="container" id="appointmentLabelBox1">
 							<div class="carousel-caption">
-								<div class=" text-center container position-relative" id="text_qoute">
+								<div class=" text-center container " id="text_qoute">
 									<h2 id="home-tag1">Request for an Appointment</h2>
 									<p id="home-tag2">Connect with us to discuss business</p>
 									<!-- <a href="#" class="bnt btn btn-secondary mx-auto" role="buton"><i class="fas fa-handshake-o" style="font-size:30px;"></i></a> -->
-									<buttom type="button" class="btn btn-md btn-outline-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
+									<buttom type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
 								</div>		
 							</div>
 						</div>
 				</div>
 				<div class="carousel-item" data-intereval="3000">
-					<img class="d-block w-100" src="<?php echo base_url();?>assets/img/shipping4.jpg" id="background-image" alt="Fourth Slide">
-					<div class="container">
+					<img class="d-block w-100" src="<?php echo base_url();?>assets/img/shipping5.jpg" id="background-image" alt="Fourth Slide">
+					<div class="container" id="appointmentLabelBox1">
 							<div class="carousel-caption">
-								<div class=" text-center container position-relative" id="text_qoute">
+								<div class=" text-center container " id="text_qoute">
 									<h2 id="home-tag1">Request for an Appointment</h2>
 									<p id="home-tag2">Connect with us to discuss business</p>
 									<!-- <a href="#" class="bnt btn btn-secondary mx-auto" role="buton"><i class="fas fa-handshake-o" style="font-size:30px;"></i></a> -->
-									<buttom type="button" class="btn btn-md btn-outline-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
+									<buttom type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
 								</div>		
 							</div>
 						</div>
 				</div>
 				<div class="carousel-item" data-intereval="3000">
 					<img class="d-block w-100"  src="<?php echo base_url();?>assets/img/shipping5.jpg" id="background-image" alt="Fifth Slide">
-						<div class="container">
+						<div class="container" id="appointmentLabelBox1">
 							<div class="carousel-caption">
-								<div class=" text-center container position-relative" id="text_qoute">
+								<div class=" text-center container " id="text_qoute">
 									<h2 id="home-tag1">Request for an Appointment</h2>
 									<p id="home-tag2">Connect with us to discuss business</p>
 									<!-- <a href="#" class="bnt btn btn-secondary mx-auto" role="buton"><i class="fas fa-handshake-o" style="font-size:30px;"></i></a> -->
-									<buttom type="button" class="btn btn-md btn-outline-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
+									<buttom type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
 								</div>		
 							</div>
 						</div>
 				</div>
 				<div class="carousel-item" data-intereval="3000">
 					<img class="d-block w-100" src="<?php echo base_url();?>assets/img/shipping7.jpg" id="background-image" alt="Sixth Slide">
-					<div class="container">
+					<div class="container" id="appointmentLabelBox1">
 							<div class="carousel-caption">
-								<div class=" text-center container position-relative" id="text_qoute">
+								<div class=" text-center container " id="text_qoute">
 									<h2 id="home-tag1">Request for an Appointment</h2>
 									<p id="home-tag2">Connect with us to discuss business</p>
 									<!-- <a href="#" class="bnt btn btn-secondary mx-auto" role="buton"><i class="fas fa-handshake-o" style="font-size:30px;"></i></a> -->
-									<buttom type="button" class="btn btn-md btn-outline-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
+									<buttom type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#appointmentModal" id="appointmentButton" ><i class="fas fa-handshake-o" id="appointmentIcon"></i></buttom>
 								</div>		
 							</div>
 						</div>

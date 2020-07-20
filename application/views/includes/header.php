@@ -34,14 +34,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdown">
 
-          
-          <a class="dropdown-item pr-2" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i>Airway Shipping</a>
-          <a class="dropdown-item pr-2" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i> Consultations</a>  
-          <a class="dropdown-item pr-2" href="#"><i class="fas fa-group pr-2" style="font-size:18px;"></i>Import/Export Shipping</a>
-          <a class="dropdown-item pr-2" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i>Ocean Shipping</a>
-          <a class="dropdown-item pr-2" href="#"><i class="fas fa-handshake-o pr-2" style="font-size:18px;"></i>Request a Qoute</a>
-          <a class="dropdown-item pr-2" href="#"><i class="fas fa-truck pr-2" style="font-size:18px;"></i>Trucking Agents</a>
-          <a class="dropdown-item pr-2"  href="#"><i class="fas fa-building pr-2" style="font-size:18px;"></i> Warehousing</a>
+          <div class="d-flex py-2 ">
+             <a class="dropdown-item pr-2" href="#"><i class="fas fa-plane pr-2" style="font-size:18px;"></i>Airway Shipping</a>
+          </div>
+           <div class="d-flex py-2">
+             <a class="dropdown-item pr-2" href="#"><i class="fas fa-book pr-2" style="font-size:18px;"></i> Consultations</a>  
+           </div>
+          <div class="d-flex py-2">
+            <a class="dropdown-item pr-2" href="#"><i class="fas fa-group pr-2" style="font-size:18px;"></i>Domestic/International</a>
+          </div>
+           <div class="d-flex py-2 pr-2">          
+             <a class="dropdown-item pr-2" href="#"><i class="fas fa-ship pr-2" style="font-size:18px;"></i>Ocean Shipping</a>
+           </div>
+           <div class="d-flex py-2">
+               <a class="dropdown-item pr-2" href="#"><i class="fas fa-handshake-o pr-2" style="font-size:18px;"></i>Request a Qoute</a>
+           </div>
+          <div class="d-flex py-2"> 
+              <a class="dropdown-item pr-2" href="#"><i class="fas fa-truck pr-2" style="font-size:18px;"></i>Trucking Agents</a>
+          </div>
+          <div class="d-flex py-2">
+             <a class="dropdown-item pr-2"  href="#"><i class="fas fa-building pr-2" style="font-size:18px;"></i> Warehousing</a>
+          </div>
         </div>
       </li>
       <li class="nav-item <?php if($this->uri->uri_string() == 'about'){ echo 'active'; }?>">
