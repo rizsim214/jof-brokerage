@@ -9,29 +9,29 @@
                  <img src="<?php echo base_url()?>assets/img/shipping7.jpg" class="d-block w-100" alt="First Slide">
                     <div class="carousel-caption d-none d-md-block">
                        <h5 class="animate__bounceIn" style="animation-delay:1s; animation-duration:2s;">First slide label</h5>
-                           <p class="animate__bounceIn" style="animation-delay:2s; animation-duration:2s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
-                              <a hfre="#" class="animate__bounceIn" style="animation-delay:3s; animation-duration:2s;" >Set Appointment</a>
-                                   <a hfre="#" class="animate__bounceIn" style="animation-delay:4s; animation-duration:2s;">Services Offered</a>
+                           <p class="animate__slideInLeft" style="animation-delay:2s; animation-duration:1s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
+                              <a hfre="#" class="animate__zoomIn" style="animation-delay:3s; animation-duration:1s;" >Set Appointment</a>
+                                   <a hfre="#" class="animate__zoomIn" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
                  </div>
                </div>
          
                       <div class="carousel-item ">
                  <img src="<?php echo base_url()?>assets/img/shipping1.jpg" class="d-block w-100" alt="Second Slide">
                       <div class="carousel-caption d-none d-md-block">
-                       <h5 class="animate__bounceIn" style="animation-delay:1s; animation-duration:2s;">First slide label</h5>
-                           <p class="animate__bounceIn" style="animation-delay:2s; animation-duration:2s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
-                              <a hfre="#" class="animate__bounceIn" style="animation-delay:3s; animation-duration:2s;" >Set Appointment</a>
-                                   <a hfre="#" class="animate__bounceIn" style="animation-delay:4s; animation-duration:2s;">Services Offered</a>
+                       <h5 class="animate__slideInDown" style="animation-delay:1s; animation-duration:2s;">First slide label</h5>
+                           <p class="animate__slideInRight" style="animation-delay:2s; animation-duration:1s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
+                              <a hfre="#" class="animate__zoomIn" style="animation-delay:3s; animation-duration:1s;" >Set Appointment</a>
+                                   <a hfre="#" class="animate__zoomIn" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
                  </div>
                </div>
              
             <div class="carousel-item ">
                  <img src="<?php echo base_url()?>assets/img/shipping5.jpg" class="d-block w-100" alt="Third Slide">
                       <div class="carousel-caption d-none d-md-block">
-                       <h5 class="animate__bounceIn" style="animation-delay:1s; animation-duration:2s;">First slide label</h5>
-                           <p class="animate__bounceIn" style="animation-delay:2s; animation-duration:2s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
-                              <a hfre="#" class="animate__bounceIn" style="animation-delay:3s; animation-duration:2s;" >Set Appointment</a>
-                                   <a hfre="#" class="animate__bounceIn" style="animation-delay:4s; animation-duration:2s;">Services Offered</a>
+                       <h5 class="animate__fadeIn" style="animation-delay:1s; animation-duration:2s;">First slide label</h5>
+                           <p class="animate__slideInLeft" style="animation-delay:2s; animation-duration:1s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
+                              <a hfre="#" class="animate__zoomIn" style="animation-delay:3s; animation-duration:1s;" >Set Appointment</a>
+                                   <a hfre="#" class="animate__zoomIn" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
                  </div>
             </div>
             
