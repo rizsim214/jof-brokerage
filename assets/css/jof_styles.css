@@ -1,208 +1,92 @@
-body{
-     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-     background-color: aliceblue;
+
+
+.navbar-brand img{
+    height: 40px;
+    width: 45px;
     
 }
 
+.carousel-item{
+    height: 100vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    
+    background-size: cover;
+    
+}
 .carousel-caption{
-    padding: 15% 5% 20%;
+    bottom: 220px;
 }
-#home-tag1{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-   font-size: 45px;
-    color:#ff4800;
-   font-weight: bold;
- 
-}
-
-#home-tag2{
-   
-   font-size: 30px;
-   color:#ff4800;
-   font-weight: bold;
-}
-
-.navbar {
-    background-color: #888888;  
-   
-}
-#background-image{
-
-    opacity: 5;
-    height: 500px;
-}
-.navbar-brand{
-   
-    color: black;
-}
-.dropdown-item {
-    font-weight: bolder;
-}
-#navbarDropdown :hover{
-    background-color: #beb8b8;
-    color:white;
-    
-}
-#appointmentLabelBox1{
-    padding:0% 6% 0%;
-    position: relative;
-}
-#appointmentButton{
-   padding: 0% 8% 0%;
-   border-radius: 50%;
-}
-#appointmentButton:hover{
-    background-color: #ff5a44;
-    padding: 1% 10% 1%;
-}
-#appointmentIcon{   
-    font-size: 25px;
-}
-
-#body-container{
-  
-    padding-bottom: 100px;
-    
-}
-#MagicCarousel{
-  background-color: black;
-  background-blend-mode: darken;
-}
-#media-container  { 
-    
-    padding-top: 30px;
-}
-
-#alert{
-    margin-top: .3rem 2rem;
-}
-#media-container{
-    background-color: aliceblue;
-    border-radius: 10%;
-}
-#magicCarouselBox{
-    margin-bottom:50px;
-    background: linear-gradient(rgba(0 , 0 ,0 , 0.7));
-}
-
-#login-box{
-    background-color: aliceblue;
-    border: 1px solid black;
-    border-radius: 8px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-#about-pic {
-  
-  display: block;
-  max-width: 100%;
-  height: auto;
-  width: auto;
-
-}
-#img-container{
-    position: relative;
-    width: 50%;
-}
-
-.oLayered{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: silver;
-    filter:blur(1px);
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    -webkit-transform: scale(0);
-    -ms-transform: scale(0);
-    transform: scale(0);
-    -webkit-transition: .8 ease;
-    transition: .8 ease;
-}
-#img-container:hover .oLayered {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-   
-}
-
-.title{
-    color: white;
+.carousel-caption h5{
     font-size: 45px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.carousel-caption p{
+    width: 60%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.9;
+    font-family: 'Times New Roman', Times, serif;
+}
+.carousel-caption a{
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 30px;
+    display: inline-block;
+    color: #fff;
+    margin-top: 15px;
+}
+.navbar-nav a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+  
+}
+
+.navbar-brand span  , .navbar-light{
+    color: rgba(255, 8, 8, 0.78);
+    font-size:30px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #fff;
+
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: rgba(255, 8, 8, 0.78);
+
+}
+.navbar-nav{
     text-align: center;
 }
-
-
-#about-container{
-    padding-bottom: 100px;
-}
-#support-tag{
-
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 45px;
-    padding-top: 50px;
-    color:#c81111;
-}
-#blank-div{
-    padding-top: 50px;
-}
-#resources , #address{
-
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-top: 10px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #f64114;
-   
-}
-#resources:hover{
-   color: black;
-}
-#doc-tag{
-    padding-top: 12px;
-}
-
-#social{
-    
-    border-radius: 100%;
-}
-#social:hover{
-    
+.nav-link{
     padding: .2rem 1rem;
-    font-size: larger;
 }
-#login{
-    padding:.3rem 1rem;
+.nav-link.active .nav-link:focus{ 
+    color:#fff !important;
 }
-#login:hover{
-    
-    padding:.3rem  1rem ;
-    font-size:1.25rem;
-    line-height:1.5;
-    border-radius:.3rem;
+.w-100{
+    height: 100vh;
 }
-.nav-link:hover{
-    font-size: 18px;
+@media only screen and (max-width:767px){
+    .navbar-nav.ml-auto{
+        background: rgba(247, 132, 132, 0.5);
+    }
+    .navbar-toggler{
+        padding: 1px 5px;
+        font-size: 18px;
+        line-height: 0.3;
+        background:  rgba(255, 8, 8, 0.78);
+    }
 }
-.dropdown-item:hover{
-    font-size: 18px;
-}
-#minitext{
-    font-size: 13px;
-}
-#appointmentModalLabel{
-    font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #f64114 ;
-}
-
-
-
-
