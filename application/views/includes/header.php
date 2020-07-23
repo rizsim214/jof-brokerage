@@ -42,12 +42,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <li class="nav-item">
               <a class="nav-link" href="#" id="navItem">Contact Us</a>
             </li>
-             </li>
-              <li class="nav-item ml-5">
-              <a class="btn btn-lg btn-danger" href="#" ><i class="fas fa-user-circle pr-2" style="font-size:18px;border-radius:50%;"></i>Login</a>
-            </li>
+             </li>            
           </ul>
-        
+            
+                 <a class="btn btn-md btn-danger ml-3 href="#" ><i class="fas fa-user-circle pr-2" style="font-size:18px;"></i>Login</a>
+            
          </div>
         </div>
       </nav>
