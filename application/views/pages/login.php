@@ -1,36 +1,32 @@
-<div class="container-fluid my-2  ">
-				<div class=" text-center">
-						<?php if($this->session->flashdata('error')){ ?>
-							<div class="alert alert-danger " id="alert" role="alert">
-								<?php echo $this->session->flashdata('error'); ?>
-							</div>
-						<?php } ?>
-				</div>
-	</div>
 
-<div class="col-md-4"></div>
-    <div class="col-md-4 mx-auto my-5 p-4 " id="login-box">
-       <h1 class="text-center">Login Account</h1> 
-       <?php echo form_open('login_account');?>
-            <div class="form-group">
-                <label for="email">E-mail Account*</label>
-                <input type="email" class="form-control" id="accountEmail" name="email" placeholder="Email Account" required> 
-                <div class="invalid-feedback"><?php echo form_error('email');?></div>
+   
+<div class="form " >
+     <img src="<?php echo base_url();?>assets/img/about.jpg" class="form_img">
+           <div class="form_content"> 
+               <?php echo form_open();?>
+                <h1 class="form_title">Welcome</h1>
+                    <div class="form__div form__div-one">
+                        <div class="form__icon">
+                            <i class="fas fa-user-circle"></i>
+                                </div>
+                                    </div>
+                    <div class="form__div form__div-input">
+                        <h4 for="" class="form__label form__label-one">Email </h4>
+                            <input class="form__input" type="email" name="emailAdd" >
+                                
+                    </div>
+                     <div class="form__div">
+                        <div class="form__icon">
+                            <i class="fas fa-lock"></i>
+                                </div>
+                                    </div>
+                     <div class="form__div form__div-input">
+                         <h4 for="" class="form__label form__label-two">Password</h4>
+                             <input class="form__input" type="password" name="pass"  >
+                                 
+                                      </div>
+                    <a href="#" class="forgot__password">Forgot Password?</a>
+                    <input type="submit" class="form__button" value="Sign In" name="signin">
+            <?php echo form_close();?>
             </div>
-            <div class="form-group">
-                <label for="password">Password*</label>
-                <input type="password" class="form-control" id="accountPass" name="password" placeholder="Password" required> 
-                <div class="invalid-feedback"><?php echo form_error('password');?></div>
-            </div>
-             <div class="checkbox">
-                <label><input type="checkbox" value="" unchecked> Remember me</label>
-            </div>
-         <div class="mx-auto my-2 text-center ">
-           <button class="btn btn-md btn-outline-success" type="submit" role="button" name="login" value="login">Login</button>
-         </div>
-       <?php echo form_close();?>
-
-       <p id="home-tag">Dont have an account yet? <a href="#">Request for an Appointment</a></p>
-    </div>
-<div class="col-md-4"></div>
-
+</div>

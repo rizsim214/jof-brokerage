@@ -10,7 +10,7 @@
                     <div class="carousel-caption d-none d-md-block">
                        <h5 class="animate__bounceIn" style="animation-delay:1s; animation-duration:2s;">We <span>Handle</span> your <span>Needs</span></h5>
                            <p class="animate__slideInLeft" style="animation-delay:2s; animation-duration:1s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
-                              <a hfre="#" class="animate__zoomIn" id="btnRight" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
+                              <a hfre="#" class="animate__bounceInRight" id="btn-mid" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
                                    
                  </div>
                </div>
@@ -20,7 +20,7 @@
                       <div class="carousel-caption d-none d-md-block">
                        <h5 class="animate__slideInDown" style="animation-delay:1s; animation-duration:2s;">We <span>Value</span> your <span>Trust</span></h5>
                            <p class="animate__slideInRight" style="animation-delay:2s; animation-duration:1s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
-                             <a hfre="#" class="animate__zoomIn" id="btnRight" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
+                             <a hfre="#" class="animate__fadeInLeft" id="btn-mid" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
                                  
                  </div>
                </div>
@@ -30,7 +30,7 @@
                       <div class="carousel-caption d-none d-md-block">
                        <h5 class="animate__fadeInUp" style="animation-delay:1s; animation-duration:2s;">We <span>Serve</span> with <span>Integrity</span></h5>
                            <p class="animate__slideInDown" style="animation-delay:2s; animation-duration:1s;"> Nulla vitae elit libero, a pharetra augue mollis interdum.</p>       
-                              <a hfre="#" class="animate__zoomIn" id="btnRight" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
+                              <a hfre="#" class="animate__zoomIn" id="btn-mid" style="animation-delay:4s; animation-duration:1s;">Services Offered</a>
                                   
                  </div>
             </div>
