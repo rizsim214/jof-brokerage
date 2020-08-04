@@ -1,28 +1,266 @@
+:root{
+    --first-color: rgba(0,0,0, 0.5);
+    --text-color: rgba(252, 5, 5, 0.822);
+}
+:root{
+    --big-font: 'Roboto' , sans-serif;
+    --big-font-size:2rem;
+    --normal-font-size:0.938rem;
+    --smaller-font-size:0.875rem;
+}
+@media only screen and (min-width:550px){
+
+    :root{
+        --big-font-size:2.5rem;
+        --normal-font-size:1rem;
+    }
 
 
+    .navbar-nav.ml-auto{
+        background: rgba(0, 0, 0, 0);
+        
+    }
+    .navbar-toggler{
+        padding: 1px 5px;
+        font-size: 18px;
+        line-height: 0.3;
+        background:  rgba(230, 41, 41, 0.644);
+    }
+    .carousel-caption{
+        padding-bottom: 70px;
+    }
+    .carousel-caption h5{
+        font-size: 15px;
+    }
+    .carousel-caption p{
+        font-size: 16px;
+    }
+    .carousel-caption a{
+        padding: 10px 25px;
+    }
+    .navbar-brand span{
+        font-size: 15px;
+    }
+}
+
+*,::before,::after{
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: var(--big-font);
+    color: var(--first-color);
+}
+h1{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+    /* STYLES FOR LOGIN PAGE */
+.l-form{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+.shape1,.shape2{
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+}
+
+.shape1{
+    top: -6rem;
+    left: -5.5rem;
+    background: linear-gradient(180deg, var(--first-color) 0%, rgba(240, 20, 20, 0.568));
+}
+
+.shape2{
+    bottom: -6rem;
+    right: -5.5rem;
+    background: linear-gradient(180deg, var(--first-color) 0%, rgba(240, 20, 20, 0.56));
+    transform: rotate(180deg);
+}
+.container__shadow {
+    color: var(--text-color);
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+    display: block;
+    padding-top: 3%;
+    box-shadow:  1px 15px 36px rgba(245, 63, 63, 0.589);
+    
+}
+
+.forgot__password{
+    color: var(--text-color);
+    position: relative;
+    float: right;
+    margin-top: 0.5rem;
+    margin-right: 0.75rem;
+}
+.forgot__password:hover{
+    color: var(--first-color);
+    text-decoration: none;
+}
+.form__label{
+    font-family: var(--big-font);
+    font-size: 20px;
+    font-weight: bold;
+}
+.form__login{
+   margin: 4rem 6rem 6rem;
+   position: relative;
+
+   
+}
+.form__login-btn{
+  width:100%;
+  padding:1rem;
+  outline: none;
+  margin-bottom: 3rem;
+  font-weight: bolder;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgba(238, 5, 5, 0.726);
+  border:none;
+
+
+}
+.form__login-btn:hover{
+      background-color: rgba(245, 63, 63, 0.589);
+      box-shadow:  0px 15px 36px rgba(245, 63, 63, 0.589);
+}
+.form__title{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+    margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
+}
+.form-control:focus{
+    box-shadow: 5px 8px 5px rgba(252, 5, 5, 0.822);
+    border-color: rgba(252, 5, 5, 0.822) ;
+}
+.user__img{
+    position: absolute;
+    border-radius: 50%;
+    display: inline-block;
+    width: 100px;
+    height: auto;
+    top: -2rem;
+    left: 42%;
+    
+}
+    /* STYLES FOR NAVIGATIONS */
 .navbar-brand img{
-    height: 40px;
+    height: 50px;
     width: auto;
     top:0;
     left: 0;
-    margin: 2px 2px;
-    padding: 4px 4px ;
+    bottom: 0;
+    margin: 1px 1px 1px;
+    padding-bottom: 5px;
     border-radius: 50%;
     
 }
 .navbar{
     
-   background-color: rgba(0,0,0, 0.5);
+   background-color: rgba(0, 0, 0, 0.5);
 }  
+.nav-item .nav-link{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+   
+    padding: 10px 12px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    color:rgb(255, 255, 255);         
 
+}
+
+#login-button{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    letter-spacing: 5px;
+    border-radius: 2rem;
+    padding: 8px 12px 8px;
+    font-size: 16px;
+
+}
+.nav-link i{
+    border-radius: 50%;
+    font-size: 18px;
+}
+.copy__right{
+    font-size: 12px;
+}
+.office__hours{
+    
+    font-size:13px;
+}
+.office__hours span{
+    font-size:18px;
+}
+.navbar-nav .nav-link:hover{
+    color:#fff;
+    background:linear-gradient(180deg , rgba(141, 110, 110, 0.5) 0% , rgba(246, 45, 45, 0.8) 100%);
+    text-decoration: none;
+    font-size: 13px;
+    border: none;
+}
+
+.navbar-brand span  , .navbar-light{
+    color:#fff;
+    font-size:25px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;   
+}
+.navbar-brand span {
+    
+    margin-left: 5px;
+    margin-top:5px;
+    top:0;
+    left: 0;
+    position: absolute;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #fff;
+
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: rgba(255, 255, 255, 0.78);
+
+}
+.navbar-nav{
+    text-align: center;
+}
+
+.nav-link.active .nav-link:focus{ 
+    color:#fff ;
+}
+
+
+
+    /* STYLES FOR LANDING PAGE */
 .carousel-item {
     height: 100vh;
     min-height: 300px;
     background: no-repeat center center scroll;
     -webkit-background-size:cover;
     background-size: cover;
-    
-    
+       
 }
 
 .carousel-caption{
@@ -31,6 +269,10 @@
 
 }
 .carousel-caption h5{
+    display: inline-block;
+    padding: 10px 5px;
+    background: linear-gradient(180deg , rgba(243, 13, 13, 0.335) 0%, rgba(126, 57, 57, 0.5));
+    border-radius: 1rem;
     font-size: 45px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -45,7 +287,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
     color: rgb(7, 7, 6);
-    word-wrap: initial;
+    
 
 }
 .carousel-caption a{
@@ -82,47 +324,9 @@
     background-color:rgba(250, 96, 96, 0.78);
     
 }
-.nav-item a{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    text-transform: uppercase;
-    font-weight: bold;
-    padding: 8px 5px 8px;
-    margin: 2px 5px 2px;
-    display: inline-block;
-    border-radius: 5rem;
-   
-    
-    
-}
-#navItem{
-    padding-top: 10px;
-    color:rgb(246, 241, 241)
-}
-#login-button{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-    letter-spacing: 5px;
-    border-radius: 2rem;
-    padding: 10px 15px 10px;
-    font-size: large;
 
-}
-
-.navbar-nav a:hover{
-    background-color: rgba(245, 6, 6, 0.78);
-    text-decoration: none;
-    font-size: 16px;
-    margin:0px 2px;
-    top: 0;
-    bottom: 0;
-    
-   
-    
-}
 .carousel-caption span{
-    background: linear-gradient(180deg , rgba(228, 19, 19, 0.4) 0%, rgba(126, 57, 57, 0.5));
-    border-radius: 1rem;
+
     color: rgb(248, 18, 18);    
     font-size:65px;
     font-weight: bold;
@@ -134,166 +338,51 @@
     
     
 }
-.navbar-brand span  , .navbar-light{
-    color: rgba(255, 255, 255, 0.78);
-    font-size:22px;
-    text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: 2px;
-    font-style: italic;
-    font-family: 'Courier New', Courier, monospace;
-}
 .carousel-control-prev span{
     background: none;
 }
 .carousel-control-next span{
     background: none;
 }
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
-    color: #fff;
-}
-.navbar-light .navbar-nav .nav-link{
-    color: #fff;
 
-}
-.nav-item.btn {
-    
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.navbar-light .navbar-nav .nav-link:hover{
-    color: rgba(255, 255, 255, 0.78);
-
-}
-.navbar-nav{
-    text-align: center;
-}
-.nav-link{
-    padding: .2rem 1rem;
-}
-.nav-link.active .nav-link:focus{ 
-    color:#fff !important;
-}
 .w-100{
     height: 100vh;
     
 }
-
-@media only screen and (max-width:767px){
-    .navbar-nav.ml-auto{
-        background: rgba(0, 0, 0, 0.5);
-    }
-    .navbar-toggler{
-        padding: 1px 5px;
-        font-size: 18px;
-        line-height: 0.3;
-        background:  rgba(245, 7, 7, 0.78);
-    }
-    .carousel-caption{
-        padding-bottom: 120px;
-    }
-    .carousel-caption h5{
-        font-size: 25px;
-    }
-    .carousel-caption p{
-        font-size: 18px;
-    }
-    .carousel-caption a{
-        padding: 10px 25px;
-    }
-
+    /* STYLES FOR ABOUT PAGE */
+.card__container__box{
+    margin: 5rem 2rem 4rem;
+    background-color: rgba(251, 10, 10, 0.815);
+    padding: 2rem 2rem 2rem;
+    border-radius: 10px;
 }
-.form{
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
+.card-img{
+    width: 90%;
+    height: 220px;
+    display: inline-block;
+    margin-bottom: 0rem;
+    padding: 2rem 0.5rem 0.5rem;
 }
-.form_content{
-    width: 380px;
-
+.card-title{
+    padding: 5px 5px 5px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
 }
-.form_img{
-    display: none;
-}
-.form_title{
-    font-size: 55px;
-    font-weight: 500;
-    margin-bottom: 2rem;
-}
-.form__div{
-    position: relative;
-    display: grid;
-    grid-template-columns: 7% 93%;
-    margin-bottom: 1rem;
-    padding: .25rem 0;
-    border-bottom: 1px solid rgb(0, 0, 0);
-}
-.form__div-one{
-    margin-bottom: 3rem;
-}
-.form__icon{
-    font-size: 1.5rem;
-    color: black;
-}
-.form__label{
-    display: block;
-    position: fixed;
-    left: 2rem;
-    top:  -4.5rem ;
-    font-size: 18px;
-    color: rgb(228, 10, 10);
-    text-decoration: none;
-    /* transition: .3s; */
-}
-.form__div-input{
-    position: absolute;
-   
+.card-text{
+    text-align: justify;
 }
 
-.form__input{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border:none;
-    outline: none;
-    background: none;
-    padding: 0.5rem 0.25rem;
-    font-size: 1.2rem;
-    color: rgb(24, 21, 21);
 
-}
-.forgot__password{
-    display: block;
-    text-align: right;
-    margin-bottom: 2rem;
-    font-size: 16px;
-    color: rgb(228, 10, 10);
-    font-weight: 500px;
-    transition: .5s;
-}
-.forgot__password:hover{
-    color: rgb(0, 0, 0);
-    transition: .5s;
-}
-.form__button{
-    width: 100%;
-    padding: 1rem;
-    font-size: 25px;
-    outline: none;
-    border: none;
-    margin-bottom: 3rem;
-    background-color: rgba(255, 0, 0, 0.616);
-    color: #fff;
-    cursor: pointer;
-    border-radius:10px;
-    /* transition: .5s; */
-}
-.form__button:hover{
-    box-shadow:  0px 15px 36px rgba(98, 2, 2, 0.513);
-}
 
+    /* STYLES FOR SUPPORT PAGE */
+
+
+
+    /* STYLES FOR FEEDBACKS PAPGE */
+
+
+
+    /* STYLES FOR CONTACT PAGE */
 
 

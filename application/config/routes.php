@@ -52,9 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'MainController';
 $route['login'] = 'MainController/dynamic_view/login';
 $route['about'] = 'MainController/dynamic_view/about';
-$route['feedback'] = 'MainController/dynamic_view/feedback';
-$route['faqs'] = 'MainController/dynamic_view/faqs';
-$route['resources'] = 'MainController/dynamic_view/resources';
+$route['feedbacks'] = 'MainController/dynamic_view/feedback';
+$route['contacts'] = 'MainController/dynamic_view/contact';
+$route['support'] = 'MainController/dynamic_view/support';
 $route['login_account'] = 'MainController/login';
 $route['Appointment'] = 'MainController/setAppointment';
 
