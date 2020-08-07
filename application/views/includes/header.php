@@ -8,10 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+   
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font_awesome.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/animate.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jof_styles.css">
+    <link rel="icon" href="<?php echo base_url();?>assets/img/favicon.png" type="image/png">
 
     <title>J.O.F Customs Brokerage</title>
 

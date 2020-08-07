@@ -14,7 +14,7 @@
          </ul> -->
        </div> 
        <div class="col-md-4 text-center">
-         <small class="copy__right">copyright <i class="fas fa-copyright"></i> all rights reserved jof 2020 </small>
+         <small class="copy__right">copyright <i class="fas fa-copyright"></i> all rights reserved </small>
        </div>
         <div class="col-md-4 text-center">
          <!-- <p class="office__hours mb-n2">Business Hours: <br><span>9:00 AM - 5:00 PM</span></p> -->

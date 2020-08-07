@@ -1,10 +1,10 @@
-<div class="container-fluid" >
+<div class="container-fluid " >
 <div class="card-deck card__container__box" >
   <div class="card ">
     <img class="card-img mx-auto" src="<?php echo base_url();?>assets/img/about.jpg" alt="About Us">
     <div class="card-body">
       <hr>
-           <h5 class="card-title">About Us</h5>
+           <h5 class="card-title">"About Us"</h5>
       <hr>
            <p class="card-text">We aspire to become a key logistics partner to clients in the Philippines and the neighboring countries. We strive to consistently provide high-quality freight-forwarding and courier services,
                           meet our clients’ needs and supply chain requirements, and, in doing so, achieve overall financial sustainability for our company. 
@@ -18,7 +18,7 @@
       <img class="card-img mx-auto" src="<?php echo base_url();?>assets/img/about2.png" alt="Mission" >
     <div class="card-body">
       <hr>   
-           <h5 class="card-title">Mission</h5>
+           <h5 class="card-title">"Mission"</h5>
        <hr>
            <p class="card-text">We aspire to become a key logistics partner to clients in the Philippines and the neighboring countries. We strive to consistently provide high-quality freight-forwarding and courier services,
                           meet our clients’ needs and supply chain requirements, and, in doing so, achieve overall financial sustainability for our company. 
@@ -32,7 +32,7 @@
     <img class="card-img mx-auto" src="<?php echo base_url();?>assets/img/about3.png" alt="Vision"> 
     <div class="card-body">
       <hr>
-           <h5 class="card-title">Vision</h5>
+           <h5 class="card-title">"Vision"</h5>
        <hr>
            <p class="card-text">We aspire to become a key logistics partner to clients in the Philippines and the neighboring countries. We strive to consistently provide high-quality freight-forwarding and courier services,
                           meet our clients’ needs and supply chain requirements, and, in doing so, achieve overall financial sustainability for our company. 
