@@ -54,10 +54,9 @@ body{
     margin: 0;
     font-family: var(--big-font);
     color: var(--first-color);
-    background: linear-gradient(180deg , rgba(141, 110, 110, 0.5) 40% , rgba(246, 45, 45, 0.7) 80%) no-repeat;
-   
-   
-    
+    background: no-repeat center center cover;
+    background-color: rgba(251, 124, 124, 0.3);
+
 }
 h1{
     margin: 0;
@@ -363,7 +362,7 @@ img{
     /* STYLES FOR ABOUT PAGE */
 .card__container__box{
     margin: 5rem 1rem 4rem;
-    background-color: rgba(151, 148, 148, 0.376);
+    
     padding: 1.5rem 1.5rem 1.5rem;
     border-radius: 10px;
 }
