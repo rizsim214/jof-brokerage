@@ -113,6 +113,7 @@
     <hr>
          <h1 class="section__title">Glossary of Terms</h1>
          <div class=" row col-lg-12 text-center mb-5">
+             
             <div class="col-md-4">
                <p>HELLO WORLD</p>
             </div>

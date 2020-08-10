@@ -55,7 +55,7 @@ body{
     font-family: var(--big-font);
     color: var(--first-color);
     background: no-repeat center center cover;
-    background-color: rgba(251, 124, 124, 0.3);
+    background-color: rgba(255, 254, 254, 0.644);
 
 }
 h1{
@@ -364,7 +364,7 @@ img{
     /* STYLES FOR ABOUT PAGE */
 .card__container__box{
     margin: 5rem 1rem 4rem;
-    
+    background-color: rgba(250, 165, 144, 0.424);
     padding: 1.5rem 1.5rem 1.5rem;
     border-radius: 10px;
 }
