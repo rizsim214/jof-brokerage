@@ -211,6 +211,8 @@ img{
 }
 .copy__right{
     font-size: 12px;
+    color:rgb(0,0,0,);
+    position: relative;
 }
 .office__hours{
     
@@ -389,6 +391,53 @@ img{
 
     /* STYLES FOR SUPPORT PAGE */
 
+.divider{
+    max-width: 80% ;
+    border: 1px solid black;
+
+}
+.label{
+    display: inline-block;
+    font-family: 'bebas' ,  sans-serif;
+    margin-top: 10px;
+    margin-bottom: auto;
+    
+}
+.download__title{
+    font-size: 30px;
+    
+}
+.resource{
+    display: inline-block;
+    color: rgba(252, 5, 5, 0.822);
+    font-size:25px;
+
+}
+.resource:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+.div__bot{
+    margin-bottom: 5rem;
+}
+.section__title{
+    font-size: 45px;
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5rem;
+}
+.cu__supt p{
+    color:rgba(252, 5, 5, 0.822);
+}
+.faqs h4{
+    font-weight: bolder;
+}
+.faqs p{
+    color:rgba(252, 5, 5, 0.822);
+     margin-left: 5%;
+}
 
 
     /* STYLES FOR FEEDBACKS PAPGE */

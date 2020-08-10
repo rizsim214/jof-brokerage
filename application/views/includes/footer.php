@@ -1,25 +1,5 @@
    <footer>
-     <nav class="navbar navbar-expand-lg navbar-light fixed-bottom mb-n2">
-      <div class="col-md-4 text-center">
-         <!-- <ul class="navbar-nav">
-           <li class="nav-item ml-2">
-             <a href="#" class="nav-link"><i class="fas fa-google mx-1 "></i></a>
-           </li>
-           <li class="nav-item ml-2">
-             <a href="#" class="nav-link"><i class="fas fa-facebook mx-1 "></i></a>
-           </li>
-             <li class="nav-item ml-2">
-             <a href="#" class="nav-link"><i class="fas fa-pinterest mx-1 "></i></a>
-           </li>
-         </ul> -->
-       </div> 
-       <div class="col-md-4 text-center">
-         <small class="copy__right">copyright <i class="fas fa-copyright"></i> all rights reserved </small>
-       </div>
-        <div class="col-md-4 text-center">
-         <!-- <p class="office__hours mb-n2">Business Hours: <br><span>9:00 AM - 5:00 PM</span></p> -->
-       </div> 
-       </nav>
+
    </footer>
    
    <!-- Optional JavaScript -->
