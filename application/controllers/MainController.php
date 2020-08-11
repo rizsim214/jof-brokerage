@@ -48,28 +48,38 @@ class MainController extends CI_Controller {
                     $this->login_validation();
 
                     if(!$this->form_validation->run() == true){
-                              $this->dynamic_view();
+                        $this->session->set_flashdata('error' , 'You entered an invalid account! Please try again...');
+                              $this->dynamic_view('login' , 'refresh');
+
                           }else{
                               
-                           $result = $this->MainModel->check_user($this->input->post('email') , md5($this->input->post('password')));
-                           
-                           if($result){
-                                $this->session->set_userdata('IsLoggedIn' , TRUE);
-                                $this->session->set_userdata('userID' , $result['id']);
-                                $this->session->set_userdata('user_info' ,$result);
+                            $data = array(
+                                'email_add' => $this->input->post('email'),
+                                 'user_pass' => md5($this->input->post('password'))
+                            );
+                          
+                             $data_result = $this->MainModel->check_user($data);
+                       
+                            
 
-                                if($result['user_role'] == 1){
-                                    echo "Consignee";
-                                    }elseif($result['user_role'] == 2){
-                                        echo "Broker";
-                                        }elseif($result['user_role'] == 3){
-                                            echo "Accounting";
-                                            }elseif($result['user_role'] == 4){
-                                                 echo "Admin";
-                                                }
+                           if(!$data_result){
+
+                                     $this->session->set_flashdata('error' , 'The user account that you have entered is invalid or not yet approved by the admin... Please try again');
+                                         $this->dynamic_view('login','refresh');
                                 }else{
-                                     $this->session->set_flashdata('error' , 'The user account that you have entered is invalid or not yet approved by the admin... <br>Sorry for the inconvenience...');
-                                         $this->dynamic_view('login');
+                                    $this->session->set_userdata('IsLoggedIn' , TRUE);
+                                    $this->session->set_userdata('user_type', $data_result['user_type']);
+                                    
+                                    if($this->session->userdata('user_type') == 1 || $this->session->userdata('isLoggedIn') == TRUE){
+                                        redirect('ConsigneeController/index');
+                                          }elseif($this->session->userdata('user_type') == 2 || $this->session->userdata('isLoggedIn') == TRUE){
+                                               redirect('BrokerController/index');
+                                                  }elseif($this->session->userdata('user_type') == 3 || $this->session->userdata('isLoggedIn') == TRUE){
+                                                       redirect('AccountingController/index');
+                                                          }elseif($this->session->userdata('user_type') == 4 || $this->session->userdata('isLoggedIn') == TRUE){
+                                                              redirect('AdminController/index');
+                                                    }
+
                                      }
                                 
                     }

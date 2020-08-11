@@ -11,17 +11,27 @@ class MainModel extends CI_Model{
 
 
     function insert_appointment($data){
-      $result =  $this->db->insert('appointments' , $data);
-      return $result;
-    }
+      if(!$data){
+        return FALSE;
+      }else{
+        $result =  $this->db->insert('appointments' , $data);
+              return $result;
+        }
+      }
+     
 
-    public function check_user($email , $pass){
+    public function check_user($data){
+     if(!$data){
+      return FALSE;
+     }else{
+       $this->db->select('*');
+       $this->db->from('users');
+       $this->db->where('email_add' , $data['email_add']);
+       $this->db->where('password' , $data['user_pass']);
+      $result = $this->db->get();
+       return $result->row_array();
+     }
      
-      $this->db->SELECT('*');
-      $this->db->FROM('users_table');
-      $this->db->where('email_add' , $email);
-      $this->db->where('user_pass' , $pass);
-     
-      return $result = $this->db->get()->row_array();
+      
     }
 }

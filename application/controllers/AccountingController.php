@@ -13,12 +13,12 @@ class AdminController extends CI_Controller {
     }
 
      public function dynamic_view($page = 'landingPage'){
-       if(!file_exists(APPPATH.'views/consignee/'.$page.'.php')){
+       if(!file_exists(APPPATH.'views/accounting/'.$page.'.php')){
 			show_404();
 		}else{
            
             $this->load->view('includes/login_header');
-            $this->load->view('consignee/'.$page);
+            $this->load->view('accounting/'.$page);
             $this->load->view('includes/footer');
             
         }
