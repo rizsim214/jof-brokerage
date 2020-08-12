@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a class="nav-link" href="<?php echo site_url('feedbacks');?>" id="navItem">Feedback</a>
             </li>
               <li class="nav-item">
-               <a class="nav-link" href="<?php echo site_url('contacts');?>" id="navItem">Contact Us</a>
+               <a class="nav-link" href="#" id="navItem" data-toggle="modal" data-target="#contactModal">Contact Us</a>
             </li>
             <li>
                  <a class="btn btn-md btn-danger ml-3" id="login-button" href="<?php echo base_url('login');?>" ><i class="fas fa-user-circle pr-2" style="font-size:18px;"></i>sign in</a>
@@ -58,3 +58,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
  
  </header>
+
+ 

@@ -100,10 +100,11 @@ class MainController extends CI_Controller {
                             $this->dynamic_view('contact');
                             } else {
                                     $appointment = array(
-                                            'firstname' => $this->input->post('firstName'),
-                                            'lastname' => $this->input->post('lastName'),
+                                            'firstname' => ucfirst($this->input->post('firstName')),
+                                            'lastname' => ucfirst($this->input->post('lastName')),
                                             'email' => $this->input->post('email'),
-                                            'contact' => $this->input->post('contact'),
+                                            'contact_number' => $this->input->post('contact'),
+                                            'subject' => $this->input->post('subject'),
                                             'message' => $this->input->post('message'),
                                             'date_posted' => date('Y-m-d H:m:s')
                                             );
@@ -111,10 +112,10 @@ class MainController extends CI_Controller {
 
                                     if($result == NULL){
                                         $this->session->set_flashdata('error' , 'STARLORD IS NOT HAPPY WITH THE RESULT!!');
-                                        $this->dynamic_view('contact');
+                                        redirect('home');
                                     }else{
                                         $this->session->set_flashdata('success' , "Message Sent! We will contact you As Soon As Possible!!");
-                                        $this->dynamic_view('contact');
+                                        redirect('home');
                                     }
                             }
                 }
@@ -126,6 +127,7 @@ class MainController extends CI_Controller {
     $this->form_validation->set_rules('lastName' , 'Last Name' , 'trim|required' , array('required' => ' Lastname field is required.'));
     $this->form_validation->set_rules('email' , 'Email Address' , 'trim|required' , array('required' => ' Email field is required.'));
     $this->form_validation->set_rules('contact' , 'Contact' , 'trim|required' , array('required' => ' Contact field is required.'));
+    $this->form_validation->set_rules('subject' , 'Subject' , 'trim|required' , array('required' => 'Subject field is required.'));
     $this->form_validation->set_rules('message' , 'Message' , 'trim|required' , array('required' => 'Message field is required.'));
  }
 
