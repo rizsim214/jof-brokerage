@@ -59,6 +59,7 @@ $route['support'] = 'MainController/dynamic_view/support';
 $route['login_account'] = 'MainController/login';
 $route['Appointment'] = 'MainController/setAppointment';
 $route['logout'] = 'MainController/logout';
+$route['dashboard'] = 'AdminController/dynamic_view/dashboard';
 
 
 $route['404_override'] = '';

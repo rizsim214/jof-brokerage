@@ -444,6 +444,11 @@ img{
 
 
 
-    /* STYLES FOR CONTACT PAGE */
-
-
+    /* STYLES FOR ADMIN DASHBOARD PAGE */
+.card__templates a{
+   
+    color: aliceblue;
+}
+.card__templates a:hover{
+    text-decoration: none;
+}
