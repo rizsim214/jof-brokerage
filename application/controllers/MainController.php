@@ -45,6 +45,7 @@ class MainController extends CI_Controller {
             show_404();
 
                }else{
+
                     $this->login_validation();
 
                     if(!$this->form_validation->run() == true){
@@ -67,17 +68,18 @@ class MainController extends CI_Controller {
                                      $this->session->set_flashdata('error' , 'The user account that you have entered is invalid or not yet approved by the admin... Please try again');
                                          $this->dynamic_view('login','refresh');
                                 }else{
-                                    $this->session->set_userdata('IsLoggedIn' , TRUE);
-                                    $this->session->set_userdata('user_type', $data_result['user_type']);
+                                    $this->session->set_userdata('isUserLoggedIn' , TRUE);
+                                    $this->session->set_userdata('user_ID' , $data_result['id']);
+                                    $this->session->set_userdata('user_info', $data_result);
                                     
-                                    if($this->session->userdata('user_type') == 1 || $this->session->userdata('isLoggedIn') == TRUE){
-                                        redirect('ConsigneeController/index');
-                                          }elseif($this->session->userdata('user_type') == 2 || $this->session->userdata('isLoggedIn') == TRUE){
+                                    if($this->session->userdata($data_result['user_type']) == 1 || $this->session->userdata('isUserLoggedIn') == TRUE){
+                                        redirect('AdminController/index');
+                                          }elseif($this->session->userdata($data_result['user_type']) == 2 || $this->session->userdata('isUserLoggedIn') == TRUE){
                                                redirect('BrokerController/index');
-                                                  }elseif($this->session->userdata('user_type') == 3 || $this->session->userdata('isLoggedIn') == TRUE){
+                                                  }elseif($this->session->userdata($data_result['user_type']) == 3 || $this->session->userdata('isUserLoggedIn') == TRUE){
                                                        redirect('AccountingController/index');
-                                                          }elseif($this->session->userdata('user_type') == 4 || $this->session->userdata('isLoggedIn') == TRUE){
-                                                              redirect('AdminController/index');
+                                                          }elseif($this->session->userdata($data_result['user_type']) == 4 || $this->session->userdata('isUserLoggedIn') == TRUE){
+                                                              redirect('ConsigneeController/index');
                                                     }
 
                                      }
@@ -87,27 +89,57 @@ class MainController extends CI_Controller {
     }
 
     public function setAppointment(){
-
-        $appointment = array(
-            'firstname' => $this->input->post('firstName'),
-            'lastname' => $this->input->post('lastName'),
-            'email' => $this->input->post('email'),
-            'contact' => $this->input->post('contact'),
-            'message' => $this->input->post('message'),
-            'date_posted' => date('Y-m-d H:m:s')
-        );
-        $result = $this->MainModel->insert_appointment($appointment);
-
-        if(!$result){
-            show_404();
-        }else{
-
-         $this->session->set_flashdata('success' , "Message Sent! We will contact you As Soon As Possible!!");
+        if(!$this->input->post()){
+            $this->session->set_flashdata('error' , 'Something went wrong while scheduling an appointment... Please try again!');
             $this->dynamic_view();
-             
-        }
+            } else {
+                    $this->validate_appointment();
+
+                        if(!$this->form_validation->run() == TRUE){
+                            $this->session->set_flashdata('error' , 'Some unfortunate error has occured... Please try again!');
+                            $this->dynamic_view('contact');
+                            } else {
+                                    $appointment = array(
+                                            'firstname' => $this->input->post('firstName'),
+                                            'lastname' => $this->input->post('lastName'),
+                                            'email' => $this->input->post('email'),
+                                            'contact' => $this->input->post('contact'),
+                                            'message' => $this->input->post('message'),
+                                            'date_posted' => date('Y-m-d H:m:s')
+                                            );
+                                    $result = $this->MainModel->insert_appointment($appointment);
+
+                                    if($result == NULL){
+                                        $this->session->set_flashdata('error' , 'STARLORD IS NOT HAPPY WITH THE RESULT!!');
+                                        $this->dynamic_view('contact');
+                                    }else{
+                                        $this->session->set_flashdata('success' , "Message Sent! We will contact you As Soon As Possible!!");
+                                        $this->dynamic_view('contact');
+                                    }
+                            }
+                }
+   
     }
 
+ public function validate_appointment(){
+    $this->form_validation->set_rules('firstName' , 'First Name' , 'trim|required' , array('required' => ' Firstname field is required.'));
+    $this->form_validation->set_rules('lastName' , 'Last Name' , 'trim|required' , array('required' => ' Lastname field is required.'));
+    $this->form_validation->set_rules('email' , 'Email Address' , 'trim|required' , array('required' => ' Email field is required.'));
+    $this->form_validation->set_rules('contact' , 'Contact' , 'trim|required' , array('required' => ' Contact field is required.'));
+    $this->form_validation->set_rules('message' , 'Message' , 'trim|required' , array('required' => 'Message field is required.'));
+ }
 
+ public function logout(){
+
+        $this->session->unset_userdata('isUserLoggedIn');
+
+        $this->session->unset_userdata('user_ID');
+
+        $this->session->unset_userdata('user_info');
+
+        $this->session->sess_destroy();
+
+        $this->dynamic_view();
+    }
 
 }

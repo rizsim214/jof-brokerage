@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a class="dropdown-item" href="#">Manage Account</a>
                 
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="<?php echo base_url('logout');?>">Logout</a>
                 </div>
                 </div>
               
