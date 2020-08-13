@@ -15,7 +15,7 @@ class MainModel extends CI_Model{
         return FALSE;
       }else{
         $result =  $this->db->insert('appointment' , $data);
-              return $result;
+              return TRUE;
         }
       }
      

@@ -6,11 +6,6 @@ class MainController extends CI_Controller {
     public function __construct(){
         parent:: __construct();
 
-        $this->load->library('form_validation');
-        $this->load->library('session');
-        $this->load->helper('form');
-        $this->load->helper('array');
-       
         $this->load->model('MainModel');
 
 
@@ -73,13 +68,13 @@ class MainController extends CI_Controller {
                                     $this->session->set_userdata('user_info', $data_result);
                                     
                                     if($this->session->userdata($data_result['user_type']) == 1 || $this->session->userdata('isUserLoggedIn') == TRUE){
-                                        redirect('AdminController/index');
+                                        redirect('admin');
                                           }elseif($this->session->userdata($data_result['user_type']) == 2 || $this->session->userdata('isUserLoggedIn') == TRUE){
-                                               redirect('BrokerController/index');
+                                               redirect('broker');
                                                   }elseif($this->session->userdata($data_result['user_type']) == 3 || $this->session->userdata('isUserLoggedIn') == TRUE){
-                                                       redirect('AccountingController/index');
+                                                       redirect('accounting');
                                                           }elseif($this->session->userdata($data_result['user_type']) == 4 || $this->session->userdata('isUserLoggedIn') == TRUE){
-                                                              redirect('ConsigneeController/index');
+                                                              redirect('consignee');
                                                     }
 
                                      }
@@ -110,7 +105,7 @@ class MainController extends CI_Controller {
                                             );
                                     $result = $this->MainModel->insert_appointment($appointment);
 
-                                    if($result == NULL){
+                                    if(!$result ){
                                         $this->session->set_flashdata('error' , 'STARLORD IS NOT HAPPY WITH THE RESULT!!');
                                         redirect('home');
                                     }else{
@@ -141,7 +136,7 @@ class MainController extends CI_Controller {
 
         $this->session->sess_destroy();
 
-        $this->dynamic_view();
+        redirect('MainController');
     }
 
 }

@@ -1,7 +1,7 @@
 <div class="card__container__box">
 <div class="row ">
 	<div class="col-lg-4 card__templates">
-				<a href="#" class="card border-0  shadow-lg bg-warning">
+				<a href="#" class="card border-0  shadow-lg bg-success">
 					<div class="card-body d-flex align-items-end flex-column text-right">
 						<h5>Transactions</h5>
 							<div class="row">
@@ -23,7 +23,7 @@
 				</a>
 			</div>
             <div class="col-lg-4 card__templates">
-				<a href="#" class="card border-0  shadow-lg bg-secondary">
+				<a href="#" class="card border-0  shadow-lg bg-warning">
 					<div class="card-body d-flex align-items-end flex-column text-right">
 						<h5>Feedbacks</h5>
 							<div class="row">
@@ -45,7 +45,7 @@
 				      
 					  <th scope="col">Client Name</th>
 					  <th scope="col">Email</th>
-					  <th scope="col">Contact Info</th>
+					 
 					  <th scope="col">Subject</th>
 					  <th scope="col">Options</th>
 				      
@@ -58,7 +58,6 @@
 						<tr>
 								<td><?php echo ucfirst($result->firstName).' '.ucfirst($result->lastName);?></td>
 								<td><?php echo $result->email;?></td>
-								<td><?php echo $result->contact_number;?></td>
 								<td><?php echo $result->subject;?></td>
 								<td class="row"><a href="<?php echo base_url('view/'.$result->appointment_id);?>" class="btn btn-secondary mr-2 ">Read</a><a href="<?php echo base_url('delete/'.$result->appointment_id);?>" class="btn btn-danger "><i class="fas fa-trash-o"></i></a></td>
 							</tr>
@@ -66,6 +65,9 @@
 						</tbody>
 				
 			</table>
+			<div class="text-center">
+				<?php echo $this->pagination->create_links();?>
+			</div>
 		</div>
 				
 	</div>

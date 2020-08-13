@@ -59,7 +59,11 @@ $route['support'] = 'MainController/dynamic_view/support';
 $route['login_account'] = 'MainController/login';
 $route['Appointment'] = 'MainController/setAppointment';
 $route['logout'] = 'MainController/logout';
-$route['dashboard'] = 'AdminController/dynamic_view/dashboard';
+$route['admin'] = 'AdminController/dynamic_view/dashboard/0';
+$route['admin/(:num)'] = 'AdminController/dynamic_view/dashboard/$1';
+$route['broker'] = 'BrokerController/dynamic_view';
+$route['accounting'] = 'AccountingController/dynamic_view';
+$route['consignee'] = 'ConsigneeController/dynamic_view';
 
 
 $route['404_override'] = '';

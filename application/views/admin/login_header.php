@@ -20,11 +20,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </head>
   <body>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
 <div class="container-fluid">
       
         
-         <a class="navbar-brand " href="<?php echo base_url('dashboard');?>"><span>Admin Panel</span></a> 
+         <a class="navbar-brand " href="<?php echo base_url('admin');?>"><span>Admin Panel</span></a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
