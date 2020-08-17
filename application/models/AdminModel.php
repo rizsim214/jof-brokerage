@@ -15,7 +15,7 @@ class AdminModel extends CI_Model{
         $this->db->offset($offset);
         $this->db->ORDER_BY('appointment_id DESC');
 
-        $query = $this->db->get('appointment');
+        $query = $this->db->get('appointments');
 
         if(!$query){
             return FALSE;
@@ -24,6 +24,6 @@ class AdminModel extends CI_Model{
         }
     }
     public function countAllAppointments(){
-        return $this->db->get('appointment')->num_rows();
+        return $this->db->get('appointments')->num_rows();
     }
 }

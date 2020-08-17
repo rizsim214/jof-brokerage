@@ -45,23 +45,19 @@ class MainController extends CI_Controller {
 
                     if(!$this->form_validation->run() == true){
                         $this->session->set_flashdata('error' , 'You entered an invalid account! Please try again...');
-                              $this->dynamic_view('login' , 'refresh');
+                              redirect('login' , 'refresh');
 
                           }else{
-                              
-                            $data = array(
-                                'email_add' => $this->input->post('email'),
-                                 'user_pass' => md5($this->input->post('password'))
-                            );
-                          
-                             $data_result = $this->MainModel->check_user($data);
-                       
+
+                             $data_result = $this->MainModel->check_user($this->input->post('email') ,  md5($this->input->post('password')));
+                    //         echo md5('password');
+                    //    var_dump($data_result);die();
                             
 
                            if(!$data_result){
 
                                      $this->session->set_flashdata('error' , 'The user account that you have entered is invalid or not yet approved by the admin... Please try again');
-                                         $this->dynamic_view('login','refresh');
+                                        redirect('login' , 'refresh');
                                 }else{
                                     $this->session->set_userdata('isUserLoggedIn' , TRUE);
                                     $this->session->set_userdata('user_ID' , $data_result['id']);
@@ -92,25 +88,27 @@ class MainController extends CI_Controller {
 
                         if(!$this->form_validation->run() == TRUE){
                             $this->session->set_flashdata('error' , 'Some unfortunate error has occured... Please try again!');
-                            $this->dynamic_view('contact');
+                            $this->dynamic_view('home');
                             } else {
                                     $appointment = array(
                                             'firstname' => ucfirst($this->input->post('firstName')),
                                             'lastname' => ucfirst($this->input->post('lastName')),
                                             'email' => $this->input->post('email'),
-                                            'contact_number' => $this->input->post('contact'),
+                                            'contact' => $this->input->post('contact'),
                                             'subject' => $this->input->post('subject'),
                                             'message' => $this->input->post('message'),
+                                            'appointment_status' => ucfirst("pending"),
                                             'date_posted' => date('Y-m-d H:m:s')
                                             );
+                                           
                                     $result = $this->MainModel->insert_appointment($appointment);
-
-                                    if(!$result ){
+                                            
+                                    if($result == FALSE ){
                                         $this->session->set_flashdata('error' , 'STARLORD IS NOT HAPPY WITH THE RESULT!!');
-                                        redirect('home');
-                                    }else{
+                                        redirect('contacts');
+                                    }elseif($result ==TRUE){
                                         $this->session->set_flashdata('success' , "Message Sent! We will contact you As Soon As Possible!!");
-                                        redirect('home');
+                                        redirect('contacts');
                                     }
                             }
                 }
@@ -136,7 +134,7 @@ class MainController extends CI_Controller {
 
         $this->session->sess_destroy();
 
-        redirect('MainController');
+        redirect('home');
     }
 
 }

@@ -41,12 +41,14 @@
 
 				<table class="table table-hover table-striped text-center">
 				  <thead class="thead-dark">
+				  <tr>
+				  	<th colspan="5" >Appointments</th>
+				  </tr>
 				    <tr>
-				      
 					  <th scope="col">Client Name</th>
-					  <th scope="col">Email</th>
-					 
+					  <th scope="col">Email</th>					 
 					  <th scope="col">Subject</th>
+					  <th scope="col">Status</th>
 					  <th scope="col">Options</th>
 				      
 				    </tr>
@@ -56,10 +58,11 @@
 					<tbody>
 						<?php  foreach($response as $result ) { ?>
 						<tr>
-								<td><?php echo ucfirst($result->firstName).' '.ucfirst($result->lastName);?></td>
+								<td><?php echo ucfirst($result->firstname).' '.ucfirst($result->lastname);?></td>
 								<td><?php echo $result->email;?></td>
 								<td><?php echo $result->subject;?></td>
-								<td class="row"><a href="<?php echo base_url('view/'.$result->appointment_id);?>" class="btn btn-secondary mr-2 ">Read</a><a href="<?php echo base_url('delete/'.$result->appointment_id);?>" class="btn btn-danger "><i class="fas fa-trash-o"></i></a></td>
+								<td><?php echo $result->appointment_status;?></td>
+								<td class="row"><a href="<?php echo base_url('view/'.$result->appointment_ID);?>" class="btn btn-secondary mr-2 ">Read</a><a href="<?php echo base_url('delete/'.$result->appointment_ID);?>" class="btn btn-danger "><i class="fas fa-trash-o"></i></a></td>
 							</tr>
 						<?php }  ?>
 						</tbody>

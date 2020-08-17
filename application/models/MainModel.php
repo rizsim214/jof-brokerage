@@ -14,21 +14,24 @@ class MainModel extends CI_Model{
       if(!$data){
         return FALSE;
       }else{
-        $result =  $this->db->insert('appointment' , $data);
-              return TRUE;
+        $result =  $this->db->insert('appointments' , $data);
+            return TRUE;
         }
       }
      
 
-    public function check_user($data){
-     if(!$data){
+    public function check_user($email , $password){
+     if(!$email && !$password){
       return FALSE;
      }else{
+
        $this->db->select('*');
-       $this->db->from('users');
-       $this->db->where('email_add' , $data['email_add']);
-       $this->db->where('password' , $data['user_pass']);
+       $this->db->from('users_table');
+       $this->db->where('email_add' , $email);
+       $this->db->where('user_pass' , $password);
+
       $result = $this->db->get();
+      
        return $result->row_array();
      }
      
