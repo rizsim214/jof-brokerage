@@ -33,7 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="navbar-nav ml-auto">
            
              <li class="nav-item">
-               <a class="nav-link" href="#" id="navItem">Privilages</a>
+               <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Options</a>
+              
             </li>  
              <li class="nav-item">
                  <!-- Default dropleft button -->
@@ -62,3 +63,93 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
     </nav>
  </header>
+
+ 		<div class=" modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="optionModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                 <h4 class="modal-title mx-auto" id="optionModalLabel">Select Options</h4>
+                  
+            </div>
+             <div class="modal-body">
+                  <div class="row">
+                    <div class="container mx-auto my-2 ">
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="CreateAccount">CREATE ACCOUNT</a>
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="ViewClientInfo">CONSIGNEES</a> 
+                        </div>    
+                  </div>
+                    <div class="row">
+                    <div class="container mx-auto my-2">
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="SetClientBill">ACCOUNTING</a>
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="ViewClientBalances">BALANCES</a> 
+                        </div>    
+                  </div>
+                    <div class="row">
+                    <div class="container mx-auto my-2">
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="ViewAppointments">APPOINTMENTS</a>
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AvailableProcessors">PROCESSORS</a> 
+                        </div>    
+                  </div> 
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               
+             </div>
+          </div>
+      </div>
+    </div>
+<!-- 
+  <form method="post" action="<?php echo base_url('HomeController/setAppointment'); ?>">
+  	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Set Appointment</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Full Name*</label>
+            <input type="text" name="name" class="form-control" id="full-name" required>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Contact Number*</label>
+            <input type="text" name="contact" class="form-control" id="contact-text" required>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Email Address*</label>
+            <input type="email" name="email" class="form-control" id="email-text" required>
+          </div>
+          <div class="form-group" >
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" name="message" id="message-text" style="padding-bottom: 100px;" required></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-info" >Submit</button>
+        <div class="modal fade" id="myModal" role="dialog">
+        </form>
+        
+    <div class="modal-dialog">
+    
+      <!-- Modal content
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <p href= "<?php echo base_url('jofcontroller/view/signup')?>">Appointment Sent</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+   	 </div>
+ 	</div>
+	</div>
+</div> -->
