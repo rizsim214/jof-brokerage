@@ -74,7 +74,7 @@
         <hr>
          <h1 class="section__title">FAQs</h1>
          
-            <div class=" col-md-9  mb-5 faqs__box">
+            <div class=" container mb-5 faqs__box">
                 <div class="faqs">
                     <h4 >Do you have questions regarding JOF Customs Brokerage?</h4>
                     <p >In line with our efforts to provide quality service and excellent customer care, we have put together a list of frequently asked questions we have encountered over the many years of our experience:</p>

@@ -14,13 +14,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/animate.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jof_styles.css">
     <link rel="icon" href="<?php echo base_url();?>assets/img/favicon.png" type="image/png">
+    <script>
+        function openSlideMenu(){
+          document.querySelector('#menu').style.width ='250px';
+          document.querySelector('#content').style.marginLeft ='250px';
+        }
+        function closeSlideMenu() {
+          document.querySelector('#menu').style.width ='0';
+          document.querySelector('#content').style.marginLeft ='0';
+        }
+        
 
+    </script>
     <title>J.O.F Customs Brokerage</title>
 
   </head>
   <body>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light absolute-top">
 <div class="container-fluid">
       
         
@@ -32,10 +43,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
            
-             <li class="nav-item">
+              <li class="nav-item">
                <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Options</a>
-              
-            </li>  
+            </li> 
              <li class="nav-item">
                  <!-- Default dropleft button -->
                 <div class="btn-group dropleft">
@@ -49,22 +59,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo base_url('logout');?>">Logout</a>
                 </div>
-                </div>
-              
-            
-            </li>   
-               
+                </div> 
+            </li>    
           </ul>
-          
          </div>
-        
-   
-      
-</div>
+      </div>
     </nav>
  </header>
 
- 		<div class=" modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="optionModalLabel" aria-hidden="true">
+<!-- <div id="content">
+    <span class="slide">
+        <a href="#" onclick="openSlideMenu()">
+          <i class="fas fa-bars"></i>
+        </a>
+    </span>
+  <div class="nav" id="menu" aria-hidden="true">
+      <a href="#" class="close" onclick="closeSlideMenu()">
+        <i class="fas fa-times"></i>
+	  </a>
+	  
+      <a href="#">ACCOUNTS</a>
+      <a href="#">APPOINTMENTS</a>
+      <a href="#">FINANCE</a>
+      <a href="#">FEEDBACKS</a>
+      <a href="#">TRANSACTIONS</a>
+
+  </div> -->
+
+
+ 	 <div class=" modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="optionModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -74,20 +97,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="CreateAccount">CREATE ACCOUNT</a>
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="ViewClientInfo">CONSIGNEES</a> 
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">ACCOUNTS</a>
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">APPOINTMENTS</a> 
                         </div>    
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="SetClientBill">ACCOUNTING</a>
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="ViewClientBalances">BALANCES</a> 
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">FINANCE</a>
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="FeedbacksLink">FEEDBACKS</a> 
                         </div>    
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="ViewAppointments">APPOINTMENTS</a>
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AvailableProcessors">PROCESSORS</a> 
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">MANAGEMENT</a>
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a> 
                         </div>    
                   </div> 
              </div>
@@ -97,59 +120,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              </div>
           </div>
       </div>
-    </div>
-<!-- 
-  <form method="post" action="<?php echo base_url('HomeController/setAppointment'); ?>">
-  	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Set Appointment</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Full Name*</label>
-            <input type="text" name="name" class="form-control" id="full-name" required>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Contact Number*</label>
-            <input type="text" name="contact" class="form-control" id="contact-text" required>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Email Address*</label>
-            <input type="email" name="email" class="form-control" id="email-text" required>
-          </div>
-          <div class="form-group" >
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" name="message" id="message-text" style="padding-bottom: 100px;" required></textarea>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-info" >Submit</button>
-        <div class="modal fade" id="myModal" role="dialog">
-        </form>
-        
-    <div class="modal-dialog">
-    
-      <!-- Modal content
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body text-center">
-          <p href= "<?php echo base_url('jofcontroller/view/signup')?>">Appointment Sent</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-   	 </div>
- 	</div>
-	</div>
-</div> -->
+    </div> 

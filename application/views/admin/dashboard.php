@@ -1,5 +1,7 @@
+
+
 <div class="card__container__box">
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row ">
 			<div class="col-lg-4 card__templates">
 						<a href="#" class="card border-0  shadow-lg bg-success">
@@ -35,15 +37,12 @@
 						</a>
 					</div>
 				</div>
-			</div>
-		
-		<div class="container mt-5">
-			
-
-				<table class="table table-hover table-striped text-center">
-				  <thead class="thead-dark">
+			</div> -->
+		<div class="container ">
+				<table class="table table-hover text-center">
+				  <thead class="thead-light">
 				  <tr>
-				  	<th colspan="5" >Appointments</th>
+				  	<th colspan="5"><h1>Appointments</h1></th>
 				  </tr>
 				    <tr>
 					  <th scope="col">Client Name</th>
@@ -51,11 +50,8 @@
 					  <th scope="col">Subject</th>
 					  <th scope="col">Status</th>
 					  <th scope="col">Options</th>
-				      
 				    </tr>
-				  </thead>
-				
-						 
+				  </thead> 
 					<tbody>
 						<?php  foreach($response as $result ) { ?>
 						<tr>
@@ -73,8 +69,5 @@
 				<?php echo $this->pagination->create_links();?>
 			</div>
 		</div>
-				
 	</div>
-		
-
 </div>

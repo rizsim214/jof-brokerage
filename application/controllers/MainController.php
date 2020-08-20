@@ -97,7 +97,7 @@ class MainController extends CI_Controller {
                                             'contact' => $this->input->post('contact'),
                                             'subject' => $this->input->post('subject'),
                                             'message' => $this->input->post('message'),
-                                            'appointment_status' => ucfirst("pending"),
+                                            'appointment_status' => ucfirst("unread"),
                                             'date_posted' => date('Y-m-d H:m:s')
                                             );
                                            
