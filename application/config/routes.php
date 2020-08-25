@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'MainController';
+// LANDING PAGE ROUTES
 $route['home'] ='MainController/dynamic_view/home';
 $route['login'] = 'MainController/dynamic_view/login';
 $route['about'] = 'MainController/dynamic_view/about';
@@ -59,11 +60,22 @@ $route['support'] = 'MainController/dynamic_view/support';
 $route['login_account'] = 'MainController/login';
 $route['Appointment'] = 'MainController/setAppointment';
 $route['logout'] = 'MainController/logout';
-$route['admin'] = 'AdminController/dynamic_view/dashboard/0';
-$route['admin/(:num)'] = 'AdminController/dynamic_view/dashboard/$1';
+// ADMIN PAGE ROUTES
+$route['admin'] = 'AdminController/dynamic_view';
+$route['users'] = 'AdminController/dynamic_view/users';
+$route['finances'] = 'AdminController/dynamic_view/accounting';
+$route['feedbacks'] = 'AdminController/dynamic_view/feedbacks';
+$route['managements'] = 'AdminController/dynamic_view/managements';
+$route['transactions'] = 'AdminController/dynamic_view/transactions';
+$route['appointments'] = 'AdminController/dynamic_view/appointments/0';
+$route['appointments/(:num)'] = 'AdminController/dynamic_view/appointments/$1';
+// BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';
+// ACCOUNTING PAGE ROUTES
 $route['accounting'] = 'AccountingController/dynamic_view';
+// CONSIGNEE PAGE ROUTES
 $route['consignee'] = 'ConsigneeController/dynamic_view';
+
 
 
 $route['404_override'] = '';

@@ -91,30 +91,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-                 <h4 class="modal-title mx-auto" id="optionModalLabel">Select Options</h4>
+                 <h4 class="modal-title mx-auto" id="optionModalLabel">Selection of Options</h4>
                   
             </div>
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">ACCOUNTS</a>
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">APPOINTMENTS</a> 
+                            <a href="<?php echo base_url('users');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">ACCOUNTS</a>
+                            <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">APPOINTMENTS</a> 
                         </div>    
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">FINANCE</a>
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="FeedbacksLink">FEEDBACKS</a> 
+                            <a href="<?php echo base_url('finances');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">FINANCE</a>
+                            <a href="<?php echo base_url('feedbacks');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="FeedbacksLink">FEEDBACKS</a> 
                         </div>    
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">MANAGEMENT</a>
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a> 
+                            <a href="<?php echo base_url('managements');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">MANAGEMENT</a>
+                            <a href="<?php echo base_url('transactions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a> 
                         </div>    
                   </div> 
              </div>
-             <div class="modal-footer">
+             <div class="modal-footer mx-auto">
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                
              </div>

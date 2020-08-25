@@ -1,7 +1,7 @@
 
 
 <div class="card__container__box">
-	<!-- <div class="container">
+	 <div class="container mb-5">
 		<div class="row ">
 			<div class="col-lg-4 card__templates">
 						<a href="#" class="card border-0  shadow-lg bg-success">
@@ -37,37 +37,6 @@
 						</a>
 					</div>
 				</div>
-			</div> -->
-		<div class="container ">
-				<table class="table table-hover text-center">
-				  <thead class="thead-light">
-				  <tr>
-				  	<th colspan="5"><h1>Appointments</h1></th>
-				  </tr>
-				    <tr>
-					  <th scope="col">Client Name</th>
-					  <th scope="col">Email</th>					 
-					  <th scope="col">Subject</th>
-					  <th scope="col">Status</th>
-					  <th scope="col">Options</th>
-				    </tr>
-				  </thead> 
-					<tbody>
-						<?php  foreach($response as $result ) { ?>
-						<tr>
-								<td><?php echo ucfirst($result->firstname).' '.ucfirst($result->lastname);?></td>
-								<td><?php echo $result->email;?></td>
-								<td><?php echo $result->subject;?></td>
-								<td><?php echo $result->appointment_status;?></td>
-								<td class="row"><a href="<?php echo base_url('view/'.$result->appointment_ID);?>" class="btn btn-secondary mr-2 ">Read</a><a href="<?php echo base_url('delete/'.$result->appointment_ID);?>" class="btn btn-danger "><i class="fas fa-trash-o"></i></a></td>
-							</tr>
-						<?php }  ?>
-						</tbody>
-				
-			</table>
-			<div class="text-center">
-				<?php echo $this->pagination->create_links();?>
-			</div>
-		</div>
-	</div>
+			</div> 
+		
 </div>
