@@ -15,22 +15,21 @@
 				    </tr>
 				  </thead> 
 					<tbody>
-						<!-- <?php foreach($transactions as $transaction) :?> -->
+						 <?php foreach($transactions as $transaction) :?> 
 						<tr>
-								<!-- <td><?php echo $transaction->transaction_number;?></td>
+						
+							  	<td><?php echo $transaction->transaction_number;?></td>
 								<td><?php echo $transaction->company_name;?></td>
 								<td><?php echo ucfirst($transaction->first_name).' '.ucfirst($transaction->last_name);?></td>
 								<td><?php echo $transaction->processor_name;?></td>
-								<td><?php echo $transaction->status;?></td> -->
+								<td><?php echo $transaction->status;?></td> 
                                
 								<td ><a href="<?php echo base_url('view');?>" class="btn btn-secondary mr-2 "><i class="fas fa-street-view"></i></a><a href="<?php echo base_url('setPayment');?>" class="btn btn-success "><i class="fas fa-paypal"></i></a></td>
 							</tr>
-						<!-- <?php endforeach;?> -->
+					 <?php endforeach;?> 
 						</tbody>
 				
 			</table>
-                            <div class="text-center">
-                                <?php echo $this->pagination->create_links();?>
-                            </div>
+                            
 		</div>
 	</div>

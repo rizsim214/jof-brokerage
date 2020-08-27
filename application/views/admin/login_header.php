@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container-fluid">
       
         
-         <a class="navbar-brand" href="<?php echo base_url('admin');?>"><span class="mt-2">Admin Panel</span></a> 
+         <a class="navbar-brand" href="<?php echo base_url('admin');?>"><span class="pt-2">Admin Panel</span></a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

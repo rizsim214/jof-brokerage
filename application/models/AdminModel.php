@@ -78,16 +78,13 @@ class AdminModel extends CI_Model{
         return $result->num_rows();
     }
     //GETTING ALL TRANSACTIONS
-    public function getAllTransaction($limit , $offset){
+    public function getAllTransaction(){
         
         $this->db->select('*,transaction.status as transaction_status');
         $this->db->from('transaction');
-        $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID');
+        $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID',
+                        'users_table' , 'transaction.processor_id = users_table.user_ID');
         $this->db->order_by('date_posted', 'desc');
-        $this->db->limit($limit);
-        $this->db->offset($offset);
-        
-       
 
         $query = $this->db->get();
 
@@ -100,7 +97,6 @@ class AdminModel extends CI_Model{
     
      public function countAllTransaction(){
 
-        
         $result= $this->db->get('transaction');
         return $result->num_rows();
     }
