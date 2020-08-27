@@ -1,6 +1,6 @@
 <div class="container mt-5">
 				<table class="table table-bordered table-hover text-center">
-				  <thead class="table-primary">
+				  <thead class="table-info">
 				 
 				  	<h1 class="text-center mb-2">ACCOUNTING</h1>
 				  

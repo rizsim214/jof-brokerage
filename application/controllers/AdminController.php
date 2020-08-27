@@ -33,17 +33,22 @@ class AdminController extends CI_Controller {
                 'per_page' => 5
                 
             );
-         
-            // $config3 = array(
-            //     'base_url' => site_url('users'),
-            //     'total_rows' => $this->AdminModel->countAllClients(),
-            //     'per_page' => 5    
+           $config2 = array(
+                'base_url' => site_url('users'),
+                'total_rows' => $this->AdminModel->countAllEmployees(),
+                'per_page' => 5    
 
-            // );
+            );
+            $config3 = array(
+                'base_url' => site_url('users'),
+                'total_rows' => $this->AdminModel->countAllClients(),
+                'per_page' => 5    
+
+            );
               
             $this->pagination->initialize($config);
-            // $data_results['clients'] = $this->AdminModel->getAllClients($config3['per_page'] , $offset);
-            
+            $data_results['clients'] = $this->AdminModel->getAllClients($config3['per_page'] , $offset);
+            $data_results['employees'] = $this->AdminModel->getAllEmployees($config2['per_page'] , $offset);
             $data_results['response'] = $this->AdminModel->getAllAppointment($config['per_page'] , $offset);
             $this->load->view('admin/login_header');
             $this->load->view('admin/'.$page ,$data_results);

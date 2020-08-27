@@ -71,8 +71,8 @@ $route['appointments'] = 'AdminController/dynamic_view/appointments/0';
 $route['appointments/(:num)'] = 'AdminController/dynamic_view/appointments/$1';
 $route['transactions'] = 'AdminController/getAllTransactions/0';
 $route['transactions/(:num)'] = 'AdminController/getAllTransactions/$1';
-$route['clients'] = 'AdminController/dynamic_view/clients/0';
-$route['clients/(:num)'] = 'AdminController/dynamic_view/clients/$1';
+$route['users'] = 'AdminController/dynamic_view/users/0';
+$route['users/(:num)'] = 'AdminController/dynamic_view/users/$1';
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';
 // ACCOUNTING PAGE ROUTES
