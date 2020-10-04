@@ -7,7 +7,7 @@
     <div class="form">
         <img class="<?php echo base_url();?>assets/img/quickExpress.png" class="form__img">
             <?php if($this->session->flashdata('error')) {?>
-                 <div class="alert alert-danger mt-5 col-md-8 " role="alert">
+                 <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
                        <?php echo $this->session->flashdata('error');?>
                             </div>
                               <?php }?>
@@ -19,14 +19,14 @@
                         <div class="form-group my-2">
                             <div class="row">
                                  <label for="email" class="form__label col-md-4"><i class="fas fa-user mr-1"></i>Email </label>
-                                     <input type="email" class="form-control col-md-7 mx-2" name="email" placeholder="email">
+                                     <input type="email" class="form-control col-md-7 mx-2" name="email" placeholder="Email Address">
                                         <div class="invalid-feedback" ><?php echo form_error('email'); ?></div>                                     
                             </div>
                         </div>
                         <div class="form-group my-2">
                             <div class="row">
                                  <label for="pass" class="form__label col-md-4"><i class="fas fa-lock mr-1"></i>Password</label>
-                                     <input type="password" class="form-control col-md-7 mx-2" name="password" placeholder="password">
+                                     <input type="password" class="form-control col-md-7 mx-2" name="password" placeholder="Password">
                                      <div class="invalid-feedback" ><?php echo form_error('password'); ?></div>  
                             </div>
                         </div>

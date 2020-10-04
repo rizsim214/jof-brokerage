@@ -28,11 +28,10 @@ class AdminModel extends CI_Model{
     }
     
     //GETTING ALL EMPLOYEE ACCOUNTS
-    public function getAllEmployees($limit , $offset){
+    public function getAllEmployees(){
         
         $user_role = array('2' ,'3' ,'4');
-        $this->db->limit($limit);
-        $this->db->offset($offset);
+      
         $this->db->ORDER_BY('user_ID DESC');
         
         $this->db->WHERE_IN('user_role', $user_role);
@@ -46,19 +45,11 @@ class AdminModel extends CI_Model{
         }
     }
     
-    public function countAllEmployees(){
-       $user_role = array('2' ,'3' ,'4');
-       
-        $this->db->WHERE_IN('user_role' , $user_role);
-        $result = $this->db->get('users_table');
-        return $result->num_rows();
-    }
+  
     //GETTING ALL CLIENT ACCOUNTS
-    public function getAllClients($limit , $offset){
+    public function getAllClients(){
         
-        
-        $this->db->limit($limit);
-        $this->db->offset($offset);
+
         $this->db->ORDER_BY('user_ID DESC');
         $this->db->WHERE('user_role' , 1 );
 
@@ -70,13 +61,7 @@ class AdminModel extends CI_Model{
             return $query->result();
         }
     }
-    
-     public function countAllClients(){
-       
-        $this->db->where('user_role' , 1);
-        $result= $this->db->get('users_table');
-        return $result->num_rows();
-    }
+   
     //GETTING ALL TRANSACTIONS
     public function getAllTransaction(){
         
@@ -100,4 +85,21 @@ class AdminModel extends CI_Model{
         $result= $this->db->get('transaction');
         return $result->num_rows();
     }
+    //REGISTER USER ACCOUNT
+
+    public function register_user($data){
+      $result = $this->db->insert('users_table' , $data);
+      return $result;
+    }
+    
+    public function delete_user($id){
+        $this->db->where('user_ID' , $id);
+        $this->db->delete('users_table');
+        return TRUE;
+    }
+    public function delete_appointment($id){
+        $this->db->where('appointment_ID' , $id);
+        $this->db->delete('appointments');
+        return TRUE;
+    } 
 }
