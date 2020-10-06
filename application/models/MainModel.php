@@ -22,7 +22,8 @@ class MainModel extends CI_Model{
 
     public function check_user($email , $password){
      if(!$email && !$password){
-      return FALSE;
+      return NULL;
+      
      }else{
 
        $this->db->select('*');

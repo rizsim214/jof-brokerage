@@ -50,30 +50,32 @@ class MainController extends CI_Controller {
                           }else{
 
                              $data_result = $this->MainModel->check_user($this->input->post('email') ,  md5($this->input->post('password')));
-                    //         echo md5('password');
-                    //    var_dump($data_result);die();
+               
+                    //   print_r($data_result);die();
                             
 
                            if(!$data_result){
 
-                                     $this->session->set_flashdata('error' , 'The user account that you have entered is invalid or not yet approved by the admin... Please try again');
+                                     $this->session->set_flashdata('error' , 'Credentials not found... Please try again');
                                         redirect('login' , 'refresh');
                                 }else{
                                     $this->session->set_userdata('isUserLoggedIn' , TRUE);
-                                    $this->session->set_userdata('user_ID' , $data_result['id']);
+                                    $this->session->set_userdata('user_ID' , $data_result['user_ID']);
                                     $this->session->set_userdata('user_info', $data_result);
-                                    
-                                    if($this->session->userdata($data_result['user_type']) == 1 || $this->session->userdata('isUserLoggedIn') == TRUE){
-                                        redirect('admin');
-                                          }elseif($this->session->userdata($data_result['user_type']) == 2 || $this->session->userdata('isUserLoggedIn') == TRUE){
-                                               redirect('broker');
-                                                  }elseif($this->session->userdata($data_result['user_type']) == 3 || $this->session->userdata('isUserLoggedIn') == TRUE){
-                                                       redirect('accounting');
-                                                          }elseif($this->session->userdata($data_result['user_type']) == 4 || $this->session->userdata('isUserLoggedIn') == TRUE){
-                                                              redirect('consignee');
-                                                    }
-
-                                     }
+                                    //  print_r($data_result['user_role']);die();
+                                    if($data_result['user_role'] == 1 && $data_result['register_status'] == "accepted"){
+                                        redirect('consignee' , 'refresh');
+                                    } elseif($data_result['user_role'] == 2 && $data_result['register_status'] == "accepted") {
+                                        redirect('broker' , 'refresh');
+                                    } elseif($data_result['user_role'] == 3 && $data_result['register_status'] == "accepted") {
+                                        redirect('accounting' , 'refresh');
+                                    } elseif($data_result['user_role'] == 4 && $data_result['register_status'] == "accepted") {
+                                        redirect('admin' , 'refresh');
+                                    }else{
+                                        $this->session->set_flashdata('error', 'Account has not yet been approved by the admin... Please try again');
+                                        redirect('login' , 'refresh');
+                                    }
+                           }
                                 
                     }
               }
