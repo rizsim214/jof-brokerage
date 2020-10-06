@@ -44,7 +44,7 @@ class AdminModel extends CI_Model{
         }else{
             return $query->result();
         }
-    }
+    } 
     
     public function countAllEmployees(){
        $user_role = array('2' ,'3' ,'4');
