@@ -135,7 +135,7 @@
                                         <option value="2">Processor</option>
                                     </select>
                         <div class="text-center">
-                           <button  type="submit" class="btn btn-md btn-danger mt-3" >Register</button>
+                           <button href="register"  type="submit" class="btn btn-md btn-danger mt-3" >Register</button>
                         </div>
                         <?php echo form_close();?>
                  </div> 

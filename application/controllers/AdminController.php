@@ -123,6 +123,7 @@ class AdminController extends CI_Controller {
                 $this->dynamic_view('users');                 
             }
         }
+
     }
      
     public function delete($id){
