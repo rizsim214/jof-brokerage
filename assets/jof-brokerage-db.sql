@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2020 at 02:34 PM
+-- Generation Time: Oct 06, 2020 at 10:04 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.2.23
 
@@ -150,7 +150,9 @@ INSERT INTO `users_table` (`user_ID`, `user_role`, `company_name`, `company_loca
 (5, 4, 'jof brokerage', 'lapu lapu', 'riz', 'sim', '5f4dcc3b5aa765d61d8327deb882cf99', 'consignee123@gmail.com', '12312312312', NULL, 'accepted', NULL, NULL),
 (9, 2, 'qweqweqwe', 'qweqweqwe', 'andrei', 'sim', '5f4dcc3b5aa765d61d8327deb882cf99', 'broker@gmail.com', '09123456789', NULL, NULL, NULL, '2020-09-09 22:09:50'),
 (11, 1, 'qweqweqwe', 'qweqweqwe', 'wendy', 'satinitigan', '5f4dcc3b5aa765d61d8327deb882cf99', 'consignee@gmail.com', '09753903302', NULL, NULL, NULL, '2020-09-09 22:09:32'),
-(12, 1, 'Shelby Guns & Liquor ', 'Bonn, Germany', 'Achmed', 'Terrorist', '5f4dcc3b5aa765d61d8327deb882cf99', 'achmed@gmail.com', '09123456789', NULL, NULL, NULL, '2020-09-09 22:09:23');
+(12, 1, 'Shelby Guns & Liquor ', 'Bonn, Germany', 'Achmed', 'Terrorist', '5f4dcc3b5aa765d61d8327deb882cf99', 'achmed@gmail.com', '09123456789', NULL, NULL, NULL, '2020-09-09 22:09:23'),
+(13, 2, 'jof', 'cebu', 'michael', 'sim', '5f4dcc3b5aa765d61d8327deb882cf99', 'michaelsim@gmail.com', '09753903303', NULL, 'accepted', NULL, '2020-10-04 01:10:32'),
+(14, 4, 'jof', 'cebu', 'rizzyD', 'sim', '5f4dcc3b5aa765d61d8327deb882cf99', 'rizsim214@gmail.com', '09753903303', NULL, 'accepted', NULL, '2020-10-04 01:10:32');
 
 --
 -- Indexes for dumped tables
@@ -194,7 +196,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `users_table`
 --
 ALTER TABLE `users_table`
-  MODIFY `user_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
