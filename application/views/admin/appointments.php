@@ -1,4 +1,13 @@
 <div class="container mt-5">
+ <?php if($this->session->flashdata('error')) {?>
+                 <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
+                       <?php echo $this->session->flashdata('error');?>
+                            </div>
+                              <?php } elseif($this->session->flashdata('success')) {?>
+                                 <div class="alert alert-success mt-5 col-md-8 mx-auto " role="alert">
+                                    <?php echo $this->session->flashdata('success');?>
+                                         </div>
+                         <?php }?>
 				<table class="table table-bordered table-hover text-center">
 				  <thead class="table-info">
 				

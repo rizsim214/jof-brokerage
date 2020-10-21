@@ -8,7 +8,8 @@ class AdminController extends CI_Controller {
        
         $this->load->model('AdminModel');
 
-        $user_logged = $this->session->userdata('isUserLoggedIn');
+        $user_logged = $this->session->userdata();
+        
         if(!$user_logged == TRUE){
             redirect('home');
         }
@@ -19,6 +20,7 @@ class AdminController extends CI_Controller {
 
 
         $this->dynamic_view();
+        
     }
 
      public function dynamic_view($page = 'dashboard' , $offset = 0 ){
@@ -49,42 +51,23 @@ class AdminController extends CI_Controller {
           
               
             $this->pagination->initialize($config);
+            
             $data_results = array(
+                
                 'transactions' => $this->AdminModel->getAllTransaction(),
                 'clients' =>  $this->AdminModel->getAllClients(),
                 'employees' => $this->AdminModel->getAllEmployees(),
                 'response' => $this->AdminModel->getAllAppointment($config['per_page'] , $offset)
             );
            
-            $this->load->view('admin/includes/login_header');
+            $this->load->view('admin/includes/login_header',$data_results);
             $this->load->view('admin/'.$page ,$data_results);
             $this->load->view('includes/footer');
             
+            
         }
     }
-    //  public function register_validation(){
-           
-        
-    // }
-  
-    public function register(){
-        if(!$this->input->post()){
-            $this->session->set_flashdata('error' , 'Something went wrong while creating your account... Please try again');
-            $this->dynamic_view('users');
-        }else{
-                $data = array(
-                    'first_name' => $this->input->post('first_name'),
-                    'last_name' => $this->input->post('last_name'),
-                    'company_name' => $this->input->post('company_name'),
-                    'company_location' => $this->input->post('company_location'),
-                    'email_add' => $this->input->post('email_add'),
-                    'user_pass' => md5($this->input->post('user_pass')),
-                    'contact_info' => $this->input->post('contact_info'),
-                    'user_role' => $this->input->post('user_role'),
-                    'date_registerd' => date('Y-m-d H:m:s')
-
-                );
-                // print_r($data);die();
+      public function register_validation(){
                 $this->form_validation->set_rules('firstname' , 'First Name' , 'trim|required');
                 $this->form_validation->set_rules('lastname' , 'Last Name' , 'trim|required');
                 $this->form_validation->set_rules('email' , 'Email Address' , 'trim|required');
@@ -92,6 +75,16 @@ class AdminController extends CI_Controller {
                 $this->form_validation->set_rules('confirm' , 'Confirm Password' , 'trim|required|matches[password]');
                 $this->form_validation->set_rules('contact' , 'Contact Information' , 'trim|required');
                 $this->form_validation->set_rules('user_role' , 'User Role' , 'required');
+        
+     }
+        
+    public function register(){
+        if(!$this->input->post()){
+            $this->session->set_flashdata('error' , 'Something went wrong while creating your account... Please try again');
+            $this->dynamic_view('users');
+        }else{
+                
+           $this->register_validation();
 
          
             if($this->form_validation->run() == TRUE){
@@ -125,7 +118,7 @@ class AdminController extends CI_Controller {
         }
     }
      
-    public function delete($id){
+    public function delete_account($id){
         $result = $this->AdminModel->delete_user($id);
 
         if(!$result){
@@ -144,5 +137,55 @@ class AdminController extends CI_Controller {
             $this->session->set_flashdata('success' , 'Message has been successfully deleted');
         }
         $this->dynamic_view('appointments');
+    }
+    
+    public function view_account($id){
+        $user_data = $this->AdminModel->get_user_info($id);
+
+        if(!$user_data){
+            $this->session->set_flashdata('error' , 'Account data unsucessfully retrieved... Please try again.');
+            $this->dynamic_view('users');
+        }else{
+            $this->dynamic_view('view_user');
+        }
+    }
+
+    public function view_feedbacks(){
+
+         
+                 $feedback_data['feedbacks'] = $this->AdminModel->get_feedback();
+
+                 if(!$feedback_data){
+                        $this->session->set_flashdata('error' , 'Unable to access feedbacks... Please reload the page');
+                        $this->dynamic_view('feedbacks');
+                 }else{
+
+                        $config = array(
+                        'base_url' => site_url('feedbacks'),
+                        'total_rows' => $this->AdminModel->countAllFeedbacks(),
+                        'per_page' => 5,
+                        'num_tag_open' => '<li class="pg-item">' ,
+                        'num_tag_close' => '</li>' ,
+                        'cur_tag_open' => '<li class="active"><a href="javascript:void(0);">',
+                        'cur_tag_close' => '</a></li>',
+                        'next_link' => '<li class="pg-next ml-2">Next</li>',
+                        'prev_link'=> '<li class="pg-prev mr-2">Prev</li>',
+                        'next_tag_open' => '<li class="pg-next">',
+                        'next_tag_close' => '</li>', 
+                        'prev_tag_open' => '<li class="pg-prev">',
+                        'prev_tag_close' => '</li>',   
+                        'first_tag_open' => '<li class="pg-item mr-2">',
+                        'first_tag_close' => '</li>',
+                        'last_tag_open' => '<li class="pg-item ml-2">',
+                        'last_tag_close' => '</li>' 
+                            );
+                                    $this->pagination->initialize($config);
+
+                                    $this->load->view('admin/includes/login_header');
+                                    $this->load->view('admin/feedbacks' , $feedback_data , $offset = 0);
+                                    $this->load->view('includes/footer');
+                        }
+
+
     }
 }

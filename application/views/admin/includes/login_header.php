@@ -14,18 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/animate.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jof_styles.css">
     <link rel="icon" href="<?php echo base_url();?>assets/img/favicon.png" type="image/png">
-    <script>
-        function openSlideMenu(){
-          document.querySelector('#menu').style.width ='250px';
-          document.querySelector('#content').style.marginLeft ='250px';
-        }
-        function closeSlideMenu() {
-          document.querySelector('#menu').style.width ='0';
-          document.querySelector('#content').style.marginLeft ='0';
-        }
-        
-
-    </script>
+  
     <title>J.O.F Customs Brokerage</title>
 
   </head>
@@ -46,6 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <li class="nav-item">
                <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Options</a>
             </li> 
+
              <li class="nav-item">
                  <!-- Default dropleft button -->
                 <div class="btn-group dropleft">
@@ -53,8 +43,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <i class="fas fa-optin-monster"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">View Account</a>
-                <a class="dropdown-item" href="#">Manage Account</a>
+                
+               
+                    <a class="dropdown-item" href="<?php echo base_url('view_account');?>">View Account</a>
+                   <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">TBD</a>
                 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo base_url('logout');?>">Logout</a>
@@ -67,25 +60,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </nav>
  </header>
 
-<!-- <div id="content">
-    <span class="slide">
-        <a href="#" onclick="openSlideMenu()">
-          <i class="fas fa-bars"></i>
-        </a>
-    </span>
-  <div class="nav" id="menu" aria-hidden="true">
-      <a href="#" class="close" onclick="closeSlideMenu()">
-        <i class="fas fa-times"></i>
-	  </a>
-	  
-      <a href="#">ACCOUNTS</a>
-      <a href="#">APPOINTMENTS</a>
-      <a href="#">FINANCE</a>
-      <a href="#">FEEDBACKS</a>
-      <a href="#">TRANSACTIONS</a>
-
-  </div> -->
-
 
  	 <div class=" modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="optionModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -97,13 +71,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                            <a href="<?php echo base_url('users');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">VIEW ACCOUNTS</a>
+                            <a href="<?php echo base_url('user_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">VIEW ACCOUNTS</a>
                             <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">APPOINTMENTS</a> 
                         </div>    
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
-                            <a href="<?php echo base_url('finances');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">ACCOUNTING</a>
+                            <a href="<?php echo base_url('financial_transaction');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">ACCOUNTING</a>
                             <a href="<?php echo base_url('feedbacks');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="FeedbacksLink">FEEDBACKS</a> 
                         </div>    
                   </div>

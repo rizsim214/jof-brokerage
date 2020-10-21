@@ -60,8 +60,7 @@ class MainController extends CI_Controller {
                                         redirect('login' , 'refresh');
                                 }else{
                                     $this->session->set_userdata('isUserLoggedIn' , TRUE);
-                                    $this->session->set_userdata('user_ID' , $data_result['user_ID']);
-                                    $this->session->set_userdata('user_info', $data_result);
+                                  
                                     //  print_r($data_result['user_role']);die();
                                     if($data_result['user_role'] == 1 && $data_result['register_status'] == "accepted"){
                                         redirect('consignee' , 'refresh');
@@ -70,7 +69,7 @@ class MainController extends CI_Controller {
                                     } elseif($data_result['user_role'] == 3 && $data_result['register_status'] == "accepted") {
                                         redirect('accounting' , 'refresh');
                                     } elseif($data_result['user_role'] == 4 && $data_result['register_status'] == "accepted") {
-                                        redirect('admin' , 'refresh');
+                                        redirect('admin' , 'refresh', $data_result);
                                     }else{
                                         $this->session->set_flashdata('error', 'Account has not yet been approved by the admin... Please try again');
                                         redirect('login' , 'refresh');

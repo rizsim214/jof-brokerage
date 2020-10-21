@@ -1,5 +1,5 @@
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <?php if($this->session->flashdata('error')) {?>
                  <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
                        <?php echo $this->session->flashdata('error');?>
@@ -36,7 +36,7 @@
 				      }elseif($employee->user_role == '3'){
 				      		echo "Accounting";
 				      } ?></td>
-                    <td><a href="#" class="btn btn-success mr-2"><i class="fas fa-glass"></i></a> <a onclick="return confirm('Are you sure you want to delete this account?')" href="<?php echo base_url('delete_user');?>/<?php echo $employee->user_ID;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+                    <td><a href="#" class="btn btn-success mr-2"><i class="fas fa-glass"></i></a> <a onclick="return confirm('Are you sure you want to delete this account?')" href="<?php echo base_url('delete_account');?>/<?php echo $employee->user_ID;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                 </tr>
                     <?php endforeach;?>
 
@@ -61,7 +61,7 @@
                 <tr>
                     <td><?php echo ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
                     <td><?php echo $client->company_name;?></td>
-                    <td><a href="#" class="btn btn-success mr-2"><i class="fas fa-glass"></i></a>  <a onclick="return confirm('Are you sure you want to delete this account?')" href="<?php echo base_url('delete_user');?>/<?php echo $client->user_ID;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+                    <td><a href="#" class="btn btn-success mr-2"><i class="fas fa-glass"></i></a>  <a onclick="return confirm('Are you sure you want to delete this account?')" href="<?php echo base_url('delete_account');?>/<?php echo $client->user_ID;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                 </tr>
                 <?php }?>
             </tbody>

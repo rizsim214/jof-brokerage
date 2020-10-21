@@ -62,15 +62,19 @@ $route['Appointment'] = 'MainController/setAppointment';
 $route['logout'] = 'MainController/logout';
 // ADMIN PAGE ROUTES
 $route['admin'] = 'AdminController/dynamic_view';
-$route['users'] = 'AdminController/dynamic_view/users';
-$route['finances'] = 'AdminController/dynamic_view/accounting';
-$route['feedbacks'] = 'AdminController/dynamic_view/feedbacks';
+$route['user_accounts'] = 'AdminController/dynamic_view/users';
+$route['financial_transaction'] = 'AdminController/dynamic_view/accounting';
+$route['feedbacks'] = 'AdminController/view_feedbacks';
 $route['managements'] = 'AdminController/dynamic_view/managements';
 $route['transactions'] = 'AdminController/dynamic_view/transactions';
 $route['appointments'] = 'AdminController/dynamic_view/appointments/0';
 $route['appointments/(:num)'] = 'AdminController/dynamic_view/appointments/$1';
 $route['transactions'] = 'AdminController/dynamic_view/transactions';
-
+$route['register'] = 'AdminController/register';
+$route['delete_appointment/(:num)'] = 'AdminController/delete_appointments/$1';
+$route['delete_account/(:num)'] = 'AdminController/delete_account/$1';
+$route['view_account/(:num)'] = 'AdminController/view_account/$1';
+$route['manage_account/(:num)'] = 'AdminController/manage_account/$1';
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';
 // ACCOUNTING PAGE ROUTES

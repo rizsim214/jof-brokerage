@@ -8,6 +8,13 @@ class AdminModel extends CI_Model{
 
         $this->load->database();
     }
+    public function get_user_info($id){
+       $this->db->select('*');
+       $this->db->from('users_table');
+        $this->db->where('user_ID' , $id);
+      $this_query = $this->db->get();
+      return $this_query->result();
+    }
         //GETTING ALL APPOINTMENTS
     public function getAllAppointment($limit , $offset){
         
@@ -102,4 +109,18 @@ class AdminModel extends CI_Model{
         $this->db->delete('appointments');
         return TRUE;
     } 
+
+     //FEEDBACK FUNCTIONS
+    public function countAllFeedbacks(){
+        $result = $this->db->get('feedbacks');
+        return $result->num_rows();
+    }
+    public function get_feedback(){
+       $this->db->select('*');
+       $this->db->from('feedbacks');
+       $this->db->join('users_table' , 'feedbacks.user_fk_ID = users_table.user_ID');
+       $query = $this->db->get();
+
+       return $query->result();
+    }
 }
