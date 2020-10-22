@@ -42,6 +42,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+               <a class="nav-item nav-link" href="<?php echo base_url('admin');?>"   id="adminName">Welcome <?= $this->session->user_this; ?></a>
+            </li>
            
               <li class="nav-item">
                <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Options</a>
@@ -91,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-                 <h4 class="modal-title mx-auto" id="optionModalLabel">Selection of Options</h4>
+                 <h4 class="modal-title mx-auto text-dark" id="optionModalLabel">Selection of Options</h4>
                   
             </div>
              <div class="modal-body">

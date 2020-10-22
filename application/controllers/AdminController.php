@@ -146,4 +146,10 @@ class AdminController extends CI_Controller {
         }
         $this->dynamic_view('appointments');
     }
+
+
+    public function editUser(){
+
+        echo "users";
+    }
 }

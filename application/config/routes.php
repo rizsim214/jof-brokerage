@@ -71,6 +71,9 @@ $route['appointments'] = 'AdminController/dynamic_view/appointments/0';
 $route['appointments/(:num)'] = 'AdminController/dynamic_view/appointments/$1';
 $route['transactions'] = 'AdminController/dynamic_view/transactions';
 
+$route['register'] = 'AdminController/register';
+$route['editAccount'] = 'BrokerController/edit_accounts/$1';
+
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';
 // ACCOUNTING PAGE ROUTES
