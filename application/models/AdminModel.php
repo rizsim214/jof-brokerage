@@ -111,13 +111,21 @@ class AdminModel extends CI_Model{
     } 
 
      //FEEDBACK FUNCTIONS
+    public function delete_this_feedback($id){
+        $this->db->where('feedback_ID' , $id);
+        $this->db->delete('feedbacks');
+        return TRUE;
+    }
     public function countAllFeedbacks(){
         $result = $this->db->get('feedbacks');
         return $result->num_rows();
     }
-    public function get_feedback(){
+    public function get_feedback($limit , $offset){
        $this->db->select('*');
        $this->db->from('feedbacks');
+       $this->db->limit($limit);
+       $this->db->offset($offset);
+       $this->db->ORDER_BY('feedback_ID DESC');
        $this->db->join('users_table' , 'feedbacks.user_fk_ID = users_table.user_ID');
        $query = $this->db->get();
 

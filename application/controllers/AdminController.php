@@ -60,7 +60,7 @@ class AdminController extends CI_Controller {
                 'response' => $this->AdminModel->getAllAppointment($config['per_page'] , $offset)
             );
            
-            $this->load->view('admin/includes/login_header',$data_results);
+            $this->load->view('admin/includes/login_header');
             $this->load->view('admin/'.$page ,$data_results);
             $this->load->view('includes/footer');
             
@@ -151,17 +151,9 @@ class AdminController extends CI_Controller {
     }
 
     public function view_feedbacks(){
-
-         
-                 $feedback_data['feedbacks'] = $this->AdminModel->get_feedback();
-
-                 if(!$feedback_data){
-                        $this->session->set_flashdata('error' , 'Unable to access feedbacks... Please reload the page');
-                        $this->dynamic_view('feedbacks');
-                 }else{
-
-                        $config = array(
-                        'base_url' => site_url('feedbacks'),
+           
+          $config = array(
+                        'base_url' => site_url('admin_feedback'),
                         'total_rows' => $this->AdminModel->countAllFeedbacks(),
                         'per_page' => 5,
                         'num_tag_open' => '<li class="pg-item">' ,
@@ -181,11 +173,27 @@ class AdminController extends CI_Controller {
                             );
                                     $this->pagination->initialize($config);
 
-                                    $this->load->view('admin/includes/login_header');
-                                    $this->load->view('admin/feedbacks' , $feedback_data , $offset = 0);
-                                    $this->load->view('includes/footer');
+                 $feedback_data['all_feedbacks'] = $this->AdminModel->get_feedback($config['per_page'] , $offset = 0);
+                
+                 if(!$feedback_data){
+                        $this->session->set_flashdata('error' , 'Unable to access feedbacks... Please reload the page');
+                        $this->dynamic_view('feedbacks');
+                 }else{
+                         $this->load->view('admin/includes/login_header');
+                         $this->load->view('admin/admin_feedback' , $feedback_data );
+                         $this->load->view('includes/footer');
                         }
 
-
+    }
+    
+    public function delete_feedback($id){
+        $result_data = $this->AdminModel->delete_this_feedback($id);
+       
+        if(!$result_data){
+            $this->session->set_flashdata('error' , 'Error!! Something went wrong while deleting feedback... Please try again later');
+        }else{
+            $this->session->set_flashdata('success' , 'Successfully removed feedback!');
+        }
+          redirect('admin_feedback');
     }
 }

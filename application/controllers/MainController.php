@@ -7,6 +7,7 @@ class MainController extends CI_Controller {
         parent:: __construct();
 
         $this->load->model('MainModel');
+        $this->load->model('AdminModel');
 
 
     }
@@ -125,6 +126,20 @@ class MainController extends CI_Controller {
     $this->form_validation->set_rules('message' , 'Message' , 'trim|required' , array('required' => 'Message field is required.'));
  }
 
+ public function view_feedback_landing(){
+  
+    $feedback_result['all_feedback'] = $this->MainModel->get_all_feedbacks();
+
+    if(!$feedback_result){
+        $this->session->set_flashdata('error' , 'Something went wrong while fetching data... Please try again and reload the page');
+           $this->dynamic_view('feedbacks');
+    }else{
+                     
+         $this->load->view('includes/header');
+         $this->load->view('pages/feedback' , $feedback_result , $offset = 0);
+         $this->load->view('includes/footer');
+    }
+ }
  public function logout(){
 
         $this->session->unset_userdata('isUserLoggedIn');
