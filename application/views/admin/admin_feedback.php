@@ -10,7 +10,7 @@
                                     <?php echo $this->session->flashdata('success');?>
                                          </div>
                          <?php }?>
-                         <table class="table  table-hover text-center">
+              <table class="table  table-hover text-center">
 				  <thead class="table-info">
 	            	<h1 class="text-center mb-2">Feedback Manager</h1>             
                                 <tr>

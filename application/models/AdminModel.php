@@ -131,4 +131,14 @@ class AdminModel extends CI_Model{
 
        return $query->result();
     }
+    // FAQS MODEL
+    public function add_faq($data){
+        $result = $this->db->insert('faq_table' , $data);
+      return $result;
+    }
+    public function countAllFaqs(){
+        $result = $this->db->get('faq_table');
+        return $result->num_rows();
+    }
+    
 }

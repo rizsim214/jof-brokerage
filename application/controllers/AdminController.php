@@ -185,7 +185,72 @@ class AdminController extends CI_Controller {
                         }
 
     }
-    
+    public function faq_management(){
+          $config = array(
+                        'base_url' => site_url('faq_management'),
+                        'total_rows' => $this->AdminModel->countAllFaqs(),
+                        'per_page' => 5,
+                        'num_tag_open' => '<li class="pg-item">' ,
+                        'num_tag_close' => '</li>' ,
+                        'cur_tag_open' => '<li class="active"><a href="javascript:void(0);">',
+                        'cur_tag_close' => '</a></li>',
+                        'next_link' => '<li class="pg-next ml-2">Next</li>',
+                        'prev_link'=> '<li class="pg-prev mr-2">Prev</li>',
+                        'next_tag_open' => '<li class="pg-next">',
+                        'next_tag_close' => '</li>', 
+                        'prev_tag_open' => '<li class="pg-prev">',
+                        'prev_tag_close' => '</li>',   
+                        'first_tag_open' => '<li class="pg-item mr-2">',
+                        'first_tag_close' => '</li>',
+                        'last_tag_open' => '<li class="pg-item ml-2">',
+                        'last_tag_close' => '</li>' 
+                            );
+                                    $this->pagination->initialize($config);
+
+                 $faq_data['all_faqs'] = $this->AdminModel->get_faqs($config['per_page'] , $offset = 0);
+
+                 if(!$faq_data){
+                     $this->session->set_flashdata('error' , 'Unable to access FAQS... Please reload the page');
+                     $this->dynamic_view('management');
+                 }else{
+                      $this->load->view('admin/includes/login_header');
+                      $this->load->view('admin/admin_feedback' , $faq_data );
+                      $this->load->view('includes/footer');
+                 }
+    }
+    public function validate_FAQ(){
+        $this->form_validation->set_rules('faq_question' , 'FAQ QUESTION' , 'trim|required');
+        $this->form_validation->set_rules('faq_answer' , 'FAQ ANSWER' , 'trim|required');
+    }
+    public function create_faq(){
+        if(!$this->input->post()){
+            $this->session->set_flashdata('error' , 'Something went wrong while creating FAQ');
+            $this->dynamic_view('managements');
+        }else{
+            $this->validate_FAQ();
+
+            if(!$this->form_validation->run() == TRUE){
+                $this->session->set_flashdata('error' , 'An error occured while validating post request! Please try again...');
+                $this->dynamic_view('managements');
+            }else{
+                $faq_data = array(
+                    'question' => $this->input->post('faq_question'),
+                    'answer' => $this->input->post('faq_answer'),
+                    'date_created' => date('Y-m-d H:m:s')
+                );
+
+                $result = $this->AdminModel->add_faq($faq_data);
+
+                if(!$result){
+                    $this->session->set_flashdata('error' , 'Something went wrong while creating FAQ! Please try again...');
+                    $this->dynamic_view('managements');
+                }else{
+                    $this->session->set_flashdata('success' , 'Successfully created FAQ! You can now see FAQ in the SUPPORT page');
+                    $this->dynamic_view('managements');
+                }
+            }
+        }
+    }
     public function delete_feedback($id){
         $result_data = $this->AdminModel->delete_this_feedback($id);
        

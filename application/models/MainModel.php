@@ -45,6 +45,7 @@ class MainModel extends CI_Model{
       $this->db->select('*');
       $this->db->from('feedbacks');
       // $this->db->where('feedback_status' , 1);
+      $this->db->ORDER_BY('feedback_ID DESC');
       $this->db->join('users_table' , 'feedbacks.user_fk_ID = users_table.user_ID' );
       $result = $this->db->get();
 
