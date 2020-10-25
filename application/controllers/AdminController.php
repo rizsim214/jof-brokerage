@@ -189,7 +189,7 @@ class AdminController extends CI_Controller {
                 
                  if(!$feedback_data){
                         $this->session->set_flashdata('error' , 'Unable to access feedbacks... Please reload the page');
-                        $this->dynamic_view('feedbacks');
+                        redirect('admin_feedback');
                  }else{
                          $this->load->view('admin/includes/login_header');
                          $this->load->view('admin/admin_feedback' , $feedback_data );
@@ -226,7 +226,7 @@ class AdminController extends CI_Controller {
                      $this->dynamic_view('management');
                  }else{
                       $this->load->view('admin/includes/login_header');
-                      $this->load->view('admin/admin_feedback' , $faq_data );
+                      $this->load->view('admin/managements' , $faq_data );
                       $this->load->view('includes/footer');
                  }
     }
@@ -246,22 +246,33 @@ class AdminController extends CI_Controller {
                 $this->dynamic_view('managements');
             }else{
                 $faq_data = array(
-                    'question' => $this->input->post('faq_question'),
-                    'answer' => $this->input->post('faq_answer'),
-                    'date_created' => date('Y-m-d H:m:s')
+                    'faq_question' => $this->input->post('faq_question'),
+                    'faq_answer' => $this->input->post('faq_answer'),
+                    'date_posted' => date('Y-m-d H:m:s')
                 );
 
                 $result = $this->AdminModel->add_faq($faq_data);
 
                 if(!$result){
                     $this->session->set_flashdata('error' , 'Something went wrong while creating FAQ! Please try again...');
-                    $this->dynamic_view('managements');
+                    
                 }else{
                     $this->session->set_flashdata('success' , 'Successfully created FAQ! You can now see FAQ in the SUPPORT page');
-                    $this->dynamic_view('managements');
+                    
                 }
+                redirect('faq_management');
             }
         }
+    }
+    public function delete_faq($id){
+        $faq_result = $this->AdminModel->delete_this_faq($id);
+
+        if(!$faq_result){
+            $this->session->set_flashdata('error' , 'Error!! Something went wrong while deleting FAQ... Please try again later');
+        }else{
+            $this->session->set_flashdata('success' , 'Successfully removed FAQ!');
+        }
+          redirect('faq_management');
     }
     public function delete_feedback($id){
         $result_data = $this->AdminModel->delete_this_feedback($id);
@@ -272,8 +283,6 @@ class AdminController extends CI_Controller {
             $this->session->set_flashdata('success' , 'Successfully removed feedback!');
         }
           redirect('admin_feedback');
-
-
 
     }
 }

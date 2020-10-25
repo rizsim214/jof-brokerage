@@ -14,12 +14,14 @@
             </tr>
         </thead>
         <tbody>
+         <?php  foreach($all_faqs as $faqs) :?>
             <tr>
-                <td>QUESTION</td>
-                <td>ANSWER</td>
-                <td>UPDATE</td>
-                <td>DELETE</td>
+                <td><?php echo $faqs->faq_question;?></td>
+                <td><?php echo $faqs->faq_answer;?></td>
+                <td><a href="#" class="btn btn-success"><i class="fa fa-plus"></i></a></td>
+                <td><a onclick="return confirm('Removing FAQ. Proceed?')" href="<?php echo base_url('delete_faq')?>/<?php echo $faqs->faq_ID?>" class="btn btn-danger"><i class="fa fa-minus"></i></a></td>
             </tr>
+             <?php endforeach; ?>
         </tbody>
     </table>
 

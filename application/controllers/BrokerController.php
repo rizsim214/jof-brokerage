@@ -56,7 +56,7 @@ class BrokerController extends CI_Controller {
              $data['email'] = $data['emp']['email_add'];
              $data['cnt'] = $data['emp']['contact_info'];
              $data['dateStart'] = $data['emp']['date_registered'];
-            print_r($data);
+            // print_r($data);
 
 
 

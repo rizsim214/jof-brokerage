@@ -79,6 +79,7 @@ $route['view_account/(:num)'] = 'AdminController/view_account/$1';
 $route['manage_account/(:num)'] = 'AdminController/manage_account/$1';
 $route['delete_feedback/(:num)'] = 'AdminController/delete_feedback/$1';
 $route['create_faq'] = 'AdminController/create_faq';
+$route['delete_faq/(:num)'] = 'AdminController/delete_faq/$1';
 
 $route['register'] = 'AdminController/register';
 $route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';

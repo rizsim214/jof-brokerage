@@ -140,5 +140,20 @@ class AdminModel extends CI_Model{
         $result = $this->db->get('faq_table');
         return $result->num_rows();
     }
-    
+    public function get_faqs($limit , $offset){
+        $this->db->select('*');
+       $this->db->from('faq_table');
+       $this->db->limit($limit);
+       $this->db->offset($offset);
+       $this->db->ORDER_BY('faq_ID DESC');
+      
+       $query = $this->db->get();
+
+       return $query->result();
+    }
+    public function delete_this_faq($id){
+         $this->db->where('faq_ID' , $id);
+        $this->db->delete('faq_table');
+        return TRUE;
+    }
 }
