@@ -149,7 +149,7 @@ class AdminController extends CI_Controller {
         }
         $this->dynamic_view('appointments');
     }
-<<<<<<< HEAD
+
     
     public function view_account($id){
         $user_data = $this->AdminModel->get_user_info($id);
@@ -272,16 +272,16 @@ class AdminController extends CI_Controller {
             $this->session->set_flashdata('success' , 'Successfully removed feedback!');
         }
           redirect('admin_feedback');
-=======
 
 
-<<<<<<< HEAD
-    public function editUser(){
 
-        echo "users";
->>>>>>> 7997713411b8d3264114bc15f55aba8ccaa9123c
-    }
-=======
+// <<<<<<< HEAD
+//     public function editUser(){
+
+//         echo "users";
+// >>>>>>> 7997713411b8d3264114bc15f55aba8ccaa9123c
+//     }
+// =======
     
->>>>>>> 1d2c504ee977803dcf9f4d042cbc9a9f152d1f9e
+// >>>>>>> 1d2c504ee977803dcf9f4d042cbc9a9f152d1f9e
 }
