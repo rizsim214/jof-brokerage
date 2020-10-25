@@ -275,13 +275,5 @@ class AdminController extends CI_Controller {
 
 
 
-// <<<<<<< HEAD
-//     public function editUser(){
-
-//         echo "users";
-// >>>>>>> 7997713411b8d3264114bc15f55aba8ccaa9123c
-//     }
-// =======
-    
-// >>>>>>> 1d2c504ee977803dcf9f4d042cbc9a9f152d1f9e
+    }
 }
