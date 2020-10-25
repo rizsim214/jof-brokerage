@@ -61,8 +61,20 @@ class MainController extends CI_Controller {
                                         redirect('login' , 'refresh');
                                 }else{
                                     $this->session->set_userdata('isUserLoggedIn' , TRUE);
+<<<<<<< HEAD
                                   
                                     //  print_r($data_result['user_role']);die();
+=======
+                                    $this->session->set_userdata('user_ID' , $data_result['user_ID']);
+                                    $this->session->set_userdata('user_info', $data_result);
+                                    $this->session->set_userdata('user_this' ,$data_result['first_name'].' '.$data_result['last_name']);
+                                    
+                                
+
+                                    
+
+                                    // print_r($data_result);die();
+>>>>>>> 7997713411b8d3264114bc15f55aba8ccaa9123c
                                     if($data_result['user_role'] == 1 && $data_result['register_status'] == "accepted"){
                                         redirect('consignee' , 'refresh');
                                     } elseif($data_result['user_role'] == 2 && $data_result['register_status'] == "accepted") {

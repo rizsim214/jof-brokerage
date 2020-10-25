@@ -50,7 +50,7 @@ class AdminModel extends CI_Model{
         }else{
             return $query->result();
         }
-    }
+    } 
     
   
     //GETTING ALL CLIENT ACCOUNTS

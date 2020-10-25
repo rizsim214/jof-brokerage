@@ -35,17 +35,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container-fluid">
       
         
-         <a class="navbar-brand" href="<?php echo base_url('admin');?>"><span class="pt-2">Broker Panel</span></a> 
+         <a class="navbar-brand" href="<?php echo base_url('broker');?>"><span class="pt-2">Broker Panel</span></a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+               <a class="nav-item nav-link" href="<?php echo base_url('broker');?>"   id="brokername">Welcome <?= $this->session->user_this; ?></a>
+            </li>   
            
               <li class="nav-item">
                <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Options</a>
             </li> 
+
+            
              <li class="nav-item">
                  <!-- Default dropleft button -->
                 <div class="btn-group dropleft">
@@ -54,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">View Account</a>
-                <a class="dropdown-item" href="#">Manage Account</a>
+                <a class="dropdown-item" href="editAccount/<?php $user_ID?>">Manage Account</a>
                 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo base_url('logout');?>">Logout</a>
@@ -86,18 +92,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   </div> -->
 
-
  	 <div class=" modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="optionModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-                 <h4 class="modal-title mx-auto" id="optionModalLabel">Selection of Options</h4>
+                 <h4 class="modal-title mx-auto text-dark" id="optionModalLabel">Selection of Options</h4>
                   
             </div>
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                            <a href="<?php echo base_url('users');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">VIEW ACCOUNTS</a>
+                           <!-- <a href="<?php echo base_url('users');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">VIEW ACCOUNTS</a> -->
                             <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">APPOINTMENTS</a> 
                         </div>    
                   </div>
@@ -121,3 +126,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
       </div>
     </div> 
+
+    <div class="container">

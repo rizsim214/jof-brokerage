@@ -23,4 +23,30 @@ class BrokerController extends CI_Controller {
             
         }
     }
+
+    public function edit_accounts($param){
+
+        echo "fuck hsit";
+
+        if($this->form_validation->run() == FALSE){
+
+            $page ="edit_account";
+            $data['title'] = "fuck";
+
+            if(!file_exists(APPPATH.'views/broker/'.$page.'.php')){
+                show_404();
+
+            }
+
+           
+         
+
+            $this->load->view('broker/includes/login_header');
+            $this->load->view('broker/'.$page,$data);
+            $this->load->view('includes/footer');
+          
+    }
+}
+
+
 }

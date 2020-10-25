@@ -61,7 +61,11 @@
                 <tr>
                     <td><?php echo ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
                     <td><?php echo $client->company_name;?></td>
+<<<<<<< HEAD
                     <td><a href="#" class="btn btn-success mr-2"><i class="fas fa-glass"></i></a>  <a onclick="return confirm('Are you sure you want to delete this account?')" href="<?php echo base_url('delete_account');?>/<?php echo $client->user_ID;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+=======
+                    <td><a  href="<?php  echo base_url('edit_user') ?>" class="btn btn-success mr-2"><i class="fas fa-glass"></i></a>  <a onclick="return confirm('Are you sure you want to delete this account?')" href="<?php echo base_url('delete_user');?>/<?php echo $client->user_ID;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+>>>>>>> 7997713411b8d3264114bc15f55aba8ccaa9123c
                 </tr>
                 <?php }?>
             </tbody>
@@ -135,7 +139,7 @@
                                         <option value="2">Processor</option>
                                     </select>
                         <div class="text-center">
-                           <button  type="submit" class="btn btn-md btn-danger mt-3" >Register</button>
+                           <button href="register"  type="submit" class="btn btn-md btn-danger mt-3" >Register</button>
                         </div>
                         <?php echo form_close();?>
                  </div> 
