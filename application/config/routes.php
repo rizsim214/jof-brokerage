@@ -72,7 +72,7 @@ $route['appointments/(:num)'] = 'AdminController/dynamic_view/appointments/$1';
 $route['transactions'] = 'AdminController/dynamic_view/transactions';
 
 $route['register'] = 'AdminController/register';
-$route['editAccount'] = 'BrokerController/edit_accounts/$1';
+$route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
 
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';

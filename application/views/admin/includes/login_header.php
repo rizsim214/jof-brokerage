@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="navbar-nav ml-auto">
 
           <li class="nav-item">
-               <a class="nav-item nav-link" href="<?php echo base_url('admin');?>"   id="adminName">Welcome <?= $this->session->user_this; ?></a>
+               <a class="nav-item nav-link" href="<?php echo base_url('admin');?>"   id="adminName">Welcome <?= $this->session->fullname; ?></a>
             </li>
            
               <li class="nav-item">
@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">View Account</a>
-                <a class="dropdown-item" href="#">Manage Account</a>
+                <a class="dropdown-item" href="editAccount/<?= $this->session->user_ID?>">Manage Account</a>
                 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo base_url('logout');?>">Logout</a>
