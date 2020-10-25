@@ -72,7 +72,6 @@ $route['transactions'] = 'AdminController/dynamic_view/transactions';
 $route['appointments'] = 'AdminController/dynamic_view/appointments/0';
 $route['appointments/(:num)'] = 'AdminController/dynamic_view/appointments/$1';
 $route['transactions'] = 'AdminController/dynamic_view/transactions';
-<<<<<<< HEAD
 $route['register'] = 'AdminController/register';
 $route['delete_appointment/(:num)'] = 'AdminController/delete_appointments/$1';
 $route['delete_account/(:num)'] = 'AdminController/delete_account/$1';
@@ -80,12 +79,10 @@ $route['view_account/(:num)'] = 'AdminController/view_account/$1';
 $route['manage_account/(:num)'] = 'AdminController/manage_account/$1';
 $route['delete_feedback/(:num)'] = 'AdminController/delete_feedback/$1';
 $route['create_faq'] = 'AdminController/create_faq';
-=======
 
 $route['register'] = 'AdminController/register';
 $route['editAccount'] = 'BrokerController/edit_accounts/$1';
 
->>>>>>> 7997713411b8d3264114bc15f55aba8ccaa9123c
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';
 // ACCOUNTING PAGE ROUTES
