@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container-fluid">
       
         
-         <a class="navbar-brand" href="<?php echo base_url('admin');?>"><span class="pt-2">Consignee Panel</span></a> 
+         <a class="navbar-brand" href="<?php echo base_url('consignee');?>"><span class="pt-2">Consignee Panel</span></a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,6 +32,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
            
+          <li class="nav-item">
+               <a class="nav-link" href="#"  id="navItem">Welcome <?= $this->session->fullname; ?></a>
+            </li> 
+
+        
               <li class="nav-item">
                <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Options</a>
             </li> 
@@ -43,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">View Account</a>
-                <a class="dropdown-item" href="#">Manage Account</a>
+                <a class="dropdown-item" href="editAccount/<?php $user_ID?>">Manage Account</a>
                 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo base_url('logout');?>">Logout</a>

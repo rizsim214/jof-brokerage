@@ -81,7 +81,7 @@ $route['delete_feedback/(:num)'] = 'AdminController/delete_feedback/$1';
 $route['create_faq'] = 'AdminController/create_faq';
 
 $route['register'] = 'AdminController/register';
-$route['editAccount'] = 'BrokerController/edit_accounts/$1';
+$route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
 
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';

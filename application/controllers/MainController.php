@@ -67,9 +67,12 @@ class MainController extends CI_Controller {
 =======
                                     $this->session->set_userdata('user_ID' , $data_result['user_ID']);
                                     $this->session->set_userdata('user_info', $data_result);
-                                    $this->session->set_userdata('user_this' ,$data_result['first_name'].' '.$data_result['last_name']);
+                                    $this->session->set_userdata('fullname' ,$data_result['first_name'].' '.$data_result['last_name']);
+                                    $this->session->set_userdata('user_this' ,$data_result['first_name']);
+                                    $this->session->set_userdata('user_that' ,$data_result['last_name']);
+                                    $this->session->set_userdata('userRole',$data_result['user_role']);
                                     
-                                
+                                   
 
                                     
 

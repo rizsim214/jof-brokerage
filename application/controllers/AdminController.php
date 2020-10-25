@@ -60,7 +60,17 @@ class AdminController extends CI_Controller {
                 'response' => $this->AdminModel->getAllAppointment($config['per_page'] , $offset)
             );
            
+        if($this->session->userRole == 2) {
+            $this->load->view('broker/includes/login_header');
+
+        }elseif($this->session->userRole == 4) {
             $this->load->view('admin/includes/login_header');
+
+        }elseif($this->session->userRole == 3) {
+            $this->load->view('accounting/includes/login_header');
+
+        }
+
             $this->load->view('admin/'.$page ,$data_results);
             $this->load->view('includes/footer');
             
@@ -265,9 +275,13 @@ class AdminController extends CI_Controller {
 =======
 
 
+<<<<<<< HEAD
     public function editUser(){
 
         echo "users";
 >>>>>>> 7997713411b8d3264114bc15f55aba8ccaa9123c
     }
+=======
+    
+>>>>>>> 1d2c504ee977803dcf9f4d042cbc9a9f152d1f9e
 }
