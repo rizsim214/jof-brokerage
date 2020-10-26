@@ -131,29 +131,29 @@ class AdminModel extends CI_Model{
 
        return $query->result();
     }
-    // FAQS MODEL
-    public function add_faq($data){
-        $result = $this->db->insert('faq_table' , $data);
+    // GLOSSARY MODEL
+    public function add_glossary($data){
+        $result = $this->db->insert('glossary_table' , $data);
       return $result;
     }
-    public function countAllFaqs(){
-        $result = $this->db->get('faq_table');
+    public function countAllGlossary(){
+        $result = $this->db->get('glossary_table');
         return $result->num_rows();
     }
-    public function get_faqs($limit , $offset){
+    public function get_glossary($limit , $offset){
         $this->db->select('*');
-       $this->db->from('faq_table');
+       $this->db->from('glossary_table');
        $this->db->limit($limit);
        $this->db->offset($offset);
-       $this->db->ORDER_BY('faq_ID DESC');
+       $this->db->ORDER_BY('glossary_ID DESC');
       
        $query = $this->db->get();
 
        return $query->result();
     }
-    public function delete_this_faq($id){
-         $this->db->where('faq_ID' , $id);
-        $this->db->delete('faq_table');
+    public function delete_this_glossary($id){
+         $this->db->where('glossary_ID' , $id);
+        $this->db->delete('glossary_table');
         return TRUE;
     }
 }

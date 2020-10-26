@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
-                            <a href="<?php echo base_url('faq_management');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">FAQs MANAGER</a>
+                            <a href="<?php echo base_url('glossary_management');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">GLOSSARY MANAGER</a>
                             <a href="<?php echo base_url('transactions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a> 
                         </div>    
                   </div> 

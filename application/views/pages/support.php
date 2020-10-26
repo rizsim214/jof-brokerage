@@ -75,10 +75,7 @@
          <h1 class="section__title">FAQs</h1>
          
             <div class=" container mb-5 faqs__box">
-                <div class="faqs">
-                    <h4 >Do you have questions regarding JOF Customs Brokerage?</h4>
-                    <p >In line with our efforts to provide quality service and excellent customer care, we have put together a list of frequently asked questions we have encountered over the many years of our experience:</p>
-                </div>
+              
                 <div class="faqs">
                     <h4 >What are the possible expenses for importation?</h4>
                     <p >Duty/Tax <br>
@@ -112,17 +109,24 @@
             </div>
     <hr>
          <h1 class="section__title">Glossary of Terms</h1>
-         <div class=" row col-lg-12 text-center mb-5">
-             
+          <?php foreach($all_glossary as $glossary) : ?>
+         <div class=" row col-lg-10 mx-auto mb-5 glossary">
+            
             <div class="col-md-4">
-               <p>HELLO WORLD</p>
+               <h3 class="mt-2"><?php echo $glossary->glossary_term;?></h3>
             </div>
             <div class="col-md-8">
-                <p>MEANING</p>
+                <p class="mt-2" style="color:red;"><?php echo $glossary->glossary_meaning;?></p>
             </div>
+            
         </div>
+        <?php endforeach;?>
+                <!-- <div class="pagination mx-auto">
+                   <?php echo $this->pagination->create_links();?>
+                </div> -->
    <hr>
             
     </div>
-   
+   <hr>
+        <div class="copyright text-center mb-2 ">Copyright: JOF CUSTOMS BROKERAGE 2020</div>
 </div>

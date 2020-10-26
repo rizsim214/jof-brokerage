@@ -197,10 +197,10 @@ class AdminController extends CI_Controller {
                         }
 
     }
-    public function faq_management(){
+    public function glossary_management(){
           $config = array(
-                        'base_url' => site_url('faq_management'),
-                        'total_rows' => $this->AdminModel->countAllFaqs(),
+                        'base_url' => site_url('glossary_management'),
+                        'total_rows' => $this->AdminModel->countAllGlossary(),
                         'per_page' => 5,
                         'num_tag_open' => '<li class="pg-item">' ,
                         'num_tag_close' => '</li>' ,
@@ -219,60 +219,60 @@ class AdminController extends CI_Controller {
                             );
                                     $this->pagination->initialize($config);
 
-                 $faq_data['all_faqs'] = $this->AdminModel->get_faqs($config['per_page'] , $offset = 0);
+                 $glossary_data['all_glossary'] = $this->AdminModel->get_glossary($config['per_page'] , $offset = 0);
 
-                 if(!$faq_data){
-                     $this->session->set_flashdata('error' , 'Unable to access FAQS... Please reload the page');
-                     $this->dynamic_view('management');
+                 if(!$glossary_data){
+                     $this->session->set_flashdata('error' , 'Unable to access GLOSSARY... Please reload the page');
+                     $this->dynamic_view('managements');
                  }else{
                       $this->load->view('admin/includes/login_header');
-                      $this->load->view('admin/managements' , $faq_data );
+                      $this->load->view('admin/managements' , $glossary_data );
                       $this->load->view('includes/footer');
                  }
     }
-    public function validate_FAQ(){
-        $this->form_validation->set_rules('faq_question' , 'FAQ QUESTION' , 'trim|required');
-        $this->form_validation->set_rules('faq_answer' , 'FAQ ANSWER' , 'trim|required');
+    public function validate_glossary(){
+        $this->form_validation->set_rules('glossary_term' , 'GLOSSARY TERM' , 'trim|required');
+        $this->form_validation->set_rules('glossary_meaning' , 'GLOSSARY MEANING' , 'trim|required');
     }
-    public function create_faq(){
+    public function create_glossary(){
         if(!$this->input->post()){
-            $this->session->set_flashdata('error' , 'Something went wrong while creating FAQ');
+            $this->session->set_flashdata('error' , 'Something went wrong while creating GLOSSARY');
             $this->dynamic_view('managements');
         }else{
-            $this->validate_FAQ();
+            $this->validate_glossary();
 
             if(!$this->form_validation->run() == TRUE){
                 $this->session->set_flashdata('error' , 'An error occured while validating post request! Please try again...');
                 $this->dynamic_view('managements');
             }else{
-                $faq_data = array(
-                    'faq_question' => $this->input->post('faq_question'),
-                    'faq_answer' => $this->input->post('faq_answer'),
+                $glossary_data = array(
+                    'glossary_term' => $this->input->post('glossary_term'),
+                    'glossary_meaning' => $this->input->post('glossary_meaning'),
                     'date_posted' => date('Y-m-d H:m:s')
                 );
 
-                $result = $this->AdminModel->add_faq($faq_data);
+                $result = $this->AdminModel->add_glossary($glossary_data);
 
                 if(!$result){
-                    $this->session->set_flashdata('error' , 'Something went wrong while creating FAQ! Please try again...');
+                    $this->session->set_flashdata('error' , 'Something went wrong while creating GLOSSARY! Please try again...');
                     
                 }else{
-                    $this->session->set_flashdata('success' , 'Successfully created FAQ! You can now see FAQ in the SUPPORT page');
+                    $this->session->set_flashdata('success' , 'Successfully created GLOSSARY! You can now see DEFINITION in the SUPPORT page');
                     
                 }
-                redirect('faq_management');
+                redirect('glossary_management');
             }
         }
     }
-    public function delete_faq($id){
-        $faq_result = $this->AdminModel->delete_this_faq($id);
+    public function delete_glossary($id){
+        $glossary_data = $this->AdminModel->delete_this_glossary($id);
 
-        if(!$faq_result){
-            $this->session->set_flashdata('error' , 'Error!! Something went wrong while deleting FAQ... Please try again later');
+        if(!$glossary_data){
+            $this->session->set_flashdata('error' , 'Error!! Something went wrong while deleting GLOSSARY... Please try again later');
         }else{
-            $this->session->set_flashdata('success' , 'Successfully removed FAQ!');
+            $this->session->set_flashdata('success' , 'Successfully removed GLOSSARY!');
         }
-          redirect('faq_management');
+          redirect('glossary_management');
     }
     public function delete_feedback($id){
         $result_data = $this->AdminModel->delete_this_feedback($id);

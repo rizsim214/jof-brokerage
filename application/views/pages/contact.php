@@ -52,4 +52,6 @@
 
 
     </div>
+    <hr>
+      <div class="copyright text-center mb-2 ">Copyright: JOF CUSTOMS BROKERAGE 2020</div>
 </div>

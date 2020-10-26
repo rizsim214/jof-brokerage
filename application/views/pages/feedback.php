@@ -16,8 +16,12 @@
                     <h5 style="color:red">"<?php echo ucwords($feedback->message);?>"</h5>
             </div>
             <?php endforeach; ?>
-       
-                 
+            
+                     <div class="pagination mx-auto">
+                                <?php echo $this->pagination->create_links();?>
+                            </div>
           </div>
-      </div>       
+      </div>      
+       <hr>
+        <div class="copyright text-center mb-2">Copyright: JOF CUSTOMS BROKERAGE 2020</div> 
 </div>

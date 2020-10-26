@@ -139,8 +139,28 @@ class MainController extends CI_Controller {
  }
 
  public function view_feedback_landing(){
-  
-    $feedback_result['all_feedback'] = $this->MainModel->get_all_feedbacks();
+    $config = array(
+                        'base_url' => site_url('feedbacks'),
+                        'total_rows' => $this->MainModel->countAllFeedbacks(),
+                        'per_page' => 5,
+                        'num_tag_open' => '<li class="pg-item">' ,
+                        'num_tag_close' => '</li>' ,
+                        'cur_tag_open' => '<li class="active"><a href="javascript:void(0);">',
+                        'cur_tag_close' => '</a></li>',
+                        'next_link' => '<li class="pg-next ml-2">Next</li>',
+                        'prev_link'=> '<li class="pg-prev mr-2">Prev</li>',
+                        'next_tag_open' => '<li class="pg-next">',
+                        'next_tag_close' => '</li>', 
+                        'prev_tag_open' => '<li class="pg-prev">',
+                        'prev_tag_close' => '</li>',   
+                        'first_tag_open' => '<li class="pg-item mr-2">',
+                        'first_tag_close' => '</li>',
+                        'last_tag_open' => '<li class="pg-item ml-2">',
+                        'last_tag_close' => '</li>' 
+                            );
+                                    $this->pagination->initialize($config);
+
+    $feedback_result['all_feedback'] = $this->MainModel->get_all_feedbacks($config['per_page'] , $offset = 0);
 
     if(!$feedback_result){
         $this->session->set_flashdata('error' , 'Something went wrong while fetching data... Please try again and reload the page');
@@ -148,9 +168,42 @@ class MainController extends CI_Controller {
     }else{
                      
          $this->load->view('includes/header');
-         $this->load->view('pages/feedback' , $feedback_result , $offset = 0);
+         $this->load->view('pages/feedback' , $feedback_result );
          $this->load->view('includes/footer');
     }
+ }
+ public function view_glossary_landing(){
+    //    $config = array(
+    //                     'base_url' => site_url('support'),
+    //                     'total_rows' => $this->MainModel->countAllGlossary(),
+    //                     'per_page' => 5,
+    //                     'num_tag_open' => '<li class="pg-item">' ,
+    //                     'num_tag_close' => '</li>' ,
+    //                     'cur_tag_open' => '<li class="active"><a href="javascript:void(0);">',
+    //                     'cur_tag_close' => '</a></li>',
+    //                     'next_link' => '<li class="pg-next ml-2">Next</li>',
+    //                     'prev_link'=> '<li class="pg-prev mr-2">Prev</li>',
+    //                     'next_tag_open' => '<li class="pg-next">',
+    //                     'next_tag_close' => '</li>', 
+    //                     'prev_tag_open' => '<li class="pg-prev">',
+    //                     'prev_tag_close' => '</li>',   
+    //                     'first_tag_open' => '<li class="pg-item mr-2">',
+    //                     'first_tag_close' => '</li>',
+    //                     'last_tag_open' => '<li class="pg-item ml-2">',
+    //                     'last_tag_close' => '</li>' 
+    //                         );
+    //                                 $this->pagination->initialize($config);
+    //  $glossary_result['all_glossary'] = $this->MainModel->get_all_glossary($config['per_page'] , $offset = 0);
+     $glossary_result['all_glossary'] = $this->MainModel->get_all_glossary();
+
+     if(!$glossary_result){
+        $this->session->set_flashdata('error' , 'Something went wrong while fetching data from the database');
+        $this->dynamic_view('support');
+     }else{
+          $this->load->view('includes/header');
+         $this->load->view('pages/support' , $glossary_result );
+         $this->load->view('includes/footer');
+     }
  }
  public function logout(){
 

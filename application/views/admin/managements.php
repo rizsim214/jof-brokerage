@@ -1,25 +1,34 @@
 <div class="container text-center mt-5">
+    <?php if($this->session->flashdata('error')) {?>
+                 <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
+                       <?php echo $this->session->flashdata('error');?>
+                            </div>
+                              <?php } elseif($this->session->flashdata('success')) {?>
+                                 <div class="alert alert-success mt-5 col-md-8 mx-auto " role="alert">
+                                    <?php echo $this->session->flashdata('success');?>
+                                         </div>
+                         <?php }?>
     <div class="row mx-auto">
-        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addFaqModal"><i class="fa fa-plus mr-2"></i>CREATE FAQ</a>
+        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addGlossaryModal"><i class="fa fa-plus mr-2"></i>CREATE GLOSSARY</a>
         
     </div>  
-<h1>FAQ MANAGEMENT</h1>
+<h1>GlOSSARY MANAGEMENT</h1>
     <table class="table table-hover text-center">
         <thead class="table-info">
             <tr>
-                    <th scope="col">QUESTION</th>
-                    <th scope="col">ANSWERS</th>	
+                    <th scope="col">TERM</th>
+                    <th scope="col">DEFINITION</th>	
                     <th scope="col">UPDATED</th>				 
                     <th scope="col">DELETE</th>
             </tr>
         </thead>
         <tbody>
-         <?php  foreach($all_faqs as $faqs) :?>
+         <?php  foreach($all_glossary as $glossary) :?>
             <tr>
-                <td><?php echo $faqs->faq_question;?></td>
-                <td><?php echo $faqs->faq_answer;?></td>
+                <td><?php echo $glossary->glossary_term;?></td>
+                <td><?php echo $glossary->glossary_meaning;?></td>
                 <td><a href="#" class="btn btn-success"><i class="fa fa-plus"></i></a></td>
-                <td><a onclick="return confirm('Removing FAQ. Proceed?')" href="<?php echo base_url('delete_faq')?>/<?php echo $faqs->faq_ID?>" class="btn btn-danger"><i class="fa fa-minus"></i></a></td>
+                <td><a onclick="return confirm('Removing FAQ. Proceed?')" href="<?php echo base_url('delete_glossary')?>/<?php echo $glossary->glossary_ID?>" class="btn btn-danger"><i class="fa fa-minus"></i></a></td>
             </tr>
              <?php endforeach; ?>
         </tbody>
@@ -29,31 +38,31 @@
 
 </div>
 
- <div class=" modal fade" id="addFaqModal" tabindex="-1" role="dialog" aria-labelledby="addFaqModalLabel" aria-hidden="true">
+ <div class=" modal fade" id="addGlossaryModal" tabindex="-1" role="dialog" aria-labelledby="addGlossaryModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
 
-                 <h4 class="modal-title mx-auto" id="addAccountModalLAbel">FAQ FORM</h4>   
+                 <h4 class="modal-title mx-auto" id="addAccountModalLAbel">GLOSSARY FORM</h4>   
             </div>
             
               <hr>
              <div class="modal-body">
                  <div class="container">
-                        <?php echo form_open('create_faq');?>
+                        <?php echo form_open('create_glossary');?>
 
                         
                             <div class="form-group ">
-                                <label for="firstname">QUESTION* </label>
-                                <input type="text" class="form-control" name="faq_question" required>
+                                <label for="firstname">TERM* </label>
+                                <input type="text" class="form-control" name="glossary_term" required>
                             </div>
                             <div class="form-group ">
-                                <label for="message">ANSWER*</label>
-                                 <textarea name="faq_answer"  class="form-control" rows="3" required></textarea>
+                                <label for="message">DEFINITION*</label>
+                                 <textarea name="glossary_meaning"  class="form-control" rows="3" required></textarea>
                             </div>
 
                         <div class="text-center">
-                           <button  type="submit" class="btn btn-md btn-danger mt-3" >ADD FAQ </button>
+                           <button  type="submit" class="btn btn-md btn-danger mt-3" >ADD GLOSSARY </button>
                         </div>
                         <?php echo form_close();?>
                  </div> 
