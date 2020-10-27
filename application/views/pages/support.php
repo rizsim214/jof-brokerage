@@ -109,14 +109,14 @@
             </div>
     <hr>
          <h1 class="section__title">Glossary of Terms</h1>
+         <div class="container col-md-11 glossary_container">
           <?php foreach($all_glossary as $glossary) : ?>
-         <div class=" row col-lg-10 mx-auto mb-5 glossary">
-            
+         <div class=" row mx-auto my-4 pb-3  glossary">
             <div class="col-md-4">
-               <h3 class="mt-2"><?php echo $glossary->glossary_term;?></h3>
+               <h3 class="mt-2"><?php echo ucwords($glossary->glossary_term);?></h3>
             </div>
             <div class="col-md-8">
-                <p class="mt-2" style="color:red;"><?php echo $glossary->glossary_meaning;?></p>
+                <p class="mt-2" style="color:red;"><?php echo ucfirst($glossary->glossary_meaning);?></p>
             </div>
             
         </div>
@@ -124,7 +124,7 @@
                 <!-- <div class="pagination mx-auto">
                    <?php echo $this->pagination->create_links();?>
                 </div> -->
-   <hr>
+     </div>
             
     </div>
    <hr>
