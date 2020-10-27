@@ -10,15 +10,15 @@
                <?php echo $this->session->flashdata('success');?>
             </div>
          <?php }?>
-                     <?php echo form_open('Appointment');?>
+                     <?php echo form_open('set_appointment');?>
                      <h1 class="text-center">CONTACT US</h1>
                         <div class="row mt-2">
                               <div class="form-group col-md-6">
-                                    <label for="firstname">First Name</label>
+                                    <label for="firstname">First Name*</label>
                                     <input type="text" class="form-control" name="firstName" placeholder="">
                                  </div>
                                  <div class="form-group col-md-6">
-                                    <label for="lastName">Last Name</label>
+                                    <label for="lastName">Last Name*</label>
                                     <input type="text" class="form-control" name="lastName" placeholder="">
                                  </div>
                               </div>
@@ -26,21 +26,21 @@
                               <div class="row">
                                  
                                  <div class="form-group col-md-6">
-                                    <label for="email">Email Address</label>
+                                    <label for="email">Email Address*</label>
                                     <input type="email" class="form-control" name="email" placeholder="">
                                  </div>
                                  <div class="form-group col-md-6">
-                                    <label for="contact">Contact Info</label>
+                                    <label for="contact">Contact Info*</label>
                                     <input type="text" class="form-control" name="contact" placeholder="">
                                  </div>
                               </div>
                               
                               <div class="form-group">
-                                 <label for="subject">Subject</label>
+                                 <label for="subject">Subject*</label>
                                  <input type="text" class="form-control" name="subject" placeholder="">
                               </div>
                               <div class="form-group">
-                                 <label for="message">Message</label>
+                                 <label for="message">Message*</label>
                                  <textarea name="message"  class="form-control" rows="3" required="required" ></textarea>
                               </div>
                               <div class="text-center">

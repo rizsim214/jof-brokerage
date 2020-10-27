@@ -147,7 +147,7 @@ class AdminController extends CI_Controller {
         }else{
             $this->session->set_flashdata('success' , 'Message has been successfully deleted');
         }
-        $this->dynamic_view('appointments');
+        redirect('appointments');
     }
 
     

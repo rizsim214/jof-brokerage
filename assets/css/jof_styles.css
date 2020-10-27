@@ -55,7 +55,7 @@ body{
     font-family: var(--big-font);
     color: var(--first-color);
     background: no-repeat center center cover;
-    background-color: rgba(248, 150, 150, 0.371);
+    background-color: rgba(250, 233, 233, 0.371);
     overflow-x: hidden;
 
 }
@@ -100,8 +100,8 @@ img{
     margin-bottom: 3rem;
     display: block;
     padding-top: 3%;
-    box-shadow:  1px 15px 36px rgba(245, 63, 63, 0.589);
-    background-color: rgba(192, 186, 186, 0.37);
+    box-shadow:  1px 15px 36px rgba(238, 103, 103, 0.589);
+    background-color: rgba(235, 230, 230, 0.864);
     
 }
 
@@ -148,7 +148,7 @@ img{
 }
 .form__title{
     font-family: 'bebas neue', cursive;
-    letter-spacing: 0.25rem;
+    letter-spacing: 0.5rem;
     font-size: 50px;
     font-weight: bolder;
     margin-bottom: 2.5rem;
@@ -364,7 +364,7 @@ img{
 }
     /* STYLES FOR ABOUT PAGE */
 .card__container__box{
-    margin: 5rem 1rem 4rem;
+    margin: 3rem 1rem 4rem;
     background-color: rgba(255, 254, 254, 0.842);
     padding: 1.5rem 1.5rem 1.5rem;
     border-radius: 10px;

@@ -11,11 +11,11 @@
                        <?php echo $this->session->flashdata('error');?>
                             </div>
                               <?php }?>
-             <div class="container col-md-5 container__shadow ">
+             <div class="container col-md-6 container__shadow ">
                 
                 <?php echo form_open('login_account');?>
                     <img src="<?php echo base_url();?>assets/img/avatar.png" class="user__img">
-                     <h1 class="form__title text-center py-2">User Login</h1>
+                     <h1 class="form__title text-center py-2">Login Account</h1>
                         <div class="form-group my-2">
                             <div class="row">
                                  <label for="email" class="form__label col-md-4"><i class="fas fa-user mr-1"></i>Email </label>

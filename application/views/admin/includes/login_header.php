@@ -77,14 +77,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                            <a href="<?php echo base_url('user_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">VIEW ACCOUNTS</a>
-                            <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">APPOINTMENTS</a> 
+                            <a href="<?php echo base_url('user_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">TOTAL ACCOUNTS</a>
+                            <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">MESSAGES</a> 
                         </div>    
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
                             <a href="<?php echo base_url('financial_transaction');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">ACCOUNTING</a>
-                            <a href="<?php echo base_url('admin_feedback');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="FeedbacksLink">FEEDBACKS</a> 
+                            <a href="<?php echo base_url('admin_feedback');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="FeedbacksLink">FEEDBACKS/RATINGS</a> 
                         </div>    
                   </div>
                     <div class="row">

@@ -60,7 +60,7 @@ $route['contacts'] = 'MainController/dynamic_view/contact';
 $route['support'] = 'MainController/view_glossary_landing/0';
 $route['support/(:num)'] = 'MainController/view_glossary_landing/$1';
 $route['login_account'] = 'MainController/login';
-$route['Appointment'] = 'MainController/setAppointment';
+$route['set_appointment'] = 'MainController/setAppointment';
 $route['logout'] = 'MainController/logout';
 // ADMIN PAGE ROUTES
 $route['admin'] = 'AdminController/dynamic_view';
