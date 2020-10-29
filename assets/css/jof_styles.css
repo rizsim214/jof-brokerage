@@ -481,6 +481,9 @@ img{
     text-decoration: none;
 }
 
+.contactPage_container{
+    margin-top:10%;
+}
 /* STYLES FOR ADMIN DASHBOARD SIDE NAV */
 /* .nav {
     height: 100%;

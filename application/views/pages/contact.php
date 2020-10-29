@@ -1,7 +1,6 @@
-<div class="container-fluid">
-    <div class="card__container__box col-md-8 mx-auto">
-
-         <?php if($this->session->flashdata('error')) {?>
+<div class="container-fluid contactPage_container">
+<div class="col-md-8 mx-auto">
+ <?php if($this->session->flashdata('error')) {?>
             <div class="alert alert-danger" role="alert">
                <?php echo $this->session->flashdata('error');?>
             </div>
@@ -10,6 +9,8 @@
                <?php echo $this->session->flashdata('success');?>
             </div>
          <?php }?>
+         </div>
+    <div class="card__container__box col-md-8 mx-auto" style="background-color:rgba(228, 133, 133, 0.686);">
                      <?php echo form_open('set_appointment');?>
                      <h1 class="text-center">CONTACT US</h1>
                         <div class="row mt-2">

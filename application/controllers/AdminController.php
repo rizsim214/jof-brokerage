@@ -60,17 +60,8 @@ class AdminController extends CI_Controller {
                 'response' => $this->AdminModel->getAllAppointment($config['per_page'] , $offset)
             );
            
-        if($this->session->userRole == 2) {
-            $this->load->view('broker/includes/login_header');
-
-        }elseif($this->session->userRole == 4) {
+        
             $this->load->view('admin/includes/login_header');
-
-        }elseif($this->session->userRole == 3) {
-            $this->load->view('accounting/includes/login_header');
-
-        }
-
             $this->load->view('admin/'.$page ,$data_results);
             $this->load->view('includes/footer');
             
@@ -283,6 +274,38 @@ class AdminController extends CI_Controller {
             $this->session->set_flashdata('success' , 'Successfully removed feedback!');
         }
           redirect('admin_feedback');
+
+    }
+
+    public function view_message($id){
+        $message_data = $this->AdminModel->get_message($id);
+        if(!$message_data){
+            $this->session->set_flashdata('error' , 'Something went wrong while fetching message! Please try again...');
+            redirect('appointments');
+        }else{
+            $message_attribute = array(
+
+                
+                'appointment_status' => "Read",
+                'date_updated' => date('Y-m-d H:m:s')
+            );
+
+            $result = $this->AdminModel->change_appointment_status($message_attribute , $id);
+            if(!$result){
+                $this->session->set_flashdata('error' , 'Something went wrong while updating appointment table');
+                redirect('appointments');
+            }else{
+                $message_final_data['message_data'] = $this->AdminModel->get_final_message($id);
+                if(!$message_final_data){
+                    $this->session->set_flashdata('error' , 'ERROR! Cannot fetch message data! Please try again...');
+                    redirect('appointments');
+                }else{
+                      $this->load->view('admin/includes/login_header');
+                      $this->load->view('admin/view_appointment' , $message_final_data );
+                      $this->load->view('includes/footer');
+                }
+            }
+        }
 
     }
 }

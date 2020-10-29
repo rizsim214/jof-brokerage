@@ -102,7 +102,7 @@ class MainController extends CI_Controller {
 
                         if(!$this->form_validation->run() == TRUE){
                             $this->session->set_flashdata('error' , 'Some unfortunate error has occured... Please try again!');
-                            $this->dynamic_view('home');
+                            redirect('contacts');
                             } else {
                                     $appointment = array(
                                             'firstname' => ucfirst($this->input->post('firstName')),
@@ -121,7 +121,7 @@ class MainController extends CI_Controller {
                                         $this->session->set_flashdata('error' , 'STARLORD IS NOT HAPPY WITH THE RESULT!!');
                                         redirect('contacts');
                                     }elseif($result ==TRUE){
-                                        $this->session->set_flashdata('success' , "Message Sent! We will contact you As Soon As Possible!!");
+                                        $this->session->set_flashdata('success' , "Thank you for messaging JOF CUSTOMS BROKERAGE. We will contact you as soon as possible");
                                         redirect('contacts');
                                     }
                             }

@@ -11,11 +11,14 @@
          <!-- CONTENT -->
 
          <?php foreach($all_feedback as $feedback) : ?>
+         <?php if($feedback->feedback_status == '1') { ?>
             <div class="my-5" id="fb_comments" >
                     <h3><?php echo ucwords($feedback->first_name).' '.ucfirst($feedback->last_name);?></h3>
                     <h5 style="color:red">"<?php echo ucfirst($feedback->message);?>"</h5>
                     <small class="fa-pull-left">Date Posted:<?php echo ($feedback->date_posted);?></small>
             </div>
+         <?php } ?>
+              
             <?php endforeach; ?>
             
                      <div class="pagination mx-auto">
@@ -23,6 +26,6 @@
                             </div>
           </div>
       </div>      
-       <hr>
-        <div class="copyright text-center mb-2">Copyright: JOF CUSTOMS BROKERAGE 2020</div> 
+       <hr class="fixed-bottom mb-5">
+        <div class="copyright text-center mb-2 fixed-bottom">Copyright: JOF CUSTOMS BROKERAGE 2020</div> 
 </div>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="card__container__box">
+    <div class="card__container__box ">
     <hr>
     <h1 class="section__title">Documents</h1>
         <div class="row ">
@@ -40,7 +40,7 @@
         
        <hr>
         <h1 class="section__title">References</h1>
-        <div class=" row col-lg-12 text-center mb-5">
+        <div class=" row col-lg-12 text-center mb-5 ">
            <div class="col-md-6">
                 <a href="#" class="resource">BUREAU OF CUSTOMS</a><br>
                 <a href="#" class="resource">Cebu Port Authority</a><br>
@@ -55,7 +55,7 @@
         </div>
         <hr>
         <h1 class="section__title">Customer Support</h1>
-            <div class="row col-lg-12 text-center mb-5 cu__supt">
+            <div class="row col-lg-12 text-center mb-5  cu__supt">
                 <div class="col-md-4">
                     <h3>Email Support</h3>
                     <!-- INSERT EMAIL THROUGH PHP --> 
@@ -74,7 +74,7 @@
         <hr>
          <h1 class="section__title">FAQs</h1>
          
-            <div class=" container mb-5 faqs__box">
+            <div class=" container-fluid mb-5 glossary_container ">
               
                 <div class="faqs">
                     <h4 >What are the possible expenses for importation?</h4>
@@ -109,7 +109,7 @@
             </div>
     <hr>
          <h1 class="section__title">Glossary of Terms</h1>
-         <div class="container col-md-11 glossary_container">
+         <div class="container-fluid col-md-12 glossary_container">
           <?php foreach($all_glossary as $glossary) : ?>
          <div class=" row mx-auto my-4 pb-3  glossary">
             <div class="col-md-4">

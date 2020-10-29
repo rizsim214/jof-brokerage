@@ -156,4 +156,34 @@ class AdminModel extends CI_Model{
         $this->db->delete('glossary_table');
         return TRUE;
     }
+
+    public function get_message($id){
+        $this->db->select('*');
+        $this->db->from('appointments');
+        $this->db->where('appointment_ID' , $id);
+        $result = $this->db->get();
+        if(!$result){
+            return FALSE;
+        }else{
+            return $result->row_array();
+        }
+    }
+    public function change_appointment_status($data , $id){
+        
+         $this->db->where('appointment_ID' , $id);
+         $this->db->update('appointments' , $data);
+         $result = $this->db->affected_rows();
+        return $result;
+    }
+
+    public function get_final_message($id){
+        $this->db->select('*');
+        $this->db->from('appointments');
+        $this->db->where('appointment_ID' , $id);
+        $result = $this->db->get();
+
+        return $result->row_array();
+    }
+
+
 }
