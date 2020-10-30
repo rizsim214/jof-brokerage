@@ -287,7 +287,6 @@ class AdminController extends CI_Controller {
         }else{
             $message_attribute = array(
 
-                
                 'appointment_status' => "Read",
                 'date_updated' => date('Y-m-d H:m:s')
             );
@@ -312,5 +311,41 @@ class AdminController extends CI_Controller {
 
     public function back_to_appointments(){
         redirect('appointments');
+    }
+    public function post_feedback($id){
+        $postFeedback_result = $this->AdminModel->get_feedback_result($id);
+            if(!$postFeedback_result){
+                $this->session->set_flashdata('error', 'Error! Something went wrong while fetching data... Please reload the page');
+                redirect('admin_feedback');
+            }else{
+                if($postFeedback_result['feedback_status'] == 0){
+                    $postFeedback_data = array(
+                        'feedback_status' => 1,
+                        'date_updated' => date('Y-m-d H:m:s')
+                    );
+
+                    $result = $this->AdminModel->update_feedback($postFeedback_data , $id);
+                    if(!$result){
+                        $this->session->set_flashdata('error' , 'Something went wrong... Please try again!');
+                        
+                    }else{
+                        $this->session->set_flashdata('success' , 'Succesfully posted feedback... You can now see the feedback in feedback page.Thank you!');
+                    }
+                   redirect('admin_feedback');
+
+                }elseif($postFeedback_result['feedback_status'] == 1){
+                    $postFeedback_data = array(
+                        'feedback_status' => 0,
+                        'date_updated' => date('Y-m-d H:m:s')
+                    );
+                    $result = $this->AdminModel->update_feedback($postFeedback_data , $id);
+                    if(!$result){
+                        $this->session->set_flashdata('error' , 'Something went wrong... Please try again!');
+                    }else{
+                        $this->session->set_flashdata('success' , 'Succesfully Unposted feedback... Feedback was removed from the feedback page');
+                    }
+                    redirect('admin_feedback');
+                }
+            }
     }
 }

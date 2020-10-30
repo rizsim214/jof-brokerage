@@ -184,6 +184,20 @@ class AdminModel extends CI_Model{
 
         return $result->result();
     }
+    public function get_feedback_result($id){
+        $this->db->select('*');
+        $this->db->from('feedbacks');
+        $this->db->where('feedback_ID' , $id);
+        $result = $this->db->get();
 
+        return $result->result();
+    }
+     public function update_feedback($data , $id){
+        
+         $this->db->where('feedback_ID' , $id);
+         $this->db->update('feedbacks' , $data);
+         $result = $this->db->affected_rows();
+        return $result;
+    }
 
 }
