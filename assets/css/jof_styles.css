@@ -484,6 +484,38 @@ img{
 .contactPage_container{
     margin-top:10%;
 }
+/* MESSAGE BOARD STYLES */
+
+ /* .message__header{
+    border: 1px solid black;
+    border-radius: 10px;
+} */
+.message__box p{
+
+    border-radius: 10px;
+    max-width: 100% ;
+    padding-left: 10%;
+    text-align: justify;
+} 
+.message__container{
+    margin-top: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 500px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.box__name{
+    color: rgba(250, 41, 41, 0.871);
+}
+.message__sender h2{
+    color: rgba(250, 41, 41, 0.871); ;
+}
+.message__subject h3{
+    color: rgba(250, 41, 41, 0.871); ;
+}
+.message__box h3{
+    color: rgba(250, 41, 41, 0.871); ;
+}
 /* STYLES FOR ADMIN DASHBOARD SIDE NAV */
 /* .nav {
     height: 100%;

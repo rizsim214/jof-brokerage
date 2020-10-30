@@ -182,7 +182,7 @@ class AdminModel extends CI_Model{
         $this->db->where('appointment_ID' , $id);
         $result = $this->db->get();
 
-        return $result->row_array();
+        return $result->result();
     }
 
 

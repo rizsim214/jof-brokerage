@@ -82,7 +82,7 @@ class AdminController extends CI_Controller {
     public function register(){
         if(!$this->input->post()){
             $this->session->set_flashdata('error' , 'Something went wrong while creating your account... Please try again');
-            $this->dynamic_view('users');
+            redirect('user_accounts');
         }else{
                 
            $this->register_validation();
@@ -106,10 +106,12 @@ class AdminController extends CI_Controller {
 
                     if(!$result){
                         $this->session->set_flashdata('error' , 'Database was not able to register the user account... Please try again');
-                        $this->dynamic_view('users');
+                        // $this->dynamic_view('users');
+                        redirect('user_accounts');
                     }else{
                         $this->session->set_flashdata('success' , 'Database has successfully registered your user account');
-                        $this->dynamic_view('users');
+                        // $this->dynamic_view('users');
+                        redirect('user_accounts');
                     }
             }else{
 
@@ -147,7 +149,7 @@ class AdminController extends CI_Controller {
 
         if(!$user_data){
             $this->session->set_flashdata('error' , 'Account data unsucessfully retrieved... Please try again.');
-            $this->dynamic_view('users');
+            redirect('user_accounts');
         }else{
             $this->dynamic_view('view_user');
         }
@@ -228,13 +230,13 @@ class AdminController extends CI_Controller {
     public function create_glossary(){
         if(!$this->input->post()){
             $this->session->set_flashdata('error' , 'Something went wrong while creating GLOSSARY');
-            $this->dynamic_view('managements');
+            redirect('managements');
         }else{
             $this->validate_glossary();
 
             if(!$this->form_validation->run() == TRUE){
                 $this->session->set_flashdata('error' , 'An error occured while validating post request! Please try again...');
-                $this->dynamic_view('managements');
+                redirect('managements');
             }else{
                 $glossary_data = array(
                     'glossary_term' => $this->input->post('glossary_term'),
@@ -306,6 +308,9 @@ class AdminController extends CI_Controller {
                 }
             }
         }
+    }
 
+    public function back_to_appointments(){
+        redirect('appointments');
     }
 }
