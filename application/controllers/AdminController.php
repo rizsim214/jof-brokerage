@@ -59,9 +59,25 @@ class AdminController extends CI_Controller {
                 'employees' => $this->AdminModel->getAllEmployees(),
                 'response' => $this->AdminModel->getAllAppointment($config['per_page'] , $offset)
             );
+
+            if($this->session->userRole == 2) {
+                $this->load->view('broker/includes/login_header');
+    
+            }elseif($this->session->userRole == 4) {
+                $this->load->view('admin/includes/login_header');
+    
+            }elseif($this->session->userRole == 3) {
+                $this->load->view('accounting/includes/login_header');
+    
+            }elseif($this->session->userRole == 1) {
+                $this->load->view('consignee/includes/login_header');
+    
+            }
+
+
            
         
-            $this->load->view('admin/includes/login_header');
+           // $this->load->view('admin/includes/login_header');
             $this->load->view('admin/'.$page ,$data_results);
             $this->load->view('includes/footer');
             

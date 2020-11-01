@@ -137,13 +137,13 @@ img{
   font-weight: bolder;
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgba(238, 5, 5, 0.726);
+  /* background-color: rgba(238, 5, 5, 0.726); */
   border:none;
 
 
 }
 .form__login-btn:hover{
-      background-color: rgba(245, 63, 63, 0.589);
+      /* background-color: rgba(245, 63, 63, 0.589); */
       box-shadow:  0px 15px 36px rgba(245, 63, 63, 0.589);
 }
 .form__title{

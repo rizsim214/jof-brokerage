@@ -71,18 +71,20 @@
                                         <option value="1">Consignee</option>
                                         <option value="2">Processor</option>
                                     </select>
-             <?php }else{ echo "bushet";
+             <?php }else{ echo "";
              }?>
+             <hr>
 
                         <div class="text-center">
-                           <button type="submit" class="btn btn-md btn-primary mt-3" name="submit">Update</button>
+                           <button type="submit" class="btn btn-md btn-primary mt-3 btn-lg" name="submit">Update</button>
+                           <a type="button" class="btn btn-secondary btn-lg" style="margin-top:16px;" href="<?php echo base_url('admin');?>">Cancel</a>
+                         <br>
                         </div>
+                        <!-- <a type="button" class="btn btn-secondary btn-lg " href="<?php echo base_url('admin');?>">Cancel</a> -->
                         <?php echo form_close();?>
                  </div> 
              </div>
-                <div class="modal-footer mx-auto">
-                    <a type="button" class="btn btn-secondary" href="<?php echo base_url('admin');?>">Cancel</a>
-                </div>
+               
           </div>
       </div>
     </div> 

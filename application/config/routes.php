@@ -86,6 +86,7 @@ $route['delete_glossary/(:num)'] = 'AdminController/delete_glossary/$1';
 $route['view_message/(:num)'] = 'AdminController/view_message/$1';
 $route['register'] = 'AdminController/register';
 $route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
+$route['viewAccount/(:any)'] = 'BrokerController/view_accounts/$1';
 
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';

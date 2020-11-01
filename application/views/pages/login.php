@@ -34,7 +34,7 @@
                         <a href="#" class="forgot__password">Forgot Password?</a>
 
                         <div class="form__login ">
-                             <button class="btn btn-md btn-danger form__login-btn " type="submit" name="login" >Login</button>
+                             <button class="btn btn-md btn-success form__login-btn  " type="submit" name="login" >Login</button>
                        </div>                        
                 <?php echo form_close();?>
              </div>

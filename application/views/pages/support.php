@@ -12,7 +12,7 @@
         <hr class="divider">
         <div class="row">
             <div class="col-md-8 text-center">
-                <p class="label">Document</p>
+                <p class="label text-dark">Commercial Invoice</p>
             </div>
             <div class="col-md-4">
             <a href="#" class="btn btn-md btn-danger">Download</a>
@@ -21,7 +21,7 @@
         <hr class="divider">
         <div class="row">
             <div class="col-md-8 text-center">
-                <p class="label">Document</p>
+                <p class="label text-dark">Packing List</p>
             </div>
             <div class="col-md-4">
             <a href="#" class="btn btn-md btn-danger">Download</a>
@@ -30,7 +30,7 @@
         <hr class="divider">
         <div class="row">
             <div class="col-md-8 text-center">
-                <p class="label">Document</p>
+                <p class="label text-dark">Bill of Lading</p>
             </div>
             <div class="col-md-4">
             <a href="#" class="btn btn-md btn-danger">Download</a>
@@ -56,17 +56,20 @@
         <hr>
         <h1 class="section__title">Customer Support</h1>
             <div class="row col-lg-12 text-center mb-5  cu__supt">
-                <div class="col-md-4">
+                <div class="col-md-4 text-dark">
                     <h3>Email Support</h3>
-                    <!-- INSERT EMAIL THROUGH PHP --> 
+                    <p> jessie@jofcustomsbrokerage.com </p>
                 </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4 text-dark">
                     <h3>Mobile Support</h3>
-                    <!--  INSERT Number THROUGH PHP --> 
+                     <p>(0916) 660 1514 </p>
+                     <p>+63 932 877 2192 </p>
+                     <p>032 - 340 5549 </p>
+                     
                 </div>
-                <div class="col-md-4 ">
+                <div class="col-md-4 text-dark ">
                     <h3>Company Information</h3>
-                         <p>University of San Carlos Technological Centre, Gov. M, Cuenco Ave, Nasipit Talamban Cebu City 6000</p>
+                         <p>Igot Compound, M.L. Quezon National Highway,<br> Lapu-Lapu City, Cebu 6015</p>
                          <p>Business Hours: 9:00 AM - 5:00 PM <i class="fas fa-clock-o ml-1"></i></p>
                 </div>
 

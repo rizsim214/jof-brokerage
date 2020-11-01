@@ -12,7 +12,7 @@
          </div>
     <div class="card__container__box col-md-8 mx-auto" style="background-color:rgba(228, 133, 133, 0.686);">
                      <?php echo form_open('set_appointment');?>
-                     <h1 class="text-center">CONTACT US</h1>
+                     <h1 class="text-center text-white">CONTACT US</h1>
                         <div class="row mt-2">
                               <div class="form-group col-md-6">
                                     <label for="firstname">First Name*</label>
@@ -42,10 +42,10 @@
                               </div>
                               <div class="form-group">
                                  <label for="message">Message*</label>
-                                 <textarea name="message"  class="form-control" rows="3" required="required" ></textarea>
+                                 <textarea name="message"  class="form-control" rows="5" required="required" ></textarea>
                               </div>
                               <div class="text-center">
-                              <input type="submit" class="btn btn-md btn-danger" value="submit">
+                              <input type="submit" class="btn btn-md btn-success btn-lg" value="submit">
                               </div>
                         </div>
                <?php echo form_close();?>
