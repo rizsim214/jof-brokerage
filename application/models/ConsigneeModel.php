@@ -12,7 +12,7 @@ class ConsigneeModel extends CI_Model{
         $this->db->select('*');
         $this->db->select('transaction.status as transaction_status');
         $this->db->from('transaction');
-        $this->db->join('users', 'users.id = transaction.processor_id', 'left');
+        $this->db->join('users_table', 'users_table.user_ID = transaction.processor_id', 'left');
         $this->db->where('consignee_id', $id);
 
         $result = $this->db->get();

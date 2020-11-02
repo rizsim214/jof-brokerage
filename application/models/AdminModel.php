@@ -86,7 +86,40 @@ class AdminModel extends CI_Model{
             return $query->result();
         }
     }
-    
+    public function getProcessor($id){
+        $this->db->select('*');
+        $this->db->from('users_table');
+        $this->db->where('user_ID', $id);
+        $result = $this->db->get();
+        return $result->row();
+    }
+    public function updateTransaction($id, $data){
+        $this->db->set($data);
+        $this->db->where('transaction_id', $id);
+
+        $result = $this->db->update('transaction');
+        return $result;
+    }
+    public function getUser($id){
+        $this->db->select('*');
+        $this->db->from('users_table');
+        $this->db->where('user_ID', $id);
+
+        $result = $this->db->get();
+        return $result->row();
+        
+    }
+
+    public function getAllTransactions(){
+        $this->db->select('*,transaction.status as transaction_status');
+        $this->db->from('transaction');
+        $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID');
+        $this->db->order_by('date_posted', 'desc');
+        $result = $this->db->get();
+
+        return $result->result();
+
+    }
      public function countAllTransaction(){
 
         $result= $this->db->get('transaction');

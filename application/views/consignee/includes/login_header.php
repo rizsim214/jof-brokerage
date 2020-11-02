@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jof_styles.css">
     <link rel="icon" href="<?php echo base_url();?>assets/img/favicon.png" type="image/png">
    
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom_style.css">
     <title>J.O.F Customs Brokerage</title>
 
   </head>
