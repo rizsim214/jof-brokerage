@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <i class="fas fa-optin-monster"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">View Account</a>
+                    <a class="dropdown-item" href="viewAccount/<?= $this->session->user_ID?>">View Account</a>
                 <a class="dropdown-item" href="editAccount/<?= $this->session->user_ID?>">Manage Account</a>
                 
                 <div class="dropdown-divider"></div>
@@ -102,6 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
+                    <a href="<?php echo base_url('transactions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a>
                            <!-- <a href="<?php echo base_url('users');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">VIEW ACCOUNTS</a> -->
                             <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">APPOINTMENTS</a> 
                         </div>    
@@ -115,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="row">
                     <div class="container mx-auto my-2">
                             <a href="<?php echo base_url('managements');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">MANAGEMENT</a>
-                            <a href="<?php echo base_url('transactions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a> 
+                             
                         </div>    
                   </div> 
              </div>

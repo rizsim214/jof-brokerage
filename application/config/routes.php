@@ -87,6 +87,7 @@ $route['view_message/(:num)'] = 'AdminController/view_message/$1';
 $route['register'] = 'AdminController/register';
 $route['post_feedback/(:num)'] = 'AdminController/post_feedback/$1';
 $route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
+$route['viewAccount/(:any)'] = 'BrokerController/view_accounts/$1';
 
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';

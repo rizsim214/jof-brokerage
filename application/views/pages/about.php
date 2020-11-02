@@ -1,8 +1,12 @@
+<br>
+<br>
+<br>
 <div class="container-fluid " >
 <div class="card-deck card__container__box" >
   <div class="card ">
     <img class="card-img mx-auto" src="<?php echo base_url();?>assets/img/about.jpg" alt="About Us">
     <div class="card-body">
+    
       <hr>
            <h5 class="card-title">"About Us"</h5>
       <hr>

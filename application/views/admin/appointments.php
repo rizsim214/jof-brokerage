@@ -11,7 +11,7 @@
 				<table class="table table-bordered table-hover text-center">
 				  <thead class="table-info">
 				
-	            	<h1 class="text-center mb-2">Appointments</h1>
+	            	<h1 class="text-center mb-2">Messages</h1>
                             
                                 <tr>
                                 <th scope="col">Client Name</th>

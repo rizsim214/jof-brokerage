@@ -152,4 +152,45 @@ class BrokerController extends CI_Controller {
 }
 
 
+        public function view_accounts($param){
+
+
+            //echo "view my account";
+
+            $page ="myAccount";
+            //  print_r($data);
+  
+              if(!file_exists(APPPATH.'views/broker/'.$page.'.php')){
+                  show_404();
+  
+              }
+
+
+
+
+
+
+              if($this->session->userRole == 2) {
+                $this->load->view('broker/includes/login_header');
+    
+            }elseif($this->session->userRole == 4) {
+                $this->load->view('admin/includes/login_header');
+    
+            }elseif($this->session->userRole == 3) {
+                $this->load->view('accounting/includes/login_header');
+    
+            }elseif($this->session->userRole == 1) {
+                $this->load->view('consignee/includes/login_header');
+    
+            }
+
+               //  $this->load->view('broker/includes/login_header');
+                $this->load->view('broker/'.$page);
+                $this->load->view('includes/footer');
+    
+            
+
+        }
+
+
 }

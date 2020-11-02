@@ -39,7 +39,7 @@
 			</div>
 
 				<div class="text-center mt-5">
-					<h1>"SOMETHING MUST BE HERE TO NOT WASTE ANY SPACE BUT IT STILL NEEDS TO BE DECIDED"</h1>
+					<!-- <h1>"SOMETHING MUST BE HERE TO NOT WASTE ANY SPACE BUT IT STILL NEEDS TO BE DECIDED"</h1> -->
 				</div>
 </div> 
 		
