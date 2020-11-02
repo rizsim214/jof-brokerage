@@ -8,7 +8,7 @@
                                     <?php echo $this->session->flashdata('success');?>
                                          </div>
                          <?php }?>
-				<table class="table table-bordered table-hover text-center">
+				<table class="table table-bordered table-hover text-center" id="exampleAppointment">
 				  <thead class="table-info">
 				
 	            	<h1 class="text-center mb-2">Messages</h1>
@@ -28,14 +28,12 @@
                                             <td><?php echo $result->email;?></td>
                                             <td><?php echo $result->subject;?></td>
                                             <td><?php echo $result->appointment_status;?></td>
-                                            <td><a href="<?php echo base_url('view_message');?>/<?php echo $result->appointment_ID;?>" class="btn btn-secondary mr-2 ">Read</a><a onclick="return confirm('Are you sure you want to delete this message?')" href="<?php echo base_url('delete_appointment');?>/<?php echo $result->appointment_ID?>" class="btn btn-danger "><i class="fas fa-trash-o"></i></a></td>
+                                            <td><a href="<?php echo base_url('view_message');?>/<?php echo $result->appointment_ID;?>" class="btn btn-secondary mr-2 "><i class="fas fa-pencil-square"></i></i></a><a onclick="return confirm('Are you sure you want to delete this message?')" href="<?php echo base_url('delete_appointment');?>/<?php echo $result->appointment_ID?>" class="btn btn-danger "><i class="fas fa-trash"></i></a></td>
                                         </tr>
                                     <?php }  ?>
                                     </tbody>
                             
 			    </table>
-                            <div class="pagination fa-pull-right">
-                                <?php echo $this->pagination->create_links();?>
-                            </div>
+                           
 		</div>
 	</div>

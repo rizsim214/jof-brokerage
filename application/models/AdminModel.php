@@ -16,10 +16,9 @@ class AdminModel extends CI_Model{
       return $this_query->result();
     }
         //GETTING ALL APPOINTMENTS
-    public function getAllAppointment($limit , $offset){
+    public function getAllAppointment(){
         
-        $this->db->limit($limit);
-        $this->db->offset($offset);
+      
         $this->db->ORDER_BY('appointment_id DESC');
 
         $query = $this->db->get('appointments');
@@ -120,11 +119,10 @@ class AdminModel extends CI_Model{
         $result = $this->db->get('feedbacks');
         return $result->num_rows();
     }
-    public function get_feedback($limit , $offset){
+    public function get_feedback(){
        $this->db->select('*');
        $this->db->from('feedbacks');
-       $this->db->limit($limit);
-       $this->db->offset($offset);
+      
        $this->db->ORDER_BY('feedback_ID DESC');
        $this->db->join('users_table' , 'feedbacks.user_fk_ID = users_table.user_ID');
        $query = $this->db->get();
@@ -140,11 +138,9 @@ class AdminModel extends CI_Model{
         $result = $this->db->get('glossary_table');
         return $result->num_rows();
     }
-    public function get_glossary($limit , $offset){
+    public function get_glossary(){
         $this->db->select('*');
        $this->db->from('glossary_table');
-       $this->db->limit($limit);
-       $this->db->offset($offset);
        $this->db->ORDER_BY('glossary_ID DESC');
       
        $query = $this->db->get();

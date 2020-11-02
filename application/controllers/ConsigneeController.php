@@ -5,6 +5,7 @@ class ConsigneeController extends CI_Controller {
 
     public function __construct(){
         parent:: __construct();
+        $this->load->model('ConsigneeModel');
 
     }
 
@@ -23,4 +24,116 @@ class ConsigneeController extends CI_Controller {
             
         }
     }
+    public function sendFiles(){
+   
+        $config['upload_path'] = base_url() . '/assets/uploads/img';
+        
+        // $config['allowed_types'] = 'jpg|jpeg|png';
+        // $config['max_filename'] = '255';
+        // $config['encrypt_name'] = FALSE;
+        // $config['max_size'] = '5000'; //1 MB
+
+        $this->load->library('upload', $config);
+        
+        $rand = date('Y-m-d H:i:s');
+        $rand = preg_replace("/[^0-9]/", "", $rand);
+     
+        if($this->input->post('import')){
+            
+            $data = array(
+                'consignee_id' => $this->session->userdata('userId'),
+                'transaction_number' => 'TR-' . $rand,
+                'transaction_type' => 'import',
+                'date_posted' => date('Y-m-d H:i:s')
+                );
+            if (!empty($_FILES['bureau']['name'])){
+          
+            $result = $this->upload->do_upload('bureau');
+           
+             $data += array(
+                'bureau'  => $_FILES['bureau']['name']
+                );
+
+                
+             }
+
+             if (!empty($_FILES['packing']['name'])){
+          
+                $this->upload->do_upload('packing');
+                
+                 $data += array(
+                    'packing'  => $_FILES['packing']['name']
+                    );
+
+                    
+                 }
+            if (!empty($_FILES['commercial']['name'])){
+          
+                    $this->upload->do_upload('commercial');
+                    
+                    $data += array(
+                        'commercial'  => $_FILES['commercial']['name']
+                    );
+    
+                        
+            }
+            if (!empty($_FILES['bill']['name'])){
+          
+                    $this->upload->do_upload('bill');
+                        
+                    $data += array(
+                        'bill'  => $_FILES['bill']['name']
+                    );
+                            
+            }
+            
+            
+         }
+        
+
+         if($this->input->post('export')){
+            $data = array(
+                'consignee_id' => $this->session->userdata('userId'),
+                'transaction_number' => 'TR-' . $rand,
+                'transaction_type' => 'export',
+                'date_posted' => date('Y-m-d H:i:s')
+                );
+
+             if (!empty($_FILES['bureau']['name'])){
+          
+            $result = $this->upload->do_upload('bureau');
+       
+             $data += array(
+                'bureau'  => $_FILES['bureau']['name']
+                );
+
+                
+             }
+
+             if (!empty($_FILES['packing']['name'])){
+          
+                $this->upload->do_upload('packing');
+                
+                 $data += array(
+                    'packing'  => $_FILES['packing']['name']
+                    );
+
+                    
+                 }
+            if (!empty($_FILES['commercial']['name'])){
+          
+                    $this->upload->do_upload('commercial');
+                    
+                    $data += array(
+                        'commercial'  => $_FILES['commercial']['name']
+                    );
+    
+                        
+            }
+        }
+        $this->ConsigneeModel->insertTransaction($data);
+    echo '<script>alert("Transcation Inserted")
+           history.back()
+         </script>';
+}
 }

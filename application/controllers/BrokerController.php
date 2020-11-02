@@ -34,6 +34,50 @@ class BrokerController extends CI_Controller {
         //  $this->form_validation->set_rules('firstname', 'First Name', 'required');
         //  $this->form_validation->set_rules('lastname', 'Last Name', 'required');
         
+        if($this->input->post()){
+            if(!empty($this->input->post('password')) && !empty($this->input->post('confirm'))){
+                 if($this->input->post('password') == $this->input->post('confirm')){
+                
+                    $data = array(
+                        'first_name' => $this->input->post('first_name'),
+                        'last_name' => $this->input->post('lastname'),
+                        'company_name' => $this->input->post('company_name'),
+                        'company_location' => $this->input->post('company_location'),
+                        'email_add' => $this->input->post('email'),
+                        'contact_info' => $this->input->post('contact'), 
+                        'user_pass' => md5($this->input->post('password')),  
+                    );
+
+                    $result = $this->BrokerModel->updateAccount($param,$data);
+
+                    if($result){
+                        $this->session->set_flashdata('success', 'Updated Successfully');
+                    }else{
+                        $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+                    }
+                 }else{
+                    $this->session->set_flashdata('error', 'Password and Confirm password do not match. Please try again.');
+                    redirect('editAccount/'. $param);
+                 }
+            }else{
+                $data = array(
+                    'first_name' => $this->input->post('first_name'),
+                    'last_name' => $this->input->post('lastname'),
+                    'company_name' => $this->input->post('company_name'),
+                    'company_location' => $this->input->post('company_location'),
+                    'email_add' => $this->input->post('email'),
+                    'contact_info' => $this->input->post('contact')
+                );
+
+                $result = $this->BrokerModel->updateAccount($param,$data);
+                if($result){
+                    $this->session->set_flashdata('success', 'Updated Successfully');
+                }else{
+                    $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+                }
+                
+            }
+        }
 
         if($this->form_validation->run() == FALSE){
 
@@ -45,7 +89,7 @@ class BrokerController extends CI_Controller {
                 show_404();
 
             }
-           
+          
             $data['title'] = "Manage Account";
             $data['emp'] = $this->BrokerModel->get_editEmp($param);
             $data['id'] = $data['emp']['user_ID'];
@@ -117,7 +161,18 @@ class BrokerController extends CI_Controller {
             // }
 
     
+            if($this->session->userdata('success')){
 
+                $data['success'] = $this->session->userdata('success');
+    
+               
+            }
+    
+            if($this->session->userdata('error')){
+    
+                $data['error'] = $this->session->userdata('error');
+               
+            }
            
 
            
@@ -140,13 +195,7 @@ class BrokerController extends CI_Controller {
            
             
           
-    }else{ //$result = $this->BrokerModel->update_user($datar);
-      $this->BrokerModel->updateAccount();
-    //   print_r($id);
-        $this->session->set_flashdata('acc_updated','Account was updated');
-     redirect(base_url('editAccount/').$param);
-
-    }  
+    }
 
     
 }

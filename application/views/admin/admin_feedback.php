@@ -10,7 +10,7 @@
                                     <?php echo $this->session->flashdata('success');?>
                                          </div>
                          <?php }?>
-              <table class="table  table-hover text-center">
+              <table class="table  table-hover text-center" id="exampleFeedback">
 				  <thead class="table-info">
 	            	<h1 class="text-center mb-2">Feedback Manager</h1>             
                                 <tr>
@@ -43,7 +43,5 @@
                             <!--<?php echo base_url('post_feedback')?>/<?php echo $feedback->feedback_ID?>  -->
 			    </table>
     
-            <div class="pagination fa-pull-right">
-            <?php echo $this->pagination->create_links();?>
-            </div>
+            
 </div>

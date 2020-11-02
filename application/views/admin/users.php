@@ -15,7 +15,7 @@
         <div class="col-md-6">
        
         <h1 class="text-right mb-2 col-md-8" >Employees</h1>
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover" id="example">
 
             <thead class="table-primary">
                 <tr>
@@ -48,12 +48,13 @@
         <div class="col-md-6">
        
         <h1 class="text-right mb-2 col-md-8">Consignees</h1>
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover" id="example1">
             <thead class="table-info">
                 <tr>
                     <th>Name</th>
                     <th>Company</th>
-                    <th>Actions</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,7 +62,7 @@
                 <tr>
                     <td><?php echo ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
                     <td><?php echo $client->company_name;?></td>
-
+                    <td><?php echo $client->register_status;?></td>
                     <td><a  href="<?php echo base_url('editAccount');?>/<?php echo $client->user_ID;?>" class="btn btn-success mr-2"><i class="fas fa-glass"></i></a>  <a onclick="return confirm('Are you sure you want to delete this account?')" href="<?php echo base_url('delete_user');?>/<?php echo $client->user_ID;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
 
                 </tr>

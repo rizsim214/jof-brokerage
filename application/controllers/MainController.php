@@ -84,7 +84,7 @@ class MainController extends CI_Controller {
                                     } elseif($data_result['user_role'] == 4 && $data_result['register_status'] == "accepted") {
                                         redirect('admin' , 'refresh', $data_result);
                                     }else{
-                                        $this->session->set_flashdata('error', 'Account has not yet been approved by the admin... Please try again');
+                                        $this->session->set_flashdata('error', 'Account has not yet been approved by the admin... Please contact JOF BROKERAGE');
                                         redirect('login' , 'refresh');
                                     }
                            }
@@ -216,6 +216,28 @@ class MainController extends CI_Controller {
         $this->session->sess_destroy();
 
         redirect('home');
+    }
+
+
+    public function openTerms(){
+
+
+        echo "asdasdasd";
+        $page ="termOfuse";
+        //  print_r($data);
+
+          if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+              show_404();
+
+          }
+
+          
+
+
+        $this->load->view('includes/header');
+         $this->load->view('pages/'.$page);
+         $this->load->view('includes/footer');
+
     }
 
 }

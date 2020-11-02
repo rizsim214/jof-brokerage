@@ -26,33 +26,11 @@ class BrokerModel extends CI_Model{
             return $result->row_array();
      }
 
-     public function updateAccount(){
+     public function updateAccount($id, $data){
 
-
-        echo "sdsadasdas";
-       $id = $this->input->post('user_ID');
-
-    //   echo $id;
-    //    print_r($id);
-        $data = array(
-            
-            'first_name' => $this->input->post('firstname'),
-            'last_name' => $this->input->post('lastname'),
-            'company_name' => $this->input->post('company_name'),
-            'company_location' => $this->input->post('company_location'),
-            'email_add' => $this->input->post('email'),
-            'user_pass' => md5($this->input->post('password')),
-            'contact_info' => $this->input->post('contact'),
-            
-
-    );
-
-  //  print_r($data);
-
-   
-   
+        $this->db->set($data);
         $this->db->where('user_ID',$id);
-         return $this->db->update('users_table',$data);
+         return $this->db->update('users_table');
 
 
      }
