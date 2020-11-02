@@ -35,7 +35,27 @@
   </div>
 </div>
 </form>
+<div class="modal fade" id="status" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Transaction status</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div id="stepper">
 
+      </div>
+     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <form method="post" action="<?php echo base_url('ConsigneeController/sendFiles')?>" enctype="multipart/form-data">
 <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -82,31 +102,30 @@
     </tr>
   </thead>
   <tbody>
-
-    <tr>
-      <th></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><a href="" target="_blank">Image</a></td>
-      <td><a href="" target="_blank">Image</a></td>
-      <td><a href="" target="_blank">Image</a></td>
+  <?php foreach ($transactions as $row) : 
+           
+            ?>
+   <tr>
+      <th><?php echo $row->transaction_number; ?></th>
+      <td><?php echo empty($row->first_name) ? 'waiting' : $row->first_name . ' ' . $row->last_name; ?></td>
+      <td><?php echo empty($row->company_name) ? 'waiting' : $row->company_name; ?></td>
+      <td><?php echo $row->transaction_type; ?></td>
+      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank">file</a></td>
+      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank">file</a></td>
+      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank">file</a></td>
       <td>
-     
-      <a href="" target="_blank">Image</a>
-     
+      <?php if(!empty($row->bill)){ ?>
+      <a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bill; ?>" target="_blank">file</a>
+      <?php } ?>
       </td>
-      <td></td>
-      <td></td>
-      <td><a href="#" onclick="" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+      <td><?php echo empty($row->date_started) ? 'waiting' : $row->date_started; ?></td>
+      <td><?php echo empty($row->date_ended) ? 'waiting' : $row->date_ended; ?></td>
+      <td><a href="#" onclick="viewStatus('<?php echo $row->transaction_status ?>')" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
   View
 </a>
       </td>
     </tr>
-
-    
-
-   
+    <?php endforeach; ?> 
    
   </tbody>
 </table>

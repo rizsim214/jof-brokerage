@@ -5,7 +5,7 @@ class BrokerController extends CI_Controller {
 
     public function __construct(){
         parent:: __construct();
-
+        $this->load->model('AdminModel');
     }
 
     public function index(){
@@ -16,14 +16,115 @@ class BrokerController extends CI_Controller {
        if(!file_exists(APPPATH.'views/broker/'.$page.'.php')){
 			show_404();
 		}else{
-           
+            $data['transactions'] = $this->AdminModel->getAllTransactions();
+
+            if($this->session->userdata('success')){
+
+                $data['success'] = $this->session->userdata('success');
+    
+               
+            }
+    
+            if($this->session->userdata('error')){
+    
+                $data['error'] = $this->session->userdata('error');
+               
+            }
             $this->load->view('broker/includes/login_header');
-            $this->load->view('broker/'.$page);
+            $this->load->view('broker/'.$page, $data);
             $this->load->view('includes/footer');
             
         }
     }
+    public function acceptTransaction($id, $consignee_id,$transcation_number){
+      
+        $data = array(
+            'status' => 'accepted',
+            'processor_id' => $this->session->userdata('user_ID')
+        );
+        
+        $consignee = $this->AdminModel->getUser($consignee_id);
+       
+      
+        $ch = curl_init();
+        $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ". $transcation_number." for importing/exporting at JOF brokerage is now accepted." , '3' => "TR-KEVIN992338_49PR6" , 'passwd' => "c)t%jz73s]");
+        curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 
+        http_build_query($itexmo));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_exec ($ch);
+        curl_close ($ch);
+            
+     
+        $result = $this->AdminModel->updateTransaction($id, $data);
+        
+        if($result){
+            $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+        }else{
+            $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+        }
 
+        redirect('BrokerController/index');
+    }
+
+    public function declineTransaction(){
+        
+        $data = array(
+            'status' => 'declined',
+            'reason' => $this->input->post('reason')
+        );
+
+        $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
+        $ch = curl_init();
+
+        $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ".$this->input->post('transaction_number')." has been declined. Please check your account." , '3' => "TR-KEVIN992338_49PR6", 'passwd' => "c)t%jz73s]");
+        curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 
+        http_build_query($itexmo));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_exec ($ch);
+        curl_close ($ch);
+
+        $result = $this->AdminModel->updateTransaction($this->input->post('transaction_id'), $data);
+        
+        if($result){
+            $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+        }else{
+            $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+        }
+
+        redirect('BrokerController/index');
+    }
+    public function changeStatus(){
+
+        $data = array(
+           'status' => $this->input->post('status')
+       );
+
+       $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
+       $ch = curl_init();
+
+       $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ".$this->input->post('transaction_number')." status is ". $this->input->post('status') .". Please check your account." , '3' => "TR-KEVIN992338_49PR6", 'passwd' => "c)t%jz73s]");
+       curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
+       curl_setopt($ch, CURLOPT_POST, 1);
+       curl_setopt($ch, CURLOPT_POSTFIELDS, 
+       http_build_query($itexmo));
+       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+       curl_exec ($ch);
+       curl_close ($ch);
+
+       $result = $this->AdminModel->updateTransaction($this->input->post('transaction_id'), $data);
+       
+       if($result){
+           $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+       }else{
+           $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+       }
+
+       redirect('BrokerController/index');
+   }
     public function get_edit_accounts($param){
 
       //  echo "fuck hsit";

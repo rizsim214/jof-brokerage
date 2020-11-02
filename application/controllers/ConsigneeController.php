@@ -6,10 +6,16 @@ class ConsigneeController extends CI_Controller {
     public function __construct(){
         parent:: __construct();
         $this->load->model('ConsigneeModel');
-
+        $this->load->helper('form');
+        $this->load->helper('url');
+        $this->load->library('session');
+        $this->load->helper('array');
+        $this->conId = $this->session->userdata('user_ID');
+        $this->data['transactions'] = $this->ConsigneeModel->getTransactions($this->conId);
     }
 
     public function index(){
+      
         $this->dynamic_view();
     }
 
@@ -19,16 +25,16 @@ class ConsigneeController extends CI_Controller {
 		}else{
            
             $this->load->view('consignee/includes/login_header');
-            $this->load->view('consignee/'.$page);
+            $this->load->view('consignee/'.$page, $this->data);
             $this->load->view('includes/footer');
             
         }
     }
     public function sendFiles(){
-   
-        $config['upload_path'] = base_url() . '/assets/uploads/img';
-        
-        // $config['allowed_types'] = 'jpg|jpeg|png';
+
+        $config['upload_path'] =  './assets/uploads/files';
+      
+        $config['allowed_types'] = 'jpg|jpeg|png|docs|pdf|docx|doc';
         // $config['max_filename'] = '255';
         // $config['encrypt_name'] = FALSE;
         // $config['max_size'] = '5000'; //1 MB
@@ -41,7 +47,7 @@ class ConsigneeController extends CI_Controller {
         if($this->input->post('import')){
             
             $data = array(
-                'consignee_id' => $this->session->userdata('userId'),
+                'consignee_id' => $this->conId,
                 'transaction_number' => 'TR-' . $rand,
                 'transaction_type' => 'import',
                 'date_posted' => date('Y-m-d H:i:s')
@@ -49,7 +55,7 @@ class ConsigneeController extends CI_Controller {
             if (!empty($_FILES['bureau']['name'])){
           
             $result = $this->upload->do_upload('bureau');
-           
+         
              $data += array(
                 'bureau'  => $_FILES['bureau']['name']
                 );
@@ -93,7 +99,7 @@ class ConsigneeController extends CI_Controller {
 
          if($this->input->post('export')){
             $data = array(
-                'consignee_id' => $this->session->userdata('userId'),
+                'consignee_id' => $this->conId,
                 'transaction_number' => 'TR-' . $rand,
                 'transaction_type' => 'export',
                 'date_posted' => date('Y-m-d H:i:s')
