@@ -47,6 +47,9 @@
     </div>
   </div>
 </div>
+<div class="text-center">
+<a type="button" href="<?php echo base_url('terms'); ?>" class="btn btn-outline-danger btn-lg">Terms of use</a>
+</div>
 <hr>
 <div class="copyright text-center mb-2">Copyright: JOF CUSTOMS BROKERAGE 2020</div>
 </div>
