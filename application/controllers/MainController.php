@@ -29,6 +29,55 @@ class MainController extends CI_Controller {
             
         }
     }
+    public function landing_client_validation(){
+               
+                $this->form_validation->set_rules('firstname' , 'First Name' , 'trim|required' , array('required' => ' First Name field is required.'));
+                $this->form_validation->set_rules('lastname' , 'Last Name' , 'trim|required' , array('required' => ' Last Name field is required.'));
+                 $this->form_validation->set_rules('company_name' , 'Company Name' , 'trim|required' , array('required' => 'Company Name field is required.'));
+                $this->form_validation->set_rules('company_location' , 'Company Location' , 'trim|required' , array('required' => ' Company Location field is required.'));
+                $this->form_validation->set_rules('email' , 'Email Address' , 'trim|required' , array('required' => ' Email field is required.'));
+                 $this->form_validation->set_rules('contact' , 'Contact Information' , 'trim|required' , array('required' => 'Contact Information field is required.'));
+                $this->form_validation->set_rules('password' , 'Password' , 'trim|required|min_length[8]' , array('required' => ' Password field is required.' , 'min_length' => 'Minimum length must be 8 characters or more'));
+                $this->form_validation->set_rules('confirm' , 'Confirm Password' , 'trim|required|matches[password]' , array('required' => 'Password Confirmation field is required.' , 'matches' => 'Confirmation Password must be the same with password.'));
+               
+               
+        
+     }
+    public function landing_client_registration(){
+     if(!$this->input->post()){
+        show_404();
+     }else{
+        $this->landing_client_validation();
+
+            if(!$this->form_validation->run() == TRUE){
+                $this->session->set_flashdata('error' , 'Some error occured while registration was under process! Please try again...');
+                redirect('register_client');
+            }else{
+
+                $register_data = array(
+                    'user_role' => 1,
+                    'first_name' => $this->input->post('firstname'),
+                    'last_name' => $this->input->post('lastname'),
+                    'company_name' =>$this->input->post('company_name'),
+                    'company_location' =>$this->input->post('company_location'),
+                    'email_add' =>$this->input->post('email'),
+                    'contact_info' =>$this->input->post('contact_info'),
+                    'user_pass' =>$this->input->post('password'),
+                    'register_status' => 'pending',
+                    'date_registered' => date('Y-m-d H:m:s')
+                );
+
+            $register_result = $this->MainModel->create_client_account($register_data);
+                if(!$register_result){
+                    $this->session->set_flashdata('error', 'Registration Error! Something went wrong while creating your account! Please try again...');
+                    redirect('register_client');
+                }else{
+                     $this->session->set_flashdata('success', 'Registration Successful! Just wait for the admin to approve your registration');
+                    redirect('login');
+                }
+          }
+     }
+}
     public function login_validation(){
          $this->form_validation->set_rules('email' , 'Email Address' , 'trim|required' , array('required' => '1: Email field is required.'));
          $this->form_validation->set_rules('password' , 'Password' , 'trim|required' , array('required' => '1: Please Enter your password.'));
@@ -172,6 +221,7 @@ class MainController extends CI_Controller {
          $this->load->view('includes/footer');
     }
  }
+ 
  public function view_glossary_landing(){
     //    $config = array(
     //                     'base_url' => site_url('support'),
