@@ -19,6 +19,10 @@
 <script>
 $(document).ready(function() {
     $('#example').DataTable();
+    $('#example1').DataTable();
+    $('#exampleFeedback').DataTable();
+    $('#exampleAppointment').DataTable();
+    $('#exampleGlossary').DataTable();
 } );
 function declineTransaction(transaction_id, consignee_id, transaction_number) {
 		$('#transaction_id').val(transaction_id);

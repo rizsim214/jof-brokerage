@@ -57,7 +57,7 @@ class AdminController extends CI_Controller {
                 'transactions' => $this->AdminModel->getAllTransaction(),
                 'clients' =>  $this->AdminModel->getAllClients(),
                 'employees' => $this->AdminModel->getAllEmployees(),
-                'response' => $this->AdminModel->getAllAppointment($config['per_page'] , $offset)
+                'response' => $this->AdminModel->getAllAppointment()
             );
 
             if($this->session->userRole == 2) {
@@ -115,6 +115,7 @@ class AdminController extends CI_Controller {
                     'user_pass' => md5($this->input->post('password')),
                     'contact_info' => $this->input->post('contact'),
                     'user_role' => $this->input->post('user_role'),
+                    'register_status' => "accepted",
                     'date_registered' => date('Y-m-d H:m:s')
                     );
 
@@ -173,28 +174,8 @@ class AdminController extends CI_Controller {
 
     public function view_feedbacks(){
            
-          $config = array(
-                        'base_url' => site_url('admin_feedback'),
-                        'total_rows' => $this->AdminModel->countAllFeedbacks(),
-                        'per_page' => 5,
-                        'num_tag_open' => '<li class="pg-item">' ,
-                        'num_tag_close' => '</li>' ,
-                        'cur_tag_open' => '<li class="active"><a href="javascript:void(0);">',
-                        'cur_tag_close' => '</a></li>',
-                        'next_link' => '<li class="pg-next ml-2">Next</li>',
-                        'prev_link'=> '<li class="pg-prev mr-2">Prev</li>',
-                        'next_tag_open' => '<li class="pg-next">',
-                        'next_tag_close' => '</li>', 
-                        'prev_tag_open' => '<li class="pg-prev">',
-                        'prev_tag_close' => '</li>',   
-                        'first_tag_open' => '<li class="pg-item mr-2">',
-                        'first_tag_close' => '</li>',
-                        'last_tag_open' => '<li class="pg-item ml-2">',
-                        'last_tag_close' => '</li>' 
-                            );
-                                    $this->pagination->initialize($config);
 
-                 $feedback_data['all_feedbacks'] = $this->AdminModel->get_feedback($config['per_page'] , $offset = 0);
+                 $feedback_data['all_feedbacks'] = $this->AdminModel->get_feedback();
                 
                  if(!$feedback_data){
                         $this->session->set_flashdata('error' , 'Unable to access feedbacks... Please reload the page');
@@ -207,28 +188,9 @@ class AdminController extends CI_Controller {
 
     }
     public function glossary_management(){
-          $config = array(
-                        'base_url' => site_url('glossary_management'),
-                        'total_rows' => $this->AdminModel->countAllGlossary(),
-                        'per_page' => 5,
-                        'num_tag_open' => '<li class="pg-item">' ,
-                        'num_tag_close' => '</li>' ,
-                        'cur_tag_open' => '<li class="active"><a href="javascript:void(0);">',
-                        'cur_tag_close' => '</a></li>',
-                        'next_link' => '<li class="pg-next ml-2">Next</li>',
-                        'prev_link'=> '<li class="pg-prev mr-2">Prev</li>',
-                        'next_tag_open' => '<li class="pg-next">',
-                        'next_tag_close' => '</li>', 
-                        'prev_tag_open' => '<li class="pg-prev">',
-                        'prev_tag_close' => '</li>',   
-                        'first_tag_open' => '<li class="pg-item mr-2">',
-                        'first_tag_close' => '</li>',
-                        'last_tag_open' => '<li class="pg-item ml-2">',
-                        'last_tag_close' => '</li>' 
-                            );
-                                    $this->pagination->initialize($config);
+         
 
-                 $glossary_data['all_glossary'] = $this->AdminModel->get_glossary($config['per_page'] , $offset = 0);
+                 $glossary_data['all_glossary'] = $this->AdminModel->get_glossary();
 
                  if(!$glossary_data){
                      $this->session->set_flashdata('error' , 'Unable to access GLOSSARY... Please reload the page');
@@ -303,7 +265,6 @@ class AdminController extends CI_Controller {
         }else{
             $message_attribute = array(
 
-                
                 'appointment_status' => "Read",
                 'date_updated' => date('Y-m-d H:m:s')
             );
@@ -328,5 +289,41 @@ class AdminController extends CI_Controller {
 
     public function back_to_appointments(){
         redirect('appointments');
+    }
+    public function post_feedback($id){
+        $postFeedback_result = $this->AdminModel->get_feedback_result($id);
+            if(!$postFeedback_result){
+                $this->session->set_flashdata('error', 'Error! Something went wrong while fetching data... Please reload the page');
+                redirect('admin_feedback');
+            }else{
+                if($postFeedback_result['feedback_status'] == 0){
+                    $postFeedback_data = array(
+                        'feedback_status' => 1,
+                        'date_updated' => date('Y-m-d H:m:s')
+                    );
+
+                    $result = $this->AdminModel->update_feedback($postFeedback_data , $id);
+                    if(!$result){
+                        $this->session->set_flashdata('error' , 'Something went wrong... Please try again!');
+                        
+                    }else{
+                        $this->session->set_flashdata('success' , 'Succesfully posted feedback... You can now see the feedback in feedback page.Thank you!');
+                    }
+                   redirect('admin_feedback');
+
+                }elseif($postFeedback_result['feedback_status'] == 1){
+                    $postFeedback_data = array(
+                        'feedback_status' => 0,
+                        'date_updated' => date('Y-m-d H:m:s')
+                    );
+                    $result = $this->AdminModel->update_feedback($postFeedback_data , $id);
+                    if(!$result){
+                        $this->session->set_flashdata('error' , 'Something went wrong... Please try again!');
+                    }else{
+                        $this->session->set_flashdata('success' , 'Succesfully Unposted feedback... Feedback was removed from the feedback page');
+                    }
+                    redirect('admin_feedback');
+                }
+            }
     }
 }

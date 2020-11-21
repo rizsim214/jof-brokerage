@@ -61,7 +61,14 @@ class MainModel extends CI_Model{
         $result = $this->db->get('glossary_table');
         return $result->num_rows();
     }
-
+    public function create_client_account($register_data){
+        if(!$register_data){
+          return NULL;
+        }else{
+          $result =  $this->db->insert('users_table' , $register_data);
+            return TRUE;
+        }
+    }
     // public function get_all_glossary($limit , $offset){
     //   $this->db->select('*');
     //   $this->db->from('glossary_table');

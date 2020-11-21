@@ -61,6 +61,8 @@ $route['support'] = 'MainController/view_glossary_landing/0';
 $route['support/(:num)'] = 'MainController/view_glossary_landing/$1';
 $route['login_account'] = 'MainController/login';
 $route['set_appointment'] = 'MainController/setAppointment';
+$route['register_client'] = 'MainController/dynamic_view/register';
+$route['landing_client_registration'] = 'MainController/landing_client_registration';
 $route['logout'] = 'MainController/logout';
 // ADMIN PAGE ROUTES
 $route['admin'] = 'AdminController/dynamic_view';
@@ -85,6 +87,7 @@ $route['create_glossary'] = 'AdminController/create_glossary';
 $route['delete_glossary/(:num)'] = 'AdminController/delete_glossary/$1';
 $route['view_message/(:num)'] = 'AdminController/view_message/$1';
 $route['register'] = 'AdminController/register';
+$route['post_feedback/(:num)'] = 'AdminController/post_feedback/$1';
 $route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
 $route['viewAccount/(:any)'] = 'BrokerController/view_accounts/$1';
 $route['terms'] = 'MainController/openTerms';

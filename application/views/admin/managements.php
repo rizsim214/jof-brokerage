@@ -13,7 +13,7 @@
         
     </div>  
 <h1>GlOSSARY MANAGEMENT</h1>
-    <table class="table table-hover text-center">
+    <table class="table table-hover text-center" id="exampleGlossary">
         <thead class="table-info">
             <tr>
                     <th scope="col">TERM</th>
