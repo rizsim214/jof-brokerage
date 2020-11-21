@@ -485,6 +485,11 @@ img{
 .contactPage_container{
     margin-top:10%;
 }
+.user_options a:hover{
+    margin: 5px 5px 5px;
+    border: 1px solid black;
+    border-radius:10px;
+}
 /* MESSAGE BOARD STYLES */
 
  /* .message__header{
