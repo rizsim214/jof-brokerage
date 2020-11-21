@@ -19,10 +19,7 @@ class BrokerController extends CI_Controller {
             $data['transactions'] = $this->AdminModel->getAllTransactions();
 
             if($this->session->userdata('success')){
-
                 $data['success'] = $this->session->userdata('success');
-    
-               
             }
     
             if($this->session->userdata('error')){
@@ -30,7 +27,7 @@ class BrokerController extends CI_Controller {
                 $data['error'] = $this->session->userdata('error');
                
             }
-            $this->load->view('broker/includes/login_header');
+            $this->load->view('broker/includes/header');
             $this->load->view('broker/'.$page, $data);
             $this->load->view('includes/footer');
             
@@ -47,7 +44,7 @@ class BrokerController extends CI_Controller {
        
       
         $ch = curl_init();
-        $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ". $transcation_number." for importing/exporting at JOF brokerage is now accepted." , '3' => "TR-KEVIN992338_49PR6" , 'passwd' => "c)t%jz73s]");
+        $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ". $transcation_number." for importing/exporting at JOF brokerage is now accepted." , '3' => "TR-ACERS720125_Q7M6B" , 'passwd' => "$59j{iq{ft");
         curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, 
@@ -78,7 +75,7 @@ class BrokerController extends CI_Controller {
         $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
         $ch = curl_init();
 
-        $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ".$this->input->post('transaction_number')." has been declined. Please check your account." , '3' => "TR-KEVIN992338_49PR6", 'passwd' => "c)t%jz73s]");
+        $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ".$this->input->post('transaction_number')." has been declined. Please check your account." , '3' => "TR-ACERS720125_Q7M6B", 'passwd' => "$59j{iq{ft");
         curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, 
@@ -101,12 +98,14 @@ class BrokerController extends CI_Controller {
 
         $data = array(
            'status' => $this->input->post('status')
+           
        );
 
        $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
+       $cons = $this->AdminModel->getUser($this->input->post('first_name'));
        $ch = curl_init();
 
-       $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ".$this->input->post('transaction_number')." status is ". $this->input->post('status') .". Please check your account." , '3' => "TR-KEVIN992338_49PR6", 'passwd' => "c)t%jz73s]");
+       $itexmo = array('1' => $consignee->contact_info, '2' => "Hello Your Transcation ".$this->input->post('transaction_number')." status is ". $this->input->post('status') .". Please check your account." , '3' => "TR-ACERS720125_Q7M6B", 'passwd' => "$59j{iq{ft");
        curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
        curl_setopt($ch, CURLOPT_POST, 1);
        curl_setopt($ch, CURLOPT_POSTFIELDS, 
@@ -278,13 +277,13 @@ class BrokerController extends CI_Controller {
 
            
             if($this->session->userRole == 2) {
-                $this->load->view('broker/includes/login_header');
+                $this->load->view('broker/includes/header');
     
             }elseif($this->session->userRole == 4) {
                 $this->load->view('admin/includes/login_header');
     
             }elseif($this->session->userRole == 3) {
-                $this->load->view('accounting/includes/login_header');
+                $this->load->view('accounting/includes/header');
     
             }elseif($this->session->userRole == 1) {
                 $this->load->view('consignee/includes/login_header');
@@ -321,13 +320,13 @@ class BrokerController extends CI_Controller {
 
 
               if($this->session->userRole == 2) {
-                $this->load->view('broker/includes/login_header');
+                $this->load->view('broker/includes/header');
     
             }elseif($this->session->userRole == 4) {
                 $this->load->view('admin/includes/login_header');
     
             }elseif($this->session->userRole == 3) {
-                $this->load->view('accounting/includes/login_header');
+                $this->load->view('accounting/includes/header');
     
             }elseif($this->session->userRole == 1) {
                 $this->load->view('consignee/includes/login_header');

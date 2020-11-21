@@ -1,14 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AdminController extends CI_Controller {
+class AccountingController extends CI_Controller {
 
     public function __construct(){
         parent:: __construct();
-
+        $this->load->model('AdminModel');
     }
 
     public function index(){
+       
         $this->dynamic_view();
     }
 
@@ -17,10 +18,31 @@ class AdminController extends CI_Controller {
 			show_404();
 		}else{
            
-            $this->load->view('includes/login_header');
-            $this->load->view('accounting/'.$page);
+            $data['transactions'] = $this->AdminModel->getAllTransactions();
+
+            if($this->session->userdata('success')){
+                $data['success'] = $this->session->userdata('success');
+            }
+    
+            if($this->session->userdata('error')){
+    
+                $data['error'] = $this->session->userdata('error');
+               
+            }
+
+            $this->load->view('accounting/includes/header');
+            $this->load->view('accounting/'.$page, $data);
             $this->load->view('includes/footer');
             
         }
+    }
+
+    public function bill($id){
+        $data['transaction_id'] = $id;
+        $data['billing_items'] = $this->AdminModel->getBillingItems();
+        $this->load->view('accounting/includes/header');
+        $this->load->view('accounting/bill', $data);
+        $this->load->view('includes/footer');
+
     }
 }
