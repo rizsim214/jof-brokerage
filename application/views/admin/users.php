@@ -97,13 +97,27 @@
    <div class="modal-dialog" role="document">   
          <div class="modal-content">
             <div class="modal-header">
-                 <h4 class="modal-title mx-auto" id="addAccountModalLAbel">CONSIGNEE OPTIONS</h4>  
+                 <h4 class="modal-title text-dark mx-auto" id="addAccountModalLAbel">CONSIGNEE OPTIONS</h4>  
             </div>
              
             <hr>
              <div class="modal-body">
                 <div class="container">
-                       <h1>WORLD</h1>      
+                       <div class="row mx-auto user_options">
+                            <div class="col-md-3" >
+                                <a href="#" class="btn btn-md btn-success">ACCEPT</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#" class="btn btn-md btn-warning">DECLINE</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#" class="btn btn-md btn-primary">UPDATE</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#" class="btn btn-md btn-danger">DECLINE</a>
+                            </div>
+                       </div>  
+                        
                 </div>
              </div>
              <div class="modal-footer mx-auto">
@@ -151,7 +165,7 @@
                         }elseif($employee->user_role == '3'){
                                 echo "Accounting";
                         } ?></td>
-                        <td><a href="#" data-toggle="modal" data-target="#employeeModalOptions" class="btn btn-outline-success text-center"><i class="fas fa-gear mr-2"></i>Options</a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#employeeModalOptions" class="btn btn-outline-success text-center mx-auto"><i class="fas fa-gear mr-2"></i>Options</a></td>
                     </tr>
                         <?php endforeach;?>
 
@@ -178,7 +192,7 @@
                             <td><?php echo ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
                             <td><?php echo $client->company_name;?></td>
                             <td><?php echo $client->register_status;?></td>
-                            <td><a href="#" data-toggle="modal" data-target="#consigneeModalOptions" class="btn btn-outline-success text-center"><i class="fas fa-gear mr-2"></i>Options</a></td>
+                            <td><a href="#" data-toggle="modal" data-target="#consigneeModalOptions" class="btn btn-outline-success text-center mx-auto"><i class="fas fa-gear mr-2"></i>Options</a></td>
 
                         </tr>
                         <?php }?>
