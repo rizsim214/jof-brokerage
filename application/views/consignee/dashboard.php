@@ -9,7 +9,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Import</h5>
+        <h5 class="modal-title text-dark" id="exampleModalLabel">Import</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -23,6 +23,10 @@
         <input type="file"  name="bill" id="import" >
         <h4> Commercial Invoice</h4>
         <input type="file"  name="commercial" id="import" >
+
+        <br>
+        <br>
+        <p class="text-dark"> Please Submit <u>genuine</u> and <u>complete</u> Documents.</p>
 
           
 
@@ -61,7 +65,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Export</h5>
+        <h5 class="modal-title text-dark" id="exampleModalLabel">Export</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -73,6 +77,10 @@
         <input type="file"  name="packing" id="import" >
         <h4> Commercial Invoice</h4>
         <input type="file"  name="commercial" id="import" >
+
+        <br>
+        <br>
+        <p class="text-dark"> Please Submit <u>genuine</u> and <u>complete</u> Documents.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

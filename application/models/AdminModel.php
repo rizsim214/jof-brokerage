@@ -67,7 +67,18 @@ class AdminModel extends CI_Model{
             return $query->result();
         }
     }
-   
+      
+    public function getBillingItems(){
+
+        $this->db->select('*');
+        $this->db->from('billing_items');
+
+        $result = $this->db->get();
+
+        return $result->result();
+
+    }
+    
     //GETTING ALL TRANSACTIONS
     public function getAllTransaction(){
         

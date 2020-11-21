@@ -1,4 +1,4 @@
-<div class="container">
+
     <br><br>
     <?php if($this->session->flashdata('success')){ ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -19,19 +19,22 @@
     <table class="table table-striped " id="example">
           <thead>
             <tr>
-             <th scope="col">Transaction Number</th>
-              <th scope="col">Consignee Name</th>
-              <th scope="col">Processor Name</th>
-              <th scope="col">Status</th>
-              <th scope="col">Transaction Type</th>
-              <th scope="col"></th>
-              <th scope="col" span="3">Files</th>
-              <th scope="col"></th>
+             <th >Transaction Number</th>
+              <th>Consignee Name</th>
+              <th>Processor Name</th>
+              <th>Status</th>
+              <th>Transaction Type</th>
+              <th>Bureau</th>
+              <th>Packing</th>
+               <th>Commercial</th>
+               <th>Bill</th>
+              <!-- <th scope="col" span="3">Files</th> -->
+      
               <!-- <th scope="col"></th> -->
-              <th scope="col">Date Started</th>
-              <th scope="col">Date Ended</th>
-              <th scope="col">Date Created</th>
-            <th scope="col">Options</th>
+              <th>Date Started</th>
+              <th>Date Ended</th>
+              <th>Date Created</th>
+            <th>Options</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +44,7 @@
             $processor = getProcessor($row->processor_id);
           ?>
             <tr>
-              <th scope="row"><?php echo $row->transaction_number;?></th>
+              <td scope="row"><?php echo $row->transaction_number;?></td>
               <td><?php echo $row->first_name . ' ' . $row->last_name;?></td>
               <td><?php echo  empty($processor->first_name) ? 'waiting' : $processor->first_name . ' ' . $processor->last_name; ?></td>
               <td><?php echo $row->transaction_status;?></td>
@@ -49,9 +52,11 @@
             <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank">file</a></td>
             <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank">file</a></td>
             <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank">file</a></td>
+            <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bill; ?>" target="_blank">file</a></td>
+           
               <td><?php echo empty($row->date_started) ? 'waiting' : $row->date_started;?></td>
-              <!-- <td><?php echo empty($row->date_ended) ? 'waiting' : $row->date_ended;?></td> -->
               <td><?php echo empty($row->date_ended) ? 'waiting' : $row->date_ended;?></td>
+             
             <td><?php echo $row->date_posted;?></td>
             <td>
           <?php if($row->transaction_status == 'pending' || $row->transaction_status == 'declined'){ ?>
@@ -65,7 +70,7 @@
         <?php endforeach; ?> 
           </tbody>
         </table>
-</div>
+
 
 <form method="post" action="<?php echo base_url('BrokerController/changeStatus');  ?>">
 		<div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -126,3 +131,10 @@
 		</div>
 		</div>
 		</form>
+
+    <style>
+    #example_wrapper{
+      margin-right: 50px;
+      margin-left: 50px;
+    }
+    </style>

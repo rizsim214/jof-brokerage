@@ -272,7 +272,7 @@ class MainController extends CI_Controller {
     public function openTerms(){
 
 
-        echo "asdasdasd";
+    
         $page ="termOfuse";
         //  print_r($data);
 
