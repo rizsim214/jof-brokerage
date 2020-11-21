@@ -1,7 +1,7 @@
 <div class="main">
     <div class="container " id="contains">
         <center><h2>Billing Statement</h2></center>
-        <form method="post" action="">
+        <form method="post" action="<?php echo base_url("AccountingController/billingSubmit"); ?>">
         <input type="hidden" name="transaction_id" value="<?php echo $transaction_id; ?>">
         <div class="row">
             <div class="col-md-6">
