@@ -1,3 +1,4 @@
+
 <div class="container-fluid register_container">
     <div class="col-md-10 mx-auto ">
     <h1 class="text-center">Client Registration</h1>
@@ -17,6 +18,7 @@
         <div class="container mt-3" >
 
                         <?php echo form_open('landing_client_registration');?>
+                        <?php echo form_hidden('token', random_string('alnum', 16)); ?>
                            <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="firstname">First Name* </label>

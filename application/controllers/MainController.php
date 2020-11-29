@@ -8,7 +8,8 @@ class MainController extends CI_Controller {
 
         $this->load->model('MainModel');
         $this->load->model('AdminModel');
-
+        $this->load->helper('captcha');
+        $this->load->helper('string');
 
     }
     
@@ -29,6 +30,19 @@ class MainController extends CI_Controller {
             
         }
     }
+
+    public function view_register(){
+
+        $captcha_config = array(
+            'word' => "Random Word"
+        );
+
+        $captcha = create_captcha($captcha_config);
+
+        $this->load->view('includes/header');
+        $this->load->view('pages/register');
+        $this->load->view('includes/footer');
+    }
     public function landing_client_validation(){
                
                 $this->form_validation->set_rules('firstname' , 'First Name' , 'trim|required' , array('required' => ' First Name field is required.'));
@@ -44,6 +58,7 @@ class MainController extends CI_Controller {
         
      }
     public function landing_client_registration(){
+        
      if(!$this->input->post()){
         show_404();
      }else{

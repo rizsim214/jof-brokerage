@@ -8,6 +8,29 @@ class AdminModel extends CI_Model{
 
         $this->load->database();
     }
+
+    public function get_client_data($id){
+        $this->db->select('*');
+        $this->db->from('users_table');
+        $this->db->where('user_ID' , $id);
+        $query = $this->db->get();
+        if(!$query){
+           return NULL;
+        }else{
+             return $query->row_array();
+        }
+        
+    }   
+    public function client_accept($data, $id){
+        $this->db->select('*');
+        $this->db->from('users_table');
+         $this->db->where('user_ID' , $id);
+         $this->db->update('users_table' , $data);
+         $result = $this->db->affected_rows();
+         
+        return $result;
+    }
+
     public function get_user_info($id){
        $this->db->select('*');
        $this->db->from('users_table');

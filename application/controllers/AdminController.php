@@ -138,7 +138,32 @@ class AdminController extends CI_Controller {
         }
 
     }
-     
+    public function accept_registration($id){
+         $client_data = $this->AdminModel->get_client_data($id);
+       
+         if(!$client_data){
+                $this->session->set_flashdata('error', 'Something went wrong while fetching data! Please try again...');
+                redirect('user_accounts');
+         }else{
+              
+             $client_attribute = array(
+                'register_status' => "accepted",
+                'date_accepted' => ('Y-m-d H:m:s')
+            );
+
+            $client_update = $this->AdminModel->client_accept($client_attribute , $id);
+            print_r($client_update);die();
+            if($client_update['register_status'] == 'accepted'){
+                $this->session->set_flashdata('error' , 'Account has already been updated... ');
+               
+            }elseif($client_update['register_status'] == 'pending'){
+                $this->session->set_flashdata('success' , 'Accepting client success! Client can now login to their account');
+                $this->dynamic_view('users');
+            }
+            $this->dynamic_view('users');
+          
+         }
+    }
     public function delete_account($id){
         $result = $this->AdminModel->delete_user($id);
 

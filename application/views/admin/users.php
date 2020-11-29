@@ -92,42 +92,9 @@
          </div>                    
     </div>                  
 </div>
-<!-- CONSIGNEE MODAL -->
-<div class=" modal fade" id="consigneeModalOptions" tabindex="-1" role="dialog" aria-labelledby="consigneeModalOptionsLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">   
-         <div class="modal-content">
-            <div class="modal-header">
-                 <h4 class="modal-title text-dark mx-auto" id="addAccountModalLAbel">CONSIGNEE OPTIONS</h4>  
-            </div>
-             
-            <hr>
-             <div class="modal-body">
-                <div class="container">
-                       <div class="row mx-auto user_options">
-                            <div class="col-md-3" >
-                                <a href="#" class="btn btn-md btn-success">ACCEPT</a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#" class="btn btn-md btn-warning">DECLINE</a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#" class="btn btn-md btn-primary">UPDATE</a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#" class="btn btn-md btn-danger">DECLINE</a>
-                            </div>
-                       </div>  
-                        
-                </div>
-             </div>
-             <div class="modal-footer mx-auto">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             </div>
-         </div>                    
-    </div>                  
-</div>
+
 <!-- VIEW USERS -->
-<div class="container mt-5 mb-5">
+<div class="container-fluid  mt-5 mb-5">
   <?php if($this->session->flashdata('error')) {?>
                  <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
                        <?php echo $this->session->flashdata('error');?>
@@ -141,8 +108,7 @@
 
     <div class="row">
            
-        <div class="col-md-6">
-       
+        <div class="col-md-6 table">
             <h1 class="text-right mb-2 col-md-8" >Employees</h1>
             <table class="table table-bordered table-hover" id="example">
 
@@ -174,7 +140,7 @@
                       
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 table">
        
              <h1 class="text-right mb-2 col-md-8">Consignees</h1>
                 <table class="table table-bordered table-hover" id="example1">
@@ -195,6 +161,40 @@
                             <td><a href="#" data-toggle="modal" data-target="#consigneeModalOptions" class="btn btn-outline-success text-center mx-auto"><i class="fas fa-gear mr-2"></i>Options</a></td>
 
                         </tr>
+                      <!-- CONSIGNEE MODAL -->
+                                <div class=" modal fade" id="consigneeModalOptions" tabindex="-1" role="dialog" aria-labelledby="consigneeModalOptionsLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">   
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title text-dark mx-auto" id="addAccountModalLAbel">CONSIGNEE OPTIONS</h4>  
+                                            </div>
+                                            
+                                            <hr>
+                                            <div class="modal-body">
+                                                <div class="container">
+                                                    <div class="row text-center user_options">
+                                                            <div class="col-md-3" >
+                                                                <a href="<?php echo base_url('accept_registration');?>/<?php echo $client->user_ID;?>" class="btn btn-md btn-success my-2 mx-2">ACCEPT</a>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <a href="#" class="btn btn-md btn-warning my-2 mx-2">DECLINE</a>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <a href="#" class="btn btn-md btn-primary my-2 mx-2">UPDATE</a>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <a href="#" class="btn btn-md btn-danger my-2 mx-2">DELETE</a>
+                                                            </div>
+                                                    </div>  
+                                                        
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer mx-auto">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>                    
+                                    </div>                  
+                                </div>  
                         <?php }?>
                     </tbody>
                 </table>
