@@ -140,29 +140,24 @@ class AdminController extends CI_Controller {
     }
     public function accept_registration($id){
          $client_data = $this->AdminModel->get_client_data($id);
-       
-         if(!$client_data){
-                $this->session->set_flashdata('error', 'Something went wrong while fetching data! Please try again...');
-                redirect('user_accounts');
-         }else{
-              
-             $client_attribute = array(
+         var_dump($id);die();
+        if($client_data['register_status'] == "accepted"){
+            $this->session->set_flashdata('error' , 'Account already accepted... no need to accept again');
+        }elseif($client_data['register_status'] == "pending"){
+            $client_data = array(
                 'register_status' => "accepted",
-                'date_accepted' => ('Y-m-d H:m:s')
+                'date_accepted' => date('Y-m-d H:m:s')
             );
-
-            $client_update = $this->AdminModel->client_accept($client_attribute , $id);
-            print_r($client_update);die();
-            if($client_update['register_status'] == 'accepted'){
-                $this->session->set_flashdata('error' , 'Account has already been updated... ');
-               
-            }elseif($client_update['register_status'] == 'pending'){
-                $this->session->set_flashdata('success' , 'Accepting client success! Client can now login to their account');
-                $this->dynamic_view('users');
-            }
-            $this->dynamic_view('users');
-          
-         }
+            $results = $this->AdminModel->change_account_status($client_data , $id);
+             
+                if(!$result){
+                    $this->session->set_flashdata('error' , 'No affected data.');
+                }else{
+                    $this->session->set_flashdata('success' , 'Successfully accepted account...');
+                }
+        }
+        
+        redirect('user_accounts');
     }
     public function delete_account($id){
         $result = $this->AdminModel->delete_user($id);

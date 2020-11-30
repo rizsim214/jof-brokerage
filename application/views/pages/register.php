@@ -69,8 +69,9 @@
                                  <div class="invalid-feedback" ><?php echo form_error('confirm') ? form_error('confirm') : '';?></div>
                             </div>
                         </div>
-                           <div class="mx-auto text-center">
-                             <button  type="submit" class="btn btn-md btn-danger mt-3 " >Register</button>
+                           <div class=" text-center ">
+                             <button  type="submit" class="btn btn-md btn-danger mt-3 mx-2 " >Register</button>
+                              <a  href="<?php echo base_url();?>" class="btn btn-md btn-secondary mt-3 mx-2 " >Back</a>
                            </div>
                    <?php echo form_close();?>
             </div>

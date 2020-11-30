@@ -146,6 +146,7 @@
                 <table class="table table-bordered table-hover" id="example1">
                     <thead class="table-info">
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Company</th>
                             <th>Status</th>
@@ -155,13 +156,14 @@
                     <tbody>
                     <?php foreach ($clients as $client) {?>           
                         <tr>
+                            <td><?php echo $client->user_ID;?></td>
                             <td><?php echo ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
                             <td><?php echo $client->company_name;?></td>
                             <td><?php echo $client->register_status;?></td>
                             <td><a href="#" data-toggle="modal" data-target="#consigneeModalOptions" class="btn btn-outline-success text-center mx-auto"><i class="fas fa-gear mr-2"></i>Options</a></td>
 
                         </tr>
-                      <!-- CONSIGNEE MODAL -->
+                        <!-- CONSIGNEE MODAL -->
                                 <div class=" modal fade" id="consigneeModalOptions" tabindex="-1" role="dialog" aria-labelledby="consigneeModalOptionsLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">   
                                         <div class="modal-content">
@@ -175,6 +177,7 @@
                                                     <div class="row text-center user_options">
                                                             <div class="col-md-3" >
                                                                 <a href="<?php echo base_url('accept_registration');?>/<?php echo $client->user_ID;?>" class="btn btn-md btn-success my-2 mx-2">ACCEPT</a>
+                                                                
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <a href="#" class="btn btn-md btn-warning my-2 mx-2">DECLINE</a>
@@ -195,12 +198,13 @@
                                         </div>                    
                                     </div>                  
                                 </div>  
+
+ 
+                      <?php  $client_ID = $client->user_ID;?>
                         <?php }?>
                     </tbody>
                 </table>
+
         </div>
     </div>
 </div>
-
-
- 
