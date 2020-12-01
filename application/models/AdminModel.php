@@ -22,24 +22,20 @@ class AdminModel extends CI_Model{
         
     }   
     public function change_account_status($data, $id){
-         $this->db->where('user_ID' , $id);
-         $this->db->replace('users_table' , $data);
+
          
+         
+        $this->db->select('*');
+        $this->db->from('users_table');
+         $this->db->where('user_ID' , $id);
+         $this->db->update('users_table' , $data);
          $result = $this->db->affected_rows();
          
-        return $result;
-
-        // $this->db->select('*');
-        // $this->db->from('users_table');
-        //  $this->db->where('user_ID' , $id);
-        //  $this->db->update('users_table' , $data);
-        //  $result = $this->db->affected_rows();
-         
-        // if(!$result){
-        //     return FALSE;
-        // }else{
-        //     return $result->row();
-        // }
+        if(!$result){
+            return FALSE;
+        }else{
+            return TRUE;
+        }
     }
 
     public function get_user_info($id){

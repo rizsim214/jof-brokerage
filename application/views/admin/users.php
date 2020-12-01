@@ -92,78 +92,7 @@
          </div>                    
     </div>                  
 </div>
-
-<!-- VIEW USERS -->
-<div class="container-fluid  mt-5 mb-5">
-  <?php if($this->session->flashdata('error')) {?>
-                 <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
-                       <?php echo $this->session->flashdata('error');?>
-                            </div>
-                              <?php } elseif($this->session->flashdata('success')) {?>
-                                 <div class="alert alert-success mt-5 col-md-8 mx-auto " role="alert">
-                                    <?php echo $this->session->flashdata('success');?>
-                                         </div>
-                         <?php }?>
- <a href="#" class="btn btn-md btn-primary " data-toggle="modal" data-target="#addAccountModal"><i class="fas fa-plus-circle mr-2"></i>Add Account</a>
-
-    <div class="row">
-           
-        <div class="col-md-6 table">
-            <h1 class="text-right mb-2 col-md-8" >Employees</h1>
-            <table class="table table-bordered table-hover" id="example">
-
-                <thead class="table-primary">
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Job Title</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($employees as $employee) : ?>           
-                    <tr>
-                        <td><?php echo ucfirst($employee->first_name).' '.ucfirst($employee->last_name);?></td>
-                        <td><?php 
-                        if($employee->user_role == '4'){
-                                echo "Admin";
-                        }elseif($employee->user_role == '2'){
-                                echo "Processor";
-                        }elseif($employee->user_role == '3'){
-                                echo "Accounting";
-                        } ?></td>
-                        <td><a href="#" data-toggle="modal" data-target="#employeeModalOptions" class="btn btn-outline-success text-center mx-auto"><i class="fas fa-gear mr-2"></i>Options</a></td>
-                    </tr>
-                        <?php endforeach;?>
-
-                </tbody>
-            </table>
-                      
-        </div>
-
-        <div class="col-md-6 table">
-       
-             <h1 class="text-right mb-2 col-md-8">Consignees</h1>
-                <table class="table table-bordered table-hover" id="example1">
-                    <thead class="table-info">
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Company</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($clients as $client) {?>           
-                        <tr>
-                            <td><?php echo $client->user_ID;?></td>
-                            <td><?php echo ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
-                            <td><?php echo $client->company_name;?></td>
-                            <td><?php echo $client->register_status;?></td>
-                            <td><a href="#" data-toggle="modal" data-target="#consigneeModalOptions" class="btn btn-outline-success text-center mx-auto"><i class="fas fa-gear mr-2"></i>Options</a></td>
-
-                        </tr>
-                        <!-- CONSIGNEE MODAL -->
+  <!-- CONSIGNEE MODAL
                                 <div class=" modal fade" id="consigneeModalOptions" tabindex="-1" role="dialog" aria-labelledby="consigneeModalOptionsLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">   
                                         <div class="modal-content">
@@ -197,10 +126,108 @@
                                             </div>
                                         </div>                    
                                     </div>                  
-                                </div>  
+                                </div>   -->
 
  
-                      <?php  $client_ID = $client->user_ID;?>
+<!-- VIEW USERS -->
+<div class="container-fluid  mt-5 mb-5">
+  <?php if($this->session->flashdata('error')) {?>
+                 <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
+                       <?php echo $this->session->flashdata('error');?>
+                            </div>
+                              <?php } elseif($this->session->flashdata('success')) {?>
+                                 <div class="alert alert-success mt-5 col-md-8 mx-auto " role="alert">
+                                    <?php echo $this->session->flashdata('success');?>
+                                         </div>
+                         <?php }?>
+ <a href="#" class="btn btn-md btn-primary " data-toggle="modal" data-target="#addAccountModal"><i class="fas fa-plus-circle mr-2"></i>Add Account</a>
+
+    <div class="row">
+           
+        <div class="col-md-6 table">
+            <h1 class="text-right mb-2 col-md-8" >Employees</h1>
+            <table class="table table-bordered table-hover" id="example">
+
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Job Title</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($employees as $employee) : ?>           
+                    <tr>
+                        <td><?= ucfirst($employee->first_name).' '.ucfirst($employee->last_name);?></td>
+                        <td><?php 
+                        if($employee->user_role == '4'){
+                                echo "Admin";
+                        }elseif($employee->user_role == '2'){
+                                echo "Processor";
+                        }elseif($employee->user_role == '3'){
+                                echo "Accounting";
+                        } ?></td>
+                        <td><!-- Default dropleft button -->
+                                    <div class="btn-group dropdown">
+                                         <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <i class="fas fa-gear"></i>
+                                                 </button>
+                                                       <div class="dropdown-menu option_dropdown" >
+                                                                <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item" id="accept" href="#">View</a>
+                                                                    <!-- <a class="dropdown-item" id="decline" href="#">Update</a> -->
+                                                                    <a class="dropdown-item" id="update" href="#">Update</a>
+                                                                    <a class="dropdown-item" id="delete" href="#">Delete</a>
+                                                                <div class="dropdown-divider"></div>
+                                                         </div> 
+                                                  </div></td>
+                    </tr>
+                        <?php endforeach;?>
+
+                </tbody>
+            </table>
+                      
+        </div>
+
+        <div class="col-md-6 table">
+       
+             <h1 class="text-right mb-2 col-md-8">Consignees</h1>
+                <table class="table table-bordered table-hover" id="example1">
+                    <thead class="table-info">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($clients as $client) {?>           
+                        <tr>
+                            <td><?=$client->user_ID;?></td>
+                            <td><?= ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
+                            <td><?=$client->company_name;?></td>
+                            <td><?= $client->register_status;?></td>
+                            <td> <!-- Default dropleft button -->
+                                    <div class="btn-group dropdown">
+                                         <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <i class="fas fa-gear"></i>
+                                                 </button>
+                                                       <div class="dropdown-menu option_dropdown" >
+                                                                <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('accept_registration');?>/<?=$client->user_ID;?>">Accept</a>
+                                                                    <a class="dropdown-item" id="decline" href="<?= base_url('decline');?>/<?=$client->user_ID;?>">Decline</a>
+                                                                    <a class="dropdown-item" id="update" href="#">Update</a>
+                                                                    <a class="dropdown-item" id="delete" href="#">Delete</a>
+                                                                <div class="dropdown-divider"></div>
+                                                         </div> 
+                                                  </div>
+                                            </td>
+                                    
+                        </tr>
+                      
+                      
                         <?php }?>
                     </tbody>
                 </table>

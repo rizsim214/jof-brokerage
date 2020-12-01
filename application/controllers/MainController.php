@@ -76,8 +76,8 @@ class MainController extends CI_Controller {
                     'company_name' =>$this->input->post('company_name'),
                     'company_location' =>$this->input->post('company_location'),
                     'email_add' =>$this->input->post('email'),
-                    'contact_info' =>$this->input->post('contact_info'),
-                    'user_pass' =>$this->input->post('password'),
+                    'contact_info' =>$this->input->post('contact'),
+                    'user_pass' => md5($this->input->post('password')),
                     'register_status' => 'pending',
                     'date_registered' => date('Y-m-d H:m:s')
                 );

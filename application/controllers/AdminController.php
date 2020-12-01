@@ -72,6 +72,8 @@ class AdminController extends CI_Controller {
             }elseif($this->session->userRole == 1) {
                 $this->load->view('consignee/includes/login_header');
     
+            }else{
+                $this->load->view('admin/includes/login_header');
             }
 
 
@@ -138,23 +140,44 @@ class AdminController extends CI_Controller {
         }
 
     }
-    public function accept_registration($id){
+    public function accept_account($id){
          $client_data = $this->AdminModel->get_client_data($id);
-         var_dump($id);die();
-        if($client_data['register_status'] == "accepted"){
-            $this->session->set_flashdata('error' , 'Account already accepted... no need to accept again');
-        }elseif($client_data['register_status'] == "pending"){
+         
+        if($client_data['register_status'] === "accepted"){
+            $this->session->set_flashdata('error' , 'This account is already activated...');
+        }elseif($client_data['register_status'] === "pending"){
+
             $client_data = array(
                 'register_status' => "accepted",
                 'date_accepted' => date('Y-m-d H:m:s')
             );
             $results = $this->AdminModel->change_account_status($client_data , $id);
-             
-                if(!$result){
-                    $this->session->set_flashdata('error' , 'No affected data.');
+            //  var_dump($results);die();
+                if(!$results){
+                    $this->session->set_flashdata('error' , 'Unable to accept account! Please Try again');
                 }else{
-                    $this->session->set_flashdata('success' , 'Successfully accepted account...');
+                    $this->session->set_flashdata('success' , 'Accept Account Successful...');
                 }
+        }
+        
+        redirect('user_accounts','refresh');
+    }
+    public function decline_account($id){
+         $client_data_decline = $this->AdminModel->get_client_data($id);
+        //  var_dump($client_data_decline);die();
+         if($client_data_decline['register_status'] === "accepted"){
+            $this->session->set_flashdata('error' , 'Account has already been accepted... Cannot be declined anymore');
+          }elseif($client_data['register_status'] === "pending"){
+
+                    $client_data_decline = array(
+                        'register_status' => "declined",
+                        'date_accepted' => date('Y-m-d H:m:s')
+                    );
+                    $results = $this->AdminModel->change_account_status($client_data_decline , $id);
+                    //  var_dump($results);die();
+                        if($results){
+                            $this->session->set_flashdata('error' , 'Account has been declined');
+                        }
         }
         
         redirect('user_accounts');

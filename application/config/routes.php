@@ -90,7 +90,8 @@ $route['register'] = 'AdminController/register';
 $route['post_feedback/(:num)'] = 'AdminController/post_feedback/$1';
 $route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
 $route['viewAccount/(:any)'] = 'BrokerController/view_accounts/$1';
-$route['accept_registration/(:num)'] = 'AdminController/accept_registration/$1'; 
+$route['accept_registration/(:num)'] = 'AdminController/accept_account/$1'; 
+$route['decline/(:num)'] = 'AdminController/decline_account/$1'; 
 $route['terms'] = 'MainController/openTerms';
 
 // BROKER PAGE ROUTES
