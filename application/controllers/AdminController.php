@@ -143,8 +143,8 @@ class AdminController extends CI_Controller {
     public function accept_account($id){
          $client_data = $this->AdminModel->get_client_data($id);
          
-        if($client_data['register_status'] === "accepted"){
-            $this->session->set_flashdata('error' , 'This account is already activated...');
+        if($client_data['register_status'] === "accepted" || $client_data['register_status'] == "declined" ){
+            $this->session->set_flashdata('error' , 'Registration status has already been changed.');
         }elseif($client_data['register_status'] === "pending"){
 
             $client_data = array(
@@ -164,24 +164,27 @@ class AdminController extends CI_Controller {
     }
     public function decline_account($id){
          $client_data_decline = $this->AdminModel->get_client_data($id);
-        //  var_dump($client_data_decline);die();
-         if($client_data_decline['register_status'] === "accepted"){
-            $this->session->set_flashdata('error' , 'Account has already been accepted... Cannot be declined anymore');
-          }elseif($client_data['register_status'] === "pending"){
+        //   var_dump($client_data_decline);die();
+         if($client_data_decline['register_status'] == "accepted" || $client_data_decline['register_status'] == "declined"  ){
+            $this->session->set_flashdata('error' , 'Registration status has already been changed. ');
+          }elseif($client_data_decline['register_status'] == "pending"){
 
                     $client_data_decline = array(
                         'register_status' => "declined",
                         'date_accepted' => date('Y-m-d H:m:s')
                     );
                     $results = $this->AdminModel->change_account_status($client_data_decline , $id);
-                    //  var_dump($results);die();
+                     var_dump($results);die();
                         if($results){
-                            $this->session->set_flashdata('error' , 'Account has been declined');
-                        }
+                            $this->session->set_flashdata('error' , 'Some kind of error occured... Please try again');
+                        }else{
+                            $this->session->set_flashdata('success' , 'Account succesfully declined');
+                }
         }
         
-        redirect('user_accounts');
+        redirect('user_accounts', 'refresh');
     }
+   
     public function delete_account($id){
         $result = $this->AdminModel->delete_user($id);
 
@@ -190,7 +193,7 @@ class AdminController extends CI_Controller {
         }else{
             $this->session->set_flashdata('success' , 'Account has been successfully deleted');
         }
-        $this->dynamic_view('users');
+       redirect('user_accounts');
     }
     public function delete_appointments($id){
         $result = $this->AdminModel->delete_appointment($id);

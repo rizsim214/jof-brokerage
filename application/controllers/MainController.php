@@ -79,17 +79,24 @@ class MainController extends CI_Controller {
                     'contact_info' =>$this->input->post('contact'),
                     'user_pass' => md5($this->input->post('password')),
                     'register_status' => 'pending',
+                    'accept_terms' => $this->input->post('check'),
                     'date_registered' => date('Y-m-d H:m:s')
                 );
+                if(!$register_data['accept_terms'] == "checked"){
 
-            $register_result = $this->MainModel->create_client_account($register_data);
-                if(!$register_result){
-                    $this->session->set_flashdata('error', 'Registration Error! Something went wrong while creating your account! Please try again...');
+                    $this->session->set_flashdata('error' , 'Terms and Agreement not accepted');
                     redirect('register_client');
-                }else{
-                     $this->session->set_flashdata('success', 'Registration Successful! Just wait for the admin to approve your registration');
-                    redirect('login');
+                }elseif($register_data['accept_terms'] == "checked"){
+                      $register_result = $this->MainModel->create_client_account($register_data);
+                        if(!$register_result){
+                            $this->session->set_flashdata('error', 'Registration Error! Something went wrong while creating your account! Please try again...');
+                            redirect('register_client');
+                        }else{
+                            $this->session->set_flashdata('success', 'Registration Successful! Just wait for the admin to approve your registration');
+                            redirect('login');
+                        }
                 }
+          
           }
      }
 }

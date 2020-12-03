@@ -544,18 +544,7 @@ img{
 }
 
 .option_dropdown #accept:hover{
-    color: rgba(0, 0, 0, 0.726);
-    background-color:rgba(8, 247, 48, 0.974);
-}
-.option_dropdown #decline:hover{
-    color: rgba(0, 0, 0, 0.726);
-    background-color:rgba(237, 240, 37, 0.974);
-}
-.option_dropdown #update:hover{
-    color: rgba(0, 0, 0, 0.726);
-    background-color:rgba(45, 81, 240, 0.974);
-}
-.option_dropdown #delete:hover{
-    color: rgba(0, 0, 0, 0.726);
-    background-color:rgba(235, 29, 29, 0.974);
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background-color:rgba(22, 220, 55, 0.967);
 }

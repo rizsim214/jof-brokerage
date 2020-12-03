@@ -88,14 +88,17 @@ $route['delete_glossary/(:num)'] = 'AdminController/delete_glossary/$1';
 $route['view_message/(:num)'] = 'AdminController/view_message/$1';
 $route['register'] = 'AdminController/register';
 $route['post_feedback/(:num)'] = 'AdminController/post_feedback/$1';
-$route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
-$route['viewAccount/(:any)'] = 'BrokerController/view_accounts/$1';
+
 $route['accept_registration/(:num)'] = 'AdminController/accept_account/$1'; 
 $route['decline/(:num)'] = 'AdminController/decline_account/$1'; 
+$route['update_this_account/(:num)'] = 'AdminController/update_this_account/$1'; 
+
 $route['terms'] = 'MainController/openTerms';
 
 // BROKER PAGE ROUTES
 $route['broker'] = 'BrokerController/dynamic_view';
+$route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
+$route['viewAccount/(:any)'] = 'BrokerController/view_accounts/$1';
 // ACCOUNTING PAGE ROUTES
 $route['accounting'] = 'AccountingController/dynamic_view';
 // CONSIGNEE PAGE ROUTES

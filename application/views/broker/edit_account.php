@@ -1,4 +1,4 @@
-
+<div class="container col-md-10 mx-auto">
 <!-- <h1><?= $title; ?></h1>
    <h1><?= $id; ?></h1> -->
 
@@ -8,13 +8,14 @@
 <div class="container">
 <br>
 <br>
-
-<h1 class="text-dark"> Manage Account for: <?= ucfirst($firstname) ?> <?= ucfirst($lastname) ?> </h2>
+<div class="row">
+<h2 class="text-dark col-md-4"> Account update for: </h2><div class="col-md-4"></div><h2 class="col-md-4"><?= ucfirst($firstname) ?> <?= ucfirst($lastname) ?></h2>
+</div>
 <hr>
 
 <p> This Account was created on: <?= $dateStart; ?> </p>
 
-<div class="container">
+
 <?php if($this->session->flashdata('success')){ ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <?php echo $this->session->flashdata('success'); ?>
@@ -94,8 +95,8 @@
              <hr>
 
                         <div class="text-center">
-                           <button type="submit" class="btn btn-md btn-primary mt-3 btn-lg" name="submit">Update</button>
-                           <a type="button" class="btn btn-secondary btn-lg" style="margin-top:16px;" href="<?php echo base_url('admin');?>">Cancel</a>
+                           <button type="submit" class="btn btn-md btn-primary mt-3 btn-md" name="submit">Update</button>
+                           <a type="button" class="btn btn-secondary btn-md" style="margin-top:16px;" href="<?php echo base_url('user_accounts');?>">Cancel</a>
                          <br>
                         </div>
                         <!-- <a type="button" class="btn btn-secondary btn-lg " href="<?php echo base_url('admin');?>">Cancel</a> -->

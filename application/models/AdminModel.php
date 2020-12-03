@@ -23,8 +23,7 @@ class AdminModel extends CI_Model{
     }   
     public function change_account_status($data, $id){
 
-         
-         
+
         $this->db->select('*');
         $this->db->from('users_table');
          $this->db->where('user_ID' , $id);

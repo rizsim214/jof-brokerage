@@ -130,7 +130,7 @@
 
  
 <!-- VIEW USERS -->
-<div class="container-fluid  mt-5 mb-5">
+<div class="container mt-5 mb-5">
   <?php if($this->session->flashdata('error')) {?>
                  <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
                        <?php echo $this->session->flashdata('error');?>
@@ -169,15 +169,15 @@
                         } ?></td>
                         <td><!-- Default dropleft button -->
                                     <div class="btn-group dropdown">
-                                         <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                               <i class="fas fa-gear"></i>
                                                  </button>
                                                        <div class="dropdown-menu option_dropdown" >
                                                                 <div class="dropdown-divider"></div>
                                                                     <a class="dropdown-item" id="accept" href="#">View</a>
                                                                     <!-- <a class="dropdown-item" id="decline" href="#">Update</a> -->
-                                                                    <a class="dropdown-item" id="update" href="#">Update</a>
-                                                                    <a class="dropdown-item" id="delete" href="#">Delete</a>
+                                                                    <a class="dropdown-item" id="update" href="<?= base_url('editAccount');?>/<?=$employee->user_ID;?>">Update</a>
+                                                                    <a class="dropdown-item" id="delete" href="<?= base_url('delete_account');?>/<?=$employee->user_ID;?>">Delete</a>
                                                                 <div class="dropdown-divider"></div>
                                                          </div> 
                                                   </div></td>
@@ -195,7 +195,7 @@
                 <table class="table table-bordered table-hover" id="example1">
                     <thead class="table-info">
                         <tr>
-                            <th>ID</th>
+                            
                             <th>Name</th>
                             <th>Company</th>
                             <th>Status</th>
@@ -205,7 +205,7 @@
                     <tbody>
                     <?php foreach ($clients as $client) {?>           
                         <tr>
-                            <td><?=$client->user_ID;?></td>
+                            
                             <td><?= ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
                             <td><?=$client->company_name;?></td>
                             <td><?= $client->register_status;?></td>
@@ -217,9 +217,9 @@
                                                        <div class="dropdown-menu option_dropdown" >
                                                                 <div class="dropdown-divider"></div>
                                                                     <a class="dropdown-item" id="accept" href="<?= base_url('accept_registration');?>/<?=$client->user_ID;?>">Accept</a>
-                                                                    <a class="dropdown-item" id="decline" href="<?= base_url('decline');?>/<?=$client->user_ID;?>">Decline</a>
-                                                                    <a class="dropdown-item" id="update" href="#">Update</a>
-                                                                    <a class="dropdown-item" id="delete" href="#">Delete</a>
+                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('decline');?>/<?=$client->user_ID;?>">Decline</a>
+                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$client->user_ID;?>">Update</a>
+                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$client->user_ID;?>">Delete</a>
                                                                 <div class="dropdown-divider"></div>
                                                          </div> 
                                                   </div>

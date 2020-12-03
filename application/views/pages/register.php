@@ -55,6 +55,7 @@
                                 <label for="contact">Contact Info* </label>
                                 <input type="text" class="form-control <?php echo form_error('contact') ? 'is-invalid' : '';?>" name="contact">
                                  <div class="invalid-feedback" ><?php echo form_error('contact') ? form_error('contact') : '';?></div>
+                                 
                             </div>
                         </div>
                          <div class="row">
@@ -67,8 +68,19 @@
                                 <label for="confirm_pass">Confirm Password* </label>
                                 <input type="password" class="form-control <?php echo form_error('confirm') ? 'is-invalid' : '';?>" name="confirm">
                                  <div class="invalid-feedback" ><?php echo form_error('confirm') ? form_error('confirm') : '';?></div>
+                                
                             </div>
                         </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="checked" name="check">
+                                Before you proceed, do you accept the company's terms and agreements? <a href="#">Terms & Agreements</a>
+                            </label>
+                           
+                        </div>
+                        
+                        
                            <div class=" text-center ">
                              <button  type="submit" class="btn btn-md btn-danger mt-3 mx-2 " >Register</button>
                               <a  href="<?php echo base_url();?>" class="btn btn-md btn-secondary mt-3 mx-2 " >Back</a>
