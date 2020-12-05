@@ -87,14 +87,34 @@
 			<input type="hidden" value="" name="transaction_number" id="transaction_number"> 
 			<input type="hidden" value="" name="transaction_id" id="transaction"> 
 			<input type="hidden" value="" name="consignee_id" id="consignee"> 
-			<select  class="form-control" name="status">
+			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
 				<option value="documentation">Documentation</option>
-				<option value="processing">Processing</option>
+				<option value="processing (Entry Processing unit number)">Processing (Entry Processing unit number) </option>
+        <option value="processing (Examiner)">Processing (Examiner) </option>
+        <option value="processing (Appraiser)">Processing (Appraiser) </option>
+        <option value="processing (Chief Division)">Processing (Chief Division) </option>
+        <option value="processing (Payments of customs TAX)">Processing (Payments of customs TAX) </option>
+        <option value="processing (Final assestment Notice)">Processing (Final assestment Notice) </option>
+        <option value="processing (Duties and Taxes paid)">Processing (Duties and Taxes paid) </option>
 				<option value="releasing">Releasing</option>
 				<option value="delivering">Delivering</option>
+        <option value="arrived">Arrived</option>
 				<option value="done">Done</option>
 			</select>
+      
 			</div>
+      <div style="display: none" class="destination_select">
+      <div class="form-group">
+      <label>Destination</label>
+      <input type="text" class="form-control" name="destination">
+      </div>
+      
+      <div class="form-group">
+      <label>Origin</label>
+      <input type="text" class="form-control" name="origin">
+      </div>
+
+      </div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -138,3 +158,12 @@
       margin-left: 50px;
     }
     </style>
+    <script>
+      function statusOnChange(){
+          if($("#statusChange").val() == "delivering"){
+              $(".destination_select").css("display", "block");
+          }else{
+            $(".destination_select").css("display", "none");
+          }
+      }
+    </script>

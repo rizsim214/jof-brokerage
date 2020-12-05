@@ -110,6 +110,18 @@ class AdminModel extends CI_Model{
         $result = $this->db->update('transaction');
         return $result;
     }
+
+    public function insertBilling($data){
+        $this->db->insert('transaction_billing' , $data);
+        $insert_id = $this->db->insert_id();
+
+        return  $insert_id;
+    }
+    public function insertBillingItems($data){
+        $result = $this->db->insert('transaction_items' , $data);
+       
+        return  $result;
+    }
     public function getUser($id){
         $this->db->select('*');
         $this->db->from('users_table');

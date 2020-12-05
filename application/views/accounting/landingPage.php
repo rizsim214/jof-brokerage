@@ -58,7 +58,7 @@
             <td><?php echo $row->date_posted;?></td>
             <td>
         
-           <a href="<?php echo base_url("AccountingController/bill/"); ?><?php echo $row->transaction_id; ?>"  class="btn btn-sm btn-info">Bill</a>
+           <a href="<?php echo base_url("AccountingController/bill/"); ?><?php echo $row->transaction_id; ?>/<?php echo $row->transaction_number ?>/<?php echo $row->first_name;?>/<?php echo $row->last_name;?>"  class="btn btn-sm btn-info">Bill</a>
             <a href=""     class="btn btn-sm btn-success text-white">Balances</a>
          
            

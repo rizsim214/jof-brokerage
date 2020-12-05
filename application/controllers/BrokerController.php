@@ -101,6 +101,21 @@ class BrokerController extends CI_Controller {
            
        );
 
+       if($this->input->post('destination')){
+        $data = array(
+            'status' => $this->input->post('status'),
+            'origin' => $this->input->post('origin'),
+            'destination' => $this->input->post('destination'),
+            'time_of_departure' => date("Y-m-d H:i:s")
+        );
+       }
+
+       if($this->input->post('status') == "arrived"){
+        $data = array(
+            'status' => $this->input->post('status'),
+            'time_of_arrival' => date("Y-m-d H:i:s")
+        );
+       }
        $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
        $cons = $this->AdminModel->getUser($this->input->post('first_name'));
        $ch = curl_init();

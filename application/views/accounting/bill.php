@@ -6,14 +6,14 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Customer ID: </label>
-                    <input type="text" name="customer_id" class="form-control">
+                    <label>Transaction Number: </label>
+                    <input type="text" name="transaction_number" value="<?php echo $transaction_number; ?>" class="form-control">
                 </div>
             </div>
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Date: </label>
-                    <input type="date" name="date" class="form-control">
+                    <input type="date" name="date"  class="form-control">
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Bill to: </label>
-                    <input type="text" name="bill_to" class="form-control">
+                    <input type="text" name="bill_to" value="<?php echo $name; ?>" class="form-control">
                 </div>
             </div>
             <div class="col-md-6">
@@ -85,13 +85,14 @@
              $counter= 0;
              foreach($billing_items as $row){ ?>
                 <tr>
+                <input type="hidden" name="billing_item_id[]" value="<?php echo $row->billing_items_id; ?>">
                     <td width="10"><input type="text" id="quantity<?php echo $counter; ?>" class="form-control" oninput="compute('<?php echo $counter; ?>')" name="quantity[]"></td>
                     <td><?php echo $row->name; ?></td>
                     <td><?php echo $row->description; ?></td>
                     <td><?php echo $row->gl_account; ?></td>
                     <td id="price<?php echo $counter; ?>">₱ <?php echo number_format($row->unit_price, 2); ?></td>
                     <td width="10"><input type="text" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>')" name="tax[]" class="form-control"></td>
-                    <td width="10"><input type="text"  id="amount<?php echo $counter ?>" class="form-control" name="amount" readonly></td>
+                    <td width="10"><input type="text"  id="amount<?php echo $counter ?>" class="form-control" name="amount[]" readonly></td>
                 </tr>
             <?php 
         $counter++;

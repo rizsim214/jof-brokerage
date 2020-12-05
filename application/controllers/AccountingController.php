@@ -37,9 +37,22 @@ class AccountingController extends CI_Controller {
         }
     }
 
-    public function bill($id){
+    public function bill($id, $transaction_number, $first_name, $last_name){
         $data['transaction_id'] = $id;
+        $data['transaction_number'] = $transaction_number;
+        $data['name'] = $first_name . ' ' .$last_name;
         $data['billing_items'] = $this->AdminModel->getBillingItems();
+
+        if($this->session->userdata('success')){
+            $data['success'] = $this->session->userdata('success');
+        }
+
+        if($this->session->userdata('error')){
+
+            $data['error'] = $this->session->userdata('error');
+           
+        }
+
         $this->load->view('accounting/includes/header');
         $this->load->view('accounting/bill', $data);
         $this->load->view('includes/footer');
@@ -50,7 +63,7 @@ class AccountingController extends CI_Controller {
 
         $post_transaction_billing = array(
             "transaction_id" => $this->input->post("transaction_id") ,
-            "customer_id" => $this->input->post("customer_id") ,
+            "transaction_number" => $this->input->post("transaction_number") ,
             "date" => $this->input->post("date") ,
             "bill_to" => $this->input->post("bill_to") ,
             "invoice_no" => $this->input->post("invoice_no") ,
@@ -61,5 +74,34 @@ class AccountingController extends CI_Controller {
             "due_date" => $this->input->post("due_date") ,
         );
 
+
+        $id = $this->AdminModel->insertBilling($post_transaction_billing);
+
+       
+        $billing_item_ids = $this->input->post('billing_item_id'); 
+        $amounts = $this->input->post('amount'); 
+        $quantity = $this->input->post('quantity'); 
+        $tax = $this->input->post('tax'); 
+        for($i= 0 ; $i < count($billing_item_ids);$i++ ){
+            
+            if($quantity[$i]){
+            $data_transaction_items = array(
+                "transaction_billing_id" => $id,
+                "transaction_billing_item_id" => $billing_item_ids[$i],
+                "amount" => $amounts[$i],
+                "quantity" => $quantity[$i],
+                "tax" => $tax[$i],
+            );
+            $this->AdminModel->insertBillingItems($data_transaction_items);
+          }
+        }
+
+        if($id){
+            $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+        }else{
+            $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+        }
+    
+        redirect('AccountingController/dynamic_view');
     }
 }

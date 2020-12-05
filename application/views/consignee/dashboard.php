@@ -128,7 +128,7 @@
       </td>
       <td><?php echo empty($row->date_started) ? 'waiting' : $row->date_started; ?></td>
       <td><?php echo empty($row->date_ended) ? 'waiting' : $row->date_ended; ?></td>
-      <td><a href="#" onclick="viewStatus('<?php echo $row->transaction_status ?>')" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+      <td><a href="#" onclick="viewStatus('<?php echo $row->transaction_status ?>', '<?php echo $row->destination; ?>', '<?php echo $row->origin; ?>', '<?php echo $row->time_of_departure; ?>', '<?php echo $row->time_of_arrival; ?>')" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
   View
 </a>
       </td>

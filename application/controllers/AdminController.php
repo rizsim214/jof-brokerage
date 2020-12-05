@@ -23,10 +23,121 @@ class AdminController extends CI_Controller {
         
     }
 
+    public function changeStatus(){
+
+    
+        $data = array(
+            'status' => $this->input->post('status')
+            
+        );
+ 
+        if($this->input->post('destination')){
+         $data = array(
+             'status' => $this->input->post('status'),
+             'origin' => $this->input->post('origin'),
+             'destination' => $this->input->post('destination'),
+             'time_of_departure' => date("Y-m-d H:i:s")
+         );
+        }
+ 
+        if($this->input->post('status') == "arrived"){
+         $data = array(
+             'status' => $this->input->post('status'),
+             'time_of_arrival' => date("Y-m-d H:i:s")
+         );
+        }
+
+       $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
+       $cons = $this->AdminModel->getUser($this->input->post('first_name'));
+       $ch = curl_init();
+
+       $itexmo = array('1' => $consignee->contact_info, '2' => "Hello Your Transcation ".$this->input->post('transaction_number')." status is ". $this->input->post('status') .". Please check your account." , '3' => "TR-ACERS720125_Q7M6B", 'passwd' => "$59j{iq{ft");
+       curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
+       curl_setopt($ch, CURLOPT_POST, 1);
+       curl_setopt($ch, CURLOPT_POSTFIELDS, 
+       http_build_query($itexmo));
+       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+       curl_exec ($ch);
+       curl_close ($ch);
+
+       $result = $this->AdminModel->updateTransaction($this->input->post('transaction_id'), $data);
+       
+       if($result){
+           $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+       }else{
+           $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+       }
+
+       redirect('AdminController/dynamic_view/transactions');
+   }
+
+   public function declineTransaction(){
+        
+    $data = array(
+        'status' => 'declined',
+        'reason' => $this->input->post('reason')
+    );
+
+    $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
+    $ch = curl_init();
+
+    $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ".$this->input->post('transaction_number')." has been declined. Please check your account." , '3' => "TR-ACERS720125_Q7M6B", 'passwd' => "$59j{iq{ft");
+    curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, 
+    http_build_query($itexmo));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_exec ($ch);
+    curl_close ($ch);
+
+    $result = $this->AdminModel->updateTransaction($this->input->post('transaction_id'), $data);
+    
+    if($result){
+        $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+    }else{
+        $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+    }
+
+    redirect('AdminController/dynamic_view/transactions');
+}
+
+   public function acceptTransaction($id, $consignee_id,$transcation_number){
+      
+    $data = array(
+        'status' => 'accepted',
+        'processor_id' => $this->session->userdata('user_ID')
+    );
+    
+    $consignee = $this->AdminModel->getUser($consignee_id);
+   
+  
+    $ch = curl_init();
+    $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ". $transcation_number." for importing/exporting at JOF brokerage is now accepted." , '3' => "TR-ACERS720125_Q7M6B" , 'passwd' => "$59j{iq{ft");
+    curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, 
+    http_build_query($itexmo));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_exec ($ch);
+    curl_close ($ch);
+        
+ 
+    $result = $this->AdminModel->updateTransaction($id, $data);
+    
+    if($result){
+        $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+    }else{
+        $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+    }
+
+    redirect('AdminController/dynamic_view/transactions');
+}
      public function dynamic_view($page = 'dashboard' , $offset = 0 ){
+         
        if(!file_exists(APPPATH.'views/admin/'.$page.'.php')){
 			show_404();
 		}else{
+            
            
              $config = array(
                 'base_url' => site_url('appointments'),
@@ -162,6 +273,7 @@ class AdminController extends CI_Controller {
 
     
     public function view_account($id){
+        
         $user_data = $this->AdminModel->get_user_info($id);
 
         if(!$user_data){
@@ -173,8 +285,7 @@ class AdminController extends CI_Controller {
     }
 
     public function view_feedbacks(){
-           
-
+      
                  $feedback_data['all_feedbacks'] = $this->AdminModel->get_feedback();
                 
                  if(!$feedback_data){
@@ -189,7 +300,8 @@ class AdminController extends CI_Controller {
     }
     public function glossary_management(){
          
-
+     
+       
                  $glossary_data['all_glossary'] = $this->AdminModel->get_glossary();
 
                  if(!$glossary_data){
@@ -202,10 +314,12 @@ class AdminController extends CI_Controller {
                  }
     }
     public function validate_glossary(){
+      
         $this->form_validation->set_rules('glossary_term' , 'GLOSSARY TERM' , 'trim|required');
         $this->form_validation->set_rules('glossary_meaning' , 'GLOSSARY MEANING' , 'trim|required');
     }
     public function create_glossary(){
+      
         if(!$this->input->post()){
             $this->session->set_flashdata('error' , 'Something went wrong while creating GLOSSARY');
             redirect('managements');
@@ -236,6 +350,7 @@ class AdminController extends CI_Controller {
         }
     }
     public function delete_glossary($id){
+        
         $glossary_data = $this->AdminModel->delete_this_glossary($id);
 
         if(!$glossary_data){
@@ -258,6 +373,7 @@ class AdminController extends CI_Controller {
     }
 
     public function view_message($id){
+     
         $message_data = $this->AdminModel->get_message($id);
         if(!$message_data){
             $this->session->set_flashdata('error' , 'Something went wrong while fetching message! Please try again...');
@@ -288,9 +404,11 @@ class AdminController extends CI_Controller {
     }
 
     public function back_to_appointments(){
+     
         redirect('appointments');
     }
     public function post_feedback($id){
+        
         $postFeedback_result = $this->AdminModel->get_feedback_result($id);
             if(!$postFeedback_result){
                 $this->session->set_flashdata('error', 'Error! Something went wrong while fetching data... Please reload the page');
