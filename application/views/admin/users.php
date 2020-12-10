@@ -169,15 +169,15 @@
                         } ?></td>
                         <td><!-- Default dropleft button -->
                                     <div class="btn-group dropdown">
-                                         <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                               <i class="fas fa-gear"></i>
                                                  </button>
                                                        <div class="dropdown-menu option_dropdown" >
                                                                 <div class="dropdown-divider"></div>
                                                                     <a class="dropdown-item" id="accept" href="#">View</a>
                                                                     <!-- <a class="dropdown-item" id="decline" href="#">Update</a> -->
-                                                                    <a class="dropdown-item" id="update" href="<?= base_url('editAccount');?>/<?=$employee->user_ID;?>">Update</a>
-                                                                    <a class="dropdown-item" id="delete" href="<?= base_url('delete_account');?>/<?=$employee->user_ID;?>">Delete</a>
+                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$employee->user_ID;?>">Update</a>
+                                                                    <a  onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$employee->user_ID;?>">Delete</a>
                                                                 <div class="dropdown-divider"></div>
                                                          </div> 
                                                   </div></td>
@@ -211,15 +211,15 @@
                             <td><?= $client->register_status;?></td>
                             <td> <!-- Default dropleft button -->
                                     <div class="btn-group dropdown">
-                                         <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                               <i class="fas fa-gear"></i>
                                                  </button>
                                                        <div class="dropdown-menu option_dropdown" >
                                                                 <div class="dropdown-divider"></div>
                                                                     <a class="dropdown-item" id="accept" href="<?= base_url('accept_registration');?>/<?=$client->user_ID;?>">Accept</a>
-                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('decline');?>/<?=$client->user_ID;?>">Decline</a>
+                                                                    <a onclick="return confirm('Are you sure you want to decline this account?')" class="dropdown-item" id="accept" href="<?= base_url('decline');?>/<?=$client->user_ID;?>">Decline</a>
                                                                     <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$client->user_ID;?>">Update</a>
-                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$client->user_ID;?>">Delete</a>
+                                                                    <a onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$client->user_ID;?>">Delete</a>
                                                                 <div class="dropdown-divider"></div>
                                                          </div> 
                                                   </div>

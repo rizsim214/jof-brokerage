@@ -10,9 +10,9 @@
             </div>
          <?php }?>
          </div>
-    <div class="card__container__box col-md-8 mx-auto" style="background-color:rgba(228, 133, 133, 0.686);">
+    <div class="card__container__box col-md-8 mx-auto" id="contact_us">
                      <?php echo form_open('set_appointment');?>
-                     <h1 class="text-center text-white">CONTACT US</h1>
+                     <h1 class="text-center text-black ">CONTACT US</h1>
                         <div class="row mt-2">
                               <div class="form-group col-md-6">
                                     <label for="firstname">First Name*</label>

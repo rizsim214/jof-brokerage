@@ -195,7 +195,6 @@ class AdminModel extends CI_Model{
     public function get_feedback(){
        $this->db->select('*');
        $this->db->from('feedbacks');
-      
        $this->db->ORDER_BY('feedback_ID DESC');
        $this->db->join('users_table' , 'feedbacks.user_fk_ID = users_table.user_ID');
        $query = $this->db->get();

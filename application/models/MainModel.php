@@ -37,16 +37,13 @@ class MainModel extends CI_Model{
      }      
     }
 
-    public function countAllFeedbacks(){
-        $result = $this->db->get('feedbacks');
-        return $result->num_rows();
-    }
-    public function get_all_feedbacks($limit , $offset){
+    
+    public function get_all_feedbacks(){
       $this->db->select('*');
       $this->db->from('feedbacks');
-      $this->db->limit($limit);
-      $this->db->offset($offset);
-      // $this->db->where('feedback_status' , 1);
+     
+      
+      //  $this->db->where('feedback_status' , 1);
       $this->db->ORDER_BY('feedback_ID DESC');
       $this->db->join('users_table' , 'feedbacks.user_fk_ID = users_table.user_ID' );
       $result = $this->db->get();

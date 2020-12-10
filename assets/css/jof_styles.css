@@ -496,6 +496,11 @@ img{
     border: 1px solid black;
     border-radius: 10px;
 } */
+#contact_us{
+    background-color:rgba(250, 204, 204, 0.782);
+    border:1px solid black;
+}
+
 .message__box p{
 
     border-radius: 10px;
@@ -546,5 +551,10 @@ img{
 .option_dropdown #accept:hover{
     color: rgb(255, 255, 255);
     font-weight: bolder;
-    background-color:rgba(22, 220, 55, 0.967);
+    background-color:#0ca8c0;
 }
+/* .option_dropdown #delete:hover{
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background-color:rgba(255, 28, 28, 0.967);
+} */

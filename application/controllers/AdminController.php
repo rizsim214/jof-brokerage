@@ -9,10 +9,10 @@ class AdminController extends CI_Controller {
         $this->load->model('AdminModel');
 
         $user_logged = $this->session->userdata();
+            if(!$user_logged['isUserLoggedIn'] == TRUE){
+                redirect('home');
+            }
         
-        if(!$user_logged == TRUE){
-            redirect('home');
-        }
 
     }
 
