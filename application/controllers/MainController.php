@@ -31,18 +31,7 @@ class MainController extends CI_Controller {
         }
     }
 
-    public function view_register(){
-
-        $captcha_config = array(
-            'word' => "Random Word"
-        );
-
-        $captcha = create_captcha($captcha_config);
-
-        $this->load->view('includes/header');
-        $this->load->view('pages/register');
-        $this->load->view('includes/footer');
-    }
+   
     public function landing_client_validation(){
                
                 $this->form_validation->set_rules('firstname' , 'First Name' , 'trim|required' , array('required' => ' First Name field is required.'));
@@ -59,7 +48,7 @@ class MainController extends CI_Controller {
      }
     public function landing_client_registration(){
         
-     if(!$this->input->post()){
+     if(!$this->input->post('submit')){
         show_404();
      }else{
         $this->landing_client_validation();
@@ -80,8 +69,10 @@ class MainController extends CI_Controller {
                     'user_pass' => md5($this->input->post('password')),
                     'register_status' => 'pending',
                     'accept_terms' => $this->input->post('check'),
-                    'date_registered' => date('Y-m-d H:m:s')
+                    'date_registered' => date('Y-m-d H:m:s'),
+
                 );
+                
                 if(!$register_data['accept_terms'] == "checked"){
 
                     $this->session->set_flashdata('error' , 'Terms and Agreement not accepted');

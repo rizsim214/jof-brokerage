@@ -139,36 +139,16 @@ class AdminController extends CI_Controller {
 		}else{
             
            
-             $config = array(
-                'base_url' => site_url('appointments'),
-                'total_rows' => $this->AdminModel->countAllAppointments(),
-                'per_page' => 5,
-                'num_tag_open' => '<li class="pg-item">' ,
-                'num_tag_close' => '</li>' ,
-                'cur_tag_open' => '<li class="active"><a href="javascript:void(0);">',
-                'cur_tag_close' => '</a></li>',
-                'next_link' => '<li class="pg-next ml-2">Next</li>',
-                'prev_link'=> '<li class="pg-prev mr-2">Prev</li>',
-                'next_tag_open' => '<li class="pg-next">',
-                'next_tag_close' => '</li>', 
-                'prev_tag_open' => '<li class="pg-prev">',
-                'prev_tag_close' => '</li>',   
-                'first_tag_open' => '<li class="pg-item mr-2">',
-                'first_tag_close' => '</li>',
-                'last_tag_open' => '<li class="pg-item ml-2">',
-                'last_tag_close' => '</li>' 
-                
-            );
           
-              
-            $this->pagination->initialize($config);
-            
             $data_results = array(
                 
                 'transactions' => $this->AdminModel->getAllTransaction(),
                 'clients' =>  $this->AdminModel->getAllClients(),
                 'employees' => $this->AdminModel->getAllEmployees(),
-                'response' => $this->AdminModel->getAllAppointment()
+                'response' => $this->AdminModel->getAllAppointment(),
+                'count_transactions' => $this->AdminModel->countAllTransaction(),
+                'count_messages' => $this->AdminModel->countAllAppointments(),
+                'count_feedbacks' => $this->AdminModel->countAllFeedbacks()
             );
 
             if($this->session->userRole == 2) {
