@@ -1,5 +1,5 @@
 
-<div class="container-fluid register_container">
+<div class="container-fluid register_container my-5">
     <div class="col-md-10 mx-auto ">
     <h1 class="text-center">Client Registration</h1>
       <p class="text-center">Field with asterisks(*) must be filled</p>
@@ -71,7 +71,10 @@
                                 
                             </div>
                         </div>
-
+                            <div class="form-group col-md-4 mx-auto">
+                            <!--  -->
+                                <div class="g-recaptcha" data-sitekey="6LcP4AYaAAAAAG7VbrYvgOEyctnUMvRGtQwWFKT4"></div>
+                            </div>
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" value="checked" name="check">
@@ -82,7 +85,7 @@
                         
                         
                            <div class=" text-center ">
-                             <button  type="submit" class="btn btn-md btn-danger mt-3 mx-2 " >Register</button>
+                             <button  type="submit" class="btn btn-md btn-danger mt-3 mx-2 " name="submit" value="submit" >Register</button>
                               <a  href="<?php echo base_url();?>" class="btn btn-md btn-secondary mt-3 mx-2 " >Back</a>
                            </div>
                    <?php echo form_close();?>

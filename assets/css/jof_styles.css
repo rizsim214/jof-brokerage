@@ -544,7 +544,7 @@ img{
 /* STYLES FOR REGISTRATION CONTAINER */
 
 .register_container{
-    margin-top: 4rem ;
+    padding-top: 3rem ;
     
 }
 .dropleft .dropdown-item:hover{

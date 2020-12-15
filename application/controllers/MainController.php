@@ -23,70 +23,112 @@ class MainController extends CI_Controller {
        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
 			show_404();
 		}else{
-           
+          
+          
             $this->load->view('includes/header');
-            $this->load->view('pages/'.$page);
+            $this->load->view('pages/'.$page );
             $this->load->view('includes/footer');
             
         }
     }
 
-   
+   public function view_register(){
+            
+                
+            $this->load->view('includes/header');
+            $this->load->view('pages/register' );
+            $this->load->view('includes/footer');
+   }
+
+
     public function landing_client_validation(){
                
                 $this->form_validation->set_rules('firstname' , 'First Name' , 'trim|required' , array('required' => ' First Name field is required.'));
                 $this->form_validation->set_rules('lastname' , 'Last Name' , 'trim|required' , array('required' => ' Last Name field is required.'));
-                 $this->form_validation->set_rules('company_name' , 'Company Name' , 'trim|required' , array('required' => 'Company Name field is required.'));
+                $this->form_validation->set_rules('company_name' , 'Company Name' , 'trim|required' , array('required' => 'Company Name field is required.'));
                 $this->form_validation->set_rules('company_location' , 'Company Location' , 'trim|required' , array('required' => ' Company Location field is required.'));
                 $this->form_validation->set_rules('email' , 'Email Address' , 'trim|required' , array('required' => ' Email field is required.'));
-                 $this->form_validation->set_rules('contact' , 'Contact Information' , 'trim|required' , array('required' => 'Contact Information field is required.'));
+                $this->form_validation->set_rules('contact' , 'Contact Information' , 'trim|required' , array('required' => 'Contact Information field is required.'));
                 $this->form_validation->set_rules('password' , 'Password' , 'trim|required|min_length[8]' , array('required' => ' Password field is required.' , 'min_length' => 'Minimum length must be 8 characters or more'));
                 $this->form_validation->set_rules('confirm' , 'Confirm Password' , 'trim|required|matches[password]' , array('required' => 'Password Confirmation field is required.' , 'matches' => 'Confirmation Password must be the same with password.'));
-               
+                
                
         
      }
     public function landing_client_registration(){
         
      if(!$this->input->post('submit')){
-        show_404();
+       $this->session->set_flashdata('error' , 'Failed to submit registration... Please try again.');
+        redirect('register_client');
      }else{
         $this->landing_client_validation();
+        
 
             if(!$this->form_validation->run() == TRUE){
                 $this->session->set_flashdata('error' , 'Some error occured while registration was under process! Please try again...');
                 redirect('register_client');
             }else{
-
-                $register_data = array(
-                    'user_role' => 1,
-                    'first_name' => $this->input->post('firstname'),
-                    'last_name' => $this->input->post('lastname'),
-                    'company_name' =>$this->input->post('company_name'),
-                    'company_location' =>$this->input->post('company_location'),
-                    'email_add' =>$this->input->post('email'),
-                    'contact_info' =>$this->input->post('contact'),
-                    'user_pass' => md5($this->input->post('password')),
-                    'register_status' => 'pending',
-                    'accept_terms' => $this->input->post('check'),
-                    'date_registered' => date('Y-m-d H:m:s'),
-
-                );
                 
-                if(!$register_data['accept_terms'] == "checked"){
+                 $captcha_response = trim($this->input->post('g-recaptcha-response'));
 
-                    $this->session->set_flashdata('error' , 'Terms and Agreement not accepted');
-                    redirect('register_client');
-                }elseif($register_data['accept_terms'] == "checked"){
-                      $register_result = $this->MainModel->create_client_account($register_data);
-                        if(!$register_result){
-                            $this->session->set_flashdata('error', 'Registration Error! Something went wrong while creating your account! Please try again...');
-                            redirect('register_client');
+                //  print_r($captcha_response);die();
+                 if($captcha_response != ''){
+                        $keySecret = '6LcP4AYaAAAAAMG3i0qm7CsOOZrrjg6FLBFeQxDz';
+                            $check = array(
+                                'secret'   => $keySecret,
+                                'response' => trim($this->input->post('g-recaptcha-response'))
+                            );
+                        $start_process = curl_init();
+
+                        curl_setopt($start_process , CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+                        curl_setopt($start_process , CURLOPT_POST , true);
+                        curl_setopt($start_process , CURLOPT_POSTFIELDS , http_build_query($check));
+                        curl_setopt($start_process , CURLOPT_SSL_VERIFYPEER , false);
+                        curl_setopt($start_process , CURLOPT_RETURNTRANSFER , true);
+
+                        $received_data = curl_exec($start_process);
+                        $final_response = json_decode($received_data, true);
+                        //    var_dump($final_response);die();
+                        if($final_response['success']){
+
+                               $register_data = array(
+                                    'user_role' => 1,
+                                    'first_name' => $this->input->post('firstname'),
+                                    'last_name' => $this->input->post('lastname'),
+                                    'company_name' =>$this->input->post('company_name'),
+                                    'company_location' =>$this->input->post('company_location'),
+                                    'email_add' =>$this->input->post('email'),
+                                    'contact_info' =>$this->input->post('contact'),
+                                    'user_pass' => md5($this->input->post('password')),
+                                    'register_status' => 'pending',
+                                    'accept_terms' => $this->input->post('check'),
+                                    'date_registered' => date('Y-m-d H:m:s')
+
+                                       );
+
+                                        if(!$register_data['accept_terms'] == "checked"){
+
+                                                $this->session->set_flashdata('error' , 'Terms and Agreement not accepted');
+                                                redirect('register_client');
+                                            }elseif($register_data['accept_terms'] == "checked"){
+                                                $register_result = $this->MainModel->create_client_account($register_data);
+                                                    if(!$register_result){
+                                                        $this->session->set_flashdata('error', 'Registration Error! Something went wrong while creating your account! Please try again...');
+                                                        redirect('register_client');
+                                                    }else{
+                                                        $this->session->set_flashdata('success', 'Registration Successful! Just wait for the admin to approve your registration');
+                                                        redirect('login');
+                                                    }
+                                            }
                         }else{
-                            $this->session->set_flashdata('success', 'Registration Successful! Just wait for the admin to approve your registration');
-                            redirect('login');
+                            $this->session->set_flashdata('error' , 'VALIDATION FAILED.... PLEASE TRY AGAIN');
+                            redirect('register_client');
                         }
-                }
+                 }else{
+                     $this->session->set_flashdata('error' , 'Validation Failed... Try again');
+                     redirect('register_client');
+                 }
+         
           
           }
      }
