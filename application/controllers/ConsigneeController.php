@@ -12,6 +12,11 @@ class ConsigneeController extends CI_Controller {
         $this->load->helper('array');
         $this->conId = $this->session->userdata('user_ID');
         $this->data['transactions'] = $this->ConsigneeModel->getTransactions($this->conId);
+
+        $user_logged = $this->session->userdata();
+            if(!$user_logged['isUserLoggedIn'] == TRUE){
+                redirect('home');
+            }
     }
 
     public function index(){
