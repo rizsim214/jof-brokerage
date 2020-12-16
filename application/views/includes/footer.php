@@ -54,7 +54,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
     if(status == 'pending'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -62,7 +62,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -70,7 +70,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -78,7 +78,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -86,7 +86,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -94,7 +94,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -102,7 +102,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -110,7 +110,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -118,7 +118,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -126,7 +126,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -134,7 +134,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -142,10 +142,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step ">'+
@@ -153,7 +169,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -161,13 +177,13 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }else if(status == 'accepted'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -175,7 +191,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -183,7 +199,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -191,7 +207,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -199,7 +215,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -207,7 +223,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -215,7 +231,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -223,7 +239,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -231,7 +247,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -239,7 +255,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -247,7 +263,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -255,10 +271,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step  step-active">'+
@@ -266,7 +298,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -274,10 +306,269 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
-    }else if(status == 'declined'){
+    }else if(status == 'item is in Cebu International Port. (CIP)'){
+      html =  '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">16</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Done</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">15</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Arrived</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">14</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Delivering</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">13</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Releasing</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">12</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Duties and Taxes paid)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">11</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Final assestment Notice)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">10</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Payments of customs TAX)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">9</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Chief Division)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">8</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Appraiser)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">7</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Examiner)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">6</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Entry Processing unit number)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step step-active">'+
+                '<div>'+
+                  '<div class="circle">3</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">2</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step step-active">'+
+                '<div>'+
+                  '<div class="circle">1</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents pending for approval</div>'+
+                '</div>'+
+              '</div>';
+    }else if(status == 'client has been informed.'){
+      html =  '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">16</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Done</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">15</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Arrived</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">14</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Delivering</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">13</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Releasing</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">12</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Duties and Taxes paid)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">11</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Final assestment Notice)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">10</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Payments of customs TAX)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">9</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Chief Division)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">8</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Appraiser)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">7</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Examiner)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">6</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Processing (Entry Processing unit number)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step">'+
+                '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step step-active">'+
+                '<div>'+
+                  '<div class="circle">3</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">2</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step step-active">'+
+                '<div>'+
+                  '<div class="circle">1</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents pending for approval</div>'+
+                '</div>'+
+              '</div>';
+    }
+    else if(status == 'declined'){
       html =  '<div class="step step-declined step-active">'+
                 '<div>'+
                   '<div class="circle">2</div>'+
@@ -292,13 +583,13 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }else if(status == 'documentation'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -306,7 +597,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -314,7 +605,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -322,7 +613,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -330,7 +621,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -338,7 +629,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -346,7 +637,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -354,7 +645,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -362,7 +653,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -370,7 +661,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -378,7 +669,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -386,10 +677,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -397,7 +704,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -405,14 +712,14 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
     else if(status == 'processing (Entry Processing unit number)'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -420,7 +727,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -428,7 +735,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -436,7 +743,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -444,7 +751,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -452,7 +759,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -460,7 +767,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -468,7 +775,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -476,7 +783,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -484,7 +791,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -492,7 +799,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -500,10 +807,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -511,7 +834,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -519,14 +842,14 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
     else if(status == 'processing (Examiner)'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -534,7 +857,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -542,7 +865,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -550,7 +873,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -558,7 +881,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -566,7 +889,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -574,7 +897,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -582,7 +905,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -590,7 +913,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -598,7 +921,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -606,7 +929,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -614,10 +937,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -625,7 +964,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -633,7 +972,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
@@ -641,7 +980,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
     else if(status == 'processing (Appraiser)'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -649,7 +988,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -657,7 +996,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -665,7 +1004,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -673,7 +1012,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -681,7 +1020,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -689,7 +1028,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -697,7 +1036,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -705,7 +1044,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -713,7 +1052,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -721,7 +1060,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -729,10 +1068,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -740,7 +1095,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -748,7 +1103,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
@@ -756,7 +1111,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
     else if(status == 'processing (Chief Division)'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -764,7 +1119,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -772,7 +1127,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -780,7 +1135,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -788,7 +1143,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -796,7 +1151,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -804,7 +1159,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -812,7 +1167,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -820,7 +1175,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -828,7 +1183,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -836,7 +1191,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -844,10 +1199,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -855,7 +1226,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -863,14 +1234,14 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
     else if(status == 'processing (Payments of customs TAX)'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -878,7 +1249,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -886,7 +1257,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -894,7 +1265,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -902,7 +1273,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -910,7 +1281,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -918,7 +1289,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -926,7 +1297,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -934,7 +1305,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -942,7 +1313,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -950,7 +1321,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -958,10 +1329,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -969,7 +1356,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -977,14 +1364,14 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
     else if(status == 'processing (Final assestment Notice)'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -992,7 +1379,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -1000,7 +1387,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -1008,7 +1395,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -1016,7 +1403,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -1024,7 +1411,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -1032,7 +1419,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -1040,7 +1427,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -1048,7 +1435,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -1056,7 +1443,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -1064,7 +1451,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -1072,10 +1459,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1083,7 +1486,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1091,14 +1494,14 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
     else if(status == 'processing (Duties and Taxes paid)'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -1106,7 +1509,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -1114,7 +1517,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -1122,7 +1525,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -1130,7 +1533,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -1138,7 +1541,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -1146,7 +1549,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -1154,7 +1557,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -1162,7 +1565,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -1170,7 +1573,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -1178,7 +1581,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -1186,10 +1589,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1197,7 +1616,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1205,14 +1624,14 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
     else if(status == 'releasing'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -1220,7 +1639,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -1228,7 +1647,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>'+
@@ -1236,7 +1655,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -1244,7 +1663,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -1252,7 +1671,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -1260,7 +1679,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -1268,7 +1687,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -1276,7 +1695,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -1284,7 +1703,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -1292,7 +1711,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -1300,10 +1719,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1311,7 +1746,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1319,14 +1754,14 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
     else if(status == 'delivering'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -1334,7 +1769,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>'+
@@ -1342,7 +1777,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>';
@@ -1355,7 +1790,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -1363,7 +1798,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -1371,7 +1806,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -1379,7 +1814,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -1387,7 +1822,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -1395,7 +1830,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -1403,7 +1838,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -1411,7 +1846,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -1419,10 +1854,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1430,7 +1881,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1438,7 +1889,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
@@ -1446,7 +1897,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
     else if(status == 'arrived'){
       html =  '<div class="step">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -1454,7 +1905,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>';
@@ -1465,7 +1916,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>';
@@ -1478,7 +1929,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -1486,7 +1937,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -1494,7 +1945,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -1502,7 +1953,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -1510,7 +1961,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -1518,7 +1969,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -1526,7 +1977,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -1534,7 +1985,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -1542,10 +1993,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1553,7 +2020,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1561,14 +2028,14 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }
     else if(status == 'done'){
       html =  '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">14</div>'+
+                  '<div class="circle">16</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Done</div>'+
@@ -1576,7 +2043,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">13</div>'+
+                  '<div class="circle">15</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Arrived</div>';
@@ -1587,7 +2054,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">12</div>'+
+                  '<div class="circle">14</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Delivering</div>';
@@ -1600,7 +2067,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">11</div>'+
+                  '<div class="circle">13</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Releasing</div>'+
@@ -1608,7 +2075,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">10</div>'+
+                  '<div class="circle">12</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Duties and Taxes paid)</div>'+
@@ -1616,7 +2083,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">11</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Final assestment Notice)</div>'+
@@ -1624,7 +2091,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">8</div>'+
+                  '<div class="circle">10</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Payments of customs TAX)</div>'+
@@ -1632,7 +2099,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">7</div>'+
+                  '<div class="circle">9</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Chief Division)</div>'+
@@ -1640,7 +2107,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">6</div>'+
+                  '<div class="circle">8</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Appraiser)</div>'+
@@ -1648,7 +2115,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">5</div>'+
+                  '<div class="circle">7</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Examiner)</div>'+
@@ -1656,7 +2123,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step step-active">'+
                 '<div>'+
-                  '<div class="circle">4</div>'+
+                  '<div class="circle">6</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Processing (Entry Processing unit number)</div>'+
@@ -1664,10 +2131,26 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
               '</div>'+
               '<div class="step  step-active">'+
                 '<div>'+
+                  '<div class="circle">5</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Documents have been submitted to the Bureau of the Customs.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
+                  '<div class="circle">4</div>'+
+                '</div>'+
+                '<div>'+
+                  '<div class="title">Client has been informed.</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="step  step-active">'+
+                '<div>'+
                   '<div class="circle">3</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Documentation</div>'+
+                  '<div class="title">Item is in Cebu International Port. (CIP)</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1675,7 +2158,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">2</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Accepted</div>'+
+                  '<div class="title">Documents are approved by the Broker.</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1683,7 +2166,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                   '<div class="circle">1</div>'+
                 '</div>'+
                 '<div>'+
-                  '<div class="title">Pending</div>'+
+                  '<div class="title">Documents pending for approval</div>'+
                 '</div>'+
               '</div>';
     }

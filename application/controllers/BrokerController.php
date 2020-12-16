@@ -44,7 +44,7 @@ class BrokerController extends CI_Controller {
        
       
         $ch = curl_init();
-        $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ". $transcation_number." for importing/exporting at JOF brokerage is now accepted." , '3' => "TR-ACERS720125_Q7M6B" , 'passwd' => "$59j{iq{ft");
+        $itexmo = array('1' => $consignee->contact_info, '2' => "Hello ". ucfirst($consignee->first_name) ." ". ucfirst($consignee->last_name) ."! Your Transcation ". $transcation_number." for importing/exporting at JOF brokerage is now accepted." , '3' => "ST-LUKEK646498_3PAKR" , 'passwd' => "vstrq{8y64");
         curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, 
@@ -75,7 +75,7 @@ class BrokerController extends CI_Controller {
         $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
         $ch = curl_init();
 
-        $itexmo = array('1' => $consignee->contact_info, '2' => "Your Transcation ".$this->input->post('transaction_number')." has been declined. Please check your account." , '3' => "TR-ACERS720125_Q7M6B", 'passwd' => "$59j{iq{ft");
+        $itexmo = array('1' => $consignee->contact_info, '2' => "Hello ". ucfirst($consignee->first_name) ." ". ucfirst($consignee->last_name) ."! Your Transcation ".$this->input->post('transaction_number')." has been declined. Please check your account." , '3' => "ST-LUKEK646498_3PAKR", 'passwd' => "vstrq{8y64");
         curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, 
@@ -120,7 +120,7 @@ class BrokerController extends CI_Controller {
        $cons = $this->AdminModel->getUser($this->input->post('first_name'));
        $ch = curl_init();
 
-       $itexmo = array('1' => $consignee->contact_info, '2' => "Hello Your Transcation ".$this->input->post('transaction_number')." status is ". $this->input->post('status') .". Please check your account." , '3' => "TR-ACERS720125_Q7M6B", 'passwd' => "$59j{iq{ft");
+       $itexmo = array('1' => $consignee->contact_info, '2' => "Hello ". ucfirst($consignee->first_name) ." ". ucfirst($consignee->last_name) ."! Your Transcation ".$this->input->post('transaction_number')." status is '". ucfirst($this->input->post('status')) ."' Please check your account." , '3' => "ST-LUKEK646498_3PAKR", 'passwd' => "vstrq{8y64");
        curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
        curl_setopt($ch, CURLOPT_POST, 1);
        curl_setopt($ch, CURLOPT_POSTFIELDS, 

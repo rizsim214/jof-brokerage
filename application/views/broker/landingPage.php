@@ -88,7 +88,9 @@
 			<input type="hidden" value="" name="transaction_id" id="transaction"> 
 			<input type="hidden" value="" name="consignee_id" id="consignee"> 
 			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
-				<option value="documentation">Documentation</option>
+        <option value="item is in Cebu International Port. (CIP)">Item is in Cebu International Port. (CIP)</option>
+        <option value="client has been informed.">Client has been informed.</option>
+				<option value="documentation">Documents have been submitted to the Bureau of the Customs.</option>
 				<option value="processing (Entry Processing unit number)">Processing (Entry Processing unit number) </option>
         <option value="processing (Examiner)">Processing (Examiner) </option>
         <option value="processing (Appraiser)">Processing (Appraiser) </option>
