@@ -61,7 +61,7 @@ $route['support'] = 'MainController/view_glossary_landing/0';
 $route['support/(:num)'] = 'MainController/view_glossary_landing/$1';
 $route['login_account'] = 'MainController/login';
 $route['set_appointment'] = 'MainController/setAppointment';
-$route['register_client'] = 'MainController/view_register';
+$route['register_client'] = 'MainController/dynamic_view/register';
 $route['landing_client_registration'] = 'MainController/landing_client_registration';
 $route['logout'] = 'MainController/logout';
 // ADMIN PAGE ROUTES

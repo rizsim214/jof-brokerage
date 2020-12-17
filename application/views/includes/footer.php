@@ -10,6 +10,7 @@
      <script src="<?php echo base_url();?>assets/js/font_awesome.js" ></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js" ></script>
      <script src="<?php echo base_url();?>assets/js/jof_javascript.js" ></script>
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
      <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>

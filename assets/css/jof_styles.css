@@ -544,10 +544,14 @@ img{
 /* STYLES FOR REGISTRATION CONTAINER */
 
 .register_container{
-    margin-top: 4rem ;
+    padding-top: 3rem ;
     
 }
-
+.dropleft .dropdown-item:hover{
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background-color:#f74141f7;
+}
 .option_dropdown #accept:hover{
     color: rgb(255, 255, 255);
     font-weight: bolder;

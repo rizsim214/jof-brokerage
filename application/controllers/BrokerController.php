@@ -6,6 +6,11 @@ class BrokerController extends CI_Controller {
     public function __construct(){
         parent:: __construct();
         $this->load->model('AdminModel');
+        
+        $user_logged = $this->session->userdata();
+            if(!$user_logged['isUserLoggedIn'] == TRUE){
+                redirect('home');
+            }
     }
 
     public function index(){
