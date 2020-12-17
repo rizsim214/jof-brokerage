@@ -32,12 +32,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="nav-item ">
                <a class="nav-link" href="<?php echo site_url('about');?>" id="navItem" >About</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="#" id="navItem">Services</a>
-            </li>
+            <li class="nav-item dropdown show">
+               <a class="nav-link dropdown-toggle" href="#"  id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+
+
+               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Cargo documentation processing</a>
+                        <a class="dropdown-item" href="#">customs inquiry</a>
+                        <a class="dropdown-item" href="#">Cargo monitoring</a>
+                        <a class="dropdown-item" href="#"> Import & export cargo processing</a>
+                        <a class="dropdown-item" href="#"> cargo insurance services</a>
+                        <a class="dropdown-item" href="#"> international & domestic freight -forwarding</a>
+                        <a class="dropdown-item" href="#">Bureau of Customs Registration</a>
+                        <a class="dropdown-item" href="#"> Cargo quotation</a>
+                      </div>
+                  </li>
+                 
             <li class="nav-item">
                <a class="nav-link" href="<?php echo site_url('support');?>" id="navItem">Support</a>
+    
             </li>
+
+
+    
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('feedbacks');?>" id="navItem">Feedback</a>
             </li>
