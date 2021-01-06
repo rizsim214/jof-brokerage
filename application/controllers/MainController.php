@@ -325,4 +325,71 @@ class MainController extends CI_Controller {
 
     }
 
+    public function cargoDoc(){
+
+
+            //echo "this";
+            $page ="cargoDocu";
+            //  print_r($data);
+    
+              if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+                  show_404();
+    
+              }
+    
+            $this->load->view('includes/header');
+            $this->load->view('pages/'.$page);
+            $this->load->view('includes/footer');
+    }
+
+    public function customsInq(){
+
+        $page ="custInq";
+        //  print_r($data);
+
+          if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+              show_404();
+
+          }
+
+        $this->load->view('includes/header');
+        $this->load->view('pages/'.$page);
+        $this->load->view('includes/footer');
+
+    }
+
+    public function cargoMon(){
+
+        $page ="cargoMonitor";
+        //  print_r($data);
+
+          if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+              show_404();
+
+          }
+
+        $this->load->view('includes/header');
+        $this->load->view('pages/'.$page);
+        $this->load->view('includes/footer');
+
+}
+
+    public function imExp(){
+
+        $page ="importExprt";
+        //  print_r($data);
+
+          if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+              show_404();
+
+          }
+
+        $this->load->view('includes/header');
+        $this->load->view('pages/'.$page);
+        $this->load->view('includes/footer');
+
+
+
+    }
+
 }

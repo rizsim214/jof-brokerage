@@ -37,10 +37,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Cargo documentation processing</a>
-                        <a class="dropdown-item" href="#">customs inquiry</a>
-                        <a class="dropdown-item" href="#">Cargo monitoring</a>
-                        <a class="dropdown-item" href="#"> Import & export cargo processing</a>
+                        <a class="dropdown-item" href="cargoDocumentationProcessing">Cargo documentation processing</a>
+                        <a class="dropdown-item" href="customsInquiry">customs inquiry</a>
+                        <a class="dropdown-item" href="cargoMonitoring">Cargo monitoring</a>
+                        <a class="dropdown-item" href="importExport"> Import & export cargo processing</a>
                         <a class="dropdown-item" href="#"> cargo insurance services</a>
                         <a class="dropdown-item" href="#"> international & domestic freight -forwarding</a>
                         <a class="dropdown-item" href="#">Bureau of Customs Registration</a>
