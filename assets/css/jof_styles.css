@@ -557,8 +557,8 @@ img{
     font-weight: bolder;
     background-color:#0ca8c0;
 }
-/* .option_dropdown #delete:hover{
+.dropdown .dropdown-item:hover{
     color: rgb(255, 255, 255);
     font-weight: bolder;
-    background-color:rgba(255, 28, 28, 0.967);
-} */
+    background-color:#f74141f7;
+}
