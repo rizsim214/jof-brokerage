@@ -64,6 +64,10 @@ $route['set_appointment'] = 'MainController/setAppointment';
 $route['register_client'] = 'MainController/dynamic_view/register';
 $route['landing_client_registration'] = 'MainController/landing_client_registration';
 $route['logout'] = 'MainController/logout';
+$route['cargoDocumentationProcessing'] = 'MainController/cargoDoc';
+$route['customsInquiry'] = 'MainController/customsInq';
+$route['cargoMonitoring'] = 'MainController/cargoMon';
+$route['importExport'] = 'MainController/imExp';
 // ADMIN PAGE ROUTES
 $route['admin'] = 'AdminController/dynamic_view';
 $route['user_accounts'] = 'AdminController/dynamic_view/users';
