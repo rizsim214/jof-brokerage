@@ -41,10 +41,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a class="dropdown-item" href="customsInquiry">customs inquiry</a>
                         <a class="dropdown-item" href="cargoMonitoring">Cargo monitoring</a>
                         <a class="dropdown-item" href="importExport"> Import & export cargo processing</a>
-                        <a class="dropdown-item" href="#"> cargo insurance services</a>
-                        <a class="dropdown-item" href="#"> international & domestic freight -forwarding</a>
-                        <a class="dropdown-item" href="#">Bureau of Customs Registration</a>
-                        <a class="dropdown-item" href="#"> Cargo quotation</a>
+                        <a class="dropdown-item" href="<?= site_url('insurance_services');?>"> cargo insurance services</a>
+                        <a class="dropdown-item" href="<?= site_url('freight_forwarding');?>"> international & domestic freight -forwarding</a>
+                        <a class="dropdown-item" href="<?= site_url('boc_registration');?>">Bureau of Customs Registration</a>
+                        <a class="dropdown-item" href="<?= site_url('cargo_quotation');?>"> Cargo quotation</a>
                       </div>
                   </li>
                  

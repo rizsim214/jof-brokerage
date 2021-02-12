@@ -68,6 +68,10 @@ $route['cargoDocumentationProcessing'] = 'MainController/cargoDoc';
 $route['customsInquiry'] = 'MainController/customsInq';
 $route['cargoMonitoring'] = 'MainController/cargoMon';
 $route['importExport'] = 'MainController/imExp';
+$route['boc_registration'] = 'MainController/dynamic_view/cargoBocReg';
+$route['freight_forwarding'] = 'MainController/dynamic_view/cargoForwarding';
+$route['insurance_services'] = 'MainController/dynamic_view/cargoInsurance';
+$route['cargo_quotation'] = 'MainController/dynamic_view/cargoQuote';
 // ADMIN PAGE ROUTES
 $route['admin'] = 'AdminController/dynamic_view';
 $route['user_accounts'] = 'AdminController/dynamic_view/users';
