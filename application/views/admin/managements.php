@@ -27,8 +27,8 @@
             <tr>
                 <td><?php echo $glossary->glossary_term;?></td>
                 <td><?php echo $glossary->glossary_meaning;?></td>
-                <td><a href="#" class="btn btn-success"><i class="fa fa-plus"></i></a></td>
-                <td><a onclick="return confirm('Removing FAQ. Proceed?')" href="<?php echo base_url('delete_glossary')?>/<?php echo $glossary->glossary_ID?>" class="btn btn-danger"><i class="fa fa-minus"></i></a></td>
+                <td><a href="#" class="btn btn-success"><i class="fas fa-pen"></i></a></td>
+                <td><a onclick="return confirm('Removing Definition. Proceed?')" href="<?php echo base_url('delete_glossary')?>/<?php echo $glossary->glossary_ID?>" class="btn btn-danger"><i class="fa fa-minus"></i></a></td>
             </tr>
              <?php endforeach; ?>
         </tbody>
