@@ -25,7 +25,7 @@
                   <p class="lead" style="font-size:18px;"> For more inquiries, please go to the support page. There are referrences found for clients support services or click <a href="<?= site_url('support');?>">here</a> to go to there.  </p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto " src="<?php echo site_url();?>assets/img/track1.png " alt="Generic placeholder image" style="padding-top:30px; padding-left: 10px; width:350px; height:400px;">
+            <img class="featurette-image img-fluid mx-auto " src="<?php echo site_url();?>assets/img/shipload1.jpg" alt="Generic placeholder image" style="padding-top:30px; padding-left: 10px; width:350px; height:400px;">
           </div>
         </div>
         <br>

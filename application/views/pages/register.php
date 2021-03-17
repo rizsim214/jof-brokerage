@@ -78,7 +78,7 @@
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" value="checked" name="check">
-                                Before you proceed, do you accept the company's terms and agreements? <a href="#">Terms & Agreements</a>
+                                Before you proceed, do you accept the company's terms and agreements? <a href="<?= site_url('term_of_use');?>">Terms & Agreements</a>
                             </label>
                            
                         </div>
