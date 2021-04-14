@@ -50,6 +50,13 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
             $("#password_message").css("display", "none");
          }
     }
+    function rate(transaction_id, transaction_number, firstname, lastname){
+
+      $('#transaction_id').val(transaction_id);
+      $('#transaction_number').val(transaction_number);
+      $('#processor_name').val(firstname + ' ' + lastname);
+      $('#rate').modal('show');
+    }
     function viewStatus(status, destination, origin, time_of_departure, time_of_arrival){
     var html = '';
     if(status == 'pending'){

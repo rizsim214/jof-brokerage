@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">View Account</a>
-                <a class="dropdown-item" href="editAccount/<?php $user_ID?>">Manage Account</a>
+                <a class="dropdown-item" href="<?php echo base_url('editAccount/'); ?><?= $this->session->user_ID?>">Manage Account</a>
                 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo base_url('logout');?>">Logout</a>

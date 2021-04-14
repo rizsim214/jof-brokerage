@@ -26,6 +26,12 @@ class ConsigneeModel extends CI_Model{
 
         return $result;
     }
+    public function insertRating($data){
+     
+        $result = $this->db->insert('feedbacks', $data);
+
+        return $result;
+    }
 
     public function postEvaluation($post_data){
        

@@ -42,7 +42,8 @@ class BrokerController extends CI_Controller {
       
         $data = array(
             'status' => 'accepted',
-            'processor_id' => $this->session->userdata('user_ID')
+            'processor_id' => $this->session->userdata('user_ID'),
+            'date_started' => date('Y-m-d H:i:s')
         );
         
         $consignee = $this->AdminModel->getUser($consignee_id);
@@ -106,6 +107,11 @@ class BrokerController extends CI_Controller {
            
        );
 
+       if($this->input->post('status') == 'done'){
+        $data += array(
+            'date_ended' => date('Y-m-d H:i:s')
+        );
+            }
        if($this->input->post('destination')){
         $data = array(
             'status' => $this->input->post('status'),

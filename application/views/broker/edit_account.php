@@ -39,18 +39,22 @@
                      
                             <div class="form-group col-md-6">
                                 <label for="first_name">First Name* </label>
-                                <input type="text" class="form-control" name="first_name" value="<?= $firstname ?>">
+                                <input type="text" class="form-control" name="first_name"  onkeydown="return alphaOnly(event);"
+    onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+    onfocus="if (this.value == 'Type Letters Only') {this.value = '';}" value="<?= $firstname ?>">
                             </div>
                              <div class="form-group col-md-6">
                                 <label for="lastname">Last Name* </label>
-                                <input type="text" class="form-control" name="lastname" value="<?= $lastname ?>" >
+                                <input type="text" class="form-control" name="lastname" onkeydown="return alphaOnly(event);"
+    onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+    onfocus="if (this.value == 'Type Letters Only') {this.value = '';}" value="<?= $lastname ?>" >
                             </div>
                         </div>
                         <div class="row">
                         
                             <div class="form-group col-md-6">
                                 <label for="company_name">Company Name </label>
-                                <input type="text" class="form-control" name="company_name" value="<?= $companyName ?>">
+                                <input type="text" class="form-control" name="company_name"  value="<?= $companyName ?>">
                             </div>
                              <div class="form-group col-md-6">
                                 <label for="company_location">Company Location </label>
@@ -109,7 +113,12 @@
     </div> 
 
 
-
+<script>
+  function alphaOnly(event) {
+  var key = event.keyCode;
+  return ((key >= 65 && key <= 90) || key == 8);
+}
+</script>
 
 
 

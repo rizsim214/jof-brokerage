@@ -35,6 +35,22 @@ class ConsigneeController extends CI_Controller {
             
         }
     }
+
+    public function rate_transaction(){
+        $data = array(
+            'user_fk_ID' => $this->conId,
+            'transaction_id' => $this->input->post('transaction_id'),
+            'message' => $this->input->post('message'),
+            'rating' => $this->input->post('rating_number'),
+            'date_posted' => date('Y-m-d')
+            );
+
+            $this->ConsigneeModel->insertRating($data);
+
+            echo '<script>alert("Rate Added")
+            history.back()
+          </script>';
+    }
     public function sendFiles(){
 
         $config['upload_path'] =  './assets/uploads/files';

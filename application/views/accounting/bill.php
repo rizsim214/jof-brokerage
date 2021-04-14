@@ -91,7 +91,7 @@
                     <td><?php echo $row->description; ?></td>
                     <td><?php echo $row->gl_account; ?></td>
                     <td id="price<?php echo $counter; ?>">₱ <?php echo number_format($row->unit_price, 2); ?></td>
-                    <td width="10"><input type="text" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>')" name="tax[]" class="form-control"></td>
+                    <td width="10"><input type="number" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>')" name="tax[]" class="form-control"></td>
                     <td width="10"><input type="text"  id="amount<?php echo $counter ?>" class="form-control" name="amount[]" readonly></td>
                 </tr>
             <?php 

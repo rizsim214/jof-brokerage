@@ -22,12 +22,16 @@
                            <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="firstname">First Name* </label>
-                                <input type="text" class="form-control <?php echo form_error('firstname') ? 'is-invalid' : '';?>" name="firstname" >
+                                <input type="text" class="form-control <?php echo form_error('firstname') ? 'is-invalid' : '';?>" onkeydown="return alphaOnly(event);"
+    onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+    onfocus="if (this.value == 'Type Letters Only') {this.value = '';}" name="firstname" >
                                  <div class="invalid-feedback" ><?php echo form_error('firstname') ? form_error('firstname') : '';?></div>
                             </div>
                              <div class="form-group col-md-6">
                                 <label for="lastname">Last Name* </label>
-                                <input type="text" class="form-control <?php echo form_error('lastname') ? 'is-invalid' : '';?>" name="lastname">
+                                <input type="text" class="form-control <?php echo form_error('lastname') ? 'is-invalid' : '';?>" onkeydown="return alphaOnly(event);"
+    onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+    onfocus="if (this.value == 'Type Letters Only') {this.value = '';}" name="lastname">
                                  <div class="invalid-feedback" ><?php echo form_error('lastname') ? form_error('lastname') : '';?></div>
                             </div>
                         </div>
@@ -93,3 +97,12 @@
         </div>
     </div>
 </div>
+
+<script>
+  function alphaOnly(event) {
+  var key = event.keyCode;
+  return ((key >= 65 && key <= 90) || key == 8);
+}
+</script>
+
+
