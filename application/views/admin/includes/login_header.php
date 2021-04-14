@@ -91,6 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <a href="<?php echo base_url('transactions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a> 
                         </div>    
                   </div> 
+                  
              </div>
              <div class="modal-footer mx-auto">
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
