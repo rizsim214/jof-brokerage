@@ -77,8 +77,8 @@
          <input type="text" class="form-control" id="transaction_number" readonly>
          <h6> Processor's Name</h6>
          <input type="text" class="form-control" id="processor_name" readonly>
-      <h6> Rating Number</h6>
-         <input type="number" class="form-control" name="rating_number" step=".01">
+      <h6> Rating Number (1.0 - lowest , 5.0 - highest) </h6>
+         <input type="number" class="form-control" name="rating_number" step=".01" required>
          <h6>Message</h6>
          <textarea class="form-control" name="message"></textarea>
       </div>

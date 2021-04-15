@@ -1,6 +1,7 @@
 <div class="container col-md-10 mx-auto">
 <!-- <h1><?= $title; ?></h1>
-   <h1><?= $id; ?></h1> -->
+   <h1><?= $id; ?>
+   <?= $uRole; ?></h1> -->
 
    <input type="hidden" name="id" value="<?= $id; ?>">
    <?php echo validation_errors(); ?>
@@ -9,7 +10,7 @@
 <br>
 <br>
 <div class="row">
-<h2 class="text-dark col-md-4"> Account update for: </h2><div class="col-md-4"></div><h2 class="col-md-4"><?= ucfirst($firstname) ?> <?= ucfirst($lastname) ?></h2>
+<h2 class="text-dark"> Account update for: </h2><div></div><h2><?= ucfirst($firstname) ?> <?= ucfirst($lastname) ?></h2>
 </div>
 <hr>
 
@@ -40,14 +41,14 @@
                             <div class="form-group col-md-6">
                                 <label for="first_name">First Name* </label>
                                 <input type="text" class="form-control" name="first_name"  onkeydown="return alphaOnly(event);"
-    onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
-    onfocus="if (this.value == 'Type Letters Only') {this.value = '';}" value="<?= $firstname ?>">
+                                        onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+                                        onfocus="if (this.value == 'Type Letters Only') {this.value = '';}" value="<?= $firstname ?>">
                             </div>
                              <div class="form-group col-md-6">
                                 <label for="lastname">Last Name* </label>
                                 <input type="text" class="form-control" name="lastname" onkeydown="return alphaOnly(event);"
-    onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
-    onfocus="if (this.value == 'Type Letters Only') {this.value = '';}" value="<?= $lastname ?>" >
+                                    onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+                                      onfocus="if (this.value == 'Type Letters Only') {this.value = '';}" value="<?= $lastname ?>" >
                             </div>
                         </div>
                         <div class="row">
@@ -100,7 +101,20 @@
 
                         <div class="text-center">
                            <button type="submit" class="btn btn-md btn-primary mt-3 btn-md" name="submit">Update</button>
-                           <a type="button" class="btn btn-secondary btn-md" style="margin-top:16px;" href="<?php echo base_url('user_accounts');?>">Cancel</a>
+                           <a type="button" class="btn btn-secondary btn-md" style="margin-top:16px;" 
+                           href="<?php if($this->session->userRole == 2) {
+                                              echo base_url('broker');
+    
+                                    }elseif($this->session->userRole == 4) {
+                                        echo base_url('admin');
+                            
+                                    }elseif($this->session->userRole == 3) {
+                                        echo base_url('accounting');
+                            
+                                    }elseif($this->session->userRole == 1) {
+                                        echo base_url('consignee');        } ?>">Cancel</a>
+                            
+           
                          <br>
                         </div>
                         <!-- <a type="button" class="btn btn-secondary btn-lg " href="<?php echo base_url('admin');?>">Cancel</a> -->

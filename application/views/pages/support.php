@@ -15,7 +15,7 @@
                 <p class="label text-dark">Commercial Invoice</p>
             </div>
             <div class="col-md-4">
-            <a href="<?php echo base_url()?>assets/uploads/files/sample-pdf.pdf" class="btn btn-md btn-danger" download>Download</a>
+            <a href="<?php echo base_url()?>assets/uploads/files/commercial-invoice-sample.jpg" class="btn btn-md btn-danger" download>Download</a>
             </div>
         </div>
         <hr class="divider">
@@ -24,7 +24,7 @@
                 <p class="label text-dark">Packing List</p>
             </div>
             <div class="col-md-4">
-            <a href="<?php echo base_url()?>assets/uploads/files/sample-pdf.pdf" class="btn btn-md btn-danger" download>Download</a>
+            <a href="<?php echo base_url()?>assets/uploads/files/packing-list-sample.jpg" class="btn btn-md btn-danger" download>Download</a>
             </div>
         </div>
         <hr class="divider">
@@ -33,7 +33,7 @@
                 <p class="label text-dark">Bill of Lading</p>
             </div>
             <div class="col-md-4">
-            <a href="<?php echo base_url()?>assets/uploads/files/sample-pdf.pdf" class="btn btn-md btn-danger" download>Download</a>
+            <a href="<?php echo base_url()?>assets/uploads/files/bill-of-lading-sample.jpg" class="btn btn-md btn-danger" download>Download</a>
             </div>
         </div>
         <hr class="divider div__bot">
