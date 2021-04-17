@@ -43,5 +43,6 @@
                             <!--<?php echo base_url('post_feedback')?>/<?php echo $feedback->feedback_ID?>  -->
 			    </table>
     
-            
+            <br>
+            <div><h2>Average Rating : <?php echo number_format($average['rating'] , 2); ?></h2></div>
 </div>

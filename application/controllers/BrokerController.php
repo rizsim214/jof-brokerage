@@ -150,6 +150,23 @@ class BrokerController extends CI_Controller {
 
        redirect('BrokerController/index');
    }
+
+   public function bill($id, $transaction_number, $first_name, $last_name){
+    $data['transaction_id'] = $id;
+    $data['transaction_number'] = $transaction_number;
+    $data['name'] = $first_name . ' ' .$last_name;
+    $data['billing_items'] = $this->AdminModel->getBillingItems();
+
+
+    $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
+
+
+
+    $this->load->view('broker/includes/header');
+    $this->load->view('broker/billing', $data);
+    $this->load->view('includes/footer');
+}
+
 //    CALL THIS FOR UPDATE ACCOUNTS ON MODAL
     public function get_edit_accounts($param){
 

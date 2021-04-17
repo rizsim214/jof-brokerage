@@ -18,6 +18,7 @@
                                 <th scope="col">Email</th>					 
                                 <th scope="col">Subject</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Date Posted</th>
                                 <th scope="col">Options</th>
                                 </tr>
                             </thead> 
@@ -28,6 +29,7 @@
                                             <td><?php echo $result->email;?></td>
                                             <td><?php echo $result->subject;?></td>
                                             <td><?php echo $result->appointment_status;?></td>
+                                            <td><?php echo $result->date_posted;?></td>
                                             <td><a href="<?php echo base_url('view_message');?>/<?php echo $result->appointment_ID;?>" class="btn btn-secondary mr-2 "><i class="fas fa-pencil-square"></i></i></a><a onclick="return confirm('Are you sure you want to delete this message?')" href="<?php echo base_url('delete_appointment');?>/<?php echo $result->appointment_ID?>" class="btn btn-danger "><i class="fas fa-trash"></i></a></td>
                                         </tr>
                                     <?php }  ?>

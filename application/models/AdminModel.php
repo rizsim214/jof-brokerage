@@ -21,6 +21,46 @@ class AdminModel extends CI_Model{
         }
         
     }   
+
+    public function getTransactionItem($billing_items_id, $transaction_billing_id){
+
+        $this->db->select('*');
+        $this->db->from('transaction_items');
+        $this->db->where('transaction_billing_id' , $transaction_billing_id);
+        $this->db->where('transaction_billing_item_id' , $billing_items_id);
+        $query = $this->db->get();
+        if(!$query){
+           return NULL;
+        }else{
+             return $query->row_array();
+        }
+
+    }
+    public function getTransactionbilling($transaction_number){
+        $this->db->select('*');
+        $this->db->from('transaction_billing');
+        $this->db->where('transaction_number' , $transaction_number);
+        $query = $this->db->get();
+
+        if(!$query){
+            return NULL;
+         }else{
+              return $query->row_array();
+         }
+    }
+
+    public function deleteTransactionBillingItems($transaction_billing_id){
+        $this->db->where('transaction_billing_id', $transaction_billing_id);
+        $this->db->delete('transaction_items');
+
+    }
+
+    public function deleteTransactionBilling($transaction_number){
+        $this->db->where('transaction_number', $transaction_number);
+        $this->db->delete('transaction_billing');
+
+    }
+
     public function change_account_status($data, $id){
 
 
@@ -47,8 +87,8 @@ class AdminModel extends CI_Model{
         //GETTING ALL APPOINTMENTS
     public function getAllAppointment(){
         
-      
-        $this->db->ORDER_BY('appointment_id DESC');
+        
+        $this->db->order_by('appointment_ID', 'DESC');
 
         $query = $this->db->get('appointments');
 
@@ -113,8 +153,7 @@ class AdminModel extends CI_Model{
         
         $this->db->select('*,transaction.status as transaction_status');
         $this->db->from('transaction');
-        $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID',
-                        'users_table' , 'transaction.processor_id = users_table.user_ID');
+        $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID');
         $this->db->order_by('date_posted', 'desc');
 
         $query = $this->db->get();
@@ -213,6 +252,20 @@ class AdminModel extends CI_Model{
 
        return $query->result();
     }
+    public function get_average_feedback(){
+        $this->db->select_avg('rating');
+        $this->db->from('feedbacks');
+        $this->db->ORDER_BY('feedback_ID DESC');
+        $this->db->join('users_table' , 'feedbacks.user_fk_ID = users_table.user_ID');
+        $query = $this->db->get();
+
+
+        if(!$query){
+            return NULL;
+         }else{
+              return $query->row_array();
+         }
+     }
     // GLOSSARY MODEL
     public function add_glossary($data){
         $result = $this->db->insert('glossary_table' , $data);
@@ -241,6 +294,7 @@ class AdminModel extends CI_Model{
         $this->db->select('*');
         $this->db->from('appointments');
         $this->db->where('appointment_ID' , $id);
+        $this->db->order_by('appointment_ID' , 'DESC');
         $result = $this->db->get();
         if(!$result){
             return FALSE;
@@ -260,6 +314,7 @@ class AdminModel extends CI_Model{
         $this->db->select('*');
         $this->db->from('appointments');
         $this->db->where('appointment_ID' , $id);
+        $this->db->order_by('appointment_ID' , 'DESC');
         $result = $this->db->get();
 
         return $result->result();

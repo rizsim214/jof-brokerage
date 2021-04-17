@@ -10,6 +10,7 @@ class ConsigneeController extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->helper('array');
+        $this->load->model('AdminModel');
         $this->conId = $this->session->userdata('user_ID');
         $this->data['transactions'] = $this->ConsigneeModel->getTransactions($this->conId);
 
@@ -34,6 +35,24 @@ class ConsigneeController extends CI_Controller {
             $this->load->view('includes/footer');
             
         }
+    }
+
+    public function billing($id, $transaction_number){
+        $data['transaction_id'] = $id;
+        $data['transaction_number'] = $transaction_number;
+        $data['name'] = $this->session->userdata('fullname');
+        $data['billing_items'] = $this->AdminModel->getBillingItems();
+        
+
+        $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
+
+ 
+
+
+        $this->load->view('consignee/includes/login_header');
+        $this->load->view('consignee/billing', $data);
+        $this->load->view('includes/footer');
+
     }
 
     public function rate_transaction(){

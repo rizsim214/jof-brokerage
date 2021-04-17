@@ -32,7 +32,7 @@
                                  </div>
                                  <div class="form-group col-md-6">
                                     <label for="contact">Contact Info*</label>
-                                    <input type="text" class="form-control" name="contact" placeholder="">
+                                    <input type="number" maxlength="11"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" name="contact" placeholder="">
                                  </div>
                               </div>
                               

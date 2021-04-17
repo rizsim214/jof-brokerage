@@ -134,9 +134,10 @@
       <th scope="col">Bureau</th>
       <th scope="col">Packing</th>
       <th scope="col">Commercial</th>
-      <th scope="col">Bill</th>
+      <th scope="col">Bill of Lading</th>
       <th scope="col">Date Started</th>
       <th scope="col">Date Ended</th>
+      <th scope="col">Billing</th>
       <th scope="col">Option</th>
     </tr>
   </thead>
@@ -149,16 +150,17 @@
       <td><?php echo empty($row->first_name) ? 'waiting' : $row->first_name . ' ' . $row->last_name; ?></td>
       <td><?php echo empty($row->company_name) ? 'waiting' : $row->company_name; ?></td>
       <td><?php echo $row->transaction_type; ?></td>
-      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank">file</a></td>
-      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank">file</a></td>
-      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank">file</a></td>
+      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank"><?php echo $row->bureau; ?></a></td>
+      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank"><?php echo $row->packing; ?></a></td>
+      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank"><?php echo $row->commercial; ?></a></td>
       <td>
       <?php if(!empty($row->bill)){ ?>
-      <a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bill; ?>" target="_blank">file</a>
+      <a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bill; ?>" target="_blank"><?php echo $row->bill; ?></a>
       <?php } ?>
       </td>
       <td><?php echo empty($row->date_started) ? 'waiting' : $row->date_started; ?></td>
       <td><?php echo empty($row->date_ended) ? 'waiting' : $row->date_ended; ?></td>
+      <td><a href="<?php echo base_url() . 'ConsigneeController/billing/' . $row->transaction_id  .'/' . $row->transaction_number; ?>" class="btn btn-info">View Billing</a></td>
       <td><a href="#" onclick="viewStatus('<?php echo $row->transaction_status ?>', '<?php echo $row->destination; ?>', '<?php echo $row->origin; ?>', '<?php echo $row->time_of_departure; ?>', '<?php echo $row->time_of_arrival; ?>')" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
   View
 </a>

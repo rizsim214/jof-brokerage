@@ -22,7 +22,10 @@ $(document).ready(function() {
     $('#example').DataTable();
     $('#example1').DataTable();
     $('#exampleFeedback').DataTable();
-    $('#exampleAppointment').DataTable();
+    $('#exampleAppointment').DataTable({
+        /* No ordering applied by DataTables during initialisation */
+        "order": []
+    });
     $('#exampleGlossary').DataTable();
 } );
 function declineTransaction(transaction_id, consignee_id, transaction_number) {

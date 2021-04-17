@@ -16,7 +16,7 @@
 			<input type="hidden" value="" name="consignee_id" id="consignee"> 
 			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
 			<option value="item is in Cebu International Port. (CIP)">Item is in Cebu International Port. (CIP)</option>
-			<option value="client has been informed.">Client has been informed.</option>
+			<option value="client has been informed.">Inform Client</option>
 				<option value="documentation">Documents have been submitted to the Bureau of the Customs.</option>
 				<option value="processing (Entry Processing unit number)">Processing (Entry Processing unit number) </option>
         <option value="processing (Examiner)">Processing (Examiner) </option>
@@ -95,13 +95,14 @@
 						<th>Bureau</th>
 						<th>Packing</th>
 						<th>Commercial</th>
-						<th>Bill</th>
+						<th>Bill of Lading</th>
 						<!-- <th scope="col" span="3">Files</th> -->
 				
 						<!-- <th scope="col"></th> -->
 						<th>Date Started</th>
 						<th>Date Ended</th>
 						<th>Date Created</th>
+						<th>Billing</th>
 						<th>Options</th>
 					</tr>
 				  </thead> 
@@ -115,15 +116,16 @@
 								<td><?php echo  empty($processor->first_name) ? 'waiting' : $processor->first_name . ' ' . $processor->last_name; ?></td>
 								<td><?php echo $row->transaction_status;?></td>
 								<td><?php echo $row->transaction_type;?></td>
-								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank">file</a></td>
-								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank">file</a></td>
-								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank">file</a></td>
-								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bill; ?>" target="_blank">file</a></td>
+								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank"><?php echo $row->bureau; ?></a></td>
+								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank"><?php echo $row->packing; ?></a></td>
+								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank"><?php echo $row->commercial; ?></a></td>
+								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bill; ?>" target="_blank"><?php echo $row->bill; ?></a></td>
 							
 								<td><?php echo empty($row->date_started) ? 'waiting' : $row->date_started;?></td>
 								<td><?php echo empty($row->date_ended) ? 'waiting' : $row->date_ended;?></td>
 								
 								<td><?php echo $row->date_posted;?></td>
+								<td><a href="<?php echo base_url("AdminController/bill/"); ?><?php echo $row->transaction_id; ?>/<?php echo $row->transaction_number ?>/<?php echo $row->first_name;?>/<?php echo $row->last_name;?>"  class="btn btn-sm btn-info">View Billing</a>  </td>
 								<td>
 							<?php if($row->transaction_status == 'pending' || $row->transaction_status == 'declined'){ ?>
 							<a href="<?php echo base_url() . 'AdminController/acceptTransaction/' . $row->transaction_id . '/' . $row->consignee_id . '/' . $row->transaction_number; ?>" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-success">Accept</a>

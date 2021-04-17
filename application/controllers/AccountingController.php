@@ -48,6 +48,11 @@ class AccountingController extends CI_Controller {
         $data['name'] = $first_name . ' ' .$last_name;
         $data['billing_items'] = $this->AdminModel->getBillingItems();
 
+
+        $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
+
+ 
+ 
         if($this->session->userdata('success')){
             $data['success'] = $this->session->userdata('success');
         }
@@ -79,7 +84,12 @@ class AccountingController extends CI_Controller {
             "due_date" => $this->input->post("due_date") ,
         );
 
+        $transaction_number = $this->input->post("transaction_number");
 
+        $transaction_billing = $this->AdminModel->getTransactionbilling($transaction_number);
+
+        $this->AdminModel->deleteTransactionBillingItems($transaction_billing['transaction_billing_id']);
+        $this->AdminModel->deleteTransactionBilling($transaction_number);
         $id = $this->AdminModel->insertBilling($post_transaction_billing);
 
        
