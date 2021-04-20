@@ -345,7 +345,7 @@ class AdminController extends CI_Controller {
                         'date_accepted' => date('Y-m-d H:m:s')
                     );
                     $results = $this->AdminModel->change_account_status($client_data_decline , $id);
-                     var_dump($results);die();
+                    //  var_dump($results);die();
                         if($results){
                             $this->session->set_flashdata('error' , 'Some kind of error occured... Please try again');
                         }else{

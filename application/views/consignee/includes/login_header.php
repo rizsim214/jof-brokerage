@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         
               <li class="nav-item">
-               <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Options</a>
+               <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Services</a>
             </li> 
              <li class="nav-item">
                  <!-- Default dropleft button -->
@@ -92,8 +92,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">IMPORT</a>
-                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">EXPORT</a> 
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">UNDECIDED</a>
+                            <a href="#" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">UNDECIDED</a> 
                         </div>    
                   </div>
                  
