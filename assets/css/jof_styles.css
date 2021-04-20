@@ -85,13 +85,13 @@ img{
 .shape1{
     top: -6rem;
     left: -5.5rem;
-    background: linear-gradient(180deg, var(--first-color) 0%, rgba(240, 20, 20, 0.568));
+    background: linear-gradient(180deg, var(--first-color) 0%, rgba(235, 71, 71, 0.686));
 }
 
 .shape2{
     bottom: -6rem;
     right: -5.5rem;
-    background: linear-gradient(180deg, var(--first-color) 0%, rgba(240, 20, 20, 0.56));
+    background: linear-gradient(180deg, var(--first-color) 0%, rgba(235, 71, 71, 0.686));
     transform: rotate(180deg);
 }
 .container__shadow {
@@ -101,8 +101,9 @@ img{
     margin-bottom: 6rem;
     display: block;
     padding-top: 3%;
-    box-shadow:  1px 15px 36px rgba(238, 103, 103, 0.589);
-    background-color: rgba(235, 230, 230, 0.864);
+    border-radius: 15px;
+    box-shadow:  1px 15px 36px 15px rgba(228, 20, 20, 0.589);
+    background-color: rgb(255, 255, 255);
     
 }
 
@@ -123,6 +124,7 @@ img{
     letter-spacing: 0.25rem;
     font-size: 20px;
     font-weight: bold;
+    color: black;
 }
 .form__login{
    margin: 4rem 6rem 6rem;
@@ -154,6 +156,8 @@ img{
     font-weight: bolder;
     margin-bottom: 2.5rem;
     margin-top: 1.5rem;
+    color: rgb(0, 0, 0);
+    
 }
 .form-control:focus{
     box-shadow: 5px 8px 5px rgba(252, 5, 5, 0.822);
@@ -536,10 +540,11 @@ img{
 /* SIGNUP STYLES */
 .sign_up{
     position: relative;
+    font-size: large;
 }
 .sign_up a{
     color: green;
-    font-size: large;
+    font-size: 20px;
 }
 .sign_up a:hover{
     text-decoration: none;

@@ -38,7 +38,7 @@
                         <a href="#" class="forgot__password">Forgot Password?</a>
                         
                         <div class="form__login ">
-                        <p class="text-center mx-auto sign_up">Not signed up yet? Click here <a href="<?php echo site_url('register_client');?>">Sign Up</a></p>
+                        <p class="text-center mx-auto sign_up" >Not signed up yet? Click here <a href="<?php echo site_url('register_client');?>" class="ml-1">Sign Up</a></p>
                              <button class="btn btn-md btn-success form__login-btn  " type="submit" name="login" >Login</button>
                        </div>                        
                 <?php echo form_close();?>
