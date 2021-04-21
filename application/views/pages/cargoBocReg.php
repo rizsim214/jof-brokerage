@@ -4,7 +4,7 @@
 <br>
 <br>
 <div class="container">
-<h2 class="featurette-heading text-dark">Cargo Monitoring <span class="text-muted" style="font-size: 24px;">  Keeping in touch</span></h2> </h2>
+<h2 class="featurette-heading text-dark">Bureau of Customs <span class="text-muted" style="font-size: 24px;">  Registration </span></h2> </h2>
  <hr class="featurette-divider">
 
         <div class="row featurette">

@@ -69,7 +69,8 @@
                             </div>
                              <div class="form-group col-md-6">
                                 <label for="contact">Contact Info* </label>
-                                <input type="text" class="form-control" name="contact" value="<?= $cnt ?>">
+                             <!--maxlength="11" minlength="11"  -->
+                                <input type="text" class="form-control" name="contact"  value="<?= $cnt ?>">
                             </div>
                         </div>
                          <div class="row">

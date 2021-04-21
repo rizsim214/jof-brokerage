@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="navbar-nav ml-auto">
            
           <li class="nav-item">
-               <a class="nav-link" href="#"  id="navItem">Welcome <?= $this->session->fullname; ?></a>
+               <a class="nav-link" href="<?php echo base_url('consignee');?>"  id="navItem">Welcome <?= $this->session->fullname; ?></a>
             </li> 
 
         
