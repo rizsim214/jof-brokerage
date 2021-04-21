@@ -456,6 +456,54 @@ class AdminController extends CI_Controller {
             }
         }
     }
+    public function fetch_glossary($id){
+        $glossary_data['this_glossary'] = $this->AdminModel->get_this_glossary($id);
+        if(!$glossary_data){
+            $this->session->set_flashdata('error' , 'The item you have chosen is unavailable or already deleted from the database...');
+            redirect('managements');
+        }else{
+             $this->load->view('admin/includes/login_header');
+             $this->load->view('admin/update_glossary' , $glossary_data );
+             $this->load->view('includes/footer');
+        }
+    }
+    public function update_glossary($id){
+        
+        if(!$this->input->post()){
+           
+            $this->session->set_flashdata('error' , 'Something went wrong while updating glossary terms & definition!! Please try again...');
+            redirect('glossary_management');
+
+        }else{
+            
+          
+
+            
+                $glossary_data = array(
+                    'glossary_term' => $this->input->post('glossary_term'),
+                    'glossary_meaning' => $this->input->post('glossary_meaning'),
+                    'date_updated' => date('Y-m-d H:m:s')
+                );
+                $result = $this->AdminModel->update_this_glossary($glossary_data , $id);
+                // var_dump($result);die();
+                if(!$result){
+                    $this->session->set_flashdata('error' , 'Glossary Update error has occurred!! No changes were made to the glossary Terms & Definitions.');
+                    redirect('glossary_management');
+                }else{
+                    $this->session->set_flashdata('success' , 'Glossary Update Successful!! ');
+                    redirect('glossary_management');
+                }
+            
+        }
+        // 
+        // if(!$result){
+        //     $this->session->set_flashdata('error' , 'Glossary Update Failed!! Please try again...');
+        //     redirect('managements');
+        // }else{
+        //     $this->session->set_flashdata('success' , 'Glossary Update Successful... ');
+        //     redirect('managements');
+        // }
+    }
     public function delete_glossary($id){
         
         $glossary_data = $this->AdminModel->delete_this_glossary($id);
