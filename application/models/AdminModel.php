@@ -88,9 +88,10 @@ class AdminModel extends CI_Model{
     public function getAllAppointment(){
         
         
-        $this->db->order_by('appointment_ID', 'DESC');
-
-        $query = $this->db->get('appointments');
+        $this->db->select('*');
+        $this->db->from('appointments');
+        $this->db->order_by('appointment_ID', 'ASCE');
+        $query = $this->db->get();
 
         if(!$query){
             return FALSE;
@@ -284,6 +285,34 @@ class AdminModel extends CI_Model{
 
        return $query->result();
     }
+    public function get_this_glossary($id){
+        $this->db->select('*');
+        $this->db->from('glossary_table');
+        $this->db->where('glossary_ID' , $id);
+        $result = $this->db->get();
+
+        if(!$result){
+            return NULL;
+        }else{
+            return $result->result();
+        }
+    }
+    public function update_this_glossary($data , $id){
+        
+        $this->db->where('glossary_ID' , $id);
+        $this->db->update('glossary_table' , $data);
+        $result = $this->db->affected_rows();
+        if(!$result){
+            return NULL;
+        }else{
+            return $result;
+        }
+    }
+    //  $this->db->where('appointment_ID' , $id);
+    //      $this->db->update('appointments' , $data);
+    //      $result = $this->db->affected_rows();
+    //     return $result;
+        // 
     public function delete_this_glossary($id){
          $this->db->where('glossary_ID' , $id);
         $this->db->delete('glossary_table');
@@ -319,6 +348,7 @@ class AdminModel extends CI_Model{
 
         return $result->result();
     }
+
     public function get_feedback_result($id){
         $this->db->select('*');
         $this->db->from('feedbacks');

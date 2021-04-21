@@ -35,7 +35,7 @@
                                             }else{
                                                 echo "Posted";
                                             }?></td>
-                                            <td><a href="<?php echo base_url('post_feedback')?>/<?php echo $feedback->feedback_ID?>" class="btn btn-success post_feedback" ><i class="fa fa-plus "></i></a></td>
+                                            <td><a href="<?php echo base_url('post_feedback')?>/<?php echo $feedback->feedback_ID?>" class="btn btn-secondary post_feedback" ><i class="fa fa-plus "></i></a></td>
                                             <td><a onclick="return confirm('Removing Feedback. Proceed?')" href="<?php echo base_url('delete_feedback')?>/<?php echo $feedback->feedback_ID?>" class="btn btn-danger"><i class="fa fa-minus"></i></a></td>
                                         </tr>
                                     <?php endforeach; ?>
