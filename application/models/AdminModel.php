@@ -88,9 +88,10 @@ class AdminModel extends CI_Model{
     public function getAllAppointment(){
         
         
-        $this->db->order_by('appointment_ID', 'DESC');
-
-        $query = $this->db->get('appointments');
+        $this->db->select('*');
+        $this->db->from('appointments');
+        $this->db->order_by('appointment_ID', 'ASCE');
+        $query = $this->db->get();
 
         if(!$query){
             return FALSE;
@@ -319,7 +320,7 @@ class AdminModel extends CI_Model{
 
         return $result->result();
     }
-    
+
     public function get_feedback_result($id){
         $this->db->select('*');
         $this->db->from('feedbacks');
