@@ -483,30 +483,47 @@ class AdminController extends CI_Controller {
      
         $message_data = $this->AdminModel->get_message($id);
         if(!$message_data){
-            $this->session->set_flashdata('error' , 'Something went wrong while fetching message! Please try again...');
+            $this->session->set_flashdata('error' , 'There is no entry in the database...');
             redirect('appointments');
         }else{
-            $message_attribute = array(
+            if($message_data['appointment_status'] == "Unread"){
+                 $message_attribute = array(
 
-                'appointment_status' => "Read",
-                'date_updated' => date('Y-m-d H:m:s')
-            );
-
-            $result = $this->AdminModel->change_appointment_status($message_attribute , $id);
-            if(!$result){
-                $this->session->set_flashdata('error' , 'Something went wrong while updating appointment table');
-                redirect('appointments');
-            }else{
-                $message_final_data['message_data'] = $this->AdminModel->get_final_message($id);
-                if(!$message_final_data){
-                    $this->session->set_flashdata('error' , 'ERROR! Cannot fetch message data! Please try again...');
-                    redirect('appointments');
-                }else{
-                      $this->load->view('admin/includes/login_header');
-                      $this->load->view('admin/view_appointment' , $message_final_data );
-                      $this->load->view('includes/footer');
-                }
+                    'appointment_status' => "Read",
+                    'date_updated' => date('Y-m-d H:m:s')
+                  );
+             $result = $this->AdminModel->change_appointment_status($message_attribute , $id);
+            
+                    if(!$result){
+                        $this->session->set_flashdata('error' , 'Something went wrong while updating appointment table');
+                        redirect('appointments');
+                    }else{
+                        $message_final_data['message_data'] = $this->AdminModel->get_final_message($id);
+                        if(!$message_final_data){
+                            $this->session->set_flashdata('error' , 'ERROR! Cannot fetch message data! Please try again...');
+                            redirect('appointments');
+                        }else{
+                            $this->load->view('admin/includes/login_header');
+                            $this->load->view('admin/view_appointment' , $message_final_data );
+                            $this->load->view('includes/footer');
+                        }
+                    }
+            }elseif($message_data['appointment_status'] == "Read"){
+                 $message_data['message_data'] = $this->AdminModel->get_final_message($id);
+                 if(!$message_data){
+                      $this->session->set_flashdata('error' , 'Something went wrong while fetching message!! Please try again...');
+                        redirect('appointments');
+                 }else{
+                        $this->load->view('admin/includes/login_header');
+                        $this->load->view('admin/view_appointment' , $message_data );
+                        $this->load->view('includes/footer');
+                 }
+                   
             }
+           
+
+            
+            
         }
     }
 

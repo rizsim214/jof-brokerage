@@ -319,6 +319,7 @@ class AdminModel extends CI_Model{
 
         return $result->result();
     }
+    
     public function get_feedback_result($id){
         $this->db->select('*');
         $this->db->from('feedbacks');

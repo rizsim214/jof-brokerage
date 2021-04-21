@@ -1,7 +1,7 @@
 
 
 <div class="container col-md-6 mt-2 message__container">
-    <h2 class="text-center mt-3 box__name">Message</h2>
+    <h2 class="text-center mt-3 box__name">Message Content</h2>
     <hr>
 <?php foreach($message_data as $message) :?>
     <div class="message__sender row ml-1 ">
