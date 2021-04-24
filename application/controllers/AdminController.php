@@ -574,7 +574,18 @@ class AdminController extends CI_Controller {
             
         }
     }
-
+    public function view_this_account($id){
+        $data['view_account'] = $this->AdminModel->get_this_user($id);
+        // var_dump($data);die();
+        if(!$data){
+            $this->session->set_flashdata('error' , 'This account is not in the system!! Please try again later...');
+            redirect('user_accounts');
+        }else{
+             $this->load->view('admin/includes/login_header');
+             $this->load->view('admin/view_account' , $data );
+             $this->load->view('includes/footer');
+        }
+    }
     public function back_to_appointments(){
      
         redirect('appointments');

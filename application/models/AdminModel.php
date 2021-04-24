@@ -318,7 +318,19 @@ class AdminModel extends CI_Model{
         $this->db->delete('glossary_table');
         return TRUE;
     }
+    public function get_this_user($id){
+        $this->db->select('*');
+        $this->db->from('users_table');
+        $this->db->where('user_ID' , $id);
 
+        $result = $this->db->get();
+            if(!$result){
+                return NULL;
+            }else{
+                return $result->result();
+            }
+    }
+    
     public function get_message($id){
         $this->db->select('*');
         $this->db->from('appointments');

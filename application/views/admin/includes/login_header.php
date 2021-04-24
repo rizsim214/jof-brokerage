@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="dropdown-menu">
 
                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">TBD</a>
+                    <!-- <a class="dropdown-item" href="#">TBD</a> -->
                     <a class="dropdown-item" href="#">View Account</a>
                 <a class="dropdown-item" href="editAccount/<?= $this->session->user_ID?>">Manage Account</a>
                 

@@ -130,7 +130,7 @@
 
  
 <!-- VIEW USERS -->
-<div class="container mt-5 mb-5">
+<div class="container-fluid mt-5 mb-5">
   <?php if($this->session->flashdata('error')) {?>
                  <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
                        <?php echo $this->session->flashdata('error');?>
@@ -170,11 +170,11 @@
                         <td><!-- Default dropleft button -->
                                     <div class="btn-group dropdown">
                                          <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              <i class="fas fa-gear"></i>
+                                              <i class="fas fa-gear"></i> Options
                                                  </button>
                                                        <div class="dropdown-menu option_dropdown" >
                                                                 <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item" id="accept" href="#">View</a>
+                                                                    <a class="dropdown-item" id="accept" href="<?php echo base_url('view_this_account')?>/<?= $employee->user_ID;?>">View</a>
                                                                     <!-- <a class="dropdown-item" id="decline" href="#">Update</a> -->
                                                                     <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$employee->user_ID;?>">Update</a>
                                                                     <a  onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$employee->user_ID;?>">Delete</a>
@@ -212,7 +212,7 @@
                             <td> <!-- Default dropleft button -->
                                     <div class="btn-group dropdown">
                                          <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              <i class="fas fa-gear"></i>
+                                              <i class="fas fa-gear"></i> Options
                                                  </button>
                                                        <div class="dropdown-menu option_dropdown" >
                                                                 <div class="dropdown-divider"></div>
