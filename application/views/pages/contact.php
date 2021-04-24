@@ -45,7 +45,7 @@
                                  <textarea name="message"  class="form-control" rows="5" required="required" ></textarea>
                               </div>
                               <div class="text-center">
-                              <input type="submit" class="btn btn-md btn-success btn-lg" value="submit">
+                              <input type="submit" class="btn btn-md btn-primary btn-lg" value="submit">
                               </div>
                         </div>
                <?php echo form_close();?>
