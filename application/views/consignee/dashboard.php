@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid ml-2 pr-n3">
 <br>
 <br>
  <button type="button" class="btn btn-primary" style="margin-right:15px" data-toggle="modal" data-target="#importModal">Import</button>

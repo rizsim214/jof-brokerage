@@ -16,7 +16,7 @@
             </button>
             </div>
             <?php } ?>
-    <table class="table table-striped " id="example">
+    <table class="table table-hover " id="example">
           <thead>
             <tr>
              <th >Transaction Number</th>
