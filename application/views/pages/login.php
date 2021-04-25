@@ -3,11 +3,11 @@
     <div class="shape1"></div>
     <div class="shape2"></div>
 
-   
+
     <div class="form">
         <img class="<?php echo base_url();?>assets/img/quickExpress.png" class="form__img">
             
-             <div class="container col-md-6 container__shadow ">
+             <div class="container col-md-6 container__shadow contactPage_container mx-auto " >
                 <?php if($this->session->flashdata('error')) {?>
                  <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
                        <?php echo $this->session->flashdata('error');?>
@@ -18,7 +18,7 @@
                             </div>
                               <?php }?>
                 <?php echo form_open('login_account');?>
-                    <img src="<?php echo base_url();?>assets/img/avatar.png" class="user__img">
+                    <img src="<?php echo base_url();?>assets/img/avatar.png" class="user_img">
                      <h1 class="form__title text-center py-2">Login Account</h1>
                         <div class="form-group my-2">
                             <div class="row">
@@ -43,10 +43,11 @@
                        </div>                        
                 <?php echo form_close();?>
              </div>
-        </div>       
+           
+             
                                                                     
     <hr>
         <div class="copyright text-center mb-2 " >Copyright: JOF CUSTOMS BROKERAGE 2020</div>
 
-</div>
+    </div>
 
