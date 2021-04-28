@@ -75,8 +75,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                            <a href="<?php echo base_url('user_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">USER ACCOUNTS</a>
-                            <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">MESSAGES</a> 
+                            <a href="<?php echo base_url('user_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">CLIENT ACCOUNTS</a>
+                            <a href="<?php echo base_url('user_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">EMPLOYEE ACCOUNTS</a> 
                         </div>    
                   </div>
                     <div class="row">
@@ -90,6 +90,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="container mx-auto my-2">
                             <a href="<?php echo base_url('glossary_management');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">GLOSSARY</a>
                             <a href="<?php echo base_url('predefined_questions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">CONTACT MANAGER</a>
+                        </div>    
+                  </div> 
+                  <div class="row">
+                    <div class="container mx-auto my-2">
+                            <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">MESSAGE LOGS</a>
+                            <a href="<?php echo base_url();?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">UPDATE LOGS</a>
                         </div>    
                   </div> 
                   

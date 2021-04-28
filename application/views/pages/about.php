@@ -15,7 +15,7 @@
                           In all areas of our operations, we adhere to the company’s core value of providing quality service with care.</p>
     </div>
      <div class="card-footer text-center">
-               <a href="#" class="btn btn-danger"><i class="fas fa-magnet mr-2"></i>Read More</a>
+               <a href="#" class="btn btn-secondary"><i class="fas fa-eye mr-2"></i>Read More</a>
      </div>
   </div>
   <div class="card ">
@@ -29,7 +29,7 @@
                           In all areas of our operations, we adhere to the company’s core value of providing quality service with care.</p>
     </div>
     <div class="card-footer text-center">
-           <a href="#" class="btn btn-danger"><i class="fas fa-magnet mr-2"></i>Read More</a>
+           <a href="#" class="btn btn-secondary"><i class="fas fa-eye mr-2"></i>Read More</a>
     </div>
   </div>
   <div class="card ">
@@ -43,7 +43,7 @@
                           In all areas of our operations, we adhere to the company’s core value of providing quality service with care.</p>
      </div>
     <div class="card-footer text-center">
-      <a href="#" class="btn btn-danger"><i class="fas fa-magnet mr-2"></i>Read More</a>
+      <a href="#" class="btn btn-secondary"><i class="fas fa-eye mr-2"></i>Read More</a>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 
 
-<div class="container col-md-6 mt-2 message__container">
+<div class="container col-md-6 mt-5 message__container">
     <h2 class="text-center mt-3 box__name">Message Content</h2>
     <hr>
 <?php foreach($message_data as $message) :?>

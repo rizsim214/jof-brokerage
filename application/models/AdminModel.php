@@ -28,6 +28,7 @@ class AdminModel extends CI_Model{
         $this->db->from('transaction_items');
         $this->db->where('transaction_billing_id' , $transaction_billing_id);
         $this->db->where('transaction_billing_item_id' , $billing_items_id);
+
         $query = $this->db->get();
         if(!$query){
            return NULL;
@@ -90,7 +91,7 @@ class AdminModel extends CI_Model{
         
         $this->db->select('*');
         $this->db->from('appointments');
-        $this->db->order_by('appointment_ID', 'ASCE');
+        $this->db->order_by('appointment_ID', 'DESC');
         $query = $this->db->get();
 
         if(!$query){
@@ -155,7 +156,7 @@ class AdminModel extends CI_Model{
         $this->db->select('*,transaction.status as transaction_status');
         $this->db->from('transaction');
         $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID');
-        $this->db->order_by('date_posted', 'desc');
+        $this->db->order_by('date_posted', 'ASC');
 
         $query = $this->db->get();
 
@@ -277,8 +278,11 @@ class AdminModel extends CI_Model{
          }
      }
      public function getAllContactQuestions(){
-         $result = $this->db->query('SELECT * FROM predef_questions');
          
+         $this->db->select('*');
+         $this->db->from('predef_questions');
+         $this->db->order_by('question_ID DESC');
+         $result = $this->db->get();
          return $result->result();
      }
     // GLOSSARY MODEL
@@ -293,7 +297,7 @@ class AdminModel extends CI_Model{
     public function get_glossary(){
         $this->db->select('*');
        $this->db->from('glossary_table');
-       $this->db->ORDER_BY('glossary_ID DESC');
+       $this->db->ORDER_BY('glossary_ID ASCE');
       
        $query = $this->db->get();
 

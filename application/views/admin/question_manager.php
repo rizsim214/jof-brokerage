@@ -12,7 +12,7 @@
         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addPredefinedQuestionModal"><i class="fa fa-plus mr-2"></i>CREATE Question</a>
         
     </div>  
-<h1>QUESTION MANAGEMENT</h1>
+<h1>CONTACT MANAGEMENT</h1>
     <table class="table table-hover text-center" id="exampleGlossary">
         <thead class="table-info">
             <tr>

@@ -7,7 +7,7 @@ class AdminController extends CI_Controller {
         parent:: __construct();
        
         $this->load->model('AdminModel');
-
+        $this->load->helper('date');
         $user_logged = $this->session->userdata();
             if(!$user_logged['isUserLoggedIn'] == TRUE){
                 redirect('home');
@@ -445,7 +445,7 @@ class AdminController extends CI_Controller {
                 }else{
                     $data_array = array(
                         'question_content' => $this->input->post('question'),
-                        'date_created' => date('Y-m-d H:m:s')
+                        'date_created' => date('Y-m-d H:i:s')
                     );
                     $result = $this->AdminModel->post_question($data_array);
 
