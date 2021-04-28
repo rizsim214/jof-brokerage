@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
-                            <!-- <a href="<?php echo base_url('financial_transaction');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">ACCOUNTING</a> -->
+                            
                             <a href="<?php echo base_url('transactions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a> 
                             <a href="<?php echo base_url('admin_feedback');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="FeedbacksLink">FEEDBACKS/RATINGS</a> 
                         </div>    
@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="row">
                     <div class="container mx-auto my-2">
                             <a href="<?php echo base_url('glossary_management');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">GLOSSARY</a>
-                            
+                            <a href="<?php echo base_url('predefined_questions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">CONTACT MANAGER</a>
                         </div>    
                   </div> 
                   

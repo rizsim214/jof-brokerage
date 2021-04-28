@@ -75,6 +75,7 @@ $route['cargo_quotation'] = 'MainController/dynamic_view/cargoQuote';
 $route['term_of_use'] = 'MainController/dynamic_view/termOfuse';
 // ADMIN PAGE ROUTES
 $route['admin'] = 'AdminController/dynamic_view';
+$route['predefined_questions'] = 'AdminController/dynamic_view/question_manager';
 $route['user_accounts'] = 'AdminController/dynamic_view/users';
 $route['financial_transaction'] = 'AdminController/dynamic_view/accounting';
 $route['admin_feedback'] = 'AdminController/view_feedbacks';
@@ -103,7 +104,7 @@ $route['view_this_account/(:num)'] = 'AdminController/view_this_account/$1';
 $route['accept_registration/(:num)'] = 'AdminController/accept_account/$1'; 
 $route['decline/(:num)'] = 'AdminController/decline_account/$1'; 
 $route['update_this_account/(:num)'] = 'AdminController/update_this_account/$1'; 
-
+$route['create_question'] = 'AdminController/create_question';
 $route['terms'] = 'MainController/openTerms';
 
 // BROKER PAGE ROUTES

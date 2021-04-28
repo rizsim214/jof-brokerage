@@ -267,6 +267,20 @@ class AdminModel extends CI_Model{
               return $query->row_array();
          }
      }
+     public function post_question($data){
+         $result = $this->db->insert('predef_questions' , $data);
+        
+         if(!$result){
+            return NULL;
+         }else{
+             return TRUE;
+         }
+     }
+     public function getAllContactQuestions(){
+         $result = $this->db->query('SELECT * FROM predef_questions');
+         
+         return $result->result();
+     }
     // GLOSSARY MODEL
     public function add_glossary($data){
         $result = $this->db->insert('glossary_table' , $data);
@@ -330,6 +344,7 @@ class AdminModel extends CI_Model{
                 return $result->result();
             }
     }
+    
     
     public function get_message($id){
         $this->db->select('*');

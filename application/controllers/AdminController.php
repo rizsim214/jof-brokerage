@@ -226,6 +226,7 @@ class AdminController extends CI_Controller {
                 'clients' =>  $this->AdminModel->getAllClients(),
                 'employees' => $this->AdminModel->getAllEmployees(),
                 'response' => $this->AdminModel->getAllAppointment(),
+                'predef_questions' => $this->AdminModel->getAllContactQuestions(),
                 'count_transactions' => $this->AdminModel->countAllTransaction(),
                 'count_messages' => $this->AdminModel->countAllAppointments(),
                 'count_feedbacks' => $this->AdminModel->countAllFeedbacks()
@@ -249,7 +250,7 @@ class AdminController extends CI_Controller {
 
 
            
-        
+            // var_dump($data_results['predef_questions']);die();
            // $this->load->view('admin/includes/login_header');
             $this->load->view('admin/'.$page ,$data_results);
             $this->load->view('includes/footer');
@@ -257,6 +258,8 @@ class AdminController extends CI_Controller {
             
         }
     }
+
+   
       public function register_validation(){
                 $this->form_validation->set_rules('firstname' , 'First Name' , 'trim|required');
                 $this->form_validation->set_rules('lastname' , 'Last Name' , 'trim|required');
@@ -376,7 +379,7 @@ class AdminController extends CI_Controller {
         }
         redirect('appointments');
     }
-
+    //
     
     public function view_account($id){
         
@@ -413,10 +416,10 @@ class AdminController extends CI_Controller {
 
                  if(!$glossary_data){
                      $this->session->set_flashdata('error' , 'Unable to access GLOSSARY... Please reload the page');
-                     $this->dynamic_view('managements');
+                     $this->dynamic_view('glossary_management');
                  }else{
                       $this->load->view('admin/includes/login_header');
-                      $this->load->view('admin/managements' , $glossary_data );
+                      $this->load->view('admin/glossary_management' , $glossary_data );
                       $this->load->view('includes/footer');
                  }
     }
@@ -425,17 +428,48 @@ class AdminController extends CI_Controller {
         $this->form_validation->set_rules('glossary_term' , 'GLOSSARY TERM' , 'trim|required');
         $this->form_validation->set_rules('glossary_meaning' , 'GLOSSARY MEANING' , 'trim|required');
     }
+     public function validate_question(){
+      
+        $this->form_validation->set_rules('question' , 'PREDEFINED QUESTION' , 'trim|required');
+       
+    }
+     public function create_question(){
+        if(!$this->input->post()){
+            $this->session->set_flashdata('error' , 'Something went wrong while posting your question... Please try again!!');
+            redirect('predefined_questions');
+        }else{
+            $this->validate_question();
+                if(!$this->form_validation->run() == TRUE){
+                    $this->session->set_flashdata('error' , 'Something went wrong while validating predefined question... Please try again!!');
+                    redirect('predefined_questions');
+                }else{
+                    $data_array = array(
+                        'question_content' => $this->input->post('question'),
+                        'date_created' => date('Y-m-d H:m:s')
+                    );
+                    $result = $this->AdminModel->post_question($data_array);
+
+                    if(!$result){
+                        $this->session->set_flashdata('error' , 'Cannot post question due to some unforseen problem... Please try again!!');
+                        
+                    }else{
+                        $this->session->set_flashdata('success' , 'Successfully created predefined question... you can now view the question in the table below.');
+                    }
+                    redirect('predefined_questions');
+                }
+        }
+    }
     public function create_glossary(){
       
         if(!$this->input->post()){
             $this->session->set_flashdata('error' , 'Something went wrong while creating GLOSSARY');
-            redirect('managements');
+            redirect('glossary_management');
         }else{
             $this->validate_glossary();
 
             if(!$this->form_validation->run() == TRUE){
                 $this->session->set_flashdata('error' , 'An error occured while validating post request! Please try again...');
-                redirect('managements');
+                redirect('glossary_management');
             }else{
                 $glossary_data = array(
                     'glossary_term' => $this->input->post('glossary_term'),
@@ -460,7 +494,7 @@ class AdminController extends CI_Controller {
         $glossary_data['this_glossary'] = $this->AdminModel->get_this_glossary($id);
         if(!$glossary_data){
             $this->session->set_flashdata('error' , 'The item you have chosen is unavailable or already deleted from the database...');
-            redirect('managements');
+            redirect('glossary_management');
         }else{
              $this->load->view('admin/includes/login_header');
              $this->load->view('admin/update_glossary' , $glossary_data );

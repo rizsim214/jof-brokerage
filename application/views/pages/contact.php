@@ -13,6 +13,7 @@
     <div class="card__container__box col-md-8 mx-auto" id="contact_us">
                      <?php echo form_open('set_appointment');?>
                      <h1 class="text-center text-black ">CONTACT US</h1>
+                     <p class="text-center col-md-8 mx-auto" style="color:grey;">Our company is always available for contact. It might take several minutes to receive a reply from us but we will surely notify you. rest assured  </p>
                         <div class="row mt-2">
                               <div class="form-group col-md-6">
                                     <label for="firstname">First Name*</label>
@@ -37,12 +38,37 @@
                               </div>
                               
                               <div class="form-group">
-                                 <label for="subject">Subject*</label>
-                                 <input type="text" class="form-control" name="subject" placeholder="">
-                              </div>
-                              <div class="form-group">
-                                 <label for="message">Message*</label>
-                                 <textarea name="message"  class="form-control" rows="5" required="required" ></textarea>
+                                 <h4 class="ml-2">what would you like to message to our company?</h4>
+                                 <div class="form-check ml-5">
+                                       <input class="form-check-input" type="radio" value="#" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                       <label class="form-check-label" for="flexRadioDefault2">
+                                          <h5>When would be the most convenient time to set an appointment with the company?</h5>
+                                       </label>
+                                       </div>
+                                       <div class="form-check ml-5">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                          <label class="form-check-label" for="flexRadioDefault2">
+                                             <h5>I would like to set an appointment with the company?</h5>
+                                          </label>
+                                       </div>
+                                       <div class="form-check ml-5">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                          <label class="form-check-label" for="flexRadioDefault2">
+                                             <h5>I would like to set an appointment with the company?</h5>
+                                          </label>
+                                       </div>
+                                       <div class="form-check ml-5">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                          <label class="form-check-label" for="flexRadioDefault2">
+                                             <h5>I would like to set an appointment with the company?</h5>
+                                          </label>
+                                       </div>
+                                       <div class="form-check ml-5">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                          <label class="form-check-label" for="flexRadioDefault2">
+                                             <h5>I would like to set an appointment with the company?</h5>
+                                          </label>
+                                       </div>
                               </div>
                               <div class="text-center">
                               <input type="submit" class="btn btn-md btn-primary btn-lg" value="submit">
