@@ -155,7 +155,7 @@ class MainController extends CI_Controller {
 
                              $data_result = $this->MainModel->check_user($this->input->post('email') ,  md5($this->input->post('password')));
                
-                    //   print_r($data_result);die();
+                    
                             
 
                            if(!$data_result){
@@ -172,22 +172,23 @@ class MainController extends CI_Controller {
                                     $this->session->set_userdata('user_this' ,$data_result['first_name']);
                                     $this->session->set_userdata('user_that' ,$data_result['last_name']);
                                     $this->session->set_userdata('userRole',$data_result['user_role']);
+                                    $this->session->set_userdata('userActive',$data_result['active_status']);
                                     
                                    
 
                                     
 
                                     // print_r($data_result);die();
-                                    if($data_result['user_role'] == 1 && $data_result['register_status'] == "accepted"){
+                                    if($data_result['user_role'] == 1 && $data_result['register_status'] == "accepted" && $data_result['active_status'] == "active"){
                                         redirect('consignee' , 'refresh');
-                                    } elseif($data_result['user_role'] == 2 && $data_result['register_status'] == "accepted") {
+                                    } elseif($data_result['user_role'] == 2 && $data_result['register_status'] == "accepted" && $data_result['active_status'] == "active") {
                                         redirect('broker' , 'refresh');
-                                    } elseif($data_result['user_role'] == 3 && $data_result['register_status'] == "accepted") {
+                                    } elseif($data_result['user_role'] == 3 && $data_result['register_status'] == "accepted" && $data_result['active_status'] == "active") {
                                         redirect('accounting' , 'refresh');
-                                    } elseif($data_result['user_role'] == 4 && $data_result['register_status'] == "accepted") {
+                                    } elseif($data_result['user_role'] == 4 && $data_result['register_status'] == "accepted" && $data_result['active_status'] == "active") {
                                         redirect('admin' , 'refresh', $data_result);
                                     }else{
-                                        $this->session->set_flashdata('error', 'Account has not yet been approved by the admin... Please contact JOF BROKERAGE');
+                                        $this->session->set_flashdata('error', 'Account has not been approved by the company OR Account has been Deactivated... Please contact JOF CUSTOMS BROKERAGE for inquiry');
                                         redirect('login' , 'refresh');
                                     }
                            }
