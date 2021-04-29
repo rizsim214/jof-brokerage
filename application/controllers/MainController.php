@@ -212,7 +212,6 @@ class MainController extends CI_Controller {
                                             'lastname' => ucfirst($this->input->post('lastName')),
                                             'email' => $this->input->post('email'),
                                             'contact' => $this->input->post('contact'),
-                                            'subject' => $this->input->post('subject'),
                                             'message' => $this->input->post('message'),
                                             'appointment_status' => ucfirst("unread"),
                                             'date_posted' => date('Y-m-d H:m:s')
@@ -237,7 +236,6 @@ class MainController extends CI_Controller {
     $this->form_validation->set_rules('lastName' , 'Last Name' , 'trim|required' , array('required' => ' Lastname field is required.'));
     $this->form_validation->set_rules('email' , 'Email Address' , 'trim|required' , array('required' => ' Email field is required.'));
     $this->form_validation->set_rules('contact' , 'Contact' , 'trim|required' , array('required' => ' Contact field is required.'));
-    $this->form_validation->set_rules('subject' , 'Subject' , 'trim|required' , array('required' => 'Subject field is required.'));
     $this->form_validation->set_rules('message' , 'Message' , 'trim|required' , array('required' => 'Message field is required.'));
  }
 
@@ -257,27 +255,7 @@ class MainController extends CI_Controller {
  }
  
  public function view_glossary_landing(){
-    //    $config = array(
-    //                     'base_url' => site_url('support'),
-    //                     'total_rows' => $this->MainModel->countAllGlossary(),
-    //                     'per_page' => 5,
-    //                     'num_tag_open' => '<li class="pg-item">' ,
-    //                     'num_tag_close' => '</li>' ,
-    //                     'cur_tag_open' => '<li class="active"><a href="javascript:void(0);">',
-    //                     'cur_tag_close' => '</a></li>',
-    //                     'next_link' => '<li class="pg-next ml-2">Next</li>',
-    //                     'prev_link'=> '<li class="pg-prev mr-2">Prev</li>',
-    //                     'next_tag_open' => '<li class="pg-next">',
-    //                     'next_tag_close' => '</li>', 
-    //                     'prev_tag_open' => '<li class="pg-prev">',
-    //                     'prev_tag_close' => '</li>',   
-    //                     'first_tag_open' => '<li class="pg-item mr-2">',
-    //                     'first_tag_close' => '</li>',
-    //                     'last_tag_open' => '<li class="pg-item ml-2">',
-    //                     'last_tag_close' => '</li>' 
-    //                         );
-    //                                 $this->pagination->initialize($config);
-    //  $glossary_result['all_glossary'] = $this->MainModel->get_all_glossary($config['per_page'] , $offset = 0);
+   
      $glossary_result['all_glossary'] = $this->MainModel->get_all_glossary();
 
      if(!$glossary_result){
@@ -286,6 +264,19 @@ class MainController extends CI_Controller {
      }else{
           $this->load->view('includes/header');
          $this->load->view('pages/support' , $glossary_result );
+         $this->load->view('includes/footer');
+     }
+ }
+ public function get_all_questions(){
+     $question_data['predef_questions'] = $this->MainModel->get_questions();
+    
+     if(!$question_data){
+        $this->session->set_flashdata('error' , 'Cannot get all predefined questions... Please try again later!!');
+        redirect('contact');
+     }else{
+
+         $this->load->view('includes/header');
+         $this->load->view('pages/contact' , $question_data );
          $this->load->view('includes/footer');
      }
  }

@@ -37,7 +37,17 @@ class MainModel extends CI_Model{
      }      
     }
 
-    
+   public function get_questions(){
+     $this->db->select('*');
+     $this->db->from('predef_questions');
+     $this->db->order_by('question_ID DESC');
+     $result = $this->db->get();
+     if(!$result){
+        return NULL;
+     }else{
+       return $result->result();
+     }
+   }
     public function get_all_feedbacks(){
       $this->db->select('*');
       $this->db->from('feedbacks');

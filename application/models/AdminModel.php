@@ -277,6 +277,11 @@ class AdminModel extends CI_Model{
              return TRUE;
          }
      }
+     public function delete_this_question($id){
+         $this->db->where('question_ID' , $id);
+        $this->db->delete('predef_questions');
+        return TRUE;
+    }
      public function getAllContactQuestions(){
          
          $this->db->select('*');
@@ -297,12 +302,35 @@ class AdminModel extends CI_Model{
     public function get_glossary(){
         $this->db->select('*');
        $this->db->from('glossary_table');
-       $this->db->ORDER_BY('glossary_ID ASCE');
+       $this->db->ORDER_BY('glossary_ID DESC');
       
        $query = $this->db->get();
 
        return $query->result();
     }
+    public function get_this_question($id){
+        $this->db->select('*');
+        $this->db->from('predef_questions');
+        $this->db->where('question_ID' , $id);
+        $result = $this->db->get();
+
+        if(!$result){
+            return NULL;
+        }else{
+            return $result->result();
+        }
+    }
+    public function update_this_question($data, $id){
+         $this->db->where('question_ID' , $id);
+        $this->db->update('predef_questions' , $data);
+        $result = $this->db->affected_rows();
+        if(!$result){
+            return NULL;
+        }else{
+            return $result;
+        }
+    }
+   
     public function get_this_glossary($id){
         $this->db->select('*');
         $this->db->from('glossary_table');
@@ -336,6 +364,7 @@ class AdminModel extends CI_Model{
         $this->db->delete('glossary_table');
         return TRUE;
     }
+    
     public function get_this_user($id){
         $this->db->select('*');
         $this->db->from('users_table');

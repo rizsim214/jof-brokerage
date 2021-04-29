@@ -39,36 +39,14 @@
                               
                               <div class="form-group">
                                  <h4 class="ml-2">what would you like to message to our company?</h4>
+                                 <?php foreach($predef_questions as $question) : ?>
                                  <div class="form-check ml-5">
-                                       <input class="form-check-input" type="radio" value="#" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                       <input class="form-check-input" type="radio" value="<?= $question->question_content;?>" name="message" id="flexRadioDefault2">
                                        <label class="form-check-label" for="flexRadioDefault2">
-                                          <h5>When would be the most convenient time to set an appointment with the company?</h5>
+                                          <h5><?= $question->question_content;?></h5>
                                        </label>
                                        </div>
-                                       <div class="form-check ml-5">
-                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                          <label class="form-check-label" for="flexRadioDefault2">
-                                             <h5>I would like to set an appointment with the company?</h5>
-                                          </label>
-                                       </div>
-                                       <div class="form-check ml-5">
-                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                          <label class="form-check-label" for="flexRadioDefault2">
-                                             <h5>I would like to set an appointment with the company?</h5>
-                                          </label>
-                                       </div>
-                                       <div class="form-check ml-5">
-                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                          <label class="form-check-label" for="flexRadioDefault2">
-                                             <h5>I would like to set an appointment with the company?</h5>
-                                          </label>
-                                       </div>
-                                       <div class="form-check ml-5">
-                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                          <label class="form-check-label" for="flexRadioDefault2">
-                                             <h5>I would like to set an appointment with the company?</h5>
-                                          </label>
-                                       </div>
+                                      <?php endforeach;?>
                               </div>
                               <div class="text-center">
                               <input type="submit" class="btn btn-md btn-primary btn-lg" value="submit">

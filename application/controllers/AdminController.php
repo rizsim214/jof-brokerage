@@ -442,7 +442,7 @@ class AdminController extends CI_Controller {
             $this->validate_question();
                 if(!$this->form_validation->run() == TRUE){
                     $this->session->set_flashdata('error' , 'Something went wrong while validating predefined question... Please try again!!');
-                    redirect('predefined_questions');
+                    redirect('question_manager');
                 }else{
                     $data_array = array(
                         'question_content' => $this->input->post('question'),
@@ -456,7 +456,7 @@ class AdminController extends CI_Controller {
                     }else{
                         $this->session->set_flashdata('success' , 'Successfully created predefined question... you can now view the question in the table below.');
                     }
-                    redirect('predefined_questions');
+                    redirect('question_manager');
                 }
         }
     }
@@ -491,6 +491,53 @@ class AdminController extends CI_Controller {
             }
         }
     }
+    public function fetch_question($id){
+    $question_data['this_question'] = $this->AdminModel->get_this_question($id);
+    if(!$question_data){
+            $this->session->set_flashdata('error' , 'The item you have chosen is unavailable or already deleted from the database...');
+            redirect('question_manager');
+        }else{
+             $this->load->view('admin/includes/login_header');
+             $this->load->view('admin/update_question' , $question_data );
+             $this->load->view('includes/footer');
+        }
+    }
+    public function update_question($id){
+       if(!$this->input->post()){
+           
+            $this->session->set_flashdata('error' , 'Something went wrong while updating glossary terms & definition!! Please try again...');
+            redirect('question_manager');
+
+        }else{
+            
+
+                $question_data = array(
+                    'question_content' => $this->input->post('question'),
+                    'date_updated' => date('Y-m-d H:m:s')
+                );
+                $result = $this->AdminModel->update_this_question($question_data , $id);
+                // var_dump($result);die();
+                if(!$result){
+                    $this->session->set_flashdata('error' , 'Predefined Question Update error has occurred!! No changes were made to the glossary Terms & Definitions.');
+                    redirect('question_manager');
+                }else{
+                    $this->session->set_flashdata('success' , 'Predefined Question Update Successful!! ');
+                    redirect('question_manager');
+                }
+            
+        }
+    }
+     public function delete_question($id){
+        
+        $question_data = $this->AdminModel->delete_this_question($id);
+
+        if(!$question_data){
+            $this->session->set_flashdata('error' , 'Error!! Something went wrong while deleting Predefined Question... Please try again later');
+        }else{
+            $this->session->set_flashdata('success' , 'Successfully removed Predefined Question!');
+        }
+          redirect('question_manager');
+    }
     public function fetch_glossary($id){
         $glossary_data['this_glossary'] = $this->AdminModel->get_this_glossary($id);
         if(!$glossary_data){
@@ -502,6 +549,7 @@ class AdminController extends CI_Controller {
              $this->load->view('includes/footer');
         }
     }
+
     public function update_glossary($id){
         
         if(!$this->input->post()){
