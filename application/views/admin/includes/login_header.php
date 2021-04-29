@@ -75,8 +75,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                            <a href="<?php echo base_url('user_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">CLIENT ACCOUNTS</a>
-                            <a href="<?php echo base_url('user_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">EMPLOYEE ACCOUNTS</a> 
+                            <a href="<?php echo base_url('client_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">CLIENT ACCOUNTS</a>
+                            <a href="<?php echo base_url('employee_accounts');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">EMPLOYEE ACCOUNTS</a> 
                         </div>    
                   </div>
                     <div class="row">

@@ -274,7 +274,7 @@ class AdminController extends CI_Controller {
     public function register(){
         if(!$this->input->post()){
             $this->session->set_flashdata('error' , 'Something went wrong while creating your account... Please try again');
-            redirect('user_accounts');
+            redirect('client_accounts');
         }else{
                 
            $this->register_validation();
@@ -299,17 +299,18 @@ class AdminController extends CI_Controller {
 
                     if(!$result){
                         $this->session->set_flashdata('error' , 'Database was not able to register the user account... Please try again');
-                        // $this->dynamic_view('users');
-                        redirect('user_accounts');
+                        
+                        redirect('admin');
                     }else{
-                        $this->session->set_flashdata('success' , 'Database has successfully registered your user account');
-                        // $this->dynamic_view('users');
-                        redirect('user_accounts');
-                    }
+                       $this->session->set_flashdata('success' , 'Database has successfully registered the user account:');
+                        redirect('admin');
+                        }
+                       
+                    
             }else{
 
                $this->session->set_flashdata('error' , 'Some validation errors have occured... Please try again');
-                $this->dynamic_view('users');                 
+                $this->dynamic_view('client_accounts');                 
             }
         }
 
@@ -334,7 +335,7 @@ class AdminController extends CI_Controller {
                 }
         }
         
-        redirect('user_accounts','refresh');
+        redirect('client_accounts','refresh');
     }
     public function decline_account($id){
          $client_data_decline = $this->AdminModel->get_client_data($id);
@@ -356,7 +357,7 @@ class AdminController extends CI_Controller {
                 }
         }
         
-        redirect('user_accounts', 'refresh');
+        redirect('client_accounts', 'refresh');
     }
    
     public function delete_account($id){
@@ -367,7 +368,7 @@ class AdminController extends CI_Controller {
         }else{
             $this->session->set_flashdata('success' , 'Account has been successfully deleted');
         }
-       redirect('user_accounts');
+       redirect('client_accounts');
     }
     public function delete_appointments($id){
         $result = $this->AdminModel->delete_appointment($id);
@@ -387,7 +388,7 @@ class AdminController extends CI_Controller {
 
         if(!$user_data){
             $this->session->set_flashdata('error' , 'Account data unsucessfully retrieved... Please try again.');
-            redirect('user_accounts');
+            redirect('client_accounts');
         }else{
             $this->dynamic_view('view_user');
         }

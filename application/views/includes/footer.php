@@ -19,14 +19,26 @@
 </html>
 <script>
 $(document).ready(function() {
-    $('#example').DataTable();
-    $('#example1').DataTable();
-    $('#exampleFeedback').DataTable();
+    $('#example').DataTable({
+        /* No ordering applied by DataTables during initialisation */
+        "order": []
+    });
+    $('#example1').DataTable({
+        /* No ordering applied by DataTables during initialisation */
+        "order": []
+    });
+    $('#exampleFeedback').DataTable({
+        /* No ordering applied by DataTables during initialisation */
+        "order": []
+    });
     $('#exampleAppointment').DataTable({
         /* No ordering applied by DataTables during initialisation */
         "order": []
     });
-    $('#exampleGlossary').DataTable();
+    $('#exampleGlossary').DataTable({
+        /* No ordering applied by DataTables during initialisation */
+        "order": []
+    });
 } );
 function declineTransaction(transaction_id, consignee_id, transaction_number) {
 		$('#transaction_id').val(transaction_id);

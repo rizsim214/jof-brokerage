@@ -127,9 +127,9 @@ class AdminModel extends CI_Model{
     public function getAllClients(){
         
 
-        $this->db->ORDER_BY('user_ID DESC');
+        
         $this->db->WHERE('user_role' , 1 );
-
+        $this->db->ORDER_BY('user_ID DESC');
         $query = $this->db->get('users_table');
 
         if(!$query){

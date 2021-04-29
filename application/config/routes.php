@@ -76,7 +76,8 @@ $route['term_of_use'] = 'MainController/dynamic_view/termOfuse';
 // ADMIN PAGE ROUTES
 $route['admin'] = 'AdminController/dynamic_view';
 $route['predefined_questions'] = 'AdminController/dynamic_view/question_manager';
-$route['user_accounts'] = 'AdminController/dynamic_view/users';
+$route['client_accounts'] = 'AdminController/dynamic_view/client_accounts';
+$route['employee_accounts'] = 'AdminController/dynamic_view/employee_accounts';
 $route['financial_transaction'] = 'AdminController/dynamic_view/accounting';
 $route['admin_feedback'] = 'AdminController/view_feedbacks';
 $route['admin_feedback/(:num)'] = 'AdminController/view_feedbacks/$1';

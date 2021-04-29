@@ -72,61 +72,6 @@
     </div>                  
 </div>
 
-<!-- EMPLOYEE MODAL -->
-<div class=" modal fade" id="employeeModalOptions" tabindex="-1" role="dialog" aria-labelledby="employeeModalOptionsLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">   
-         <div class="modal-content">
-            <div class="modal-header">
-                 <h4 class="modal-title mx-auto" id="addAccountModalLAbel">EMPLOYEE OPTIONS</h4>  
-            </div>
-             
-            <hr>
-             <div class="modal-body">
-                <div class="container">
-                       <h1>HELLO</h1>      
-                </div>
-             </div>
-             <div class="modal-footer mx-auto">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             </div>
-         </div>                    
-    </div>                  
-</div>
-  <!-- CONSIGNEE MODAL
-                                <div class=" modal fade" id="consigneeModalOptions" tabindex="-1" role="dialog" aria-labelledby="consigneeModalOptionsLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">   
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title text-dark mx-auto" id="addAccountModalLAbel">CONSIGNEE OPTIONS</h4>  
-                                            </div>
-                                            
-                                            <hr>
-                                            <div class="modal-body">
-                                                <div class="container">
-                                                    <div class="row text-center user_options">
-                                                            <div class="col-md-3" >
-                                                                <a href="<?php echo base_url('accept_registration');?>/<?php echo $client->user_ID;?>" class="btn btn-md btn-success my-2 mx-2">ACCEPT</a>
-                                                                
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <a href="#" class="btn btn-md btn-warning my-2 mx-2">DECLINE</a>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <a href="#" class="btn btn-md btn-primary my-2 mx-2">UPDATE</a>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <a href="#" class="btn btn-md btn-danger my-2 mx-2">DELETE</a>
-                                                            </div>
-                                                    </div>  
-                                                        
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer mx-auto">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>                    
-                                    </div>                  
-                                </div>   -->
 
  
 <!-- VIEW USERS -->
@@ -141,11 +86,9 @@
                                          </div>
                          <?php }?>
  <a href="#" class="btn btn-md btn-primary " data-toggle="modal" data-target="#addAccountModal"><i class="fas fa-plus-circle mr-2"></i>Add Account</a>
-
-    <div class="row">
            
-        <div class="col-md-6 table">
-            <h1 class="text-right mb-2 col-md-8" >Employees</h1>
+        <div class="col-lg-12 table ">
+            <h1 class="text-center mb-2 " >Employees Accounts</h1>
             <table class="table table-bordered table-hover" id="example">
 
                 <thead class="table-primary">
@@ -189,49 +132,6 @@
                       
         </div>
 
-        <div class="col-md-6 table">
        
-             <h1 class="text-right mb-2 col-md-8">Consignees</h1>
-                <table class="table table-bordered table-hover" id="example1">
-                    <thead class="table-info">
-                        <tr>
-                            
-                            <th>Name</th>
-                            <th>Company</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($clients as $client) {?>           
-                        <tr>
-                            
-                            <td><?= ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
-                            <td><?=$client->company_name;?></td>
-                            <td><?= $client->register_status;?></td>
-                            <td> <!-- Default dropleft button -->
-                                    <div class="btn-group dropdown">
-                                         <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              <i class="fas fa-gear"></i> Options
-                                                 </button>
-                                                       <div class="dropdown-menu option_dropdown" >
-                                                                <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('accept_registration');?>/<?=$client->user_ID;?>">Accept</a>
-                                                                    <a onclick="return confirm('Are you sure you want to decline this account?')" class="dropdown-item" id="accept" href="<?= base_url('decline');?>/<?=$client->user_ID;?>">Decline</a>
-                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$client->user_ID;?>">Update</a>
-                                                                    <a onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$client->user_ID;?>">Delete</a>
-                                                                <div class="dropdown-divider"></div>
-                                                         </div> 
-                                                  </div>
-                                            </td>
-                                    
-                        </tr>
-                      
-                      
-                        <?php }?>
-                    </tbody>
-                </table>
-
-        </div>
-    </div>
+    
 </div>
