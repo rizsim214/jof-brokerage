@@ -85,6 +85,14 @@ class AdminModel extends CI_Model{
       $this_query = $this->db->get();
       return $this_query->result();
     }
+    
+     public function get_user_info_delete($id){
+       $this->db->select('*');
+       $this->db->from('users_table');
+        $this->db->where('user_ID' , $id);
+      $this_query = $this->db->get();
+      return $this_query->row();
+    }
         //GETTING ALL APPOINTMENTS
     public function getAllAppointment(){
         

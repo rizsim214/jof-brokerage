@@ -224,7 +224,7 @@ class AdminController extends CI_Controller {
                 
                 'transactions' => $this->AdminModel->getAllTransaction(),
                 
-                'employees' => $this->AdminModel->getAllEmployees(),
+               
                 'response' => $this->AdminModel->getAllAppointment(),
                 'predef_questions' => $this->AdminModel->getAllContactQuestions(),
                 'count_transactions' => $this->AdminModel->countAllTransaction(),
@@ -272,8 +272,20 @@ class AdminController extends CI_Controller {
              }
            
         }
-   
+         
+        public function employee_accounts(){
+        $data['employees'] =$this->AdminModel->getAllEmployees();
 
+        if(!$data){
+            $this->session->set_flashdata('error' , 'Something went wrong while fetching client acounts... Please try again later!');
+            redirect('employee_accounts');
+        }else{
+                         $this->load->view('admin/includes/login_header');
+                         $this->load->view('admin/employee_accounts' , $data );
+                         $this->load->view('includes/footer');
+             }
+           
+        }
                
       public function register_validation(){
                 $this->form_validation->set_rules('firstname' , 'First Name' , 'trim|required');
@@ -376,32 +388,54 @@ class AdminController extends CI_Controller {
     }
    
     public function delete_account($id){
+        $get_data = $this->AdminModel->get_user_info_delete($id);
+        //  print_r($get_data->user_role);die();
         $data = array(
             'active_status' => "inactive",
             'date_updated' => date('Y-m-s H:i:s')
         );
         $result = $this->AdminModel->delete_user($data, $id);
-        
-        if(!$result){
-            $this->session->set_flashdata('error' , 'Something went wrong upon deleting the account... Please try again');
-        }else{
-            $this->session->set_flashdata('success' , 'Account has been successfully deleted');
-        }
-       redirect('client_accounts');
+        if($get_data->user_role == '1' ){
+                if(!$result){
+                    $this->session->set_flashdata('error' , 'Something went wrong upon deleting the account... Please try again');
+                }else{
+                    $this->session->set_flashdata('success' , 'Account has been successfully Deleted');
+                }
+            redirect('client_accounts');
+            }elseif($get_data->user_role == '2' || $get_data->user_role == '3' || $get_data->user_role == '4'  ){
+                 if(!$result){
+                    $this->session->set_flashdata('error' , 'Something went wrong upon deleting the account... Please try again');
+                }else{
+                    $this->session->set_flashdata('success' , 'Account has been successfully Deleted');
+                }
+            redirect('employee_accounts');
+            }
+       
     }
      public function activate_account($id){
+        $get_data = $this->AdminModel->get_user_info_delete($id);
         $data = array(
             'active_status' => "active",
             'date_updated' => date('Y-m-s H:i:s')
         );
         $result = $this->AdminModel->delete_user($data, $id);
         
-        if(!$result){
-            $this->session->set_flashdata('error' , 'Something went wrong upon activate the account... Please try again');
-        }else{
-            $this->session->set_flashdata('success' , 'Account has been successfully Activated');
-        }
-       redirect('client_accounts');
+        if($get_data->user_role == '1' ){
+                if(!$result){
+                    $this->session->set_flashdata('error' , 'Something went wrong upon Activating the account... Please try again');
+                }else{
+                    $this->session->set_flashdata('success' , 'Account has been successfully Activated');
+                }
+            redirect('client_accounts');
+
+            }elseif($get_data->user_role == '2' || $get_data->user_role == '3' || $get_data->user_role == '4' ){
+                 if(!$result){
+                    $this->session->set_flashdata('error' , 'Something went wrong upon Activating the account... Please try again');
+                }else{
+                    $this->session->set_flashdata('success' , 'Account has been successfully Activated');
+                }
+            redirect('employee_accounts');
+            }
     }
     public function delete_appointments($id){
         $result = $this->AdminModel->delete_appointment($id);

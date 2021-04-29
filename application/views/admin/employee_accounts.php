@@ -99,32 +99,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($employees as $employee) : ?>           
-                    <tr>
-                        <td><?= ucfirst($employee->first_name).' '.ucfirst($employee->last_name);?></td>
-                        <td><?php 
-                        if($employee->user_role == '4'){
-                                echo "Admin";
-                        }elseif($employee->user_role == '2'){
-                                echo "Processor";
-                        }elseif($employee->user_role == '3'){
-                                echo "Accounting";
-                        } ?></td>
-                        <td><!-- Default dropleft button -->
-                                    <div class="btn-group dropdown">
-                                         <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              <i class="fas fa-gear"></i> Options
-                                                 </button>
-                                                       <div class="dropdown-menu option_dropdown" >
-                                                                <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item" id="accept" href="<?php echo base_url('view_this_account')?>/<?= $employee->user_ID;?>">View</a>
-                                                                    <!-- <a class="dropdown-item" id="decline" href="#">Update</a> -->
-                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$employee->user_ID;?>">Update</a>
-                                                                    <a  onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$employee->user_ID;?>">Delete</a>
-                                                                <div class="dropdown-divider"></div>
-                                                         </div> 
-                                                  </div></td>
-                    </tr>
+                <?php foreach ($employees as $employee) : ?> 
+                    <?php if($employee->active_status == "active") {?>   
+
+                            <tr>
+                                <td><?= ucfirst($employee->first_name).' '.ucfirst($employee->last_name);?></td>
+                                <td><?php 
+                                if($employee->user_role == '4'){
+                                        echo "Admin";
+                                }elseif($employee->user_role == '2'){
+                                        echo "Processor";
+                                }elseif($employee->user_role == '3'){
+                                        echo "Accounting";
+                                } ?></td>
+                                <td><!-- Default dropleft button -->
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-gear"></i> Options
+                                                        </button>
+                                                            <div class="dropdown-menu option_dropdown" >
+                                                                        <div class="dropdown-divider"></div>
+                                                                            <a class="dropdown-item" id="accept" href="<?php echo base_url('view_this_account')?>/<?= $employee->user_ID;?>">View</a>
+                                                                            <!-- <a class="dropdown-item" id="decline" href="#">Update</a> -->
+                                                                            <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$employee->user_ID;?>">Update</a>
+                                                                            <a  onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$employee->user_ID;?>">Deactivate</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                </div> 
+                                                        </div></td>
+                            </tr>
+                    <?php }?>       
+                   
                         <?php endforeach;?>
 
                 </tbody>
@@ -132,6 +136,53 @@
                       
         </div>
 
-       
+        <div class="col-lg-12 table ">
+            <h1 class="text-center mb-2 " >Employees Accounts DELETED</h1>
+            <table class="table table-bordered table-hover" id="example">
+
+                <thead class="table-danger">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Job Title</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($employees as $employee) : ?> 
+                    <?php if($employee->active_status == "inactive") {?>   
+
+                            <tr>
+                                <td><?= ucfirst($employee->first_name).' '.ucfirst($employee->last_name);?></td>
+                                <td><?php 
+                                if($employee->user_role == '4'){
+                                        echo "Admin";
+                                }elseif($employee->user_role == '2'){
+                                        echo "Processor";
+                                }elseif($employee->user_role == '3'){
+                                        echo "Accounting";
+                                } ?></td>
+                                <td><!-- Default dropleft button -->
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-gear"></i> Options
+                                                        </button>
+                                                            <div class="dropdown-menu option_dropdown" >
+                                                                        <div class="dropdown-divider"></div>
+                                                                            <a class="dropdown-item" id="accept" href="<?php echo base_url('view_this_account')?>/<?= $employee->user_ID;?>">View</a>
+                                                                            <!-- <a class="dropdown-item" id="decline" href="#">Update</a> -->
+                                                                            <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$employee->user_ID;?>">Update</a>
+                                                                            <a  onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('activate_account');?>/<?=$employee->user_ID;?>">Activate</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                </div> 
+                                                        </div></td>
+                            </tr>
+                    <?php }?>       
+                   
+                        <?php endforeach;?>
+
+                </tbody>
+            </table>
+                      
+        </div>
     
 </div>
