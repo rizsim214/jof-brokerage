@@ -27,6 +27,10 @@ $(document).ready(function() {
         /* No ordering applied by DataTables during initialisation */
         "order": []
     });
+     $('#example2').DataTable({
+        /* No ordering applied by DataTables during initialisation */
+        "order": []
+    });
     $('#exampleFeedback').DataTable({
         /* No ordering applied by DataTables during initialisation */
         "order": []

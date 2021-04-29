@@ -223,7 +223,7 @@ class AdminController extends CI_Controller {
             $data_results = array(
                 
                 'transactions' => $this->AdminModel->getAllTransaction(),
-                'clients' =>  $this->AdminModel->getAllClients(),
+                
                 'employees' => $this->AdminModel->getAllEmployees(),
                 'response' => $this->AdminModel->getAllAppointment(),
                 'predef_questions' => $this->AdminModel->getAllContactQuestions(),
@@ -259,7 +259,22 @@ class AdminController extends CI_Controller {
         }
     }
 
+    public function client_accounts(){
+        $data['clients'] =$this->AdminModel->getAllClients();
+
+        if(!$data){
+            $this->session->set_flashdata('error' , 'Something went wrong while fetching client acounts... Please try again later!');
+            redirect('client_accounts');
+        }else{
+                         $this->load->view('admin/includes/login_header');
+                         $this->load->view('admin/client_accounts' , $data );
+                         $this->load->view('includes/footer');
+             }
+           
+        }
    
+
+               
       public function register_validation(){
                 $this->form_validation->set_rules('firstname' , 'First Name' , 'trim|required');
                 $this->form_validation->set_rules('lastname' , 'Last Name' , 'trim|required');
@@ -361,12 +376,30 @@ class AdminController extends CI_Controller {
     }
    
     public function delete_account($id){
-        $result = $this->AdminModel->delete_user($id);
-
+        $data = array(
+            'active_status' => "inactive",
+            'date_updated' => date('Y-m-s H:i:s')
+        );
+        $result = $this->AdminModel->delete_user($data, $id);
+        
         if(!$result){
             $this->session->set_flashdata('error' , 'Something went wrong upon deleting the account... Please try again');
         }else{
             $this->session->set_flashdata('success' , 'Account has been successfully deleted');
+        }
+       redirect('client_accounts');
+    }
+     public function activate_account($id){
+        $data = array(
+            'active_status' => "active",
+            'date_updated' => date('Y-m-s H:i:s')
+        );
+        $result = $this->AdminModel->delete_user($data, $id);
+        
+        if(!$result){
+            $this->session->set_flashdata('error' , 'Something went wrong upon activate the account... Please try again');
+        }else{
+            $this->session->set_flashdata('success' , 'Account has been successfully Activated');
         }
        redirect('client_accounts');
     }

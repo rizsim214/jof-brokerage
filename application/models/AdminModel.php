@@ -224,10 +224,13 @@ class AdminModel extends CI_Model{
       return $result;
     }
     
-    public function delete_user($id){
+    public function delete_user($data, $id){
         $this->db->where('user_ID' , $id);
-        $this->db->delete('users_table');
+        $this->db->update('users_table' , $data);
+        
+
         return TRUE;
+       
     }
     public function delete_appointment($id){
         $this->db->where('appointment_ID' , $id);

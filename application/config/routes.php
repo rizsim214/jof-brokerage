@@ -76,7 +76,7 @@ $route['term_of_use'] = 'MainController/dynamic_view/termOfuse';
 // ADMIN PAGE ROUTES
 $route['admin'] = 'AdminController/dynamic_view';
 $route['question_manager'] = 'AdminController/dynamic_view/question_manager';
-$route['client_accounts'] = 'AdminController/dynamic_view/client_accounts';
+$route['client_accounts'] = 'AdminController/client_accounts';
 $route['employee_accounts'] = 'AdminController/dynamic_view/employee_accounts';
 $route['financial_transaction'] = 'AdminController/dynamic_view/accounting';
 $route['admin_feedback'] = 'AdminController/view_feedbacks';
@@ -90,6 +90,7 @@ $route['back_to_appointments'] = 'AdminController/back_to_appointments';
 $route['transactions'] = 'AdminController/dynamic_view/transactions';
 $route['register'] = 'AdminController/register';
 $route['delete_appointment/(:num)'] = 'AdminController/delete_appointments/$1';
+$route['activate_account/(:num)'] = 'AdminController/activate_account/$1';
 $route['delete_account/(:num)'] = 'AdminController/delete_account/$1';
 $route['view_account/(:num)'] = 'AdminController/view_account/$1';
 $route['manage_account/(:num)'] = 'AdminController/manage_account/$1';

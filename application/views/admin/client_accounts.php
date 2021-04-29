@@ -91,7 +91,7 @@
 
    
 
-        <div class="col-lg-12 table">
+        <div class="col-lg-12 table text-center">
        
              <h1 class="text-center mb-2 ">Consignee Accounts</h1>
                 <table class="table table-bordered table-hover" id="example1">
@@ -101,16 +101,22 @@
                             <th>Name</th>
                             <th>Company</th>
                             <th>Status</th>
+                            <th>Transactions</th>
                             <th>Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($clients as $client) {?>           
-                        <tr>
+                    
+                    <?php foreach ($clients as $client) : ?>  
+                        <?php if($client->active_status == "active") {?>
+                           
+                             <tr>
                             
                             <td><?= ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
                             <td><?=$client->company_name;?></td>
                             <td><?= $client->register_status;?></td>
+                            <td><a href="#" class="btn btn-info">View</a></td>
                             <td> <!-- Default dropleft button -->
                                     <div class="btn-group dropdown">
                                          <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -121,16 +127,72 @@
                                                                     <a class="dropdown-item" id="accept" href="<?= base_url('accept_registration');?>/<?=$client->user_ID;?>">Accept</a>
                                                                     <a onclick="return confirm('Are you sure you want to decline this account?')" class="dropdown-item" id="accept" href="<?= base_url('decline');?>/<?=$client->user_ID;?>">Decline</a>
                                                                     <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$client->user_ID;?>">Update</a>
-                                                                    <a onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$client->user_ID;?>">Delete</a>
+                                                                    <a onclick="return confirm('Are you sure you want to delete this account?')" class="dropdown-item" id="accept" href="<?= base_url('delete_account');?>/<?=$client->user_ID;?>">Deactivate</a>
                                                                 <div class="dropdown-divider"></div>
                                                          </div> 
                                                   </div>
                                             </td>
                                     
                         </tr>
-                      
-                      
-                        <?php }?>
+
+                       <?php }?>
+                       
+                     
+
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+
+        </div>
+
+        <div class="col-lg-12 table text-center">
+       
+             <h1 class="text-center mb-2 ">Consignee Accounts DELETED</h1>
+                <table class="table table-bordered table-hover" id="example2">
+                    <thead class="table-danger">
+                        <tr>
+                            
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Transactions</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    <?php foreach ($clients as $client) : ?>  
+                        <?php if($client->active_status == "inactive") {?>
+                           
+                             <tr>
+                            
+                            <td><?= ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
+                            <td><?=$client->company_name;?></td>
+                            <td><?= $client->register_status;?></td>
+                            <td><a href="#" class="btn btn-info">View</a></td>
+                            <td> <!-- Default dropleft button -->
+                                    <div class="btn-group dropdown">
+                                         <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <i class="fas fa-gear"></i> Options
+                                                 </button>
+                                                       <div class="dropdown-menu option_dropdown" >
+                                                                <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('accept_registration');?>/<?=$client->user_ID;?>">Accept</a>
+                                                                    <a onclick="return confirm('Are you sure you want to decline this account?')" class="dropdown-item" id="accept" href="<?= base_url('decline');?>/<?=$client->user_ID;?>">Decline</a>
+                                                                    <a class="dropdown-item" id="accept" href="<?= base_url('editAccount');?>/<?=$client->user_ID;?>">Update</a>
+                                                                    <a onclick="return confirm('Are you sure you want to Activate this account Again?')" class="dropdown-item" id="accept" href="<?= base_url('activate_account');?>/<?=$client->user_ID;?>">Activate</a>
+                                                                <div class="dropdown-divider"></div>
+                                                         </div> 
+                                                  </div>
+                                            </td>
+                                    
+                        </tr>
+
+                       <?php }?>
+                       
+                     
+
+                        <?php endforeach;?>
                     </tbody>
                 </table>
 
