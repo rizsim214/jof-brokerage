@@ -84,6 +84,7 @@ $route['admin_feedback/(:num)'] = 'AdminController/view_feedbacks/$1';
 $route['glossary_management'] = 'AdminController/glossary_management/0';
 $route['glossary_management/(:num)'] = 'AdminController/glossary_management/$1';
 $route['transactions'] = 'AdminController/dynamic_view/transactions';
+$route['client_transaction/(:num)'] = 'AdminController/client_transaction/$1';
 $route['appointments'] = 'AdminController/dynamic_view/appointments/0';
 $route['appointments/(:num)'] = 'AdminController/dynamic_view/appointments/$1';
 $route['back_to_appointments'] = 'AdminController/back_to_appointments';

@@ -116,7 +116,7 @@
                             <td><?= ucfirst($client->first_name).' '.ucfirst($client->last_name);?></td>
                             <td><?=$client->company_name;?></td>
                             <td><?= $client->register_status;?></td>
-                            <td><a href="#" class="btn btn-info">View</a></td>
+                            <td><a href="<?php echo base_url('client_transaction');?>/<?= $client->user_ID;?>" class="btn btn-info">View</a></td>
                             <td> <!-- Default dropleft button -->
                                     <div class="btn-group dropdown">
                                          <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

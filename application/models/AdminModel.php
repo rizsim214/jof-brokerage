@@ -164,7 +164,7 @@ class AdminModel extends CI_Model{
         $this->db->select('*,transaction.status as transaction_status');
         $this->db->from('transaction');
         $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID');
-        $this->db->order_by('date_posted', 'ASC');
+        $this->db->order_by('date_posted', 'DESC');
 
         $query = $this->db->get();
 
@@ -172,6 +172,21 @@ class AdminModel extends CI_Model{
             return NULL;
         }else{
             return $query->result();
+        }
+    }
+    public function get_this_transaction($id){
+        $this->db->select('* , transaction.status as transaction_status');
+        $this->db->from('transaction');
+        $this->db->where('user_ID' , $id);
+        $this->db->join('users_table' , 'transaction.consignee_id = users_table.user_ID');
+        $this->db->order_by('date_posted' , 'DESC');
+
+        $result = $this->db->get();
+
+        if(!$result){
+            return NULL;
+        }else{
+            return $result->result();
         }
     }
     public function getProcessor($id){

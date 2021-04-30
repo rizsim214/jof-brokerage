@@ -412,6 +412,20 @@ class AdminController extends CI_Controller {
             }
        
     }
+    public function client_transaction($id){
+       $transaction['this_client_transaction'] = $this->AdminModel->get_this_transaction($id);
+       
+       if(!$transaction){
+            $this->session->set_flashdata('error' , 'Unable to get the transaction of the chosen client... Please try again!!');
+            redirect('client_accounts');
+       }else{
+           
+            $this->load->view('admin/includes/login_header');
+            $this->load->view('admin/client_transactions' , $transaction  );
+            $this->load->view('includes/footer');
+       }
+
+    }
      public function activate_account($id){
         $get_data = $this->AdminModel->get_user_info_delete($id);
         $data = array(

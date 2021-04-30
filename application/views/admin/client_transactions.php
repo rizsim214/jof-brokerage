@@ -84,7 +84,7 @@
 				<table class="table table-bordered table-hover text-center" id="example">
 				  <thead class="table-primary">
 				 
-				  	<h1 class="text-center mb-2">Company Transactions</h1>
+				  	<h1 class="text-center mb-2 mt-4">Client Transaction List</h1>
 				  
 					  <tr>
 						<th >Transaction Number</th>
@@ -107,7 +107,7 @@
 					</tr>
 				  </thead> 
 					<tbody>
-						 <?php foreach($transactions as $row) :
+						 <?php foreach($this_client_transaction as $row) :
 							    $processor = getProcessor($row->processor_id);
 							?> 
 							<tr>
