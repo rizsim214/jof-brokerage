@@ -13,7 +13,7 @@
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Date Created: </label>
-                    <input type="date" name="date" readonly value="<?php echo $transaction_billing['date']; ?>" class="form-control">
+                    <input type="date" name="date" readonly value="<?php echo date("Y-m-d", strtotime( $transaction_details['date_posted'])); ?>" class="form-control">
                 </div>
             </div>
         </div>

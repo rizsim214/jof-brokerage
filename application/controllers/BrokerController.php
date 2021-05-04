@@ -123,11 +123,8 @@ class BrokerController extends CI_Controller {
 
       
 
-       if($this->input->post('status') == 'delivered'){
-        $data += array(
-            'date_ended' => date('Y-m-d H:i:s')
-        );
-            }
+     
+    
        if($this->input->post('destination')){
         $data = array(
             'status' => $this->input->post('status'),
@@ -140,7 +137,8 @@ class BrokerController extends CI_Controller {
        if($this->input->post('status') == "delivered"){
         $data = array(
             'status' => $this->input->post('status'),
-            'time_of_arrival' => date("Y-m-d H:i:s")
+            'time_of_arrival' => date("Y-m-d H:i:s"),
+            'date_ended' => date('Y-m-d H:i:s')
         );
        }
        $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
@@ -155,10 +153,6 @@ class BrokerController extends CI_Controller {
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
        curl_exec ($ch);
        curl_close ($ch);
-
-
-    
-
 
        
 
@@ -185,7 +179,8 @@ class BrokerController extends CI_Controller {
 
 
     $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
-
+    $data['transaction_details'] = $this->AdminModel->get_transaction_details($transaction_number);
+       
 
 
     $this->load->view('broker/includes/header');

@@ -50,6 +50,19 @@ class AdminModel extends CI_Model{
          }
     }
 
+    public function get_transaction_details($transaction_number){
+        $this->db->select('*');
+        $this->db->from('transaction');
+        $this->db->where('transaction_number' , $transaction_number);
+        $query = $this->db->get();
+
+        if(!$query){
+            return NULL;
+         }else{
+              return $query->row_array();
+         }
+    }
+
     public function deleteTransactionBillingItems($transaction_billing_id){
         $this->db->where('transaction_billing_id', $transaction_billing_id);
         $this->db->delete('transaction_items');

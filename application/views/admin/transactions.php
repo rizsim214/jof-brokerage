@@ -19,7 +19,7 @@
 			<input type="hidden" value="" name="transaction_id" id="transaction"> 
 			<input type="hidden" value="" name="consignee_id" id="consignee"> 
 			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
-	
+			<option value="" >Choose status</option>
 				<option value="documentation">1.Documentation</option>
             <option value="submission of entry">2.Submission of Entry </option>
             <option value="assessment division">3. Assessment Division </option>
@@ -167,7 +167,7 @@
 								<?php if(empty($processor->first_name)){ ?>
 								<td>	<a href="#" onclick="asssignModal('<?php echo  $row->transaction_id; ?>')"    class="btn btn-sm btn-success text-white">Assign</a></td>
 								<?php }else{ ?>
-									<td><?php echo  $processor->first_name . ' ' . $processor->last_name; ?></td>
+									<td><?php echo  ucfirst($processor->first_name) . ' ' . ucfirst($processor->last_name); ?></td>
 									<?php } ?>
 								<td><?php echo $row->transaction_status;?></td>
 								<td><?php echo ucfirst($row->transaction_type);?></td>
@@ -203,11 +203,15 @@
 }
 </style>
 <script>
-      function statusOnChange(){
+   function statusOnChange(){
           if($("#statusChange").val() == "documentation"){
               $(".destination_select").css("display", "block");
+              $("#destination").prop('required', true);
+            $("#origin").prop('required', true);
           }else{
             $(".destination_select").css("display", "none");
+            $("#destination").prop('required', false);
+            $("#origin").prop('required', false);
           }
       }
 

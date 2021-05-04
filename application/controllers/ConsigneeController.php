@@ -46,7 +46,8 @@ class ConsigneeController extends CI_Controller {
 
         $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
 
- 
+        $data['transaction_details'] = $this->AdminModel->get_transaction_details($transaction_number);
+      
 
 
         $this->load->view('consignee/includes/login_header');
