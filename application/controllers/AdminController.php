@@ -8,6 +8,7 @@ class AdminController extends CI_Controller {
        
         $this->load->model('AdminModel');
         $this->load->helper('date');
+        date_default_timezone_set('Asia/Manila');
         $user_logged = $this->session->userdata();
             if(!$user_logged['isUserLoggedIn'] == TRUE){
                 redirect('home');

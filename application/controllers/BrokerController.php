@@ -6,7 +6,7 @@ class BrokerController extends CI_Controller {
     public function __construct(){
         parent:: __construct();
         $this->load->model('AdminModel');
-        
+        date_default_timezone_set('Asia/Manila');
         $user_logged = $this->session->userdata();
             if(!$user_logged['isUserLoggedIn'] == TRUE){
                 redirect('home');

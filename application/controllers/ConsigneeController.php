@@ -12,6 +12,7 @@ class ConsigneeController extends CI_Controller {
         $this->load->helper('array');
         $this->load->model('AdminModel');
         $this->conId = $this->session->userdata('user_ID');
+        date_default_timezone_set('Asia/Manila');
         $this->data['transactions'] = $this->ConsigneeModel->getTransactions($this->conId);
 
         $user_logged = $this->session->userdata();
