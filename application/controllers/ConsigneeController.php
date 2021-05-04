@@ -61,6 +61,7 @@ class ConsigneeController extends CI_Controller {
             'transaction_id' => $this->input->post('transaction_id'),
             'message' => $this->input->post('message'),
             'rating' => $this->input->post('rating_number'),
+            'feedback_status' => '1',
             'date_posted' => date('Y-m-d')
             );
 

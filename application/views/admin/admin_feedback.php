@@ -51,26 +51,26 @@
                     
                       <div class="justify-left mt-3">
                         <h4> 1.0 Lowest - 5.0 Highest</h4>
-                        <h5> Extreme Unsatisfaction From Services</h5>
-                        <h5> Moderate Unsatisfaction From Services</h5>
-                        <h5> Average Satisfaction From Services</h5>
-                        <h5> Moderate Satisfaction From Services</h5>
-                        <h5> Extreme Satisfaction From Services</h5>
+                        <h5> Very Poor Quality Of Services</h5>
+                        <h5> Poor Quality Of Services</h5>
+                        <h5> Fair Quality Of Services</h5>
+                        <h5> Good Quality Of Services</h5>
+                        <h5> Excellent Quality Of Services</h5>
 
                      </div>
             </div>
             <div><h2>Average Rating : <?php echo number_format($average['rating'] , 2); ?> -
             
             <?php if($average['rating'] >= '1.0' && $average['rating'] <= '1.7'){
-                echo "Extreme Unsatisfaction From Services";
+                echo "Very Poor Quality Of Services";
             }elseif($average['rating'] >= '1.8' && $average['rating'] <= '2.5'){
-                echo "Moderate Unsatisfaction From Services";
+                echo "Poor Quality Of Services";
             }elseif($average['rating'] >= '2.6' && $average['rating'] <= '3.4'){
-                echo "Average Unsatisfaction From Services";
+                echo "Fair Quality Of Services";
             }elseif($average['rating'] >= '3.5' && $average['rating'] <= '4.2'){
-                echo "Moderate Unsatisfaction From Services";
+                echo "Good Quality Of Services";
             }elseif($average['rating'] >= '4.3' && $average['rating'] <= '5.0'){
-                echo "Extreme Unsatisfaction From Services";
+                echo "Excellent Quality Of Services";
             }
                 ?></h2></div>
 
