@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>   
            
               <li class="nav-item">
-               <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Management</a>
+               <a class="nav-link" href="#" data-toggle="modal" data-target="#optionModal" id="navItem">Reports</a>
             </li> 
 
             
@@ -102,16 +102,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="modal-body">
                   <div class="row">
                     <div class="container mx-auto my-2 ">
-                    <a href="<?php echo base_url('transactions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="TransactionsDropdown">TRANSACTIONS</a>
+                    <a href="<?php echo base_url('reportLog');?>" class="btn btn-outline-danger btn-lg" aria-labelledby="TransactionsDropdown">Completed Transactions</a>
                            <!-- <a href="<?php echo base_url('users');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountDropdown">VIEW ACCOUNTS</a> -->
-                            <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AppointmentsLink">APPOINTMENTS</a> 
+                            <a href="<?php echo base_url('clientRep/'); ?><?= $this->session->user_ID?>" class="btn btn-lg btn-outline-danger ">Transaction History</a> 
                         </div>    
                   </div>
                     <div class="row">
                     <div class="container mx-auto my-2">
-                            <!-- <a href="<?php echo base_url('finances');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">ACCOUNTING</a> -->
-                            <a href="<?php echo base_url('feedbacks');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="FeedbacksLink">FEEDBACKS</a> 
-                            <a href="<?php echo base_url('managements');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">MANAGEMENT</a>
+                          
                         </div>    
                   </div>
                     <div class="row">

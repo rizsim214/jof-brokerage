@@ -109,7 +109,14 @@ class AdminController extends CI_Controller {
         $data = array(
             'status' => $this->input->post('status')
             
+            
         );
+
+        if($this->input->post('status') == 'done'){
+            $data += array(
+                'date_ended' => date('Y-m-d H:i:s')
+            );
+                }
  
         if($this->input->post('destination')){
          $data = array(
@@ -130,6 +137,8 @@ class AdminController extends CI_Controller {
        $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
        $cons = $this->AdminModel->getUser($this->input->post('first_name'));
        $ch = curl_init();
+
+    
 
        $itexmo = array('1' => $consignee->contact_info, '2' => "Hello ". ucfirst($consignee->first_name) ." ". ucfirst($consignee->last_name) ."! Your Transcation ".$this->input->post('transaction_number')." status is  '". ucfirst($this->input->post('status')) ."' . Please check your account." , '3' => "ST-LUKEK646498_3PAKR", 'passwd' => "vstrq{8y64");
        curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
@@ -185,7 +194,8 @@ class AdminController extends CI_Controller {
       
     $data = array(
         'status' => 'accepted',
-        'processor_id' => $this->session->userdata('user_ID')
+        'processor_id' => $this->session->userdata('user_ID'),
+        'date_started' => date('Y-m-d H:i:s')
     );
     
     $consignee = $this->AdminModel->getUser($consignee_id);

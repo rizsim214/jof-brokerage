@@ -46,4 +46,99 @@ class BrokerModel extends CI_Model{
       }
 
 
+      public function get_done(){
+        
+        
+       // $rar =   $this->db->WHERE('processor_id' , $this->session->user_ID );
+        $this->db->WHERE('status' , 'delivered' );
+        $this->db->from('transaction');
+        $this->db->join('users_table','transaction.consignee_id = users_table.user_ID');
+        $this->db->order_by('date_posted', 'desc');
+         $result = $this->db->get();
+
+         
+
+    
+        // $this->db->where('user_role', 1);
+    //    $qqw = $this->db->join('transaction',' transaction.transaction_id =  users_table.user_ID');
+       
+
+      //  var_dump($qwe);
+    //    foreach($query as $rw)
+    //    {
+    //    echo $rw->first_name;
+    //    }
+
+        if(!$result){
+            return NULL;
+        }else{
+            return $result->result();
+        
+        }
+    
+
+
     }
+
+    public function get_mine($var){
+
+         $rar =  $this->db->WHERE('processor_id' , $this->session->user_ID );
+         $this->db->from('transaction');
+       //
+       // $this->db->where('user_ID',$var);
+        $this->db->join('users_table' , 'transaction.consignee_id = users_table.user_ID');
+         $this->db->order_by('date_posted', 'desc');
+         $result = $this->db->get();
+
+        //  var_dump($result);
+        //  exit;
+
+        // $this->db->select('* , transaction.status as transaction_status');
+        // $this->db->from('transaction');
+        // $this->db->where('user_ID' , $var);
+        // $this->db->join('users_table' , 'transaction.consignee_id = users_table.user_ID');
+        // $this->db->order_by('date_posted' , 'DESC');
+        // $result = $this->db->get();
+
+
+        if(!$result){
+            return NULL;
+        }else{
+            return $result->result();
+        }
+    }
+        
+
+
+        public function getMineActive(){
+
+            $this->db->select('*,transaction.status as transaction_status');
+            //$this->db->where('processor_id', $this->session->user_ID);
+            $this->db->where('status !=','delivered' );
+            $this->db->from('transaction');
+            $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID');
+            $this->db->order_by('date_posted', 'DESC');
+    
+            $query = $this->db->get();
+
+    
+            if(!$query){
+                return NULL;
+            }else{
+                return $query->result();
+            }
+
+
+
+
+
+        }
+
+
+    
+
+
+    
+
+}
+

@@ -208,6 +208,13 @@ class AdminModel extends CI_Model{
         $result = $this->db->get();
         return $result->row();
     }
+    public function checkRating($id){
+        $this->db->select('*');
+        $this->db->from('feedbacks');
+        $this->db->where('transaction_id', $id);
+        $result = $this->db->get();
+        return $result->row();
+    }
     public function updateTransaction($id, $data){
         $this->db->set($data);
         $this->db->where('transaction_id', $id);

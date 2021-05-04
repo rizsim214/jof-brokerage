@@ -122,6 +122,9 @@ $route['terms'] = 'MainController/openTerms';
 $route['broker'] = 'BrokerController/dynamic_view';
 $route['editAccount/(:any)'] = 'BrokerController/get_edit_accounts/$1';
 $route['viewAccount/(:any)'] = 'BrokerController/view_accounts/$1';
+$route['reportLog'] = 'BrokerController/repLog';
+$route['clientRep/(:num)'] = 'BrokerController/clientRep/$1';
+
 // ACCOUNTING PAGE ROUTES
 $route['accounting'] = 'AccountingController/dynamic_view';
 // CONSIGNEE PAGE ROUTES

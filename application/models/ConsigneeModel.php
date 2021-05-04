@@ -14,6 +14,7 @@ class ConsigneeModel extends CI_Model{
         $this->db->from('transaction');
         $this->db->join('users_table', 'users_table.user_ID = transaction.processor_id', 'left');
         $this->db->where('consignee_id', $id);
+        $this->db->order_by('transaction.transaction_id', "DESC");
 
         $result = $this->db->get();
 

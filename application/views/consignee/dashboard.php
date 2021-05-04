@@ -1,8 +1,23 @@
-<div class="container-fluid ml-2 pr-n3">
+<style>
+          
+        .myButtons li{
+            display: inline-block;
+            overflow: hidden;
+            padding: 0px 4px 0px 6px;
+        }
+          
+    </style>
+
+<div class="container-fluid ml-3 pr-n3">
 <br>
 <br>
- <button type="button" class="btn btn-primary" style="margin-right:15px" data-toggle="modal" data-target="#importModal">Import</button>
- <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exportModal">Export</button>
+
+<ul class="myButtons">
+<li><h3 class="text-dark"> Please choose to start a Transaction: </h3></li>
+<li> <button type="button" class="btn btn-primary" style="margin-right:15px " data-toggle="modal" data-target="#importModal">Import</button></li>
+<li><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exportModal">Export</button></li>
+ </ul>
+
 
  <form method="post" action="<?php echo base_url('ConsigneeController/sendFiles')?>" enctype="multipart/form-data">
 <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -39,11 +54,16 @@
   </div>
 </div>
 </form>
+
 <div class="modal fade" id="status" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+      
+      <!-- <input type="text" name="transaction_id" id="transaction_id"> -->
         <h5 class="modal-title" id="exampleModalLabel">Transaction status</h5>
+        <input type="hidden" class="form-control" id="transaction_id" readonly>
+        <h5 class="modal-title" id="transaction_type"> </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -72,14 +92,48 @@
         </button>
       </div>
       <div class="modal-body">
-      <input type="hidden" name="transaction_id" id="transaction_id">
-      <h6> Transaction Number</h6>
-         <input type="text" class="form-control" id="transaction_number" readonly>
-         <h6> Processor's Name</h6>
-         <input type="text" class="form-control" id="processor_name" readonly>
-      <h6> Rating Number (1.0 - lowest , 5.0 - highest) </h6>
-         <input type="number" class="form-control" name="rating_number" step=".01" min="1.0" max="5.0" required>
-         <h6>Message</h6>
+      <input type="hidden" name="transaction_id" id="transaction_id1">
+      <h6 style="color: black"> Transaction Number</h6>
+         <input style="color: black" type="text" class="form-control" id="transaction_number" readonly>
+         <h6 style="color: black"> Processor's Name</h6>
+         <input style="color: black" type="text" class="form-control" id="processor_name" readonly>
+         <br>
+      <h6 style="color: black"> Rating Number (1.0 - lowest , 5.0 - highest) </h6>
+      <div class="form-check">
+  <input class="form-check-input" type="radio" value="1" required name="rating_number" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1" style="color: black">
+  1 - Very Unsatisfied
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" value="2" required name="rating_number" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1" style="color: black">
+   2 - Unsatisfied
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" value="3" required name="rating_number" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1" style="color: black">
+  3 -  Neutral
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" value="4" required name="rating_number" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1" style="color: black">
+  4 - satisfied
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" value="5" required name="rating_number" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1" style="color: black">
+ 5 - Very Satisfied
+  </label>
+</div>
+<br>
+         <!-- <input type="number" class="form-control" name="rating_number" step=".01" min="1.0" max="5.0" required> -->
+
+         <!-- <input type="text" class="form-control" id="processor_name" readonly> -->
+         <h6 style="color: black">Message</h6>
          <textarea class="form-control" name="message"></textarea>
       </div>
       <div class="modal-footer">
@@ -123,8 +177,8 @@
 </form>
 
  <br><br><br>
-
- <table class="table table-striped " id="example">
+<div  style="float:left; margin-right:40px;">
+ <table class="table table-striped "  id="example">
   <thead>
     <tr>
       <th scope="col">Transaction Number</th>
@@ -135,15 +189,34 @@
       <th scope="col">Packing</th>
       <th scope="col">Commercial</th>
       <th scope="col">Bill of Lading</th>
+      <th scope="col">Billing File</th>
       <th scope="col">Date Started</th>
       <th scope="col">Date Ended</th>
+      <th scope="col">Rating</th>
       <th scope="col">Billing</th>
       <th scope="col">Option</th>
     </tr>
   </thead>
   <tbody>
   <?php foreach ($transactions as $row) : 
-           
+            $ratingCheck = checkRate($row->transaction_id);
+            $ratingWord = '';
+            if(!empty($ratingCheck)){
+              if($ratingCheck->rating == 1){
+                $ratingWord = 'Very Unsatisfied';
+              }else if($ratingCheck->rating == 2){
+                $ratingWord = 'Unsatisfied';
+              }
+              else if($ratingCheck->rating == 3){
+                $ratingWord = 'Neutral';
+              }
+              else if($ratingCheck->rating == 4){
+                $ratingWord = 'Satisfied';
+              }
+              else if($ratingCheck->rating == 5){
+                $ratingWord = 'Very Satisfied';
+              }
+            }
             ?>
    <tr>
       <th><?php echo $row->transaction_number; ?></th>
@@ -153,26 +226,37 @@
       <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank"><?php echo $row->bureau; ?></a></td>
       <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank"><?php echo $row->packing; ?></a></td>
       <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank"><?php echo $row->commercial; ?></a></td>
+     
       <td>
       <?php if(!empty($row->bill)){ ?>
       <a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bill; ?>" target="_blank"><?php echo $row->bill; ?></a>
       <?php } ?>
       </td>
+      <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->billing_file; ?>" target="_blank"><?php echo $row->billing_file; ?></a></td>
       <td><?php echo empty($row->date_started) ? 'waiting' : $row->date_started; ?></td>
       <td><?php echo empty($row->date_ended) ? 'waiting' : $row->date_ended; ?></td>
+      <td><?php echo empty($ratingCheck) ? 'not yet' : $ratingWord; ?></td>
       <td><a href="<?php echo base_url() . 'ConsigneeController/billing/' . $row->transaction_id  .'/' . $row->transaction_number; ?>" class="btn btn-info">View Billing</a></td>
-      <td><a href="#" onclick="viewStatus('<?php echo $row->transaction_status ?>', '<?php echo $row->destination; ?>', '<?php echo $row->origin; ?>', '<?php echo $row->time_of_departure; ?>', '<?php echo $row->time_of_arrival; ?>')" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+      <td><a href="#" onclick="viewStatus('<?php echo $row->transaction_status ?>', '<?php echo $row->destination; ?>', '<?php echo $row->origin; ?>', '<?php echo $row->time_of_departure; ?>', '<?php echo $row->time_of_arrival;?> ', ' <?php echo $row->transaction_type;?> ','<?php echo $row->transaction_id;?>')" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
   View
 </a>
-        <?php if($row->transaction_status == 'done'){ ?>
-          <a href="#" onclick="rate('<?php echo $row->transaction_id ?>', '<?php echo $row->transaction_number ?>', '<?php echo $row->first_name ?>', '<?php echo $row->last_name ?>')" class="btn btn-success" >
+        <?php if($row->transaction_status == 'delivered'){ 
+          if(empty($ratingCheck)){
+          ?>
+          <a href="#" onclick="rate('<?php echo $row->transaction_id ?>', '<?php echo $row->transaction_number ?>', '<?php echo $row->first_name ?>', '<?php echo $row->last_name ?>', ' <?php echo $row->transaction_type;?>')" class="btn btn-success" >
    Rate
 </a>
-        <?php } ?>
+        <?php }else{ ?>
+          <!-- <a href="#" onclick="rate('<?php echo $row->transaction_id ?>', '<?php echo $row->transaction_number ?>', '<?php echo $row->first_name ?>', '<?php echo $row->last_name ?>', ' <?php echo $row->transaction_type;?>')" class="btn btn-success" >
+   View my rating
+</a> -->
+
+    <?php    }} ?>
       </td>
     </tr>
     <?php endforeach; ?> 
    
   </tbody>
 </table>
+</div>
 </div>

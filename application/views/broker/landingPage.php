@@ -1,4 +1,7 @@
 
+  
+
+  
     <br><br>
     <?php if($this->session->flashdata('success')){ ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -15,8 +18,21 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
+
+
+                
+
+
+            
             <?php } ?>
-    <table class="table table-hover " id="example">
+            
+            
+            <h2 class="text-dark" style="text-align:center;"> Active Transactions </h2>
+            <hr>
+            
+            <br>
+            <br>
+    <table class="table table-hover table-striped  table-light" id="example">
           <thead>
             <tr>
              <th >Transaction Number</th>
@@ -24,9 +40,9 @@
               <th>Processor Name</th>
               <th>Status</th>
               <th>Transaction Type</th>
-              <th>Bureau</th>
-              <th>Packing</th>
-               <th>Commercial</th>
+              <th>Bureau of Customs Registration</th>
+              <th>Packing List</th>
+               <th>Commercial Invoice</th>
                <th>Bill of Lading</th>
               <!-- <th scope="col" span="3">Files</th> -->
       
@@ -46,10 +62,10 @@
           ?>
             <tr>
               <td scope="row"><?php echo $row->transaction_number;?></td>
-              <td><?php echo $row->first_name . ' ' . $row->last_name;?></td>
+              <td><?php echo ucfirst($row->first_name) . ' ' . ucfirst($row->last_name);?></td>
               <td><?php echo  empty($processor->first_name) ? 'waiting' : $processor->first_name . ' ' . $processor->last_name; ?></td>
-              <td><?php echo $row->transaction_status;?></td>
-              <td><?php echo $row->transaction_type;?></td>
+              <td><?php echo ucfirst($row->transaction_status)?></td>
+              <td><?php echo ucfirst($row->transaction_type);?></td>
             <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank"><?php echo $row->bureau; ?></a></td>
             <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank"><?php echo $row->packing; ?></a></td>
             <td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank"><?php echo $row->commercial; ?></a></td>
@@ -65,7 +81,7 @@
            <a href="<?php echo base_url() . 'BrokerController/acceptTransaction/' . $row->transaction_id . '/' . $row->consignee_id . '/' . $row->transaction_number; ?>" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-success">Accept</a>
             <a href="#" onclick="declineTransaction('<?php echo  $row->transaction_id; ?>', '<?php echo  $row->consignee_id; ?>', '<?php echo  $row->transaction_number; ?>')"    class="btn btn-sm btn-danger text-white">Decline</a>
           <?php }else{ ?>
-            <a href="#" onclick="changeStatus('<?php echo  $row->transaction_id; ?>', '<?php echo  $row->consignee_id; ?>', '<?php echo  $row->transaction_number; ?>')" class="btn btn-sm btn-info text-white">Change Status</a>
+            <a href="#" onclick="changeStatus('<?php echo  $row->transaction_id; ?>', '<?php echo  $row->consignee_id; ?>', '<?php echo  $row->transaction_number; ?>', '<?php echo  $row->status; ?>')" class="btn btn-sm btn-info text-white">Change Status</a>
           <?php } ?>
           </td>
             </tr>
@@ -73,13 +89,17 @@
           </tbody>
         </table>
 
+     
 
 <form method="post" action="<?php echo base_url('BrokerController/changeStatus');  ?>">
+
 		<div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Change Status</h5>
+			
+        <h5 class="modal-title text-dark"> Change status </h5>
+        <input type="text" class="form-control" id="transaction_numbers" readonly>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button>
@@ -90,31 +110,25 @@
 			<input type="hidden" value="" name="transaction_id" id="transaction"> 
 			<input type="hidden" value="" name="consignee_id" id="consignee"> 
 			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
-        <option value="item is in Cebu International Port. (CIP)">Item is in Cebu International Port. (CIP)</option>
-        <option value="client has been informed.">Inform Client</option>
-				<option value="documentation">Documents have been submitted to the Bureau of the Customs.</option>
-				<option value="processing (Entry Processing unit number)">Processing (Entry Processing unit number) </option>
-        <option value="processing (Examiner)">Processing (Examiner) </option>
-        <option value="processing (Appraiser)">Processing (Appraiser) </option>
-        <option value="processing (Chief Division)">Processing (Chief Division) </option>
-        <option value="processing (Payments of customs TAX)">Processing (Payments of customs TAX) </option>
-        <option value="processing (Final assestment Notice)">Processing (Final assestment Notice) </option>
-        <option value="processing (Duties and Taxes paid)">Processing (Duties and Taxes paid) </option>
-				<option value="releasing">Releasing</option>
-				<option value="delivering">Delivering</option>
-        <option value="arrived">Arrived</option>
-				<option value="done">Done</option>
+            <option value="documentation">1. Documentation</option>
+            <option value="submission of entry">2. Submission of Entry </option>
+            <option value="assessment division">3. Assessment Division </option>
+            <option value="cash division">4. Cash Division</option>
+             <option value="releasing">5. Releasing</option>
+            <option value="delivering">6. Delivering</option>
+            <option value="delivered">7. Delivered</option>
+            <!-- <option value="done">Done</option> -->
 			</select>
       
 			</div>
-      <div style="display: none" class="destination_select">
+      <div style="<?php ?>" class="destination_select">
       <div class="form-group">
-      <label>Destination</label>
+      <label class="text-dark">Destination</label>
       <input type="text" class="form-control" name="destination">
       </div>
       
       <div class="form-group">
-      <label>Origin</label>
+      <label class="text-dark">Origin</label>
       <input type="text" class="form-control" name="origin">
       </div>
 
@@ -128,6 +142,8 @@
 		</div>
 		</div>
 </form> 
+
+
 
 <form method="post" action="<?php echo base_url('BrokerController/declineTransaction');  ?>">
 		<div class="modal fade" id="declineModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -154,6 +170,8 @@
 			</div>
 		</div>
 		</div>
+    
+  
 		</form>
 
     <style>
@@ -164,7 +182,7 @@
     </style>
     <script>
       function statusOnChange(){
-          if($("#statusChange").val() == "delivering"){
+          if($("#statusChange").val() == "documentation"){
               $(".destination_select").css("display", "block");
           }else{
             $(".destination_select").css("display", "none");

@@ -56,6 +56,14 @@ class ConsigneeController extends CI_Controller {
     }
 
     public function rate_transaction(){
+
+        if($this->input->post('rating_number') == ''){
+            echo '<script>alert("Please Select rating")
+            history.back()
+          </script>';
+          exit;
+        }
+        
         $data = array(
             'user_fk_ID' => $this->conId,
             'transaction_id' => $this->input->post('transaction_id'),

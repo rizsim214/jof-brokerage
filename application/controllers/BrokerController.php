@@ -15,13 +15,28 @@ class BrokerController extends CI_Controller {
 
     public function index(){
         $this->dynamic_view();
+       
     }
 
+    
+
      public function dynamic_view($page = 'landingPage'){
+
+
+        $this->load->model('AdminModel');
+        $this->load->model('BrokerModel');
+
        if(!file_exists(APPPATH.'views/broker/'.$page.'.php')){
 			show_404();
 		}else{
-            $data['transactions'] = $this->AdminModel->getAllTransactions();
+          //  $data['transactions'] = $this->AdminModel->getAllTransaction();
+
+          $data['transactions'] = $this->BrokerModel->getMineActive();
+        
+
+    
+
+            
 
             if($this->session->userdata('success')){
                 $data['success'] = $this->session->userdata('success');
@@ -47,6 +62,7 @@ class BrokerController extends CI_Controller {
         );
         
         $consignee = $this->AdminModel->getUser($consignee_id);
+
        
       
         $ch = curl_init();
@@ -58,6 +74,7 @@ class BrokerController extends CI_Controller {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_exec ($ch);
         curl_close ($ch);
+
             
      
         $result = $this->AdminModel->updateTransaction($id, $data);
@@ -103,11 +120,14 @@ class BrokerController extends CI_Controller {
     public function changeStatus(){
 
         $data = array(
-           'status' => $this->input->post('status')
+           'status' => $this->input->post('status'),
+           
            
        );
 
-       if($this->input->post('status') == 'done'){
+      
+
+       if($this->input->post('status') == 'delivered'){
         $data += array(
             'date_ended' => date('Y-m-d H:i:s')
         );
@@ -121,7 +141,7 @@ class BrokerController extends CI_Controller {
         );
        }
 
-       if($this->input->post('status') == "arrived"){
+       if($this->input->post('status') == "delivered"){
         $data = array(
             'status' => $this->input->post('status'),
             'time_of_arrival' => date("Y-m-d H:i:s")
@@ -130,8 +150,8 @@ class BrokerController extends CI_Controller {
        $consignee = $this->AdminModel->getUser($this->input->post('consignee_id'));
        $cons = $this->AdminModel->getUser($this->input->post('first_name'));
        $ch = curl_init();
-
-       $itexmo = array('1' => $consignee->contact_info, '2' => "Hello ". ucfirst($consignee->first_name) ." ". ucfirst($consignee->last_name) ."! Your Transcation ".$this->input->post('transaction_number')." status is '". ucfirst($this->input->post('status')) ."' Please check your account." , '3' => "ST-LUKEK646498_3PAKR", 'passwd' => "vstrq{8y64");
+       
+       $itexmo = array('1' => $consignee->contact_info, '2' => "Hello ". ucfirst($consignee->first_name) ." ". ucfirst($consignee->last_name) ."! Your Transcation ".$this->input->post('transaction_number') ." status is '". ucfirst($this->input->post('status')) ."' Please check your account." , '3' => "ST-LUKEK646498_3PAKR", 'passwd' => "vstrq{8y64");
        curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
        curl_setopt($ch, CURLOPT_POST, 1);
        curl_setopt($ch, CURLOPT_POSTFIELDS, 
@@ -139,6 +159,12 @@ class BrokerController extends CI_Controller {
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
        curl_exec ($ch);
        curl_close ($ch);
+
+
+    
+
+
+       
 
        $result = $this->AdminModel->updateTransaction($this->input->post('transaction_id'), $data);
        
@@ -149,7 +175,11 @@ class BrokerController extends CI_Controller {
        }
 
        redirect('BrokerController/index');
-   }
+
+   }         
+
+
+      
 
    public function bill($id, $transaction_number, $first_name, $last_name){
     $data['transaction_id'] = $id;
@@ -174,9 +204,7 @@ class BrokerController extends CI_Controller {
          $this->load->model('BrokerModel');
          $this->load->model('AdminModel');
 
-        //  $this->form_validation->set_error_delimiters('<div class="alert alert-danger">Error: ','</div>');
-        //  $this->form_validation->set_rules('firstname', 'First Name', 'required');
-        //  $this->form_validation->set_rules('lastname', 'Last Name', 'required');
+     
         
         if($this->input->post()){
             if(!empty($this->input->post('password')) && !empty($this->input->post('confirm'))){
@@ -359,11 +387,6 @@ class BrokerController extends CI_Controller {
   
               }
 
-
-
-
-
-
               if($this->session->userRole == 2) {
                 $this->load->view('broker/includes/header');
     
@@ -385,6 +408,76 @@ class BrokerController extends CI_Controller {
             
 
         }
+
+        public function repLog(){
+
+
+          //  echo "sadkasdlasd";
+          
+          $page ="reportPage";
+          //  print_r($data);
+
+            if(!file_exists(APPPATH.'views/broker/'.$page.'.php')){
+                show_404();
+
+            }
+              $this->load->model('BrokerModel');
+              $this->load->model('AdminModel');
+
+              $data['title'] = "Reports";
+              $data['reps'] = $this->BrokerModel->get_done();
+
+              
+              $data_results = array(
+                
+                'done' => $this->BrokerModel->get_done(),
+                
+            
+              );
+            
+        
+
+            $this->load->view('broker/includes/header');
+            $this->load->view('broker/'.$page, $data_results);
+            $this->load->view('includes/footer');
+
+        }
+
+        public function clientRep($var){
+
+
+
+        $page ="client_rep";
+          //  print_r($data);
+
+            if(!file_exists(APPPATH.'views/broker/'.$page.'.php')){
+                show_404();
+
+            }
+            $this->load->model('BrokerModel');
+              $this->load->model('AdminModel');
+
+            $data = array(
+                
+                'broker' => $this->BrokerModel->get_mine($var),
+                'wow' => "title"
+                
+            
+              );
+
+            //   var_dump($data);
+            //   exit;
+
+                
+            $this->load->view('broker/includes/header');
+            $this->load->view('broker/'.$page, $data,$var);
+            $this->load->view('includes/footer');
+
+
+        }
+
+
+        
 
 
 }

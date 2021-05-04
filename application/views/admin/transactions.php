@@ -4,42 +4,41 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Change Status</h5>
+			<h5 class="modal-title text-dark"> Change status </h5>
+			<input type="text" class="form-control" id="transaction_numbers" readonly>
+				
+				<!-- <input type="text" class="form-control" id="transaction_number" readonly> -->
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
 			<div class="form-group">
-			<input type="hidden" value="" name="transaction_number" id="transaction_number"> 
+			
+       
 			<input type="hidden" value="" name="transaction_id" id="transaction"> 
 			<input type="hidden" value="" name="consignee_id" id="consignee"> 
 			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
-			<option value="item is in Cebu International Port. (CIP)">Item is in Cebu International Port. (CIP)</option>
-			<option value="client has been informed.">Inform Client</option>
-				<option value="documentation">Documents have been submitted to the Bureau of the Customs.</option>
-				<option value="processing (Entry Processing unit number)">Processing (Entry Processing unit number) </option>
-				<option value="processing (Examiner)">Processing (Examiner) </option>
-				<option value="processing (Appraiser)">Processing (Appraiser) </option>
-				<option value="processing (Chief Division)">Processing (Chief Division) </option>
-				<option value="processing (Payments of customs TAX)">Processing (Payments of customs TAX) </option>
-				<option value="processing (Final assestment Notice)">Processing (Final assestment Notice) </option>
-				<option value="processing (Duties and Taxes paid)">Processing (Duties and Taxes paid) </option>
-				<option value="releasing">Releasing</option>
-				<option value="delivering">Delivering</option>
-        <option value="arrived">Arrived</option>
-				<option value="done">Done</option>
+	
+				<option value="documentation">1.Documentation</option>
+            <option value="submission of entry">2.Submission of Entry </option>
+            <option value="assessment division">3. Assessment Division </option>
+            <option value="cash division">4. Cash Division</option>
+             <option value="releasing">5. Releasing</option>
+            <option value="delivering">6.Delivering</option>
+            <option value="arrived">7. Delivered</option>
+            <!-- <option value="done">Done</option> -->
 			</select>
       
 			</div>
       <div style="display: none" class="destination_select">
       <div class="form-group">
-      <label>Destination</label>
+      <label class="text-dark">Destination</label>
       <input type="text" class="form-control" name="destination">
       </div>
       
       <div class="form-group">
-      <label>Origin</label>
+      <label class="text-dark">Origin</label>
       <input type="text" class="form-control" name="origin">
       </div>
 
@@ -115,7 +114,7 @@
 								<td><?php echo $row->first_name . ' ' . $row->last_name;?></td>
 								<td><?php echo  empty($processor->first_name) ? 'waiting' : $processor->first_name . ' ' . $processor->last_name; ?></td>
 								<td><?php echo $row->transaction_status;?></td>
-								<td><?php echo $row->transaction_type;?></td>
+								<td><?php echo ucfirst($row->transaction_type);?></td>
 								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank"><?php echo $row->bureau; ?></a></td>
 								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank"><?php echo $row->packing; ?></a></td>
 								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank"><?php echo $row->commercial; ?></a></td>
@@ -149,7 +148,7 @@
 </style>
 <script>
       function statusOnChange(){
-          if($("#statusChange").val() == "delivering"){
+          if($("#statusChange").val() == "documentation"){
               $(".destination_select").css("display", "block");
           }else{
             $(".destination_select").css("display", "none");

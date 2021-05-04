@@ -119,4 +119,35 @@ class AccountingController extends CI_Controller {
     
         redirect('AccountingController/dynamic_view');
     }
+    public function uploadFile(){
+        $config['upload_path'] =  './assets/uploads/files';
+      
+        $config['allowed_types'] = 'jpg|jpeg|png|docs|pdf|docx|doc';
+
+        $this->load->library('upload', $config);
+        
+        $rand = date('Y-m-d H:i:s');
+        $rand = preg_replace("/[^0-9]/", "", $rand);
+
+        if (!empty($_FILES['billingfile']['name'])){
+          
+            $result = $this->upload->do_upload('billingfile');
+         
+             $data = array(
+                'billing_file'  => $_FILES['billingfile']['name'],
+                );
+
+                $resultUpdate = $this->AdminModel->updateTransaction($this->input->post('transaction_id'),$data);
+
+                if($resultUpdate){
+                    $this->session->set_flashdata('success', 'Billing file uploaded successfully');
+                }else{
+                    $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+                }
+            
+                redirect('AccountingController/dynamic_view');
+        }
+
+
+    }
 }
