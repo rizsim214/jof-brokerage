@@ -31,7 +31,7 @@
 			</select>
       
 			</div>
-      <div style="display: none" class="destination_select">
+      <div class="destination_select">
       <div class="form-group">
       <label class="text-dark">Destination</label>
       <input type="text" class="form-control" name="destination">
@@ -80,11 +80,62 @@
 		</div>
 		</form>
 
+
+		<form method="post" action="<?php echo base_url('AdminController/assignTransaction');  ?>">
+		<div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Assign Broker</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+			<div class="form-group">
+			<input type="hidden" id="transaction_id1" name="transaction_id">
+			   	<select name="broker" class="form-control">
+				   		<?php 
+							foreach($brokers as $row){
+						   ?>
+				   		<option value="<?php echo $row->user_ID; ?>"><?php echo $row->first_name . ' ' . $row->last_name; ?></option>
+						   <?php 
+							}
+						   ?>
+				   </select>
+			</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary">Save changes</button>
+			</div>
+			</div>
+		</div>
+		</div>
+		</form>
+						
+	
+
 				<table class="table table-bordered table-hover text-center" id="example">
 				  <thead class="table-primary">
 				 
 				  	<h1 class="text-center mb-2">Company Transactions</h1>
-				  
+				  	<?php if($this->session->flashdata('success')){ ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?php echo $this->session->flashdata('success'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <?php } ?>
+            <?php if($this->session->flashdata('error')){ ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?php echo $this->session->flashdata('error'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <?php } ?>
 					  <tr>
 						<th >Transaction Number</th>
 						<th>Consignee Name</th>
@@ -112,7 +163,12 @@
 							<tr>
 								<td scope="row"><?php echo $row->transaction_number;?></td>
 								<td><?php echo $row->first_name . ' ' . $row->last_name;?></td>
-								<td><?php echo  empty($processor->first_name) ? 'waiting' : $processor->first_name . ' ' . $processor->last_name; ?></td>
+
+								<?php if(empty($processor->first_name)){ ?>
+								<td>	<a href="#" onclick="asssignModal('<?php echo  $row->transaction_id; ?>')"    class="btn btn-sm btn-success text-white">Assign</a></td>
+								<?php }else{ ?>
+									<td><?php echo  $processor->first_name . ' ' . $processor->last_name; ?></td>
+									<?php } ?>
 								<td><?php echo $row->transaction_status;?></td>
 								<td><?php echo ucfirst($row->transaction_type);?></td>
 								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank"><?php echo $row->bureau; ?></a></td>
@@ -154,4 +210,9 @@
             $(".destination_select").css("display", "none");
           }
       }
+
+	  function asssignModal(id){
+			$('#transaction_id1').val(id);
+			$('#assignModal').modal('show');
+	  }
     </script>

@@ -58,8 +58,11 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
 } );
 	
 	function changeStatus(transaction_id, consignee_id, transaction_number, status, transaction_type){
+    if(status != 'accepted' && status != 'declined'){
+      $('#statusChange').val(status);
+    }
 
-    if(status == "accepted"){
+    if(status == "documentation"){
       $(".destination_select").css("display", "block");
     }else{
       $(".destination_select").css("display", "none");

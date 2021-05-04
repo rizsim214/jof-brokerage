@@ -113,7 +113,7 @@ class BrokerModel extends CI_Model{
         public function getMineActive(){
 
             $this->db->select('*,transaction.status as transaction_status');
-            //$this->db->where('processor_id', $this->session->user_ID);
+            $this->db->where('processor_id', $this->session->user_ID);
             $this->db->where('status !=','delivered' );
             $this->db->from('transaction');
             $this->db->join('users_table', 'transaction.consignee_id = users_table.user_ID');

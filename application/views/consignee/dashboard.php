@@ -30,13 +30,23 @@
         </button>
       </div>
       <div class="modal-body">
-          <h4> Bureau of Custom</h4>
+          <h4 class="text-dark"> Bureau of Customs Registration</h4>
+          <p class="text-dark"> This document is a proof of Registration to the Bureau of Customs. </p>
         <input type="file"  name="bureau" id="import" required>
-        <h4> Packing List</h4>
+        <br>
+        <br>
+        <h4 class="text-dark"> Packing List</h4>
+        <p class="text-dark"> This document provides information about the shipment, including how it's packed. </p>
         <input type="file"  name="packing" id="import" required>
-        <h4> Bill of Lading</h4>
+        <br>
+        <br>
+        <h4 class="text-dark"> Bill of Lading</h4>
+        <p class="text-dark"> This document provides evidence of shipment, and this will serve as a 'Title' to the owner of the cargo </p>
         <input type="file"  name="bill" id="import" required>
-        <h4> Commercial Invoice</h4>
+        <br>
+        <br>
+        <h4 class="text-dark"> Commercial Invoice</h4>
+        <p class="text-dark"> This document is a proof of Registration to the Bureau of Customs. </p>
         <input type="file"  name="commercial" id="import" required>
 
         <br>
@@ -102,31 +112,31 @@
       <div class="form-check">
   <input class="form-check-input" type="radio" value="1" required name="rating_number" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1" style="color: black">
-  1 - Very Unsatisfied
+  1 - Very Poor
   </label>
 </div>
 <div class="form-check">
   <input class="form-check-input" type="radio" value="2" required name="rating_number" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1" style="color: black">
-   2 - Unsatisfied
+   2 - Poor
   </label>
 </div>
 <div class="form-check">
   <input class="form-check-input" type="radio" value="3" required name="rating_number" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1" style="color: black">
-  3 -  Neutral
+  3 -  Fair
   </label>
 </div>
 <div class="form-check">
   <input class="form-check-input" type="radio" value="4" required name="rating_number" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1" style="color: black">
-  4 - satisfied
+  4 - Good
   </label>
 </div>
 <div class="form-check">
   <input class="form-check-input" type="radio" value="5" required name="rating_number" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1" style="color: black">
- 5 - Very Satisfied
+ 5 -Excellent
   </label>
 </div>
 <br>
@@ -156,11 +166,18 @@
         </button>
       </div>
       <div class="modal-body">
-         <h4> Bureau of Custom</h4>
+         <h4 class="text-dark"> Bureau of Custom Registration</h4>
+         <p class="text-dark"> This document is a proof of Registration to the Bureau of Customs. </p>
          <input type="file"  name="bureau"  id="export"  required>
-         <h4> Packing List</h4>
+         <br>
+         <br>
+         <h4 class="text-dark"> Packing List</h4>
+         <p class="text-dark"> This document provides information about the shipment, including how it's packed. </p>
         <input type="file"  name="packing" id="import" required>
-        <h4> Commercial Invoice</h4>
+        <br>
+         <br>
+        <h4 class="text-dark"> Commercial Invoice</h4>
+        <p class="text-dark"> A legal document that provides evidence of the sold goods between the buyer and seller.</p>
         <input type="file"  name="commercial" id="import" required>
 
         <br>
@@ -203,18 +220,18 @@
             $ratingWord = '';
             if(!empty($ratingCheck)){
               if($ratingCheck->rating == 1){
-                $ratingWord = 'Very Unsatisfied';
+                $ratingWord = 'Very Poor';
               }else if($ratingCheck->rating == 2){
-                $ratingWord = 'Unsatisfied';
+                $ratingWord = 'Poor';
               }
               else if($ratingCheck->rating == 3){
-                $ratingWord = 'Neutral';
+                $ratingWord = 'Fair';
               }
               else if($ratingCheck->rating == 4){
-                $ratingWord = 'Satisfied';
+                $ratingWord = 'Good';
               }
               else if($ratingCheck->rating == 5){
-                $ratingWord = 'Very Satisfied';
+                $ratingWord = 'Excellent';
               }
             }
             ?>

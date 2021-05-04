@@ -34,10 +34,6 @@ class BrokerController extends CI_Controller {
           $data['transactions'] = $this->BrokerModel->getMineActive();
         
 
-    
-
-            
-
             if($this->session->userdata('success')){
                 $data['success'] = $this->session->userdata('success');
             }

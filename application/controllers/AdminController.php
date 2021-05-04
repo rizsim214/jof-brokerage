@@ -190,6 +190,25 @@ class AdminController extends CI_Controller {
     redirect('AdminController/dynamic_view/transactions');
 }
 
+public function assignTransaction(){
+        
+    $data = array(
+        'processor_id' => $this->input->post('broker')
+    );
+
+  
+    $result = $this->AdminModel->updateTransaction($this->input->post('transaction_id'), $data);
+    
+    if($result){
+        $this->session->set_flashdata('success', 'Broker Assignment successful');
+    }else{
+        $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+    }
+
+    redirect('AdminController/dynamic_view/transactions');
+}
+
+
    public function acceptTransaction($id, $consignee_id,$transcation_number){
       
     $data = array(
@@ -234,7 +253,7 @@ class AdminController extends CI_Controller {
                 
                 'transactions' => $this->AdminModel->getAllTransaction(),
                 
-               
+                'brokers' => $this->AdminModel->getAllbroker(),
                 'response' => $this->AdminModel->getAllAppointment(),
                 'billing_form' => $this->AdminModel->getBillingItems(),
                 'predef_questions' => $this->AdminModel->getAllContactQuestions(),

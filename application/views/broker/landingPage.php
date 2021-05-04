@@ -110,6 +110,7 @@
 			<input type="hidden" value="" name="transaction_id" id="transaction"> 
 			<input type="hidden" value="" name="consignee_id" id="consignee"> 
 			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
+      <option value="" >Choose status</option>
             <option value="documentation">1. Documentation</option>
             <option value="submission of entry">2. Submission of Entry </option>
             <option value="assessment division">3. Assessment Division </option>
@@ -124,12 +125,12 @@
       <div style="<?php ?>" class="destination_select">
       <div class="form-group">
       <label class="text-dark">Destination</label>
-      <input type="text" class="form-control" name="destination">
+      <input type="text" class="form-control" name="destination" id="destination" required>
       </div>
       
       <div class="form-group">
       <label class="text-dark">Origin</label>
-      <input type="text" class="form-control" name="origin">
+      <input type="text" class="form-control" name="origin" id="origin" required>
       </div>
 
       </div>
@@ -181,11 +182,16 @@
     }
     </style>
     <script>
+  
       function statusOnChange(){
           if($("#statusChange").val() == "documentation"){
               $(".destination_select").css("display", "block");
+              $("#destination").prop('required', true);
+            $("#origin").prop('required', true);
           }else{
             $(".destination_select").css("display", "none");
+            $("#destination").prop('required', false);
+            $("#origin").prop('required', false);
           }
       }
     </script>

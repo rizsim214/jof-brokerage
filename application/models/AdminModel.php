@@ -278,6 +278,18 @@ class AdminModel extends CI_Model{
         return $result->result();
 
     }
+
+    public function getAllbroker(){
+        $this->db->select('*');
+        $this->db->from('users_table');
+        $this->db->where('user_role', 2);
+        $this->db->where('active_status', 'active');
+        $result = $this->db->get();
+
+        return $result->result();
+
+    }
+
      public function countAllTransaction(){
 
         $result= $this->db->get('transaction');
