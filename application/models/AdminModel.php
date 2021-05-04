@@ -147,16 +147,6 @@ class AdminModel extends CI_Model{
         }
     }
       
-    public function getBillingItems(){
-
-        $this->db->select('*');
-        $this->db->from('billing_items');
-
-        $result = $this->db->get();
-
-        return $result->result();
-
-    }
     
     //GETTING ALL TRANSACTIONS
     public function getAllTransaction(){
@@ -173,6 +163,28 @@ class AdminModel extends CI_Model{
         }else{
             return $query->result();
         }
+    }
+    public function getBillingItems(){
+        $this->db->select('*');
+        $this->db->from('billing_items');
+        $result = $this->db->get();
+
+        if(!$result){
+            return NULL;
+        }else{
+            return $result->result();
+        }
+    }
+
+    public function insert_billing_item($data){
+        $result = $this->db->insert('billing_items' , $data);
+
+        if(!$result){
+            return NULL;
+        }else{
+            return $result;
+        }
+
     }
     public function get_this_transaction($id){
         $this->db->select('* , transaction.status as transaction_status');
@@ -203,7 +215,31 @@ class AdminModel extends CI_Model{
         $result = $this->db->update('transaction');
         return $result;
     }
+    public function get_billing_data($id){
+        $this->db->select('*');
+        $this->db->from('billing_items');
+        $this->db->where('billing_items_id' , $id);
+        $result = $this->db->get();
 
+        if(!$result){
+            return NULL;
+        }else{
+            return $result->result();
+        }
+    }
+    public function post_this_billing($id, $data){
+        $this->db->select('*');
+        $this->db->from('billing_items');
+        $this->db->where('billing_items_id' , $id);
+        $this->db->update('billing_items',$data);
+        $result = $this->db->affected_rows();
+
+        if(!$result){
+            return NULL;
+        }else{
+            return $result;
+        }
+    }
     public function insertBilling($data){
         $this->db->insert('transaction_billing' , $data);
         $insert_id = $this->db->insert_id();

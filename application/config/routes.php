@@ -111,6 +111,11 @@ $route['accept_registration/(:num)'] = 'AdminController/accept_account/$1';
 $route['decline/(:num)'] = 'AdminController/decline_account/$1'; 
 $route['update_this_account/(:num)'] = 'AdminController/update_this_account/$1'; 
 $route['create_question'] = 'AdminController/create_question';
+$route['accounting_form'] = 'AdminController/dynamic_view/view_bill_form';
+$route['add_billing_item'] = 'AdminController/add_billing_item';
+$route['view_this_bill/(:num)'] = 'AdminController/view_this_bill/$1';
+$route['update_this_bill/(:num)'] = 'AdminController/update_this_bill/$1';
+$route['delete_billing_item/(:num)'] = 'AdminController/delete_billing_item/$1';
 $route['terms'] = 'MainController/openTerms';
 
 // BROKER PAGE ROUTES

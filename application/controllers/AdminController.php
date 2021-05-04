@@ -226,6 +226,7 @@ class AdminController extends CI_Controller {
                 
                
                 'response' => $this->AdminModel->getAllAppointment(),
+                'billing_form' => $this->AdminModel->getBillingItems(),
                 'predef_questions' => $this->AdminModel->getAllContactQuestions(),
                 'count_transactions' => $this->AdminModel->countAllTransaction(),
                 'count_messages' => $this->AdminModel->countAllAppointments(),
@@ -258,7 +259,87 @@ class AdminController extends CI_Controller {
             
         }
     }
+    public function view_this_bill($id){
+       
+            $form_data['this_billing'] = $this->AdminModel->get_billing_data($id);
+            //  var_dump($form_data);die();
+            if(!$form_data){
+                $this->session->set_flashdata('error' , 'Unable to get billing items information from the database... Please try again!!');
+                redirect('accounting_form');
+            }else{
+                 $this->load->view('admin/includes/login_header');
+                 $this->load->view('admin/update_bill_form' ,$form_data);
+                 $this->load->view('includes/footer');
+            }
+          
+        
+    }
+    public function update_this_bill($id){
+        if(!$this->input->post()){
+            $this->session->set_flashdata('error' , 'Unable to successfully update this billing information... Please try again!!');
+            redirect('accounting_form');
+        }else{
+            $data = array(
+                'name'  => $this->input->post('billing_form_name'),
+                'description'  => $this->input->post('billing_form_desc'),
+                'gl_account'  => $this->input->post('billing_form_account'),
+                'unit_price'  => $this->input->post('billing_form_price'),
+                'billing_tax'  => $this->input->post('billing_form_tax')/100,
+                'date_updated' => date('Y-m-s H:i:s')
+            );
+            
+           $result = $this->AdminModel->post_this_billing($id, $data);
 
+           if(!$result){
+                $this->session->set_flashdata('error' , 'Unsuccessful Update of billing items information... Please try again!!');
+                
+           }else{
+                $this->session->set_flashdata('success' , 'Successful Update of billing items information... ');
+           }
+           redirect('accounting_form');
+        }
+    }
+    public function verify_billing_item(){
+                $this->form_validation->set_rules('billingItem' , 'Billing Item' , 'trim|required');
+                $this->form_validation->set_rules('billingDesc' , 'Billing Description' , 'trim|required');
+                $this->form_validation->set_rules('gl_account' , 'Billing GL Account' , 'trim|required');
+                $this->form_validation->set_rules('unit_price' , 'Billing Unit Price' , 'trim|required');
+                $this->form_validation->set_rules('unit_tax' , 'Billing Unit Tax' , 'trim|required');
+    }
+    public function add_billing_item(){
+        if(!$this->input->post()){
+            $this->session->set_flashdata('error' , 'An error has occured while updating your billing items... Please try again!!');
+            redirect('accounting_form');
+        }else{
+
+            $this->verify_billing_item();
+
+            if(!$this->form_validation->run() == TRUE){
+                $this->session->set_flashdata('error' , 'Something went wrong while validating your update request... Some input fields were not filled.');
+                redirect('accounting_form');
+            }else{
+                $billing_data = array(
+                    'name' => $this->input->post('billingItem'),
+                    'description' => $this->input->post('billingDesc'),
+                    'gl_account' => $this->input->post('gl_account'),
+                    'unit_price' => $this->input->post('unit_price'),
+                    'billing_tax' => $this->input->post('unit_tax'),
+                    'date_created' => date('Y-m-s H:i:s')
+                );
+                $result = $this->AdminModel->insert_billing_item($billing_data);
+                    if(!$result){
+                        $this->session->set_flashdata('error' , 'Unable to insert billing item... Please try again!!!');
+                        
+                    }else{
+                          $this->session->set_flashdata('success' , 'Successfully inserted billing item... ');
+                          
+                    }
+                redirect('accounting_form');
+            }
+             
+        }
+       
+    }
     public function client_accounts(){
         $data['clients'] =$this->AdminModel->getAllClients();
 
@@ -318,6 +399,7 @@ class AdminController extends CI_Controller {
                     'user_pass' => md5($this->input->post('password')),
                     'contact_info' => $this->input->post('contact'),
                     'user_role' => $this->input->post('user_role'),
+                    'active_status' => "active",
                     'register_status' => "accepted",
                     'date_registered' => date('Y-m-d H:m:s')
                     );

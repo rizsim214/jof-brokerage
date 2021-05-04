@@ -98,7 +98,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <a href="<?php echo base_url();?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">UPDATE LOGS</a>
                         </div>    
                   </div> 
-                  
+                  <div class="row">
+                    <div class="container mx-auto my-2">
+                            <a href="<?php echo base_url('accounting_form');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">ACCOUNTING FORM</a>
+                            <!-- <a href="<?php echo base_url();?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">UPDATE LOGS</a> -->
+                        </div>    
+                  </div>
              </div>
              <div class="modal-footer mx-auto">
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

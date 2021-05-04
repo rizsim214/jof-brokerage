@@ -93,13 +93,13 @@
                  ?>
                 <tr>
                 <input type="hidden" name="billing_item_id[]" value="<?php echo $row->billing_items_id; ?>">
-                    <td width="10"><input type="text" id="quantity<?php echo $counter; ?>" value="<?php echo $rowResult['quantity'] ?>" class="form-control" oninput="compute('<?php echo $counter; ?>')" name="quantity[]"></td>
+                    <td width="10"><input type="text" id="quantity<?php echo $counter; ?>"  value="<?php echo !empty($rowResult['quantity']) ? $rowResult['quantity'] : ''; ?>" class="form-control" oninput="compute('<?php echo $counter; ?>')" name="quantity[]"></td>
                     <td><?php echo $row->name; ?></td>
                     <td><?php echo $row->description; ?></td>
                     <td><?php echo $row->gl_account; ?></td>
                     <td id="price<?php echo $counter; ?>">₱ <?php echo number_format($row->unit_price, 2); ?></td>
-                    <td width="10"><input type="number" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>')" value="<?php echo $rowResult['tax'] ?>" name="tax[]" class="form-control"></td>
-                    <td width="10"><input type="text" value="<?php echo $rowResult['amount'] ?>" id="amount<?php echo $counter ?>" class="form-control" name="amount[]" readonly></td>
+                    <td width="10"><input type="number" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>')" value="<?php echo !empty($rowResult['tax']) ? $rowResult['tax'] : ''; ?>" name="tax[]" class="form-control"></td>
+                    <td width="10"><input type="text"  value="<?php echo !empty($rowResult['amount']) ? $rowResult['amount'] : ''; ?>" id="amount<?php echo $counter ?>" class="form-control" name="amount[]" readonly></td>
                 </tr>
             <?php 
         $counter++;
