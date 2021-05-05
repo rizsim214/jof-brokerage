@@ -13,7 +13,8 @@
 
 <br>
 
-<h2 class="text-dark 5"> List of Transactions handled by: <?= $this->session->fullname; ?> </h2>
+
+<h2 class="text-dark 5"> List of Transactions handled by: <?php echo ucfirst($this->session->user_this).' '. ucfirst($this->session->user_that); ?> </h2>
 <hr>
 <table id="exampleMine" class="table table-striped table-bordered table-light" style="width:100%">
         <thead>
@@ -37,7 +38,7 @@
                                     <tr>
                                     <td><?php echo $row->transaction_number; ?></td>
                                     <td><?php echo ucfirst($row->first_name) . ' ' . ucfirst($row->last_name);?></td>
-                                    <td><?php echo empty($processor->first_name) ? 'waiting' : $processor->first_name . ' ' . $processor->last_name; ?></td>
+                                    <td><?php echo empty($processor->first_name) ? 'waiting' : ucfirst($processor->first_name) . ' ' . ucfirst($processor->last_name); ?></td>
                                     <td><?php echo ucfirst($row->transaction_type); ?></td>
                                     <td><?php echo $row->date_started; ?></td>
                                     <td><?php echo $row->date_ended; ?></td>

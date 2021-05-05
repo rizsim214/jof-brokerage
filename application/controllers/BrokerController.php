@@ -423,7 +423,6 @@ class BrokerController extends CI_Controller {
                 
                 'done' => $this->BrokerModel->get_done(),
                 
-            
               );
             
         
