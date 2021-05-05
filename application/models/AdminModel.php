@@ -233,7 +233,13 @@ class AdminModel extends CI_Model{
         $this->db->where('transaction_id', $id);
 
         $result = $this->db->update('transaction');
+        
         return $result;
+    }
+    public function post_log_report($data){
+         $result = $this->db->insert('update_log' , $data);
+       
+        return  $result;
     }
     public function get_billing_data($id){
         $this->db->select('*');
@@ -291,7 +297,14 @@ class AdminModel extends CI_Model{
         return $result->result();
 
     }
+    public function getAllUpdateReport(){
+        $this->db->select('*');
+        $this->db->from('update_log');
+        $this->db->order_by('log_id' , 'DESC');
+        $result = $this->db->get();
 
+        return $result->result();
+    }
     public function getAllbroker(){
         $this->db->select('*');
         $this->db->from('users_table');

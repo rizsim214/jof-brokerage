@@ -191,7 +191,7 @@ class BrokerController extends CI_Controller {
 //    CALL THIS FOR UPDATE ACCOUNTS ON MODAL
     public function get_edit_accounts($param){
 
-      //  echo "fuck hsit";
+      
          $this->load->model('BrokerModel');
          $this->load->model('AdminModel');
 

@@ -21,12 +21,12 @@
 			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
 			<option value="" >Choose status</option>
 				<option value="documentation">1.Documentation</option>
-            <option value="submission of entry">2.Submission of Entry </option>
-            <option value="assessment division">3. Assessment Division </option>
-            <option value="cash division">4. Cash Division</option>
-             <option value="releasing">5. Releasing</option>
-            <option value="delivering">6.Delivering</option>
-            <option value="arrived">7. Delivered</option>
+				<option value="submission of entry">2.Submission of Entry </option>
+				<option value="assessment division">3. Assessment Division </option>
+				<option value="cash division">4. Cash Division</option>
+				<option value="releasing">5. Releasing</option>
+				<option value="delivering">6.Delivering</option>
+				<option value="arrived">7. Delivered</option>
             <!-- <option value="done">Done</option> -->
 			</select>
       

@@ -14,7 +14,7 @@ class AdminController extends CI_Controller {
                 redirect('home');
             }
         
-
+            // var_dump($user_logged);die();
     }
 
     public function bill($id, $transaction_number, $first_name, $last_name){
@@ -117,7 +117,7 @@ class AdminController extends CI_Controller {
             $data += array(
                 'date_ended' => date('Y-m-d H:i:s')
             );
-                }
+         }
  
         if($this->input->post('destination')){
          $data = array(
@@ -126,6 +126,7 @@ class AdminController extends CI_Controller {
              'destination' => $this->input->post('destination'),
              'time_of_departure' => date("Y-m-d H:i:s")
          );
+
         }
  
         if($this->input->post('status') == "arrived"){
@@ -153,12 +154,75 @@ class AdminController extends CI_Controller {
        $result = $this->AdminModel->updateTransaction($this->input->post('transaction_id'), $data);
        
        if($result){
+            switch ($this->input->post('status')) {
+                case "documentation":
+                    $update_data = array(
+                        'updater_name' => $this->session->userdata('fullname'),
+                        'update_desc' => "Status has been updated to Documentation at:",
+                        'date_updated' => date('Y-m-d H:i:s')
+                    );
+                    
+                    $this->AdminModel->post_log_report($update_data);
+                    break;
+                case "submission of entry":
+                     $update_data = array(
+                        'updater_name' => $this->session->userdata('fullname'),
+                        'update_desc' => "Status has been updated to Submission of Entry at:",
+                        'date_updated' => date('Y-m-d H:i:s')
+                    );
+                    $this->AdminModel->post_log_report($update_data);
+                    break;
+                case "assessment division":
+                     $update_data = array(
+                        'updater_name' => $this->session->userdata('fullname'),
+                        'update_desc' => "Status has been updated to Assessment Division at:",
+                        'date_updated' => date('Y-m-d H:i:s')
+                    );
+                    $this->AdminModel->post_log_report($update_data);
+                    break;    
+                case "cash division":
+                     $update_data = array(
+                        'updater_name' => $this->session->userdata('fullname'),
+                        'update_desc' => "Status has been updated to Cash Division at:",
+                        'date_updated' => date('Y-m-d H:i:s')
+                    );
+                    $this->AdminModel->post_log_report($update_data);
+                    break;  
+                case "releasing":
+                     $update_data = array(
+                        'updater_name' => $this->session->userdata('fullname'),
+                        'update_desc' => "Status has been updated to Releasing at:",
+                        'date_updated' => date('Y-m-d H:i:s')
+                    );
+                    $this->AdminModel->post_log_report($update_data);
+                    break; 
+                case "delivering":
+                     $update_data = array(
+                        'updater_name' => $this->session->userdata('fullname'),
+                        'update_desc' => "Status has been updated to Delivering at:",
+                        'date_updated' => date('Y-m-d H:i:s')
+                    );
+                    $this->AdminModel->post_log_report($update_data);
+                    break;   
+                case "arrived":
+                     $update_data = array(
+                        'updater_name' => $this->session->userdata('fullname'),
+                        'update_desc' => "Status has been updated to Arrived at:",
+                        'date_updated' => date('Y-m-d H:i:s')
+                    );
+                    $this->AdminModel->post_log_report($update_data);
+                    break;   
+                default:
+                     $this->session->set_flashdata('error', 'Cargo Status update was unsuccessful... Please try again later!!');
+                    break;
+            }
            $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+
        }else{
            $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
        }
 
-       redirect('AdminController/dynamic_view/transactions');
+       redirect('transactions');
    }
 
    public function declineTransaction(){
@@ -188,7 +252,7 @@ class AdminController extends CI_Controller {
         $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
     }
 
-    redirect('AdminController/dynamic_view/transactions');
+    redirect('transactions');
 }
 
 public function assignTransaction(){
@@ -206,7 +270,7 @@ public function assignTransaction(){
         $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
     }
 
-    redirect('AdminController/dynamic_view/transactions');
+    redirect('transactions');
 }
 
 
@@ -240,7 +304,7 @@ public function assignTransaction(){
         $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
     }
 
-    redirect('AdminController/dynamic_view/transactions');
+    redirect('transactions');
 }
      public function dynamic_view($page = 'dashboard' , $offset = 0 ){
          

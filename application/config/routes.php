@@ -88,7 +88,6 @@ $route['client_transaction/(:num)'] = 'AdminController/client_transaction/$1';
 $route['appointments'] = 'AdminController/dynamic_view/appointments/0';
 $route['appointments/(:num)'] = 'AdminController/dynamic_view/appointments/$1';
 $route['back_to_appointments'] = 'AdminController/back_to_appointments';
-$route['transactions'] = 'AdminController/dynamic_view/transactions';
 $route['register'] = 'AdminController/register';
 $route['delete_appointment/(:num)'] = 'AdminController/delete_appointments/$1';
 $route['activate_account/(:num)'] = 'AdminController/activate_account/$1';
@@ -116,6 +115,7 @@ $route['add_billing_item'] = 'AdminController/add_billing_item';
 $route['view_this_bill/(:num)'] = 'AdminController/view_this_bill/$1';
 $route['update_this_bill/(:num)'] = 'AdminController/update_this_bill/$1';
 $route['delete_billing_item/(:num)'] = 'AdminController/delete_billing_item/$1';
+$route['update_log'] = 'AdminController/dynamic_view/update_log';
 $route['terms'] = 'MainController/openTerms';
 
 // BROKER PAGE ROUTES

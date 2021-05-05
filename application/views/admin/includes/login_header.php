@@ -89,13 +89,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="row">
                     <div class="container mx-auto my-2">
                             <a href="<?php echo base_url('glossary_management');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">GLOSSARY</a>
-                            <a href="<?php echo base_url('predefined_questions');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">CONTACT MANAGER</a>
+                            <a href="<?php echo base_url('question_manager');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">CONTACT MANAGER</a>
                         </div>    
                   </div> 
                   <div class="row">
                     <div class="container mx-auto my-2">
                             <a href="<?php echo base_url('appointments');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="ManangementDropwdown">MESSAGE LOGS</a>
-                            <a href="<?php echo base_url();?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">UPDATE LOGS</a>
+                            <a href="<?php echo base_url('update_log');?>" class="btn btn-outline-danger col-md-5" aria-labelledby="AccountingDropdown">UPDATE LOGS</a>
                         </div>    
                   </div> 
                   <div class="row">
