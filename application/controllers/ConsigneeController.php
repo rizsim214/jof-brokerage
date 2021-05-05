@@ -89,7 +89,7 @@ class ConsigneeController extends CI_Controller {
         // $config['max_filename'] = '255';
         // $config['encrypt_name'] = FALSE;
         // $config['max_size'] = '5000'; //1 MB
-
+        $config['remove_spaces'] = TRUE;
         $this->load->library('upload', $config);
         
         $rand = date('Y-m-d H:i:s');
@@ -104,11 +104,12 @@ class ConsigneeController extends CI_Controller {
                 'date_posted' => date('Y-m-d H:i:s')
                 );
             if (!empty($_FILES['bureau']['name'])){
-          
-            $result = $this->upload->do_upload('bureau');
-         
+
+            $this->upload->do_upload('bureau');
+            
+
              $data += array(
-                'bureau'  => $_FILES['bureau']['name']
+                'bureau'  =>  $this->upload->data()['file_name']
                 );
 
                 
@@ -119,7 +120,7 @@ class ConsigneeController extends CI_Controller {
                 $this->upload->do_upload('packing');
                 
                  $data += array(
-                    'packing'  => $_FILES['packing']['name']
+                    'packing'  => $this->upload->data()['file_name']
                     );
 
                     
@@ -129,7 +130,7 @@ class ConsigneeController extends CI_Controller {
                     $this->upload->do_upload('commercial');
                     
                     $data += array(
-                        'commercial'  => $_FILES['commercial']['name']
+                        'commercial'  => $this->upload->data()['file_name']
                     );
     
                         
@@ -139,7 +140,7 @@ class ConsigneeController extends CI_Controller {
                     $this->upload->do_upload('bill');
                         
                     $data += array(
-                        'bill'  => $_FILES['bill']['name']
+                        'bill'  => $this->upload->data()['file_name']
                     );
                             
             }
@@ -161,7 +162,7 @@ class ConsigneeController extends CI_Controller {
             $result = $this->upload->do_upload('bureau');
        
              $data += array(
-                'bureau'  => $_FILES['bureau']['name']
+                'bureau'  => $this->upload->data()['file_name']
                 );
 
                 
@@ -172,7 +173,7 @@ class ConsigneeController extends CI_Controller {
                 $this->upload->do_upload('packing');
                 
                  $data += array(
-                    'packing'  => $_FILES['packing']['name']
+                    'packing'  => $this->upload->data()['file_name']
                     );
 
                     
@@ -182,7 +183,7 @@ class ConsigneeController extends CI_Controller {
                     $this->upload->do_upload('commercial');
                     
                     $data += array(
-                        'commercial'  => $_FILES['commercial']['name']
+                        'commercial'  => $this->upload->data()['file_name']
                     );
     
                         

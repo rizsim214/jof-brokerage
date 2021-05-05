@@ -100,6 +100,7 @@ class MainController extends CI_Controller {
                                     'contact_info' =>$this->input->post('contact'),
                                     'user_pass' => md5($this->input->post('password')),
                                     'register_status' => 'pending',
+                                    'active_status' => 'active',
                                     'accept_terms' => $this->input->post('check'),
                                     'date_registered' => date('Y-m-d H:m:s')
 

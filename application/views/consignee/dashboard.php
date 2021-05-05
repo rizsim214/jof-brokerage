@@ -254,7 +254,7 @@
       <td><?php echo empty($row->date_ended) ? 'waiting' : $row->date_ended; ?></td>
       <td><?php echo empty($ratingCheck) ? 'not yet' : $ratingWord; ?></td>
       <td><a href="<?php echo base_url() . 'ConsigneeController/billing/' . $row->transaction_id  .'/' . $row->transaction_number; ?>" class="btn btn-info">View Billing</a></td>
-      <td><a href="#" onclick="viewStatus('<?php echo $row->transaction_status ?>', '<?php echo $row->destination; ?>', '<?php echo $row->origin; ?>', '<?php echo $row->time_of_departure; ?>', '<?php echo $row->time_of_arrival;?> ', ' <?php echo $row->transaction_type;?> ','<?php echo $row->transaction_id;?>')" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+      <td><a href="#" onclick="viewStatus('<?php echo $row->transaction_status ?>', '<?php echo $row->destination; ?>', '<?php echo $row->origin; ?>', '<?php echo $row->time_of_departure; ?>', '<?php echo $row->time_of_arrival;?> ', ' <?php echo $row->transaction_type;?> ','<?php echo $row->transaction_id;?>','<?php echo $row->reason;?>')" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
   View
 </a>
         <?php if($row->transaction_status == 'delivered'){ 

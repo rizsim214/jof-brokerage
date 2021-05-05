@@ -98,14 +98,20 @@
                     <td><?php echo $row->description; ?></td>
                     <td><?php echo $row->gl_account; ?></td>
                     <td id="price<?php echo $counter; ?>">₱ <?php echo number_format($row->unit_price, 2); ?></td>
-                    <td width="10"><input type="number" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>')" value="<?php echo !empty($rowResult['tax']) ? $rowResult['tax'] : ''; ?>" name="tax[]" class="form-control"></td>
-                    <td width="10"><input type="text"  value="<?php echo !empty($rowResult['amount']) ? $rowResult['amount'] : ''; ?>" id="amount<?php echo $counter ?>" class="form-control" name="amount[]" readonly></td>
+                    <td width="10">
+                    <input type="checkbox" style="width: 26px;height: 26px;" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>', '<?php echo $row->billing_tax; ?>')" <?php echo ($rowResult['tax']) ? 'checked' : ''; ?>  name="tax[]" class="form-control">
+                    
+                    </td>
+                    <td width="10">
+                        <input type="text"  value="<?php echo !empty($rowResult['amount']) ? $rowResult['amount'] : ''; ?>" id="amount<?php echo $counter ?>" class="form-control amount" name="amount[]" readonly>
+                    </td>
                 </tr>
             <?php 
         $counter++;
         } ?>
             </tbody>
             </table>
+            <h1 style="text-align: end;margin-right:100px" id="grandtotal"></h1>
             <button class="btn btn-success" style="float:right" type="submit">Submit</button>
             </form>
             <br>
@@ -115,7 +121,7 @@
 </div>
 <script>
 
-function compute(counter){
+function compute(counter, billing_tax){
     var total = 0;
     var quantity = $("#quantity"+counter+"").val();
     var price = $("#price"+counter+"").html();
@@ -124,19 +130,31 @@ function compute(counter){
     price = price.replace(',', '');
     price = parseFloat(price);
 
-    tax = $("#tax"+counter+"").val();
+    if($('#tax'+counter+':checkbox:checked').length > 0){
+        tax = billing_tax;
+    }
+   
 
     if(tax && quantity){
         tax = parseFloat(tax) / 100;
-        tax = price * tax;
+        tax = (quantity * price) * tax;
    
         total = (quantity * price) + tax;
     }else{
         total = quantity * price;
     }
-   
+ 
 
     $("#amount"+counter+"").val(total.toFixed(2));
+
+    var grandtotal = 0;
+    $('.amount').each(function(i, obj) {
+        if(obj.value){
+            grandtotal = grandtotal + parseFloat(obj.value);
+        }
+        
+    });
+    $("#grandtotal").html("Total: " + grandtotal.toFixed(2));
 }
 
 </script>

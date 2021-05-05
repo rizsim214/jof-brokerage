@@ -9,6 +9,7 @@
                             
                             <th>Name of Editor</th>
                             <th>Description</th>
+                            <th>Transaction Number</th>
                             <th>Date Updated</th>
                             
                             
@@ -20,6 +21,7 @@
                     <tr>  
                             <td><h5><?=$report->updater_name;?></h5></td>
                             <td><h5><?= $report->update_desc;?></h5></td>   
+                            <td><h5><?= $report->transaction_number;?></h5></td>   
                             <td><h5><?= $report->date_updated;?></h5></td>       
                     </tr>
                         <?php endforeach;?>

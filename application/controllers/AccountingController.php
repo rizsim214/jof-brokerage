@@ -121,7 +121,7 @@ class AccountingController extends CI_Controller {
     }
     public function uploadFile(){
         $config['upload_path'] =  './assets/uploads/files';
-      
+        $config['remove_spaces'] = TRUE;
         $config['allowed_types'] = 'jpg|jpeg|png|docs|pdf|docx|doc';
 
         $this->load->library('upload', $config);
@@ -134,7 +134,7 @@ class AccountingController extends CI_Controller {
             $result = $this->upload->do_upload('billingfile');
          
              $data = array(
-                'billing_file'  => $_FILES['billingfile']['name'],
+                'billing_file'  => $this->upload->data()['file_name'],
                 );
 
                 $resultUpdate = $this->AdminModel->updateTransaction($this->input->post('transaction_id'),$data);

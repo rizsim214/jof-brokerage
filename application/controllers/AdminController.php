@@ -167,7 +167,8 @@ class AdminController extends CI_Controller {
                     $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
                         'update_desc' => "Status has been updated to Documentation at:",
-                        'date_updated' => date('Y-m-d H:i:s')
+                        'date_updated' => date('Y-m-d H:i:s'),
+                        'transaction_number' => $this->input->post('transaction_number')
                     );
                     
                     $this->AdminModel->post_log_report($update_data);
@@ -176,7 +177,8 @@ class AdminController extends CI_Controller {
                      $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
                         'update_desc' => "Status has been updated to Submission of Entry at:",
-                        'date_updated' => date('Y-m-d H:i:s')
+                        'date_updated' => date('Y-m-d H:i:s'),
+                        'transaction_number' => $this->input->post('transaction_number')
                     );
                     $this->AdminModel->post_log_report($update_data);
                     break;
@@ -184,7 +186,8 @@ class AdminController extends CI_Controller {
                      $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
                         'update_desc' => "Status has been updated to Assessment Division at:",
-                        'date_updated' => date('Y-m-d H:i:s')
+                        'date_updated' => date('Y-m-d H:i:s'),
+                        'transaction_number' => $this->input->post('transaction_number')
                     );
                     $this->AdminModel->post_log_report($update_data);
                     break;    
@@ -192,7 +195,8 @@ class AdminController extends CI_Controller {
                      $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
                         'update_desc' => "Status has been updated to Cash Division at:",
-                        'date_updated' => date('Y-m-d H:i:s')
+                        'date_updated' => date('Y-m-d H:i:s'),
+                        'transaction_number' => $this->input->post('transaction_number')
                     );
                     $this->AdminModel->post_log_report($update_data);
                     break;  
@@ -200,7 +204,8 @@ class AdminController extends CI_Controller {
                      $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
                         'update_desc' => "Status has been updated to Releasing at:",
-                        'date_updated' => date('Y-m-d H:i:s')
+                        'date_updated' => date('Y-m-d H:i:s'),
+                        'transaction_number' => $this->input->post('transaction_number')
                     );
                     $this->AdminModel->post_log_report($update_data);
                     break; 
@@ -208,7 +213,8 @@ class AdminController extends CI_Controller {
                      $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
                         'update_desc' => "Status has been updated to Delivering at:",
-                        'date_updated' => date('Y-m-d H:i:s')
+                        'date_updated' => date('Y-m-d H:i:s'),
+                        'transaction_number' => $this->input->post('transaction_number')
                     );
                     $this->AdminModel->post_log_report($update_data);
                     break;   
@@ -216,7 +222,8 @@ class AdminController extends CI_Controller {
                      $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
                         'update_desc' => "Status has been updated to Arrived at:",
-                        'date_updated' => date('Y-m-d H:i:s')
+                        'date_updated' => date('Y-m-d H:i:s'),
+                        'transaction_number' => $this->input->post('transaction_number')
                     );
                     $this->AdminModel->post_log_report($update_data);
                     break;   

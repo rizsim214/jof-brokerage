@@ -95,7 +95,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
       $('#transaction_id').val(transaction_id);
       $("#uploadModal").modal("show");
     }
-    function viewStatus(status, destination, origin, time_of_departure, time_of_arrival,transaction_type,transaction_id){
+    function viewStatus(status, destination, origin, time_of_departure, time_of_arrival,transaction_type,transaction_id, reason){
       
       $('#transaction_id').val(transaction_id);
       $('#transaction_number').val(transaction_number);
@@ -448,11 +448,12 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
     else if(status == 'declined'){
       html =  '<div class="step step-declined step-active">'+
                 '<div>'+
-                  '<div class="circle">2</div>'+
+                  '<div class="circle" style="background-color: red;">2</div>'+
                 '</div>'+
                 '<div>'+
                   '<div class="title">Declined</div>'+
                   '<div class="caption">Pleae Contact Admin</div>'+
+                  '<div class="caption">Reason: '+reason+'</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -1053,4 +1054,12 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
     $('#stepper').html(html);
     $('#status').modal('show');
   }
+  var grandtotal = 0;
+    $('.amount').each(function(i, obj) {
+        if(obj.value){
+            grandtotal = grandtotal + parseFloat(obj.value);
+        }
+        
+    });
+    $("#grandtotal").html("Total: " + grandtotal);
 </script>

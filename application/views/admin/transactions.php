@@ -165,12 +165,24 @@
 								<td><?php echo $row->first_name . ' ' . $row->last_name;?></td>
 
 								<?php if(empty($processor->first_name)){ ?>
-								<td>	<a href="#" onclick="asssignModal('<?php echo  $row->transaction_id; ?>')"    class="btn btn-sm btn-success text-white">Assign</a></td>
+								<td>Waiting	</td>
 								<?php }else{ ?>
 									<td><?php echo  ucfirst($processor->first_name) . ' ' . ucfirst($processor->last_name); ?></td>
 									<?php } ?>
-								<td><?php echo $row->transaction_status;?></td>
+
+									<?php if($row->status == 'delivered') {?>
+                                        
+										<td><?php echo ucfirst($row->status);  ?> (Done)</td>  
+						  
+								   <?php }else{  ?>  <td> <?php echo ucfirst($row->status); ?></td>    <?php } ?>
+								<!-- <td><?php echo $row->transaction_status;?></td> -->
+
+										
 								<td><?php echo ucfirst($row->transaction_type);?></td>
+
+
+
+
 								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->bureau; ?>" target="_blank"><?php echo $row->bureau; ?></a></td>
 								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->packing; ?>" target="_blank"><?php echo $row->packing; ?></a></td>
 								<td><a href="<?php echo base_url() . 'assets/uploads/files/' . $row->commercial; ?>" target="_blank"><?php echo $row->commercial; ?></a></td>
@@ -182,12 +194,16 @@
 								<td><?php echo $row->date_posted;?></td>
 								<td><a href="<?php echo base_url("AdminController/bill/"); ?><?php echo $row->transaction_id; ?>/<?php echo $row->transaction_number ?>/<?php echo $row->first_name;?>/<?php echo $row->last_name;?>"  class="btn btn-sm btn-info">View Billing</a>  </td>
 								<td>
-							<?php if($row->transaction_status == 'pending' || $row->transaction_status == 'declined'){ ?>
-							<a href="<?php echo base_url() . 'AdminController/acceptTransaction/' . $row->transaction_id . '/' . $row->consignee_id . '/' . $row->transaction_number; ?>" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-success">Accept</a>
-								<a href="#" onclick="declineTransaction('<?php echo  $row->transaction_id; ?>', '<?php echo  $row->consignee_id; ?>', '<?php echo  $row->transaction_number; ?>')"    class="btn btn-sm btn-danger text-white">Decline</a>
-							<?php }else{ ?>
+								<?php if(empty($processor->first_name)){ ?>
+								<a href="#" onclick="asssignModal('<?php echo  $row->transaction_id; ?>')"    class="btn btn-sm btn-success text-white">Assign</a>
+								<!-- <a href="<?php //echo base_url() . 'AdminController/acceptTransaction/' . $row->transaction_id . '/' . $row->consignee_id . '/' . $row->transaction_number; ?>" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-success">Accept</a>
+								<a href="#" onclick="declineTransaction('<?php //echo  $row->transaction_id; ?>', '<?php //echo  $row->consignee_id; ?>', '<?php //echo  $row->transaction_number; ?>')"    class="btn btn-sm btn-danger text-white">Decline</a> -->
+				
+								<?php } 	else{ ?>
 								<a href="#" onclick="changeStatus('<?php echo  $row->transaction_id; ?>', '<?php echo  $row->consignee_id; ?>', '<?php echo  $row->transaction_number; ?>')" class="btn btn-sm btn-info text-white">Change Status</a>
 							<?php } ?>
+
+					
 							</td>
             </tr>
 					 <?php endforeach;?> 

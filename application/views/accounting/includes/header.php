@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <i class="fas fa-optin-monster"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?php echo base_url('viewAccount/'); ?><?= $this->session->user_ID?>">View Account</a>
+                    <!-- <a class="dropdown-item" href="<?php echo base_url('viewAccount/'); ?><?= $this->session->user_ID?>">View Account</a> -->
                 <a class="dropdown-item" href="<?php echo base_url('editAccount/'); ?><?= $this->session->user_ID?>">Manage Account</a>
                 
                 <div class="dropdown-divider"></div>

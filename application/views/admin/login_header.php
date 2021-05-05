@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <i class="fas fa-optin-monster"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">View Account</a>
+                    <!-- <a class="dropdown-item" href="#">View Account asdasdasd</a> -->
                 <a class="dropdown-item" href="#">Manage Account</a>
                 
                 <div class="dropdown-divider"></div>

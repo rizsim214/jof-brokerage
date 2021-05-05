@@ -7,8 +7,8 @@
                  <img src="<?php echo base_url()?>assets/img/shipping3.jpg" data-interval="5000" class="d-block w-100 position-fixed" alt="First Slide">
                     <div class="carousel-caption d-none d-md-block">
                        <h5 class="animate__bounceIn" style="animation-delay:1s; animation-duration:2s;">We <span>Handle</span> your <span>Needs</span></h5>
-                           <p class="animate__slideInLeft" style="animation-delay:2s; animation-duration:1s;"> Fast and Reliable  Customs brokerage service</p>       
-                              <a href="<?= site_url('cargo_quotation');?>" class="animate__zoomIn" id="btn-mid" style="animation-delay:3s; animation-duration:2s;">Request a Quote</a>
+                           <p class="animate__slideInLeft" style="animation-delay:2s; animation-duration:1s; "> Fast and Reliable  Customs brokerage service</p>       
+                              <!-- <a href="<?= site_url('cargo_quotation');?>" class="animate__zoomIn" id="btn-mid" style="animation-delay:3s; animation-duration:2s;">Request a Quote</a> -->
                                    
                  </div>
                  
