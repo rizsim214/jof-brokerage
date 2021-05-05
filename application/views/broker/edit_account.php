@@ -10,7 +10,7 @@
 <br>
 <br>
 <div class="row">
-<h2 class="text-dark"> Account update for: </h2><div></div><h2><?= ucfirst($firstname) ?> <?= ucfirst($lastname) ?></h2>
+<h2 class="text-dark"> Account update for:  </h2><div> </div><h2><?= ucfirst($firstname) ?> <?= ucfirst($lastname) ?></h2>
 </div>
 <hr>
 
@@ -84,19 +84,35 @@
                                 <input type="password" class="form-control" oninput="checkPassword()" name="confirm" id="conf_pass">
                                 <span style="color:red; display: none" id="password_message">Password do not match</span>
                             </div>
-                        </div>
+                        </div> 
+                        <!-- echo ucfirst($firstname).' '.ucfirst($lastname).' '. "is Consignee"; -->
+
+                       <?php if($uRole == 1)
+                         { ?>  <label class="text-dark"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Processor </label>
+                        <?php }elseif($uRole == 2){?>
+                        <label class="text-dark"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Processor </label>
+                      <?php  }elseif($uRole == 3){ ?>
+                        <label class="text-dark"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Accounting </label>
+                      <?php  }elseif($uRole == 4){?>
+                        <label class="text-dark"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname); ?> is  Admin </label> <?php } ?>
+                       
 
              <?php if($this->session->userRole == 4){  ?>
                <div class="form-group text-center">
-                            <label for="user_role">Job Type</label>
-                                    <select id="user_role"  name="user_role"  class="form-control">
+
+                            <label for="uRole">Job Type <?php echo $uRole; ?></label>
+
+                                    <select id="uRole"  name="uRole"  class="form-control">
                                         <option selected >--Select a role--</option>
                                         <option value="4">Administrator</option>
                                         <option value="3">Accounting</option>
                                         <option value="1">Consignee</option>
                                         <option value="2">Processor</option>
                                     </select>
-             <?php }else{ echo "";
+             <?php }else{ echo "";   
+
+
+
              }?>
              <hr>
 

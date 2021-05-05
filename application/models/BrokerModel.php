@@ -32,6 +32,8 @@ class BrokerModel extends CI_Model{
         $this->db->where('user_ID',$id);
          return $this->db->update('users_table');
 
+         
+
 
      }
 

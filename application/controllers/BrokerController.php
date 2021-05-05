@@ -167,8 +167,6 @@ class BrokerController extends CI_Controller {
        redirect('BrokerController/index');
 
    }         
-
-
       
 
    public function bill($id, $transaction_number, $first_name, $last_name){
@@ -208,10 +206,14 @@ class BrokerController extends CI_Controller {
                         'company_location' => $this->input->post('company_location'),
                         'email_add' => $this->input->post('email'),
                         'contact_info' => $this->input->post('contact'), 
-                        'user_pass' => md5($this->input->post('password')),  
+                        'user_pass' => md5($this->input->post('password')), 
+                        'user_role' => $this->input->post('uRole') 
                     );
 
                     $result = $this->BrokerModel->updateAccount($param,$data);
+
+
+                    
 
                     if($result){
                         $this->session->set_flashdata('success', 'Updated Successfully');
@@ -229,10 +231,14 @@ class BrokerController extends CI_Controller {
                     'company_name' => $this->input->post('company_name'),
                     'company_location' => $this->input->post('company_location'),
                     'email_add' => $this->input->post('email'),
-                    'contact_info' => $this->input->post('contact')
+                    'contact_info' => $this->input->post('contact'),
+                    'user_role' => $this->input->post('uRole')
                 );
 
                 $result = $this->BrokerModel->updateAccount($param,$data);
+
+                var_dump($result);
+                    exit;
                 if($result){
                     $this->session->set_flashdata('success', 'Updated Successfully');
                 }else{
