@@ -39,14 +39,20 @@
                               
                               <div class="form-group">
                                  <h4 class="ml-2">How May We Be Of Service To You?</h4>
-                                 <?php foreach($predef_questions as $question) : ?>
+                                 <?php 
+                                    $i = 0;
+                                 foreach($predef_questions as $question) : 
+                                    
+                                 ?>
                                  <div class="form-check ml-5">
                                        <input class="form-check-input" type="radio" value="<?= $question->question_content;?>" name="message" id="flexRadioDefault2">
                                        <label class="form-check-label" for="flexRadioDefault2">
                                           <h5><?= $question->question_content;?></h5>
                                        </label>
                                        </div>
-                                      <?php endforeach;?>
+                                      <?php 
+                                       if(++$i == 5) break;
+                                    endforeach;?>
                               </div>
                               <div class="text-center">
                               <input type="submit" class="btn btn-md btn-primary btn-lg" value="submit">
