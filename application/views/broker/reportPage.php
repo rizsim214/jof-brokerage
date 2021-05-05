@@ -40,7 +40,7 @@
                                     <tr>
                                     <td><?php echo $row->transaction_number; ?></td>
                                     <td><?php echo ucfirst($row->first_name) . ' ' . ucfirst($row->last_name);?></td>
-                                    <td><?php echo empty($processor->first_name) ? 'waiting' : $processor->first_name . ' ' . $processor->last_name; ?></td>
+                                    <td><?php echo empty($processor->first_name) ? 'waiting' : ucfirst($processor->first_name) . ' ' . ucfirst($processor->last_name); ?></td>
                                     <td><?php echo ucfirst($row->transaction_type); ?></td>
                                     <td><?php echo $row->date_started; ?></td>
                                     <td><?php echo $row->date_ended; ?></td>
@@ -48,13 +48,7 @@
                                         
                                                  <td><?php echo ucfirst($row->status);  ?> (Done)</td>   
                                         
-                                        
-                                    <!-- <td><?php echo ucfirst($row->status); ?></td> -->
-                                </tr>
-                                
-                               
-                
-                            
+                                </tr>              
         
             </tr>
             <?php  endforeach; ?>   

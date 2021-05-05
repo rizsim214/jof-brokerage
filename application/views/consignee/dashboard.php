@@ -202,9 +202,9 @@
       <th scope="col">Processor Name</th>
       <th scope="col">Processor Company Name</th>
       <th scope="col">Transaction type</th>
-      <th scope="col">Bureau</th>
-      <th scope="col">Packing</th>
-      <th scope="col">Commercial</th>
+      <th scope="col">Bureau of Customs</th>
+      <th scope="col">Packing List</th>
+      <th scope="col">Commercial Invoice</th>
       <th scope="col">Bill of Lading</th>
       <th scope="col">Billing File</th>
       <th scope="col">Date Started</th>

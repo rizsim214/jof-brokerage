@@ -15,7 +15,7 @@
 			<div class="modal-body">
 			<div class="form-group">
 			
-       
+			<input type="hidden" value="" name="transaction_number" id="transaction_number"> 
 			<input type="hidden" value="" name="transaction_id" id="transaction"> 
 			<input type="hidden" value="" name="consignee_id" id="consignee"> 
 			<select  class="form-control" name="status" onchange="statusOnChange()" id="statusChange">
@@ -26,7 +26,7 @@
 				<option value="cash division">4. Cash Division</option>
 				<option value="releasing">5. Releasing</option>
 				<option value="delivering">6.Delivering</option>
-				<option value="arrived">7. Delivered</option>
+				<option value="delivered">7. Delivered</option>
             <!-- <option value="done">Done</option> -->
 			</select>
       

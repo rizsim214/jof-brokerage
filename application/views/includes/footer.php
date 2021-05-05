@@ -609,7 +609,10 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                 '</div>'+
                 '<div>'+
                   '<div class="title">Assessment Division</div>'+
-                  // '<div class="caption">- Entry Processing Unit</div>'+
+                  '<div class="caption">- Examiner</div>'+
+                  '<div class="caption">- Appraiser</div>'+
+                  '<div class="caption">- Chief Division</div>'+
+                  '<div class="caption">- Issue Final Assessment Notice</div>'+
                   '</div>'+
                 '</div>'+
               '</div>'+
@@ -626,7 +629,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                 }
                  
 
-                html +=  '</div>'+
+                html += '<div class="caption">- Entry Processing Unit</div></div>'+ 
               '</div>'+
               // '<div class="step step-active">'+
               //   '<div>'+
@@ -693,6 +696,8 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                 '</div>'+
                 '<div>'+
                   '<div class="title">Cash Division</div>'+
+                  '<div class="caption">For import - Issuance of statement of settlement of duties and taxes</div>'+
+                  '<div class="caption">For export - Exempted duties/taxes, stamps and processing fee</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -701,6 +706,10 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                 '</div>'+
                 '<div>'+
                   '<div class="title">Assessment Division</div>'+
+                  '<div class="caption">- Examiner</div>'+
+                  '<div class="caption">- Appraiser</div>'+
+                  '<div class="caption">- Chief Division</div>'+
+                  '<div class="caption">- Issue Final Assessment Notice</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -716,7 +725,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                 }
                  
 
-                html +=  '</div>'+
+                html += '<div class="caption">- Entry Processing Unit</div></div>'+ 
               '</div>'+
               // '<div class="step step-active">'+
               //   '<div>'+
@@ -789,6 +798,8 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                 '</div>'+
                 '<div>'+
                   '<div class="title">Cash Division</div>'+
+                  '<div class="caption">For import - Issuance of statement of settlement of duties and taxes</div>'+
+                  '<div class="caption">For export - Exempted duties/taxes, stamps and processing fee</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -797,6 +808,10 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                 '</div>'+
                 '<div>'+
                   '<div class="title">Assessment Division</div>'+
+                  '<div class="caption">- Examiner</div>'+
+                  '<div class="caption">- Appraiser</div>'+
+                  '<div class="caption">- Chief Division</div>'+
+                  '<div class="caption">- Issue Final Assessment Notice</div>'+
                 '</div>'+
               '</div>'+
               '<div class="step step-active">'+
@@ -812,7 +827,7 @@ function declineTransaction(transaction_id, consignee_id, transaction_number) {
                 }
                  
 
-                html +=  '</div>'+
+                html += '<div class="caption">- Entry Processing Unit</div></div>'+ 
               '</div>'+
               // '<div class="step step-active">'+
               //   '<div>'+

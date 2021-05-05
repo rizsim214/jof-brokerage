@@ -317,7 +317,7 @@ public function assignTransaction(){
             $data_results = array(
                 
                 'transactions' => $this->AdminModel->getAllTransaction(),
-                
+                'update_logs' => $this->AdminModel->getAllUpdateReport(),
                 'brokers' => $this->AdminModel->getAllbroker(),
                 'response' => $this->AdminModel->getAllAppointment(),
                 'billing_form' => $this->AdminModel->getBillingItems(),
