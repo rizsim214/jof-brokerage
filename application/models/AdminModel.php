@@ -467,7 +467,7 @@ class AdminModel extends CI_Model{
     //     return $result;
         // 
     public function delete_this_glossary($id){
-         $this->db->where('glossary_ID' , $id);
+        $this->db->where('glossary_ID' , $id);
         $this->db->delete('glossary_table');
         return TRUE;
     }

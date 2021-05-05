@@ -1,4 +1,4 @@
-<div class="container text-center mt-5">
+<div class="container text-center my-5">
     <?php if($this->session->flashdata('error')) {?>
                  <div class="alert alert-danger mt-5 col-md-8 mx-auto " role="alert">
                        <?php echo $this->session->flashdata('error');?>

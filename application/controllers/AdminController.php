@@ -88,9 +88,17 @@ class AdminController extends CI_Controller {
         }
 
         if($id){
-            $this->session->set_flashdata('success', 'Transaction Updated Successfully');
+
+            $update_data = array(
+                        'updater_name' => $this->session->userdata('fullname'),
+                        'update_desc' => "Status has been updated to Documentation at:",
+                        'date_updated' => date('Y-m-d H:i:s')
+                    );
+                    $this->AdminModel->post_log_report($update_data);
+
+            $this->session->set_flashdata('success', 'Transaction Billing Updated Successfully');
         }else{
-            $this->session->set_flashdata('error', 'There was an error updating. Please try again.');
+            $this->session->set_flashdata('error', 'There was an error updating transaction billing. Please try again!!');
         }
     
         redirect('transactions');
@@ -855,6 +863,7 @@ public function assignTransaction(){
         }
           redirect('glossary_management');
     }
+  
     public function delete_feedback($id){
         $result_data = $this->AdminModel->delete_this_feedback($id);
        
