@@ -7,6 +7,7 @@ class AdminController extends CI_Controller {
         parent:: __construct();
        
         $this->load->model('AdminModel');
+        $this->load->model('ConsigneeModel');
         $this->load->helper('date');
         date_default_timezone_set('Asia/Manila');
         $user_logged = $this->session->userdata();
@@ -22,7 +23,11 @@ class AdminController extends CI_Controller {
         $data['transaction_number'] = $transaction_number;
         $data['name'] = $first_name . ' ' .$last_name;
         $data['billing_items'] = $this->AdminModel->getBillingItems();
-
+         $billing_data = array(
+            'transaction_number' => $transaction_number,
+            'transaction_id' => $id
+        );
+        $result = $this->ConsigneeModel->post_billing($billing_data , $transaction_number);
         
         $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
 

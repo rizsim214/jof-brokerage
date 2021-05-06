@@ -87,8 +87,11 @@
 
                 $CI =& get_instance();
                 $CI->load->model('AdminModel');
-                $rowResult = $CI->AdminModel->getTransactionItem($row->billing_items_id, $transaction_billing['transaction_billing_id']);
-
+                if(!empty($transaction_billing['transaction_billing_id'])){
+                    $rowResult = $CI->AdminModel->getTransactionItem($row->billing_items_id, $transaction_billing['transaction_billing_id']);
+                    
+                }
+                // var_dump($transaction_billing);die();
 
                  ?>
                 <tr>

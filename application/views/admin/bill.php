@@ -92,7 +92,7 @@
                     $rowResult = $CI->AdminModel->getTransactionItem($row->billing_items_id, $transaction_billing['transaction_billing_id']);
                     
                 }
-              
+                // var_dump($transaction_billing);die();
 
                  ?>
                 <tr>
