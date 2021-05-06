@@ -88,13 +88,13 @@
                         <!-- echo ucfirst($firstname).' '.ucfirst($lastname).' '. "is Consignee"; -->
 
                        <?php if($uRole == 1)
-                         { ?>  <label class="text-dark"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Processor </label>
+                         { ?>  <label class="text-dark text-center"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Processor </label>
                         <?php }elseif($uRole == 2){?>
-                        <label class="text-dark"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Processor </label>
+                        <label class="text-dark text-center"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Processor </label>
                       <?php  }elseif($uRole == 3){ ?>
-                        <label class="text-dark"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Accounting </label>
+                        <label class="text-dark text-center"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname)?> is  Accounting </label>
                       <?php  }elseif($uRole == 4){?>
-                        <label class="text-dark"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname); ?> is  Admin </label> <?php } ?>
+                        <label class="text-dark text-center"> <?php   echo ucfirst($firstname).' '.ucfirst($lastname); ?> is  Admin </label> <?php } ?>
                        
 
              <?php if($this->session->userRole == 4){  ?>
