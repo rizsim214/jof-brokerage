@@ -13,7 +13,7 @@
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Date Created: </label>
-                    <input type="date" name="date" value="<?php echo $transaction_billing['date']; ?>"  class="form-control">
+                    <input type="date" name="date" value="<?php echo date("Y-m-d", strtotime( $transaction_details['date_posted'])); ?>"  class="form-control">
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                  ?>
                 <tr>
                 <input type="hidden" name="billing_item_id[]" value="<?php echo $row->billing_items_id; ?>">
-                    <td width="10"><input type="text" id="quantity<?php echo $counter; ?>" value="<?php echo $rowResult['quantity'] ?>" class="form-control" oninput="compute('<?php echo $counter; ?>', '<?php echo $row->billing_tax; ?>')" name="quantity[]"></td>
+                    <td width="10"><input type="text" id="quantity<?php echo $counter; ?>"  value="<?php echo !empty($rowResult['quantity']) ? $rowResult['quantity'] : ''; ?>" class="form-control" oninput="compute('<?php echo $counter; ?>')" name="quantity[]"></td>
                     <td><?php echo $row->name; ?></td>
                     <td><?php echo $row->description; ?></td>
                     <td><?php echo $row->gl_account; ?></td>
@@ -102,7 +102,9 @@
                     <input type="checkbox" style="width: 26px;height: 26px;" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>', '<?php echo $row->billing_tax; ?>')" <?php echo ($rowResult['tax']) ? 'checked' : ''; ?>  name="tax[]" class="form-control">
                     
                     </td>
-                    <td width="10"><input type="text"  value="<?php echo $rowResult['amount'] ?>" id="amount<?php echo $counter ?>" class="form-control amount" name="amount[]" readonly></td>
+                    <td width="10">
+                        <input type="text"  value="<?php echo !empty($rowResult['amount']) ? $rowResult['amount'] : ''; ?>" id="amount<?php echo $counter ?>" class="form-control amount" name="amount[]" readonly>
+                    </td>
                 </tr>
             <?php 
         $counter++;
@@ -120,7 +122,6 @@
 <script>
 
 function compute(counter, billing_tax){
-
     var total = 0;
     var quantity = $("#quantity"+counter+"").val();
     var price = $("#price"+counter+"").html();
@@ -155,6 +156,5 @@ function compute(counter, billing_tax){
     });
     $("#grandtotal").html("Total: " + grandtotal.toFixed(2));
 }
-
 
 </script>
