@@ -27,7 +27,8 @@
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Invoice No: </label>
-                    <input type="text" name="invoice_no" value="<?php echo $transaction_billing['invoice_no']; ?>" class="form-control">
+                    <input type="text" name="invoice_no" value="<?php echo !empty($transaction_billing['invoice_no']) ? $transaction_billing['invoice_no']: ''; ?>" class="form-control">
+                    
                 </div>
             </div>
         </div>
@@ -35,19 +36,19 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Customer PO: </label>
-                    <input type="text" name="customer_po" value="<?php echo $transaction_billing['customer_po']; ?>" class="form-control">
+                    <input type="text" name="customer_po" value="<?php echo !empty($transaction_billing['customer_po']) ? $transaction_billing['customer_po'] : ''; ?>" class="form-control">
                 </div>
             </div>
             <div class="col-md-4">
                  <div class="form-group">
                     <label>Shipping Method: </label>
-                    <input type="text" name="shipping_method" value="<?php echo $transaction_billing['shipping_method']; ?>" class="form-control">
+                    <input type="text" name="shipping_method" value="<?php echo !empty($transaction_billing['shipping_method']) ? $transaction_billing['shipping_method']: ''; ?>" class="form-control">
                 </div>
             </div>
              <div class="col-md-4">
                  <div class="form-group">
                     <label>Payment Term: </label>
-                    <input type="text" name="payment_term" value="<?php echo $transaction_billing['payment_term']; ?>" class="form-control">
+                    <input type="text" name="payment_term" value="<?php echo !empty($transaction_billing['payment_term']) ? $transaction_billing['payment_term']: ''; ?>" class="form-control">
                 </div>
             </div>
         </div>
@@ -55,13 +56,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Ship Date: </label>
-                    <input type="date" name="ship_date" value="<?php echo $transaction_billing['shipping_date']; ?>" class="form-control">
+                    <input type="date" name="ship_date" value="<?php echo !empty($transaction_billing['shipping_date']) ? $transaction_billing['shipping_date']: ''; ?>" class="form-control">
                 </div>
             </div>
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Due Date: </label>
-                    <input type="date" name="due_date" value="<?php echo $transaction_billing['due_date']; ?>" class="form-control">
+                   <input type="date" name="ship_date" value="<?php echo !empty($transaction_billing['due_date']) ? $transaction_billing['due_date']: ''; ?>" class="form-control">
                 </div>
             </div>
         </div>
@@ -88,7 +89,7 @@
                 $CI =& get_instance();
                 $CI->load->model('AdminModel');
                 $rowResult = $CI->AdminModel->getTransactionItem($row->billing_items_id, $transaction_billing['transaction_billing_id']);
-
+                
 
                  ?>
                 <tr>

@@ -42,6 +42,12 @@ class ConsigneeController extends CI_Controller {
         $data['transaction_id'] = $id;
         $data['transaction_number'] = $transaction_number;
         $data['name'] = $this->session->userdata('fullname');
+        $billing_data = array(
+            'transaction_number' => $transaction_number,
+            'transaction_id' => $id
+        );
+        $result = $this->ConsigneeModel->post_billing($billing_data , $transaction_number);
+        // var_dump($result);die();
         $data['billing_items'] = $this->AdminModel->getBillingItems();
         
 
@@ -103,6 +109,9 @@ class ConsigneeController extends CI_Controller {
                 'transaction_type' => 'import',
                 'date_posted' => date('Y-m-d H:i:s')
                 );
+
+            
+                
             if (!empty($_FILES['bureau']['name'])){
 
             $this->upload->do_upload('bureau');

@@ -51,8 +51,8 @@ class AccountingController extends CI_Controller {
 
         $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
 
- 
- 
+        $data['transaction_details'] = $this->AdminModel->get_transaction_details($transaction_number);
+        
         if($this->session->userdata('success')){
             $data['success'] = $this->session->userdata('success');
         }

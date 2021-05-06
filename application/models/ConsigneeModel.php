@@ -40,5 +40,22 @@ class ConsigneeModel extends CI_Model{
 
        return $result;
     }
+   public function post_billing($data , $transaction_number){
+        $this->db->select('*');
+        $this->db->from('transaction_billing');
+        $this->db->where('transaction_number' , $transaction_number);
+        $result = $this->db->get();
+    //    var_dump($result->row());die();
+        if($result->row() == NULL){
+            $data  = $this->db->insert('transaction_billing' , $data);
+        }elseif($result){
+            return $result;
+        }
+      
+
+      
+        
+        
+   }
 }
 

@@ -23,11 +23,11 @@ class AdminController extends CI_Controller {
         $data['name'] = $first_name . ' ' .$last_name;
         $data['billing_items'] = $this->AdminModel->getBillingItems();
 
-
+        
         $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
 
         $data['transaction_details'] = $this->AdminModel->get_transaction_details($transaction_number);
-       
+        // var_dump($transaction_number);die();
         if($this->session->userdata('success')){
             $data['success'] = $this->session->userdata('success');
         }
