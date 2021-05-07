@@ -42,6 +42,12 @@ class ConsigneeController extends CI_Controller {
         $data['transaction_id'] = $id;
         $data['transaction_number'] = $transaction_number;
         $data['name'] = $this->session->userdata('fullname');
+        $billing_data = array(
+            'transaction_number' => $transaction_number,
+            'transaction_id' => $id
+        );
+        $result = $this->ConsigneeModel->post_billing($billing_data , $transaction_number);
+        // var_dump($result);die();
         $data['billing_items'] = $this->AdminModel->getBillingItems();
         
 
@@ -85,7 +91,7 @@ class ConsigneeController extends CI_Controller {
 
         $config['upload_path'] =  './assets/uploads/files';
       
-        $config['allowed_types'] = 'jpg|jpeg|png|docs|pdf|docx|doc';
+        $config['allowed_types'] = 'pdf';
         // $config['max_filename'] = '255';
         // $config['encrypt_name'] = FALSE;
         // $config['max_size'] = '5000'; //1 MB
@@ -103,9 +109,19 @@ class ConsigneeController extends CI_Controller {
                 'transaction_type' => 'import',
                 'date_posted' => date('Y-m-d H:i:s')
                 );
+
+            
+                
             if (!empty($_FILES['bureau']['name'])){
 
-            $this->upload->do_upload('bureau');
+            if($this->upload->do_upload('bureau')){
+
+            }else{
+                echo '<script>alert("Please select pdf file only")
+                history.back()
+              </script>';
+              exit;
+            }
             
 
              $data += array(
@@ -117,8 +133,16 @@ class ConsigneeController extends CI_Controller {
 
              if (!empty($_FILES['packing']['name'])){
           
-                $this->upload->do_upload('packing');
-                
+             
+                if($this->upload->do_upload('packing')){
+
+                }else{
+                    echo '<script>alert("Please select pdf file only")
+                    history.back()
+                  </script>';
+                  exit;
+                }
+
                  $data += array(
                     'packing'  => $this->upload->data()['file_name']
                     );
@@ -126,8 +150,17 @@ class ConsigneeController extends CI_Controller {
                     
                  }
             if (!empty($_FILES['commercial']['name'])){
-          
-                    $this->upload->do_upload('commercial');
+                
+                if($this->upload->do_upload('commercial')){
+
+                }else{
+                    echo '<script>alert("Please select pdf file only")
+                    history.back()
+                  </script>';
+                  exit;
+                }
+
+
                     
                     $data += array(
                         'commercial'  => $this->upload->data()['file_name']
@@ -136,8 +169,17 @@ class ConsigneeController extends CI_Controller {
                         
             }
             if (!empty($_FILES['bill']['name'])){
-          
-                    $this->upload->do_upload('bill');
+
+                if($this->upload->do_upload('bill')){
+
+                }else{
+                    echo '<script>alert("Please select pdf file only")
+                    history.back()
+                  </script>';
+                  exit;
+                }
+
+                    
                         
                     $data += array(
                         'bill'  => $this->upload->data()['file_name']
@@ -161,6 +203,15 @@ class ConsigneeController extends CI_Controller {
           
             $result = $this->upload->do_upload('bureau');
        
+            if($result){
+
+            }else{
+                echo '<script>alert("Please select pdf file only")
+                history.back()
+              </script>';
+              exit;
+            }
+
              $data += array(
                 'bureau'  => $this->upload->data()['file_name']
                 );
@@ -170,8 +221,16 @@ class ConsigneeController extends CI_Controller {
 
              if (!empty($_FILES['packing']['name'])){
           
-                $this->upload->do_upload('packing');
-                
+             
+                if($this->upload->do_upload('packing')){
+
+                }else{
+                    echo '<script>alert("Please select pdf file only")
+                    history.back()
+                  </script>';
+                  exit;
+                }
+
                  $data += array(
                     'packing'  => $this->upload->data()['file_name']
                     );
@@ -180,8 +239,17 @@ class ConsigneeController extends CI_Controller {
                  }
             if (!empty($_FILES['commercial']['name'])){
           
-                    $this->upload->do_upload('commercial');
+                  
                     
+                    if($this->upload->do_upload('commercial')){
+
+                    }else{
+                        echo '<script>alert("Please select pdf file only")
+                        history.back()
+                      </script>';
+                      exit;
+                    }
+
                     $data += array(
                         'commercial'  => $this->upload->data()['file_name']
                     );

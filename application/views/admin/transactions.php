@@ -196,17 +196,19 @@
 								<td>
 								<?php if(empty($processor->first_name)){ ?>
 								<a href="#" onclick="asssignModal('<?php echo  $row->transaction_id; ?>')"    class="btn btn-sm btn-success text-white">Assign</a>
-								<!-- <a href="<?php //echo base_url() . 'AdminController/acceptTransaction/' . $row->transaction_id . '/' . $row->consignee_id . '/' . $row->transaction_number; ?>" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-success">Accept</a>
-								<a href="#" onclick="declineTransaction('<?php //echo  $row->transaction_id; ?>', '<?php //echo  $row->consignee_id; ?>', '<?php //echo  $row->transaction_number; ?>')"    class="btn btn-sm btn-danger text-white">Decline</a> -->
+									
 				
-								<?php } 	else{ ?>
-								<a href="#" onclick="changeStatus('<?php echo  $row->transaction_id; ?>', '<?php echo  $row->consignee_id; ?>', '<?php echo  $row->transaction_number; ?>')" class="btn btn-sm btn-info text-white">Change Status</a>
-							<?php } ?>
+								<?php }elseif($row->status == 'delivered'){ ?>
+								<p> modify not allowed </p><!-- <a href="#" onclick="changeStatus('<?php echo  $row->transaction_id; ?>', '<?php echo  $row->consignee_id; ?>', '<?php echo  $row->transaction_number; ?>')" class="btn btn-sm btn-info text-white">Change Status</a> -->
+							<?php }else{?>
+								 <a href="#" onclick="changeStatus('<?php echo  $row->transaction_id; ?>', '<?php echo  $row->consignee_id; ?>', '<?php echo  $row->transaction_number; ?>')" class="btn btn-sm btn-info text-white">Change Status</a>
+
+										
 
 					
 							</td>
             </tr>
-					 <?php endforeach;?> 
+					 <?php }endforeach;?> 
 						</tbody>
 				
 			</table>
