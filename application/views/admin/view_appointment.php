@@ -13,7 +13,7 @@
     </div>    
     <hr>
     <div class="message__box ml-1">
-         <h3>Message:</h3><p><?php echo ucwords($message->message);?> </p>
+         <h3>Message:</h3><p><?php echo ucwords($message->message);?> <?php echo $message->other_message;?> </p>
     </div>  
 <?php endforeach;?>
     

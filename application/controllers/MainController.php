@@ -220,6 +220,7 @@ class MainController extends CI_Controller {
                                             'contact' => $this->input->post('contact'),
                                             'message' => implode("," , $messages),
                                             'appointment_status' => ucfirst("unread"),
+                                            'other_message' => $this->input->post('other_question'),
                                             'date_posted' => date('Y-m-d H:m:s')
                                             );
 
