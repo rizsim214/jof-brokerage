@@ -210,7 +210,7 @@ class MainController extends CI_Controller {
                             redirect('contacts');
                             } else {
                                 $messages = $this->input->post('message');
-                                for($i=0; $i< count($message) ; $i++){
+                                for($i=0; $i< count($messages) ; $i++){
                                     
 
                                       $appointment = array(
@@ -222,10 +222,12 @@ class MainController extends CI_Controller {
                                             'appointment_status' => ucfirst("unread"),
                                             'date_posted' => date('Y-m-d H:m:s')
                                             );
-                                            $result = $this->MainModel->insert_appointment($appointment);
+
+                                          
                                 }
                                   
-                                            
+                                            // var_dump($appointment);die();
+                                            $result = $this->MainModel->insert_appointment($appointment);
                                     
                                             
                                     if($result == FALSE ){
