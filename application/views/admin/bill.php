@@ -1,7 +1,7 @@
 <div class="main">
     <div class="container " id="contains">
         <center><h2>Billing Statement</h2></center>
-        <form method="post" action="<?php echo base_url("AccountingController/billingSubmit"); ?>">
+        <form method="post" action="<?php echo base_url("AdminController/billingSubmit"); ?>">
         <input type="hidden" name="transaction_id" value="<?php echo $transaction_id; ?>">
         <div class="row">
             <div class="col-md-6">
@@ -92,7 +92,7 @@
                     $rowResult = $CI->AdminModel->getTransactionItem($row->billing_items_id, $transaction_billing['transaction_billing_id']);
                     
                 }
-                // var_dump($transaction_billing);die();
+                var_dump($rowResult);die();
 
                  ?>
                 <tr>

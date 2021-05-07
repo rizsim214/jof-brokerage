@@ -96,7 +96,8 @@ class AdminController extends CI_Controller {
 
             $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
-                        'update_desc' => "Status has been updated to Documentation at:",
+                        'update_desc' => "Updated the transaction billing",
+                        'transaction_number' => $post_transaction_billing['transaction_number'],
                         'date_updated' => date('Y-m-d H:i:s')
                     );
                     $this->AdminModel->post_log_report($update_data);

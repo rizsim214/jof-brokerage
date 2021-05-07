@@ -209,20 +209,27 @@ class MainController extends CI_Controller {
                             $this->session->set_flashdata('error' , 'Some unfortunate error has occured... Please try again!');
                             redirect('contacts');
                             } else {
-                                    $appointment = array(
+                                $messages = $this->input->post('message');
+                                for($i=0; $i< count($message) ; $i++){
+                                    
+
+                                      $appointment = array(
                                             'firstname' => ucfirst($this->input->post('firstName')),
                                             'lastname' => ucfirst($this->input->post('lastName')),
                                             'email' => $this->input->post('email'),
                                             'contact' => $this->input->post('contact'),
-                                            'message' => $this->input->post('message'),
+                                            'message' => implode("," , $messages),
                                             'appointment_status' => ucfirst("unread"),
                                             'date_posted' => date('Y-m-d H:m:s')
                                             );
-                                           
-                                    $result = $this->MainModel->insert_appointment($appointment);
+                                            $result = $this->MainModel->insert_appointment($appointment);
+                                }
+                                  
+                                            
+                                    
                                             
                                     if($result == FALSE ){
-                                        $this->session->set_flashdata('error' , 'STARLORD IS NOT HAPPY WITH THE RESULT!!');
+                                        $this->session->set_flashdata('error' , 'SOMETHING WEMT WRONG... PLEASE TRY AGAIN!!');
                                         redirect('contacts');
                                     }elseif($result ==TRUE){
                                         $this->session->set_flashdata('success' , "Thank you for messaging JOF CUSTOMS BROKERAGE. We will contact you as soon as possible");
@@ -238,7 +245,7 @@ class MainController extends CI_Controller {
     $this->form_validation->set_rules('lastName' , 'Last Name' , 'trim|required' , array('required' => ' Lastname field is required.'));
     $this->form_validation->set_rules('email' , 'Email Address' , 'trim|required' , array('required' => ' Email field is required.'));
     $this->form_validation->set_rules('contact' , 'Contact' , 'trim|required' , array('required' => ' Contact field is required.'));
-    $this->form_validation->set_rules('message' , 'Message' , 'trim|required' , array('required' => 'Message field is required.'));
+    // $this->form_validation->set_rules('message' , 'Message' , 'trim|required' , array('required' => 'Message field is required.'));
  }
 
  public function view_feedback_landing(){

@@ -45,15 +45,29 @@
                                     
                                  ?>
                                  <div class="form-check ml-5">
-                                       <input class="form-check-input" type="radio" value="<?= $question->question_content;?>" name="message" id="flexRadioDefault2">
+                                       <input class="form-check-input" type="checkbox" value="<?= $question->question_content;?>" name="message[]" id="flexRadioDefault2" >
                                        <label class="form-check-label" for="flexRadioDefault2">
                                           <h5><?= $question->question_content;?></h5>
                                        </label>
+                                       
                                        </div>
+                                       
                                       <?php 
                                        if(++$i == 5) break;
                                     endforeach;?>
+                                     
                               </div>
+                              <div class="container">
+                                     
+                                    
+                                  <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Other Message</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                 
+                               </div>        
+                              </div>
+                              
+                               
                               <div class="text-center">
                               <input type="submit" class="btn btn-md btn-primary btn-lg" value="submit">
                               </div>
