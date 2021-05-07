@@ -7,6 +7,7 @@ class AdminController extends CI_Controller {
         parent:: __construct();
        
         $this->load->model('AdminModel');
+        $this->load->model('ConsigneeModel');
         $this->load->helper('date');
         date_default_timezone_set('Asia/Manila');
         $user_logged = $this->session->userdata();
@@ -22,12 +23,16 @@ class AdminController extends CI_Controller {
         $data['transaction_number'] = $transaction_number;
         $data['name'] = $first_name . ' ' .$last_name;
         $data['billing_items'] = $this->AdminModel->getBillingItems();
-
-
+         $billing_data = array(
+            'transaction_number' => $transaction_number,
+            'transaction_id' => $id
+        );
+        $result = $this->ConsigneeModel->post_billing($billing_data , $transaction_number);
+        
         $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
 
         $data['transaction_details'] = $this->AdminModel->get_transaction_details($transaction_number);
-       
+        // var_dump($transaction_number);die();
         if($this->session->userdata('success')){
             $data['success'] = $this->session->userdata('success');
         }
@@ -91,7 +96,8 @@ class AdminController extends CI_Controller {
 
             $update_data = array(
                         'updater_name' => $this->session->userdata('fullname'),
-                        'update_desc' => "Status has been updated to Documentation at:",
+                        'update_desc' => "Updated the transaction billing",
+                        'transaction_number' => $post_transaction_billing['transaction_number'],
                         'date_updated' => date('Y-m-d H:i:s')
                     );
                     $this->AdminModel->post_log_report($update_data);

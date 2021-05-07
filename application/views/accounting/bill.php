@@ -13,7 +13,7 @@
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Date Created: </label>
-                    <input type="date" name="date" value="<?php echo $transaction_billing['date']; ?>"  class="form-control">
+                    <input type="date" name="date" value="<?php echo date("Y-m-d", strtotime( $transaction_details['date_posted'])); ?>"  class="form-control">
                 </div>
             </div>
         </div>
@@ -27,7 +27,8 @@
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Invoice No: </label>
-                    <input type="text" name="invoice_no" value="<?php echo $transaction_billing['invoice_no']; ?>" class="form-control">
+                    <input type="text" name="invoice_no" value="<?php echo !empty($transaction_billing['invoice_no']) ? $transaction_billing['invoice_no']: ''; ?>" class="form-control">
+                    
                 </div>
             </div>
         </div>
@@ -35,19 +36,19 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Customer PO: </label>
-                    <input type="text" name="customer_po" value="<?php echo $transaction_billing['customer_po']; ?>" class="form-control">
+                    <input type="text" name="customer_po" value="<?php echo !empty($transaction_billing['customer_po']) ? $transaction_billing['customer_po'] : ''; ?>" class="form-control">
                 </div>
             </div>
             <div class="col-md-4">
                  <div class="form-group">
                     <label>Shipping Method: </label>
-                    <input type="text" name="shipping_method" value="<?php echo $transaction_billing['shipping_method']; ?>" class="form-control">
+                    <input type="text" name="shipping_method" value="<?php echo !empty($transaction_billing['shipping_method']) ? $transaction_billing['shipping_method']: ''; ?>" class="form-control">
                 </div>
             </div>
              <div class="col-md-4">
                  <div class="form-group">
                     <label>Payment Term: </label>
-                    <input type="text" name="payment_term" value="<?php echo $transaction_billing['payment_term']; ?>" class="form-control">
+                    <input type="text" name="payment_term" value="<?php echo !empty($transaction_billing['payment_term']) ? $transaction_billing['payment_term']: ''; ?>" class="form-control">
                 </div>
             </div>
         </div>
@@ -55,13 +56,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Ship Date: </label>
-                    <input type="date" name="ship_date" value="<?php echo $transaction_billing['shipping_date']; ?>" class="form-control">
+                    <input type="date" name="ship_date" value="<?php echo !empty($transaction_billing['shipping_date']) ? $transaction_billing['shipping_date']: ''; ?>" class="form-control">
                 </div>
             </div>
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Due Date: </label>
-                    <input type="date" name="due_date" value="<?php echo $transaction_billing['due_date']; ?>" class="form-control">
+                   <input type="date" name="ship_date" value="<?php echo !empty($transaction_billing['due_date']) ? $transaction_billing['due_date']: ''; ?>" class="form-control">
                 </div>
             </div>
         </div>
@@ -87,22 +88,27 @@
 
                 $CI =& get_instance();
                 $CI->load->model('AdminModel');
-                $rowResult = $CI->AdminModel->getTransactionItem($row->billing_items_id, $transaction_billing['transaction_billing_id']);
-
+                if(!empty($transaction_billing['transaction_billing_id'])){
+                    $rowResult = $CI->AdminModel->getTransactionItem($row->billing_items_id, $transaction_billing['transaction_billing_id']);
+                    
+                }
+                // var_dump($transaction_billing);die();
 
                  ?>
                 <tr>
                 <input type="hidden" name="billing_item_id[]" value="<?php echo $row->billing_items_id; ?>">
-                    <td width="10"><input type="text" id="quantity<?php echo $counter; ?>" value="<?php echo $rowResult['quantity'] ?>" class="form-control" oninput="compute('<?php echo $counter; ?>', '<?php echo $row->billing_tax; ?>')" name="quantity[]"></td>
+                    <td width="10"><input type="text" id="quantity<?php echo $counter; ?>"  value="<?php echo !empty($rowResult['quantity']) ? $rowResult['quantity'] : ''; ?>" class="form-control" oninput="compute('<?php echo $counter; ?>')" name="quantity[]"></td>
                     <td><?php echo $row->name; ?></td>
                     <td><?php echo $row->description; ?></td>
                     <td><?php echo $row->gl_account; ?></td>
                     <td id="price<?php echo $counter; ?>">₱ <?php echo number_format($row->unit_price, 2); ?></td>
                     <td width="10">
-                    <input type="checkbox" style="width: 26px;height: 26px;" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>', '<?php echo $row->billing_tax; ?>')" <?php echo ($rowResult['tax']) ? 'checked' : ''; ?>  name="tax[]" class="form-control">
+                    <input type="checkbox" style="width: 26px;height: 26px;" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>', '<?php echo !empty($row->billing_tax) ? $row->billing_tax : ''; ?>')" <?php echo ($rowResult['tax']) ? 'checked' : ''; ?>  name="tax[]" class="form-control">
                     
                     </td>
-                    <td width="10"><input type="text"  value="<?php echo $rowResult['amount'] ?>" id="amount<?php echo $counter ?>" class="form-control amount" name="amount[]" readonly></td>
+                    <td width="10">
+                        <input type="text"  value="<?php echo !empty($rowResult['amount']) ? $rowResult['amount'] : ''; ?>" id="amount<?php echo $counter ?>" class="form-control amount" name="amount[]" readonly>
+                    </td>
                 </tr>
             <?php 
         $counter++;
@@ -120,7 +126,6 @@
 <script>
 
 function compute(counter, billing_tax){
-
     var total = 0;
     var quantity = $("#quantity"+counter+"").val();
     var price = $("#price"+counter+"").html();
@@ -155,6 +160,5 @@ function compute(counter, billing_tax){
     });
     $("#grandtotal").html("Total: " + grandtotal.toFixed(2));
 }
-
 
 </script>

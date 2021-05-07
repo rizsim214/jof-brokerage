@@ -6,6 +6,7 @@ class AccountingController extends CI_Controller {
     public function __construct(){
         parent:: __construct();
         $this->load->model('AdminModel');
+        $this->load->model('ConsigneeModel');
         date_default_timezone_set('Asia/Manila');
         $user_logged = $this->session->userdata();
             if(!$user_logged['isUserLoggedIn'] == TRUE){
@@ -47,12 +48,16 @@ class AccountingController extends CI_Controller {
         $data['transaction_number'] = $transaction_number;
         $data['name'] = $first_name . ' ' .$last_name;
         $data['billing_items'] = $this->AdminModel->getBillingItems();
-
+         $billing_data = array(
+            'transaction_number' => $transaction_number,
+            'transaction_id' => $id
+        );
+        $result = $this->ConsigneeModel->post_billing($billing_data , $transaction_number);
 
         $data['transaction_billing'] = $this->AdminModel->getTransactionbilling($transaction_number);
 
- 
- 
+        $data['transaction_details'] = $this->AdminModel->get_transaction_details($transaction_number);
+        
         if($this->session->userdata('success')){
             $data['success'] = $this->session->userdata('success');
         }
