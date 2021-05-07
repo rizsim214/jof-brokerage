@@ -62,7 +62,7 @@
                                     
                                   <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Other Message</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" name ="other_question" id="exampleFormControlTextarea1" rows="3"></textarea>
                                  
                                </div>        
                               </div>
