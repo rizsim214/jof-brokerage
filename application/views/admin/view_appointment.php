@@ -8,12 +8,24 @@
          <h2>From:</h2><h3 class="pt-1 ml-2"><?php echo ucwords($message->firstname.' '.$message->lastname);?></h3>
     </div>
     <hr>
-    <div class="message__subject row ml-1">
-         <h3>Subject:</h3><h4 class="pt-1 ml-2"><?php echo ucwords($message->subject);?> </h4>
-    </div>    
+   
+
+    <div class="message__box ml-1">
+         <h3>Predefined Questions:</h3>
+         <ul>
+         <?php
+        
+         $arr = explode(',',$message->message);
+         for($i =0; $i < count($arr); $i++){
+            echo "<li>".ucwords($arr[$i]) ."</li>";
+         }
+         
+         
+         ?> </ul>
+    </div>  
     <hr>
     <div class="message__box ml-1">
-         <h3>Message:</h3><p><?php echo ucwords($message->message);?> <?php echo $message->other_message;?> </p>
+         <h3>Message:</h3><p><?php echo $message->other_message;?> </p>
     </div>  
 <?php endforeach;?>
     

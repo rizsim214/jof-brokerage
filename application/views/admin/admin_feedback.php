@@ -50,12 +50,12 @@
                     <h4>LEGEND:</h4>
                     
                       <div class="justify-left mt-3">
-                        <h4> 1.0 Lowest - 5.0 Highest</h4>
-                        <h5> Very Poor Quality Of Services</h5>
-                        <h5> Poor Quality Of Services</h5>
-                        <h5> Fair Quality Of Services</h5>
-                        <h5> Good Quality Of Services</h5>
-                        <h5> Excellent Quality Of Services</h5>
+                     
+                        <h5>1.0 - 1.9 Very Poor Quality Of Services</h5>
+                        <h5>2.0 - 2.9 Poor Quality Of Services</h5>
+                        <h5>3.0 - 3.9 Fair Quality Of Services</h5>
+                        <h5>4.0 - 4.9 Good Quality Of Services</h5>
+                        <h5>5.0       Excellent Quality Of Services</h5>
 
                      </div>
             </div>

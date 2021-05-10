@@ -13,7 +13,7 @@
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Date Created: </label>
-                    <input type="date" name="date" value="<?php echo date("Y-m-d", strtotime( $transaction_details['date_posted'])); ?>"  class="form-control">
+                    <input type="date" name="date" value="<?php echo !empty( $transaction_details['date_posted']) ? date("Y-m-d", strtotime( $transaction_details['date_posted'])) : ''; ?>"  class="form-control">
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
              <div class="col-md-4">
                  <div class="form-group">
                     <label>Payment Term: </label>
-                    <input type="text" name="payment_term" value="<?php echo !empty($transaction_billing['payment_term']) ? $transaction_billing['payment_term']: ''; ?>" class="form-control">
+                    <input type="text" oninput="changeNum()" id="payment_term" name="payment_term" value="<?php echo !empty($transaction_billing['payment_term']) ? 'N' . $transaction_billing['payment_term']: ''; ?>" class="form-control">
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             <div class="col-md-6">
                  <div class="form-group">
                     <label>Due Date: </label>
-                   <input type="date" name="ship_date" value="<?php echo !empty($transaction_billing['due_date']) ? $transaction_billing['due_date']: ''; ?>" class="form-control">
+                   <input type="date" id="due_date" name="due_date" value="<?php echo !empty($transaction_billing['due_date']) ? $transaction_billing['due_date']: ''; ?>" class="form-control">
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
                     <td><?php echo $row->gl_account; ?></td>
                     <td id="price<?php echo $counter; ?>">₱ <?php echo number_format($row->unit_price, 2); ?></td>
                     <td width="10">
-                    <input type="checkbox" style="width: 26px;height: 26px;" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>', '<?php echo !empty($row->billing_tax) ? $row->billing_tax : ''; ?>')" <?php echo ($rowResult['tax']) ? 'checked' : ''; ?>  name="tax[]" class="form-control">
+                    <input type="checkbox" style="width: 26px;height: 26px;" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>', '<?php echo !empty($row->billing_tax) ? $row->billing_tax : ''; ?>')" <?php echo (!empty($rowResult['tax'])) ? 'checked' : ''; ?>  name="tax[]" class="form-control">
                     
                     </td>
                     <td width="10">
@@ -160,5 +160,40 @@ function compute(counter, billing_tax){
     });
     $("#grandtotal").html("Total: " + grandtotal.toFixed(2));
 }
+function changeNum(){
+    var num = $("#payment_term").val();
+    num = num.replace(/\D/g,'');
+
+
+    var date = new Date();
+  
+   
+   
+    $('#due_date').val(formatDate(date.setDate(date.getDate() + parseInt(num))));
+    if(num){
+        $("#payment_term").val("N" + num);
+    }
+   
+}
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+var num = $("#payment_term").val();
+    num = num.replace(/\D/g,'');
+    if(num){
+        $("#payment_term").val("N" + num);
+    }
 
 </script>
