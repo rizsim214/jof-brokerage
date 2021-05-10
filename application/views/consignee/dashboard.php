@@ -108,7 +108,8 @@
          <h6 style="color: black"> Processor's Name</h6>
          <input style="color: black" type="text" class="form-control" id="processor_name" readonly>
          <br>
-      <h6 style="color: black"> Rating Number (1.0 - lowest , 5.0 - highest) </h6>
+      <h6 style="color: black"> Give Jof Brokerage a rating base on the quality of service. </h6>
+
       <div class="form-check">
   <input class="form-check-input" type="radio" value="1" required name="rating_number" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1" style="color: black">
