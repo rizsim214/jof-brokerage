@@ -103,7 +103,7 @@
                     <td><?php echo $row->gl_account; ?></td>
                     <td id="price<?php echo $counter; ?>">₱ <?php echo number_format($row->unit_price, 2); ?></td>
                     <td width="10">
-                    <input type="checkbox" style="width: 26px;height: 26px;" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>', '<?php echo !empty($row->billing_tax) ? $row->billing_tax : ''; ?>')" <?php echo ($rowResult['tax']) ? 'checked' : ''; ?>  name="tax[]" class="form-control">
+                    <input type="checkbox" style="width: 26px;height: 26px;" id="tax<?php echo $counter ?>" oninput="compute('<?php echo $counter; ?>', '<?php echo !empty($row->billing_tax) ? $row->billing_tax : ''; ?>')" <?php echo (!empty($rowResult['tax'])) ? 'checked' : ''; ?>  name="tax[]" class="form-control">
                     
                     </td>
                     <td width="10">

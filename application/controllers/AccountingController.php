@@ -103,7 +103,8 @@ class AccountingController extends CI_Controller {
         $quantity = $this->input->post('quantity'); 
         $tax = $this->input->post('tax'); 
         for($i= 0 ; $i < count($billing_item_ids);$i++ ){
-            
+            // var_dump($tax);
+            // exit;
             if($quantity[$i]){
             $data_transaction_items = array(
                 "transaction_billing_id" => $id,

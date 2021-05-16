@@ -59,20 +59,23 @@
 
                      </div>
             </div>
-            <div><h2>Average Rating : <?php echo number_format($average['rating'] , 2); ?> -
+                                          
+            <div><h2 class="text-muted">Actual Rating: <?= number_format($average['rating'] , 2);?></h2></div>
+            <div><h1 class="text-dark">Final Rating : <?php echo round($average['rating']); ?> -
             
-            <?php if($average['rating'] >= '1.0' && $average['rating'] <= '1.7'){
+            <?php if(round($average['rating']) >= '1.0' && round($average['rating']) <= '1.9'){
                 echo "Very Poor Quality Of Services";
-            }elseif($average['rating'] >= '1.8' && $average['rating'] <= '2.5'){
+            }elseif(round($average['rating']) >= '2.0' && round($average['rating']) <= '2.9'){
                 echo "Poor Quality Of Services";
-            }elseif($average['rating'] >= '2.6' && $average['rating'] <= '3.4'){
+            }elseif(round($average['rating']) >= '3.0' && round($average['rating']) <= '3.9'){
                 echo "Fair Quality Of Services";
-            }elseif($average['rating'] >= '3.5' && $average['rating'] <= '4.2'){
+            }elseif(round($average['rating']) >= '4.0' && round($average['rating']) <= '4.9'){
                 echo "Good Quality Of Services";
-            }elseif($average['rating'] >= '4.3' && $average['rating'] <= '5.0'){
+            }elseif(round($average['rating'])== '5.0'){
                 echo "Excellent Quality Of Services";
             }
-                ?></h2></div>
+                ?></h1></div>
+                
 
             
 </div>
